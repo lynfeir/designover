@@ -18,7 +18,7 @@ interface AdDesign {
   id: string;
   name: string;
   category: string;
-  layout: "hero" | "comparison" | "roi" | "testimonial" | "stats" | "savings" | "process" | "urgency" | "social-proof" | "eye-catcher";
+  layout: "hero" | "comparison" | "roi" | "testimonial" | "stats" | "savings" | "process" | "urgency" | "social-proof" | "eye-catcher" | "profile" | "banner";
   headline: string;
   subline: string;
   cta: string;
@@ -56,6 +56,18 @@ const VARIANTS: AdVariant[] = [
   { id: "pin", label: "Pin (1000x1500)", w: 1000, h: 1500, platform: "Pinterest", platformIcon: "pin", category: "Pinterest" },
   // YouTube
   { id: "yt-thumb", label: "Thumbnail (1280x720)", w: 1280, h: 720, platform: "YouTube", platformIcon: "yt", category: "YouTube" },
+  // ── Profile Pictures ──
+  { id: "ig-pfp", label: "Profile Pic (320x320)", w: 320, h: 320, platform: "Instagram", platformIcon: "ig", category: "Profile Pictures" },
+  { id: "fb-pfp", label: "Profile Pic (170x170)", w: 170, h: 170, platform: "Facebook", platformIcon: "fb", category: "Profile Pictures" },
+  { id: "x-pfp", label: "Profile Pic (400x400)", w: 400, h: 400, platform: "X (Twitter)", platformIcon: "x", category: "Profile Pictures" },
+  { id: "li-pfp", label: "Profile Pic (400x400)", w: 400, h: 400, platform: "LinkedIn", platformIcon: "li", category: "Profile Pictures" },
+  { id: "tt-pfp", label: "Profile Pic (200x200)", w: 200, h: 200, platform: "TikTok", platformIcon: "tt", category: "Profile Pictures" },
+  { id: "yt-pfp", label: "Profile Pic (800x800)", w: 800, h: 800, platform: "YouTube", platformIcon: "yt", category: "Profile Pictures" },
+  // ── Banners / Covers ──
+  { id: "fb-cover", label: "Cover (820x312)", w: 820, h: 312, platform: "Facebook", platformIcon: "fb", category: "Banners" },
+  { id: "x-header", label: "Header (1500x500)", w: 1500, h: 500, platform: "X (Twitter)", platformIcon: "x", category: "Banners" },
+  { id: "li-cover", label: "Cover (1584x396)", w: 1584, h: 396, platform: "LinkedIn", platformIcon: "li", category: "Banners" },
+  { id: "yt-banner", label: "Channel Art (2560x1440)", w: 2560, h: 1440, platform: "YouTube", platformIcon: "yt", category: "Banners" },
 ];
 
 /* ──────────────────────── AD DESIGNS ───────────────────────────── */
@@ -442,8 +454,8 @@ const DESIGNS: AdDesign[] = [
     bulletPoints: [
       "Same speed, same uptime",
       "Free SSL certificate included",
-      "Monthly backups included",
-      "No contracts — cancel anytime",
+      "Just $25 one-time migration fee",
+      "Support during business hours",
     ],
   },
   // ─── 20. HOSTING SWITCH — THE MATH ───
@@ -467,7 +479,7 @@ const DESIGNS: AdDesign[] = [
     savingsRows: [
       { label: "Monthly Cost", them: "$20/mo", us: "$3/mo" },
       { label: "Annual Cost", them: "$240/yr", us: "$36/yr" },
-      { label: "Over 3 Years", them: "$720", us: "$108" },
+      { label: "Migration Fee", them: "$0", us: "$25 (one-time)" },
     ],
   },
   // ─── 21. HOSTING SWITCH — BAR CHART ───
@@ -495,17 +507,17 @@ const DESIGNS: AdDesign[] = [
     category: "Hosting Switch",
     layout: "process",
     headline: "Your Hosting\nPays For Your Site",
-    subline: "Switch hosting, save $204/yr.\nThat covers a $200 website\nin the first 12 months.",
+    subline: "Switch hosting — $25 migration fee.\nSave $204/yr. That covers a $200\nwebsite in the first 12 months.",
     cta: "Get Started",
     badge: "HOSTING PAYS FOR ITSELF",
     accent: "#10b981",
     accentRGB: "16,185,129",
     processSteps: [
       "You pay $20/mo hosting now",
-      "Switch to us at $3/mo",
+      "Switch to us — $25 migration fee",
+      "New rate: just $3/mo",
       "Save $17/mo ($204/yr)",
-      "That covers a $200 website",
-      "Free site + cheaper hosting",
+      "$25 fee pays itself back in 6 weeks",
     ],
   },
   // ─── 23. HOSTING SWITCH — URGENCY ───
@@ -521,9 +533,9 @@ const DESIGNS: AdDesign[] = [
     accent: "#f43f5e",
     accentRGB: "244,63,94",
     bulletPoints: [
-      "We handle the entire migration",
+      "$25 one-time migration — we handle it all",
       "Zero downtime during switch",
-      "Same-day setup available",
+      "Support: Mon-Fri 9-7, Sat 10-4",
     ],
   },
   // ─── 24. HOSTING SWITCH — COMPARISON CARDS ───
@@ -543,7 +555,7 @@ const DESIGNS: AdDesign[] = [
       themPrice: "$20/mo",
       us: "Design over Atlanta",
       usPrice: "$3/mo",
-      savings: "Save $204 every year",
+      savings: "$25 migration · Save $204/yr",
     },
   },
   // ─── 25. HOSTING — WHAT'S INCLUDED ───
@@ -563,9 +575,93 @@ const DESIGNS: AdDesign[] = [
         { value: "SSL", label: "Free Certificate" },
         { value: "99.9%", label: "Uptime Guaranteed" },
         { value: "Daily", label: "Site Backups" },
-        { value: "$0", label: "Migration Fee" },
+        { value: "$25", label: "One-Time Migration" },
       ],
     },
+  },
+  // ─── 26. PROFILE PIC — BRAND MARK (Indigo) ───
+  {
+    id: "pfp-brand",
+    name: "Brand Mark",
+    category: "Profile Pics",
+    layout: "profile",
+    headline: "DOA",
+    subline: "Design over Atlanta",
+    cta: "",
+    accent: "#6366f1",
+    accentRGB: "99,102,241",
+  },
+  // ─── 27. PROFILE PIC — GRADIENT INITIALS ───
+  {
+    id: "pfp-gradient",
+    name: "Gradient Mark",
+    category: "Profile Pics",
+    layout: "profile",
+    headline: "DOA",
+    subline: "Design over Atlanta",
+    cta: "",
+    accent: "#8b5cf6",
+    accentRGB: "139,92,246",
+  },
+  // ─── 28. PROFILE PIC — EMERALD ───
+  {
+    id: "pfp-emerald",
+    name: "Emerald Mark",
+    category: "Profile Pics",
+    layout: "profile",
+    headline: "DOA",
+    subline: "Design over Atlanta",
+    cta: "",
+    accent: "#10b981",
+    accentRGB: "16,185,129",
+  },
+  // ─── 29. BANNER — FULL BRAND ───
+  {
+    id: "banner-brand",
+    name: "Full Brand Banner",
+    category: "Banners",
+    layout: "banner",
+    headline: "Design over Atlanta",
+    subline: "Custom Websites from $200 · Graphic Design · AI Tools · Hosting from $3/mo",
+    cta: "designoveratlanta.com",
+    accent: "#6366f1",
+    accentRGB: "99,102,241",
+    bulletPoints: [
+      "Websites from $200",
+      "Hosting from $3/mo",
+      "Graphic Design from $99",
+      "(470) 758-3549",
+    ],
+  },
+  // ─── 30. BANNER — SERVICES STRIP ───
+  {
+    id: "banner-services",
+    name: "Services Banner",
+    category: "Banners",
+    layout: "banner",
+    headline: "Design over Atlanta",
+    subline: "Web Design · Graphic Design · AI Automation · Affordable Hosting",
+    cta: "designoveratlanta.com",
+    accent: "#10b981",
+    accentRGB: "16,185,129",
+    bulletPoints: [
+      "Custom Websites",
+      "$3/mo Hosting",
+      "Print & Digital Design",
+      "AI Business Tools",
+    ],
+  },
+  // ─── 31. BANNER — DARK MINIMAL ───
+  {
+    id: "banner-minimal",
+    name: "Minimal Banner",
+    category: "Banners",
+    layout: "banner",
+    headline: "Design over Atlanta",
+    subline: "Websites · Design · AI Tools · Atlanta, GA",
+    cta: "(470) 758-3549",
+    accent: "#6366f1",
+    accentRGB: "99,102,241",
   },
 ];
 
@@ -595,6 +691,8 @@ function renderAd(canvas: HTMLCanvasElement, variant: AdVariant, design: AdDesig
     case "stats": renderStatsLayout(ctx, w, h, s, pad, design, isPortrait, isWide); break;
     case "process": renderProcessLayout(ctx, w, h, s, pad, design, isPortrait, isWide); break;
     case "urgency": renderUrgencyLayout(ctx, w, h, s, pad, design, isPortrait, isWide); break;
+    case "profile": renderProfileLayout(ctx, w, h, s, design); return; // no branding bar
+    case "banner": renderBannerLayout(ctx, w, h, s, pad, design); return; // custom branding
     default: renderHeroLayout(ctx, w, h, s, pad, design, isPortrait, isWide); break;
   }
 
@@ -692,9 +790,9 @@ function drawBrandingBar(ctx: CanvasRenderingContext2D, w: number, h: number, s:
   const dw = ctx.measureText("Design ").width;
 
   const og = ctx.createLinearGradient(pad + dw, ly - fs / 2, pad + dw + ctx.measureText("over").width, ly + fs / 2);
-  og.addColorStop(0, "#6366f1");
-  og.addColorStop(0.5, "#818cf8");
-  og.addColorStop(1, "#a78bfa");
+  og.addColorStop(0, design.accent);
+  og.addColorStop(0.5, `rgba(${design.accentRGB},0.85)`);
+  og.addColorStop(1, `rgba(${design.accentRGB},0.6)`);
   ctx.fillStyle = og;
   ctx.fillText("over", pad + dw, ly);
   const ow = ctx.measureText("over").width;
@@ -1406,6 +1504,189 @@ function renderUrgencyLayout(ctx: CanvasRenderingContext2D, w: number, h: number
   if (!isW) drawCTA(ctx, d.cta, pad, cy, s, d.accent, d.accentRGB);
 }
 
+/* ═══════════════════════ PROFILE / BANNER ═══════════════════════ */
+
+function renderProfileLayout(ctx: CanvasRenderingContext2D, w: number, h: number, _s: number, d: AdDesign) {
+  const s = Math.min(w, h) / 400; // profile pics are small
+  const cx = w / 2;
+  const cy = h / 2;
+  const r = Math.min(w, h) / 2;
+
+  // Dark background
+  ctx.fillStyle = "#050a14";
+  ctx.fillRect(0, 0, w, h);
+
+  // Accent radial glow
+  const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+  glow.addColorStop(0, `rgba(${d.accentRGB},0.25)`);
+  glow.addColorStop(0.6, `rgba(${d.accentRGB},0.08)`);
+  glow.addColorStop(1, "rgba(5,10,20,1)");
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, w, h);
+
+  // Circular border ring
+  ctx.strokeStyle = `rgba(${d.accentRGB},0.5)`;
+  ctx.lineWidth = 4 * s;
+  ctx.beginPath();
+  ctx.arc(cx, cy, r - 6 * s, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // Inner subtle ring
+  ctx.strokeStyle = `rgba(${d.accentRGB},0.15)`;
+  ctx.lineWidth = 1.5 * s;
+  ctx.beginPath();
+  ctx.arc(cx, cy, r - 16 * s, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // "DOA" letters
+  const bigFS = Math.round(90 * s);
+  ctx.font = `900 ${bigFS}px 'Satoshi','Inter',sans-serif`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  const tg = ctx.createLinearGradient(cx - 80 * s, cy - 40 * s, cx + 80 * s, cy + 40 * s);
+  tg.addColorStop(0, "#ffffff");
+  tg.addColorStop(0.5, d.accent);
+  tg.addColorStop(1, `rgba(${d.accentRGB},0.7)`);
+  ctx.fillStyle = tg;
+  ctx.fillText("DOA", cx, cy - 12 * s);
+
+  // Tagline below
+  const tagFS = Math.round(14 * s);
+  ctx.font = `600 ${tagFS}px 'Inter',sans-serif`;
+  ctx.fillStyle = `rgba(${d.accentRGB},0.8)`;
+  ctx.fillText("DESIGN OVER ATLANTA", cx, cy + 45 * s);
+
+  // Small dot accent
+  ctx.fillStyle = d.accent;
+  ctx.beginPath();
+  ctx.arc(cx, cy + 65 * s, 3 * s, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.textAlign = "left"; // reset
+}
+
+function renderBannerLayout(ctx: CanvasRenderingContext2D, w: number, h: number, s: number, pad: number, d: AdDesign) {
+  const isUltraWide = w / h > 4; // YouTube banner
+  const bPad = isUltraWide ? 120 * s : pad;
+
+  // Background
+  ctx.fillStyle = "#050a14";
+  ctx.fillRect(0, 0, w, h);
+
+  // Mesh gradient orbs
+  const drawOrb = (x: number, y: number, r: number, rgb: string, a: number) => {
+    const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+    g.addColorStop(0, `rgba(${rgb},${a})`);
+    g.addColorStop(1, `rgba(${rgb},0)`);
+    ctx.fillStyle = g;
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fill();
+  };
+  drawOrb(w * 0.2, h * 0.3, w * 0.25, d.accentRGB, 0.12);
+  drawOrb(w * 0.8, h * 0.7, w * 0.2, d.accentRGB, 0.08);
+  drawOrb(w * 0.5, h * 0.5, w * 0.15, "16,185,129", 0.05);
+
+  // Top accent line
+  const lg = ctx.createLinearGradient(0, 0, w, 0);
+  lg.addColorStop(0, "transparent");
+  lg.addColorStop(0.2, `rgba(${d.accentRGB},0.7)`);
+  lg.addColorStop(0.8, `rgba(${d.accentRGB},0.7)`);
+  lg.addColorStop(1, "transparent");
+  ctx.fillStyle = lg;
+  ctx.fillRect(0, 0, w, 4 * s);
+
+  // Bottom accent line
+  ctx.fillStyle = lg;
+  ctx.fillRect(0, h - 4 * s, w, 4 * s);
+
+  // Center content vertically
+  const centerY = h / 2;
+
+  // Logo text: "Design over Atlanta"
+  const logoFS = Math.round((isUltraWide ? 48 : 40) * s);
+  ctx.font = `800 ${logoFS}px 'Satoshi','Inter',sans-serif`;
+  ctx.textBaseline = "middle";
+
+  // Measure parts
+  const p1 = "Design ";
+  const p2 = "over";
+  const p3 = " Atlanta";
+  const p1w = ctx.measureText(p1).width;
+  const p2w = ctx.measureText(p2).width;
+  const p3w = ctx.measureText(p3).width;
+  const totalW = p1w + p2w + p3w;
+  const startX = (w - totalW) / 2;
+
+  // "Design " in white
+  ctx.fillStyle = "#f1f5f9";
+  ctx.fillText(p1, startX, centerY - 20 * s);
+
+  // "over" in gradient
+  const og = ctx.createLinearGradient(startX + p1w, centerY - 20 * s - logoFS / 2, startX + p1w + p2w, centerY - 20 * s + logoFS / 2);
+  og.addColorStop(0, d.accent);
+  og.addColorStop(0.5, `rgba(${d.accentRGB},0.85)`);
+  og.addColorStop(1, `rgba(${d.accentRGB},0.6)`);
+  ctx.fillStyle = og;
+  ctx.fillText(p2, startX + p1w, centerY - 20 * s);
+
+  // " Atlanta" in white
+  ctx.fillStyle = "#f1f5f9";
+  ctx.fillText(p3, startX + p1w + p2w, centerY - 20 * s);
+
+  // Subline
+  const subFS = Math.round((isUltraWide ? 18 : 16) * s);
+  ctx.font = `500 ${subFS}px 'Inter',sans-serif`;
+  ctx.fillStyle = "#94a3b8";
+  ctx.textAlign = "center";
+  ctx.fillText(d.subline, w / 2, centerY + 22 * s);
+
+  // Bullet points as horizontal strip (if provided and enough space)
+  if (d.bulletPoints && !isUltraWide) {
+    const chipFS = Math.round(13 * s);
+    ctx.font = `600 ${chipFS}px 'Inter',sans-serif`;
+    const chipGap = 20 * s;
+    const chipPX = 14 * s;
+    const chipH = chipFS + 14 * s;
+
+    // Measure total chip width
+    let totalChipW = 0;
+    d.bulletPoints.forEach((bp, i) => {
+      totalChipW += ctx.measureText(bp).width + chipPX * 2;
+      if (i < d.bulletPoints!.length - 1) totalChipW += chipGap;
+    });
+
+    let chipX = (w - totalChipW) / 2;
+    const chipY = centerY + 50 * s;
+
+    d.bulletPoints.forEach((bp) => {
+      const tw = ctx.measureText(bp).width;
+      const cw = tw + chipPX * 2;
+      ctx.fillStyle = `rgba(${d.accentRGB},0.1)`;
+      roundRect(ctx, chipX, chipY, cw, chipH, 6 * s);
+      ctx.fill();
+      ctx.fillStyle = d.accent;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(bp, chipX + cw / 2, chipY + chipH / 2);
+      chipX += cw + chipGap;
+    });
+  }
+
+  // CTA / URL at bottom right
+  if (d.cta) {
+    const ctaFS = Math.round(14 * s);
+    ctx.font = `600 ${ctaFS}px 'Inter',sans-serif`;
+    ctx.fillStyle = `rgba(${d.accentRGB},0.7)`;
+    ctx.textAlign = "right";
+    ctx.textBaseline = "bottom";
+    ctx.fillText(d.cta, w - bPad, h - 20 * s);
+  }
+
+  ctx.textAlign = "left"; // reset
+  ctx.textBaseline = "top"; // reset
+}
+
 /* ═══════════════════════════ HELPERS ═══════════════════════════ */
 
 function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
@@ -1537,12 +1818,12 @@ export default function AdsPage() {
             <span className="gradient-text">Convert</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-text-muted leading-relaxed">
-            25 marketing-driven ad designs across every platform.
-            Hosting switches, redesigns, pricing, the rulebook — ready to post.
+            31 marketing-driven ad designs across every platform.
+            Hosting switches, redesigns, profile pics, banners — ready to post.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-semibold text-text-muted">
-            <span className="rounded-full bg-white/[0.05] px-3 py-1">25 Ad Designs</span>
-            <span className="rounded-full bg-white/[0.05] px-3 py-1">11 Platform Sizes</span>
+            <span className="rounded-full bg-white/[0.05] px-3 py-1">31 Ad Designs</span>
+            <span className="rounded-full bg-white/[0.05] px-3 py-1">21 Platform Sizes</span>
             <span className="rounded-full bg-white/[0.05] px-3 py-1">Full Resolution PNGs</span>
             <span className="rounded-full bg-white/[0.05] px-3 py-1">One-Click Download</span>
           </div>
@@ -1664,7 +1945,7 @@ export default function AdsPage() {
           <h2 className="text-lg font-bold mb-3"><span className="gradient-text">How to Use</span></h2>
           <div className="grid gap-4 sm:grid-cols-4">
             {[
-              { t: "Choose an Ad", d: "Pick from 25 designs — hosting switches, redesigns, pricing, the rulebook, and more." },
+              { t: "Choose an Ad", d: "Pick from 31 designs — hosting switches, profile pics, banners, pricing, and more." },
               { t: "Select Platform", d: "Filter by Instagram, Facebook, X, LinkedIn, TikTok, Pinterest, or YouTube." },
               { t: "Download Full-Res", d: "Every PNG downloads at exact native dimensions. No quality loss." },
               { t: "Post & Convert", d: "Upload directly to any platform. No cropping or resizing needed." },
