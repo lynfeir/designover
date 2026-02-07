@@ -9,7 +9,7 @@ export default function ContactForm() {
     type: "success" | "error";
   } | null>(null);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const data = Object.fromEntries(fd);
@@ -24,11 +24,20 @@ export default function ContactForm() {
     }
 
     setSending(true);
-    setTimeout(() => {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error("Failed to send");
       showToast("Thanks! We'll get back to you within a few hours.", "success");
       (e.target as HTMLFormElement).reset();
+    } catch {
+      showToast("Something went wrong. Please call us or try again.", "error");
+    } finally {
       setSending(false);
-    }, 1800);
+    }
   }
 
   function showToast(msg: string, type: "success" | "error") {

@@ -88,19 +88,19 @@ export default function Home() {
                 className="absolute top-[8%] -right-4 bg-bg-card border border-border-dark rounded-lg px-4 py-2.5 text-xs text-text-muted shadow-lg"
                 style={{ animation: "float 6s ease-in-out infinite" }}
               >
-                🎨 Logo ready
+                <svg className="w-4 h-4 inline mr-1 text-accent-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg> Logo ready
               </div>
               <div
                 className="absolute bottom-[15%] -left-6 bg-bg-card border border-border-dark rounded-lg px-4 py-2.5 text-xs text-text-muted shadow-lg"
                 style={{ animation: "float 6s ease-in-out infinite 2s" }}
               >
-                🤖 AI booking live
+                <svg className="w-4 h-4 inline mr-1 text-accent-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> AI booking live
               </div>
               <div
                 className="absolute top-[45%] -right-10 bg-bg-card border border-border-dark rounded-lg px-4 py-2.5 text-xs text-text-muted shadow-lg"
                 style={{ animation: "float 6s ease-in-out infinite 4s" }}
               >
-                📱 Mobile-first
+                <svg className="w-4 h-4 inline mr-1 text-accent-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg> Mobile-first
               </div>
             </div>
           </div>
@@ -125,7 +125,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                icon: "🌐",
+                icon: <svg className="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}><path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5a17.92 17.92 0 01-8.716-2.247m0 0A8.966 8.966 0 013 12c0-1.97.633-3.79 1.708-5.274" /></svg>,
                 bg: "bg-accent-soft",
                 title: "Custom Websites",
                 desc: "Fully custom, mobile-first sites built to convert visitors into customers. No templates. Starts at just $200 — agencies charge $2,000+ for the same thing.",
@@ -133,7 +133,7 @@ export default function Home() {
                 tagColor: "text-accent bg-accent-soft",
               },
               {
-                icon: "🎨",
+                icon: <svg className="w-6 h-6 text-[#3b82f6]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}><path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" /></svg>,
                 bg: "bg-[rgba(59,130,246,0.1)]",
                 title: "Graphic Design",
                 desc: "Business cards, brochures, flyers, advertisements, social graphics — whatever your business needs to look sharp and stay consistent.",
@@ -141,7 +141,7 @@ export default function Home() {
                 tagColor: "text-[#3b82f6] bg-[rgba(59,130,246,0.1)]",
               },
               {
-                icon: "🤖",
+                icon: <svg className="w-6 h-6 text-[#8b5cf6]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" /></svg>,
                 bg: "bg-[rgba(139,92,246,0.1)]",
                 title: "AI Business Tools",
                 desc: "Automated booking systems, smart intake forms, workflow bots — replace that extra hire with a system that runs 24/7.",
