@@ -27,19 +27,22 @@ export async function POST(req: Request) {
     await transporter.verify();
 
     const smsBody = [
-      `New lead: ${name}`,
+      `NEW LEAD: ${name}`,
+      `Email: ${email}`,
+      phone ? `Phone: ${phone}` : "",
       service ? `Service: ${service}` : "",
       budget ? `Budget: ${budget}` : "",
-      `${message.slice(0, 100)}${message.length > 100 ? "..." : ""}`,
+      timeline ? `Timeline: ${timeline}` : "",
+      `Msg: ${message}`,
     ]
       .filter(Boolean)
       .join("\n");
 
-    // Send SMS via Verizon email-to-SMS gateway
+    // Send via Verizon MMS gateway (vzwpix.com) for longer messages
     await transporter.sendMail({
       from: process.env.SMTP_USER,
-      to: `${process.env.SMS_PHONE}@vtext.com`,
-      subject: "",
+      to: `${process.env.SMS_PHONE}@vzwpix.com`,
+      subject: "New Lead",
       text: smsBody,
     });
 
