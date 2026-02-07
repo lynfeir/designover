@@ -427,6 +427,146 @@ const DESIGNS: AdDesign[] = [
       { label: "Hosting", them: "$20/mo", us: "$3/mo" },
     ],
   },
+  // ─── 19. HOSTING SWITCH — EYE-CATCHER ───
+  {
+    id: "switch-hosting",
+    name: "Switch & Save",
+    category: "Hosting Switch",
+    layout: "eye-catcher",
+    headline: "$3/mo Hosting.",
+    subline: "You're probably paying $20/mo\nfor the same thing right now.\nSwitch and save $204 every year.",
+    cta: "Switch Your Hosting",
+    badge: "SAVE 85%",
+    accent: "#10b981",
+    accentRGB: "16,185,129",
+    bulletPoints: [
+      "Same speed, same uptime",
+      "Free SSL certificate included",
+      "Monthly backups included",
+      "No contracts — cancel anytime",
+    ],
+  },
+  // ─── 20. HOSTING SWITCH — THE MATH ───
+  {
+    id: "switch-math",
+    name: "The Hosting Math",
+    category: "Hosting Switch",
+    layout: "roi",
+    headline: "Do The Math\nOn Your Hosting",
+    subline: "Your current hosting bill is\npaying for nothing extra.",
+    cta: "See Plans",
+    badge: "THE REAL NUMBERS",
+    accent: "#10b981",
+    accentRGB: "16,185,129",
+    roiData: {
+      year1Them: "$240/yr",
+      year1Us: "$36/yr",
+      saved: "$204",
+      percent: "85%",
+    },
+    savingsRows: [
+      { label: "Monthly Cost", them: "$20/mo", us: "$3/mo" },
+      { label: "Annual Cost", them: "$240/yr", us: "$36/yr" },
+      { label: "Over 3 Years", them: "$720", us: "$108" },
+    ],
+  },
+  // ─── 21. HOSTING SWITCH — BAR CHART ───
+  {
+    id: "switch-bars",
+    name: "Hosting Bars",
+    category: "Hosting Switch",
+    layout: "savings",
+    headline: "Your Hosting\nIs a Ripoff",
+    subline: "Most hosts charge $15-$25/mo\nfor basic shared hosting.\nWe charge $3. Same features.",
+    cta: "Switch Today",
+    badge: "STOP OVERPAYING",
+    accent: "#10b981",
+    accentRGB: "16,185,129",
+    savingsRows: [
+      { label: "Monthly Hosting", them: "$20/mo", us: "$3/mo" },
+      { label: "Annual Total", them: "$240/yr", us: "$36/yr" },
+      { label: "You Save", them: "", us: "$204/yr" },
+    ],
+  },
+  // ─── 22. HOSTING SWITCH — PAYS FOR THE SITE ───
+  {
+    id: "switch-payoff",
+    name: "Site Pays Itself",
+    category: "Hosting Switch",
+    layout: "process",
+    headline: "Your Hosting\nPays For Your Site",
+    subline: "Switch hosting, save $204/yr.\nThat covers a $200 website\nin the first 12 months.",
+    cta: "Get Started",
+    badge: "HOSTING PAYS FOR ITSELF",
+    accent: "#10b981",
+    accentRGB: "16,185,129",
+    processSteps: [
+      "You pay $20/mo hosting now",
+      "Switch to us at $3/mo",
+      "Save $17/mo ($204/yr)",
+      "That covers a $200 website",
+      "Free site + cheaper hosting",
+    ],
+  },
+  // ─── 23. HOSTING SWITCH — URGENCY ───
+  {
+    id: "switch-now",
+    name: "Switch Now",
+    category: "Hosting Switch",
+    layout: "urgency",
+    headline: "Every Month You\nWait Costs $17",
+    subline: "That's $17/mo you're throwing\naway on overpriced hosting.\nSwitch takes less than a day.",
+    cta: "Switch for $3/mo",
+    badge: "$17/MO WASTED",
+    accent: "#f43f5e",
+    accentRGB: "244,63,94",
+    bulletPoints: [
+      "We handle the entire migration",
+      "Zero downtime during switch",
+      "Same-day setup available",
+    ],
+  },
+  // ─── 24. HOSTING SWITCH — COMPARISON CARDS ───
+  {
+    id: "switch-vs",
+    name: "Them vs Us",
+    category: "Hosting Switch",
+    layout: "comparison",
+    headline: "Your Host\nvs. Ours",
+    subline: "Same hosting. Different price.\nWhy are you still paying more?",
+    cta: "Make the Switch",
+    badge: "SIDE BY SIDE",
+    accent: "#10b981",
+    accentRGB: "16,185,129",
+    comparisonData: {
+      them: "Your Current Host",
+      themPrice: "$20/mo",
+      us: "Design over Atlanta",
+      usPrice: "$3/mo",
+      savings: "Save $204 every year",
+    },
+  },
+  // ─── 25. HOSTING — WHAT'S INCLUDED ───
+  {
+    id: "switch-included",
+    name: "All Included",
+    category: "Hosting Switch",
+    layout: "stats",
+    headline: "$3/mo Gets You\nAll of This",
+    subline: "Others charge extra for these.\nWe include them free.",
+    cta: "View Plans",
+    badge: "ALL INCLUDED AT $3/MO",
+    accent: "#10b981",
+    accentRGB: "16,185,129",
+    statsData: {
+      items: [
+        { value: "SSL", label: "Free Certificate" },
+        { value: "99.9%", label: "Uptime Guaranteed" },
+        { value: "Daily", label: "Site Backups" },
+        { value: "$0", label: "Migration Fee" },
+      ],
+    },
+  },
 ];
 
 /* ═══════════════════════ CANVAS RENDERERS ═══════════════════════ */
@@ -1396,11 +1536,11 @@ export default function AdsPage() {
             <span className="gradient-text">Convert</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-text-muted leading-relaxed">
-            18 marketing-driven ad designs across every platform.
-            Redesigns, pricing, the rulebook — ready to post.
+            25 marketing-driven ad designs across every platform.
+            Hosting switches, redesigns, pricing, the rulebook — ready to post.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-semibold text-text-muted">
-            <span className="rounded-full bg-white/[0.05] px-3 py-1">18 Ad Designs</span>
+            <span className="rounded-full bg-white/[0.05] px-3 py-1">25 Ad Designs</span>
             <span className="rounded-full bg-white/[0.05] px-3 py-1">11 Platform Sizes</span>
             <span className="rounded-full bg-white/[0.05] px-3 py-1">Full Resolution PNGs</span>
             <span className="rounded-full bg-white/[0.05] px-3 py-1">One-Click Download</span>
@@ -1528,7 +1668,7 @@ export default function AdsPage() {
           <h2 className="text-lg font-bold mb-3"><span className="gradient-text">How to Use</span></h2>
           <div className="grid gap-4 sm:grid-cols-4">
             {[
-              { t: "Choose an Ad", d: "Pick from 18 designs — redesigns, pricing, the rulebook, ROI breakdowns, and more." },
+              { t: "Choose an Ad", d: "Pick from 25 designs — hosting switches, redesigns, pricing, the rulebook, and more." },
               { t: "Select Platform", d: "Filter by Instagram, Facebook, X, LinkedIn, TikTok, Pinterest, or YouTube." },
               { t: "Download Full-Res", d: "Every PNG downloads at exact native dimensions. No quality loss." },
               { t: "Post & Convert", d: "Upload directly to any platform. No cropping or resizing needed." },
