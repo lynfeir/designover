@@ -296,6 +296,137 @@ const DESIGNS: AdDesign[] = [
       ],
     },
   },
+  // ─── 13. WEBSITE REDESIGN — EYE-CATCHER ───
+  {
+    id: "redesign-shock",
+    name: "Redesign Shock",
+    category: "Redesigns",
+    layout: "eye-catcher",
+    headline: "Redesigns\nFrom $150.",
+    subline: "Your old site is costing you\ncustomers every single day.\nWe'll rebuild it for less than\nyou think.",
+    cta: "Get a Free Redesign Demo",
+    badge: "WEBSITE REDESIGNS",
+    accent: "#f59e0b",
+    accentRGB: "245,158,11",
+    bulletPoints: [
+      "Keep your branding, lose the clutter",
+      "Faster load times & modern design",
+      "Mobile-first responsive rebuild",
+      "SEO improvements built in",
+    ],
+  },
+  // ─── 14. REDESIGN PRICING BREAKDOWN ───
+  {
+    id: "redesign-pricing",
+    name: "Redesign Pricing",
+    category: "Redesigns",
+    layout: "roi",
+    headline: "Redesign Pricing\nThat Makes Sense",
+    subline: "Don't pay agency rates to fix\nwhat already exists.",
+    cta: "Get Your Quote",
+    badge: "TRANSPARENT PRICING",
+    accent: "#f59e0b",
+    accentRGB: "245,158,11",
+    roiData: {
+      year1Them: "$3,000+",
+      year1Us: "$150",
+      saved: "$2,850",
+      percent: "95%",
+    },
+    savingsRows: [
+      { label: "Homepage Redesign", them: "$1,500+", us: "$150" },
+      { label: "Full Site (3-5pg)", them: "$3,000+", us: "$350-$600" },
+      { label: "E-commerce Rebuild", them: "$5,000+", us: "$1,000+" },
+    ],
+  },
+  // ─── 15. REDESIGN BEFORE/AFTER COMPARISON ───
+  {
+    id: "redesign-vs",
+    name: "Old vs New",
+    category: "Redesigns",
+    layout: "comparison",
+    headline: "Outdated Site?\nWe Fix That.",
+    subline: "Same business. Completely\ntransformed online presence.",
+    cta: "See the Difference",
+    badge: "BEFORE & AFTER",
+    accent: "#f59e0b",
+    accentRGB: "245,158,11",
+    comparisonData: {
+      them: "Your Current Site",
+      themPrice: "Losing $$$",
+      us: "After Redesign",
+      usPrice: "From $150",
+      savings: "More traffic. More conversions.",
+    },
+  },
+  // ─── 16. THE RULEBOOK — HOW WE WORK ───
+  {
+    id: "rulebook",
+    name: "The Rulebook",
+    category: "Rulebook",
+    layout: "process",
+    headline: "Our Rulebook.\nHow We Work.",
+    subline: "Clear rules. No surprises.\nNo hidden fees. No BS.",
+    cta: "Start Your Project",
+    badge: "THE DOA RULEBOOK",
+    accent: "#6366f1",
+    accentRGB: "99,102,241",
+    processSteps: [
+      "You see a demo before you pay",
+      "No contracts — cancel anytime",
+      "You own 100% of the code",
+      "Same-day response guaranteed",
+      "Flat pricing — no hourly traps",
+      "Unlimited revisions until perfect",
+    ],
+  },
+  // ─── 17. RULEBOOK — WHAT'S INCLUDED ───
+  {
+    id: "rulebook-included",
+    name: "What's Included",
+    category: "Rulebook",
+    layout: "stats",
+    headline: "Every Project.\nAll of This Included.",
+    subline: "No add-on fees. No \"premium\" tiers\nfor basic features.",
+    cta: "See Plans",
+    badge: "INCLUDED FREE",
+    accent: "#10b981",
+    accentRGB: "16,185,129",
+    statsData: {
+      items: [
+        { value: "SSL", label: "Security Certificate" },
+        { value: "SEO", label: "Search Optimization" },
+        { value: "Mobile", label: "Responsive Design" },
+        { value: "Code", label: "Full Source Ownership" },
+      ],
+    },
+  },
+  // ─── 18. FULL PRICING MENU ───
+  {
+    id: "pricing-menu",
+    name: "Full Pricing",
+    category: "Pricing",
+    layout: "roi",
+    headline: "Every Service.\nEvery Price.",
+    subline: "No hidden fees. No surprises.\nFlat rates you can plan around.",
+    cta: "Get a Free Demo",
+    badge: "FULL PRICE LIST",
+    accent: "#6366f1",
+    accentRGB: "99,102,241",
+    roiData: {
+      year1Them: "",
+      year1Us: "",
+      saved: "",
+      percent: "",
+    },
+    savingsRows: [
+      { label: "Landing Page", them: "$1,500+", us: "$200" },
+      { label: "Business Site", them: "$3,000+", us: "$400-$800" },
+      { label: "Site Redesign", them: "$2,000+", us: "From $150" },
+      { label: "Graphic Design", them: "$500+", us: "From $99" },
+      { label: "Hosting", them: "$20/mo", us: "$3/mo" },
+    ],
+  },
 ];
 
 /* ═══════════════════════ CANVAS RENDERERS ═══════════════════════ */
@@ -745,9 +876,9 @@ function renderROILayout(ctx: CanvasRenderingContext2D, w: number, h: number, s:
   const sh = drawSubline(ctx, d.subline, pad, cy, s, contentW, isW);
   cy += sh + 20 * s;
 
-  // Table
+  // Table — dynamic row height based on number of rows
   const tableW = Math.min(contentW, 560 * s);
-  const rowH = 44 * s;
+  const rowH = rows.length > 3 ? 38 * s : 44 * s;
   const colW = [tableW * 0.4, tableW * 0.3, tableW * 0.3];
   const tblX = pad;
 
@@ -806,18 +937,28 @@ function renderROILayout(ctx: CanvasRenderingContext2D, w: number, h: number, s:
 
   cy += 12 * s;
 
-  // Big savings callout
-  const bigFS = Math.round(28 * s);
-  ctx.font = `800 ${bigFS}px 'Satoshi','Inter',sans-serif`;
-  ctx.fillStyle = "#10b981";
-  ctx.textBaseline = "top";
-  ctx.fillText(`You save ${rd.saved} in Year 1`, pad, cy);
-  cy += bigFS + 8 * s;
+  // Big savings callout (only if roiData has values)
+  if (rd.saved) {
+    const bigFS = Math.round(28 * s);
+    ctx.font = `800 ${bigFS}px 'Satoshi','Inter',sans-serif`;
+    ctx.fillStyle = "#10b981";
+    ctx.textBaseline = "top";
+    ctx.fillText(`You save ${rd.saved} in Year 1`, pad, cy);
+    cy += bigFS + 8 * s;
 
-  ctx.font = `400 ${Math.round(14 * s)}px 'Inter',sans-serif`;
-  ctx.fillStyle = "#64748b";
-  ctx.fillText("By month 12, the design has already paid for itself.", pad, cy);
-  cy += 30 * s;
+    ctx.font = `400 ${Math.round(14 * s)}px 'Inter',sans-serif`;
+    ctx.fillStyle = "#64748b";
+    ctx.fillText("By month 12, the design has already paid for itself.", pad, cy);
+    cy += 30 * s;
+  } else {
+    // Generic bottom line for pricing menus
+    const bigFS = Math.round(22 * s);
+    ctx.font = `700 ${bigFS}px 'Satoshi','Inter',sans-serif`;
+    ctx.fillStyle = "#10b981";
+    ctx.textBaseline = "top";
+    ctx.fillText("No hidden fees. No hourly billing. Ever.", pad, cy);
+    cy += bigFS + 20 * s;
+  }
 
   if (!isW) drawCTA(ctx, d.cta, pad, cy, s, d.accent, d.accentRGB);
 }
@@ -1042,8 +1183,8 @@ function renderProcessLayout(ctx: CanvasRenderingContext2D, w: number, h: number
   const sh = drawSubline(ctx, d.subline, pad, cy, s, contentW, isW);
   cy += sh + 28 * s;
 
-  // Process steps with timeline
-  const stepH = 56 * s;
+  // Process steps with timeline — dynamic height based on step count
+  const stepH = steps.length > 4 ? 46 * s : 56 * s;
   const dotR = 16 * s;
   const lineX = pad + dotR;
 
@@ -1255,11 +1396,11 @@ export default function AdsPage() {
             <span className="gradient-text">Convert</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-text-muted leading-relaxed">
-            12 marketing-driven ad designs across every platform.
-            Real data, real selling points, ready to post.
+            18 marketing-driven ad designs across every platform.
+            Redesigns, pricing, the rulebook — ready to post.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-semibold text-text-muted">
-            <span className="rounded-full bg-white/[0.05] px-3 py-1">12 Ad Designs</span>
+            <span className="rounded-full bg-white/[0.05] px-3 py-1">18 Ad Designs</span>
             <span className="rounded-full bg-white/[0.05] px-3 py-1">11 Platform Sizes</span>
             <span className="rounded-full bg-white/[0.05] px-3 py-1">Full Resolution PNGs</span>
             <span className="rounded-full bg-white/[0.05] px-3 py-1">One-Click Download</span>
@@ -1387,7 +1528,7 @@ export default function AdsPage() {
           <h2 className="text-lg font-bold mb-3"><span className="gradient-text">How to Use</span></h2>
           <div className="grid gap-4 sm:grid-cols-4">
             {[
-              { t: "Choose an Ad", d: "Pick from 12 designs — ROI breakdowns, testimonials, price comparisons, and more." },
+              { t: "Choose an Ad", d: "Pick from 18 designs — redesigns, pricing, the rulebook, ROI breakdowns, and more." },
               { t: "Select Platform", d: "Filter by Instagram, Facebook, X, LinkedIn, TikTok, Pinterest, or YouTube." },
               { t: "Download Full-Res", d: "Every PNG downloads at exact native dimensions. No quality loss." },
               { t: "Post & Convert", d: "Upload directly to any platform. No cropping or resizing needed." },
