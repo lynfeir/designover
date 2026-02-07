@@ -274,31 +274,17 @@ export default function Home() {
             {[
               {
                 quote:
-                  "Hunter built our booking system in under a week. Our front desk used to spend 3 hours a day on the phone confirming appointments — now it's fully automated. Absolute game changer.",
-                name: "Sarah Martinez",
-                role: "CEO, TechForward Solutions",
-                initials: "SM",
+                  "The attention to detail is incredible. Every animation, every interaction feels purposeful. Our users love the new experience!",
+                name: "Cindy Evanoff",
+                role: "Manager, Pine Crest Camp",
+                initials: "CE",
               },
               {
                 quote:
-                  "We got a full demo site before paying anything. The final product looked even better. Our online orders went up 60% in the first month after launch.",
-                name: "Michael Johnson",
-                role: "Owner, Peachtree Bistro",
-                initials: "MJ",
-              },
-              {
-                quote:
-                  "The business cards and brochure design were done in 24 hours. Clean, professional, and exactly what we needed for our trade show booth.",
-                name: "Emily Parker",
-                role: "Founder, Atlanta Wellness Co.",
-                initials: "EP",
-              },
-              {
-                quote:
-                  "I've worked with agencies that charge 10x more and deliver less. Hunter is fast, fair, and the quality speaks for itself. We've been on the monthly plan for over a year now.",
-                name: "David Lee",
-                role: "Product Manager, Georgia Gourmet",
-                initials: "DL",
+                  "Hunter delivered beyond expectations. Our landing page loads instantly and converts 3x better than our previous site. Absolute wizard with code!",
+                name: "Brooke Brum",
+                role: "CEO, Fit4Lyfe",
+                initials: "BB",
               },
             ].map((t) => (
               <div
