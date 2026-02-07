@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState, useLayoutEffect, useCallback } from "react";
 
 /* ───────────────────────────── TYPES ───────────────────────────── */
 
@@ -1469,7 +1469,6 @@ export default function AdsPage() {
   const [activePlatform, setActivePlatform] = useState("all");
   const [generating, setGenerating] = useState<string | null>(null);
   const canvasRefs = useRef<Map<string, HTMLCanvasElement>>(new Map());
-  const [rendered, setRendered] = useState(false);
 
   const design = DESIGNS[activeDesign];
 
@@ -1481,20 +1480,22 @@ export default function AdsPage() {
   const platforms = ["all", ...Array.from(new Set(VARIANTS.map((v) => v.category)))];
   const designCategories = Array.from(new Set(DESIGNS.map((d) => d.category)));
 
+  // Render canvas immediately when ref attaches (no delay, no spinner)
   const setCanvasRef = useCallback((id: string, el: HTMLCanvasElement | null) => {
-    if (el) canvasRefs.current.set(id, el);
-  }, []);
+    if (el) {
+      canvasRefs.current.set(id, el);
+      const variant = VARIANTS.find((v) => v.id === id);
+      if (variant) renderAd(el, variant, DESIGNS[activeDesign]);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeDesign]);
 
-  useEffect(() => {
-    setRendered(false);
-    const timer = setTimeout(() => {
-      filteredVariants.forEach((variant) => {
-        const canvas = canvasRefs.current.get(variant.id);
-        if (canvas) renderAd(canvas, variant, design);
-      });
-      setRendered(true);
-    }, 60);
-    return () => clearTimeout(timer);
+  // Re-render all visible canvases synchronously when design changes
+  useLayoutEffect(() => {
+    filteredVariants.forEach((variant) => {
+      const canvas = canvasRefs.current.get(variant.id);
+      if (canvas) renderAd(canvas, variant, design);
+    });
   }, [activeDesign, activePlatform, filteredVariants, design]);
 
   const downloadAd = (variant: AdVariant) => {
@@ -1628,13 +1629,8 @@ export default function AdsPage() {
                   </div>
                   <span className="rounded-full bg-white/[0.05] px-2 py-0.5 text-[10px] font-bold text-text-muted">{variant.w}x{variant.h}</span>
                 </div>
-                <div className="relative overflow-hidden rounded-xl bg-bg-dark border border-white/[0.04]" style={{ aspectRatio: aspect }}>
+                <div className="overflow-hidden rounded-xl bg-bg-dark border border-white/[0.04]" style={{ aspectRatio: aspect }}>
                   <canvas ref={(el) => setCanvasRef(variant.id, el)} className="w-full h-full" style={{ imageRendering: "auto" }} />
-                  {!rendered && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-bg-dark/50">
-                      <div className="h-5 w-5 animate-spin rounded-full border-2 border-accent border-t-transparent" />
-                    </div>
-                  )}
                 </div>
                 <button
                   onClick={() => downloadAd(variant)}
