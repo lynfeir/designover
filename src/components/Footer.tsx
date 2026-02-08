@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+
 
 export default function Footer() {
   return (
@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Image src="/logo.png" alt="DOA Logo" width={40} height={40} className="rounded-lg" />
+              <img src="/logo.png" alt="DOA Logo" width={40} height={40} className="rounded-lg" />
               <h4 className="font-bold text-lg text-text-white">
                 Design <span className="gradient-text">over</span> Atlanta
               </h4>
