@@ -5,7 +5,7 @@ export default function PricingSection() {
     <section id="plans" className="py-24 bg-bg-dark">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-6">
-          <span className="text-accent text-xs font-bold uppercase tracking-[0.12em] block mb-3">
+          <span className="text-[#E91E8C] text-xs font-bold uppercase tracking-[0.12em] block mb-3">
             Monthly Plans
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-text-white mb-4">
@@ -44,7 +44,7 @@ export default function PricingSection() {
               <div className="text-text-muted text-xs uppercase tracking-wider mb-1">
                 You Save
               </div>
-              <div className="text-3xl font-extrabold text-accent-light">
+              <div className="text-3xl font-extrabold text-[#F5A623]">
                 $204/yr
               </div>
               <div className="text-emerald text-sm font-semibold">85% less</div>
@@ -98,8 +98,8 @@ export default function PricingSection() {
           </div>
 
           {/* Professional */}
-          <div className="reveal relative bg-bg-card border border-accent rounded-2xl p-8 flex flex-col transition-all hover:-translate-y-1 glow-accent">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white text-[11px] font-bold uppercase tracking-wider px-4 py-1 rounded-full">
+          <div className="reveal relative bg-bg-card border-2 border-[#E91E8C] rounded-2xl p-8 flex flex-col transition-all hover:-translate-y-1 glow-magenta">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 gradient-cta text-white text-[11px] font-bold uppercase tracking-wider px-4 py-1 rounded-full">
               Most Popular
             </div>
             <div className="text-xs font-bold uppercase tracking-[0.1em] text-text-muted mb-2">
@@ -133,7 +133,7 @@ export default function PricingSection() {
             </ul>
             <Link
               href="/contact"
-              className="w-full text-center bg-accent hover:bg-accent-light text-white font-semibold py-3 rounded-lg transition-all"
+              className="w-full text-center gradient-cta text-white font-semibold py-3 rounded-lg transition-all"
             >
               Get Started
             </Link>

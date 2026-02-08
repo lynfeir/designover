@@ -13,7 +13,7 @@ export default function ServicesPage() {
     <>
       {/* Hero */}
       <section className="relative bg-bg-dark text-text-white py-20 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(99,102,241,0.06),transparent_70%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(123,45,142,0.06),transparent_70%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">Services</h1>
           <p className="text-text-muted text-lg max-w-xl mx-auto">
@@ -118,7 +118,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div className="reveal lg:order-2">
-              <span className="text-[#3b82f6] text-xs font-bold uppercase tracking-[0.12em] block mb-3">
+              <span className="text-accent-light text-xs font-bold uppercase tracking-[0.12em] block mb-3">
                 02 — Graphic Design
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-text-dark mb-6">
@@ -138,7 +138,7 @@ export default function ServicesPage() {
                 </p>
               </div>
               <div className="flex gap-3 items-center flex-wrap">
-                <span className="bg-[rgba(59,130,246,0.1)] text-[#3b82f6] px-4 py-1.5 rounded-full text-sm font-bold">
+                <span className="bg-[rgba(155,89,182,0.12)] text-accent-light px-4 py-1.5 rounded-full text-sm font-bold">
                   From $99
                 </span>
                 <span className="text-text-body text-sm">
@@ -185,7 +185,7 @@ export default function ServicesPage() {
                       </div>
                       <div className="text-text-body text-xs">{p.desc}</div>
                     </div>
-                    <span className="text-[#3b82f6] font-bold text-sm whitespace-nowrap">
+                    <span className="text-accent-light font-bold text-sm whitespace-nowrap">
                       {p.price}
                     </span>
                   </div>
@@ -201,7 +201,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div className="reveal">
-              <span className="text-[#8b5cf6] text-xs font-bold uppercase tracking-[0.12em] block mb-3">
+              <span className="text-[#E91E8C] text-xs font-bold uppercase tracking-[0.12em] block mb-3">
                 03 — AI Business Tools
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-text-dark mb-6">
@@ -223,7 +223,7 @@ export default function ServicesPage() {
                 </p>
               </div>
               <div className="flex gap-3 items-center flex-wrap">
-                <span className="bg-[rgba(139,92,246,0.1)] text-[#8b5cf6] px-4 py-1.5 rounded-full text-sm font-bold">
+                <span className="bg-[rgba(233,30,140,0.12)] text-[#E91E8C] px-4 py-1.5 rounded-full text-sm font-bold">
                   Custom Quote
                 </span>
                 <span className="text-text-body text-sm">
@@ -252,7 +252,7 @@ export default function ServicesPage() {
                   },
                 ].map((s) => (
                   <div key={s.n} className="flex gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[rgba(139,92,246,0.1)] flex items-center justify-center text-xs font-bold text-[#8b5cf6] shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-[rgba(233,30,140,0.12)] flex items-center justify-center text-xs font-bold text-[#E91E8C] shrink-0">
                       {s.n}
                     </div>
                     <div>
@@ -332,7 +332,7 @@ export default function ServicesPage() {
 
       {/* CTA */}
       <section className="relative py-20 bg-bg-dark text-center overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_80%_at_50%_50%,rgba(99,102,241,0.08),transparent_70%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_80%_at_50%_50%,rgba(123,45,142,0.08),transparent_70%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative">
           <h2 className="text-3xl sm:text-4xl font-bold text-text-white mb-4">
             Let&apos;s Build Something That Works
@@ -344,7 +344,7 @@ export default function ServicesPage() {
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
               href="/contact"
-              className="bg-accent hover:bg-accent-light text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5"
+              className="gradient-cta text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5"
             >
               Get Your Free Demo
             </Link>

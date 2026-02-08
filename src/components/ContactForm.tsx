@@ -55,7 +55,7 @@ export default function ContactForm() {
     "w-full px-4 py-3 border border-border-light rounded-lg text-sm bg-white text-text-dark focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/10 transition-all";
 
   return (
-    <div className="reveal bg-white border border-border-light rounded-2xl p-8 relative">
+    <div className="reveal bg-white border border-border-light rounded-2xl p-8 relative shadow-[0_8px_40px_rgba(155,89,182,0.06)]">
       {/* Toast */}
       {toast && (
         <div
@@ -83,7 +83,7 @@ export default function ContactForm() {
           </p>
           <button
             onClick={clearForm}
-            className="border border-border-light hover:border-accent hover:text-accent text-text-dark font-semibold text-sm px-6 py-2.5 rounded-lg transition-all"
+            className="border border-border-light hover:border-accent hover:text-accent-dark text-text-dark font-semibold text-sm px-6 py-2.5 rounded-lg transition-all"
           >
             Send Another Request
           </button>
@@ -193,7 +193,7 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={sending}
-              className="w-full bg-accent hover:bg-accent-light text-white font-semibold py-3.5 rounded-lg transition-all disabled:opacity-60"
+              className="w-full gradient-cta text-white font-semibold py-3.5 rounded-lg transition-all disabled:opacity-60"
             >
               {sending ? "Sending..." : "Send Request"}
             </button>

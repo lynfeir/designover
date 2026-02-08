@@ -13,7 +13,7 @@ export default function ContactPage() {
     <>
       {/* Hero */}
       <section className="relative bg-bg-dark text-text-white py-20 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(99,102,241,0.06),transparent_70%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(123,45,142,0.08),transparent_70%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">Contact</h1>
           <p className="text-text-muted text-lg max-w-xl mx-auto">
@@ -119,7 +119,7 @@ export default function ContactPage() {
                 <div className="flex gap-3 flex-wrap justify-center">
                   <a
                     href="tel:4707583549"
-                    className="bg-accent hover:bg-accent-light text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all"
+                    className="gradient-cta text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all"
                   >
                     Call Now
                   </a>
@@ -192,7 +192,7 @@ export default function ContactPage() {
 
       {/* CTA */}
       <section className="relative py-20 bg-bg-dark text-center overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_80%_at_50%_50%,rgba(99,102,241,0.08),transparent_70%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_80%_at_50%_50%,rgba(123,45,142,0.1),transparent_70%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative">
           <h2 className="text-3xl sm:text-4xl font-bold text-text-white mb-4">
             Ready to Get Started?
@@ -204,7 +204,7 @@ export default function ContactPage() {
           <div className="flex gap-3 justify-center flex-wrap">
             <a
               href="tel:4707583549"
-              className="bg-accent hover:bg-accent-light text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5"
+              className="gradient-cta text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5"
             >
               Call (470) 758-3549
             </a>

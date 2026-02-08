@@ -15,7 +15,7 @@ export default function Footer() {
             </p>
             <a
               href="tel:4707583549"
-              className="text-accent font-semibold text-base inline-block mb-2"
+              className="text-[#E91E8C] font-semibold text-base inline-block mb-2"
             >
               (470) 758-3549
             </a>

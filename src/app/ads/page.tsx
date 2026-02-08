@@ -83,8 +83,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Agencies charge $2,000-$5,000+\nfor the same thing.\nWe charge $200.",
     cta: "Get a Free Demo",
     badge: "10x CHEAPER",
-    accent: "#6366f1",
-    accentRGB: "99,102,241",
+    accent: "#9B59B6",
+    accentRGB: "155,89,182",
     bulletPoints: [
       "Hand-coded, no templates",
       "Mobile-first & SEO-ready",
@@ -102,8 +102,8 @@ const DESIGNS: AdDesign[] = [
     subline: "The hosting savings alone cover\nthe cost of the website.",
     cta: "See the Math",
     badge: "PAYS FOR ITSELF",
-    accent: "#10b981",
-    accentRGB: "16,185,129",
+    accent: "#4A8C2A",
+    accentRGB: "74,140,42",
     roiData: {
       year1Them: "$2,240+",
       year1Us: "$236",
@@ -126,8 +126,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Same quality. Same result.\nA fraction of the cost.",
     cta: "Switch to Us",
     badge: "THE COMPARISON",
-    accent: "#6366f1",
-    accentRGB: "99,102,241",
+    accent: "#9B59B6",
+    accentRGB: "155,89,182",
     comparisonData: {
       them: "Typical Agency",
       themPrice: "$2,000+",
@@ -146,8 +146,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Others charge $20/mo.\nWe charge $3/mo.\nThat's 85% less.",
     cta: "View Plans",
     badge: "$3/MO HOSTING",
-    accent: "#10b981",
-    accentRGB: "16,185,129",
+    accent: "#4A8C2A",
+    accentRGB: "74,140,42",
     savingsRows: [
       { label: "Monthly Hosting", them: "$20/mo", us: "$3/mo" },
       { label: "Annual Cost", them: "$240/yr", us: "$36/yr" },
@@ -183,8 +183,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Atlanta's most affordable\ncreative studio.",
     cta: "Join Them",
     badge: "PROVEN TRACK RECORD",
-    accent: "#6366f1",
-    accentRGB: "99,102,241",
+    accent: "#9B59B6",
+    accentRGB: "155,89,182",
     statsData: {
       items: [
         { value: "150+", label: "Projects Delivered" },
@@ -297,8 +297,8 @@ const DESIGNS: AdDesign[] = [
     subline: "One partner for web, design & AI.",
     cta: "Get Started",
     badge: "ALL-IN-ONE",
-    accent: "#6366f1",
-    accentRGB: "99,102,241",
+    accent: "#9B59B6",
+    accentRGB: "155,89,182",
     statsData: {
       items: [
         { value: "$200", label: "Custom Websites" },
@@ -381,8 +381,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Clear rules. No surprises.\nNo hidden fees. No BS.",
     cta: "Start Your Project",
     badge: "THE DOA RULEBOOK",
-    accent: "#6366f1",
-    accentRGB: "99,102,241",
+    accent: "#9B59B6",
+    accentRGB: "155,89,182",
     processSteps: [
       "You see a demo before you pay",
       "No contracts — cancel anytime",
@@ -402,8 +402,8 @@ const DESIGNS: AdDesign[] = [
     subline: "No add-on fees. No \"premium\" tiers\nfor basic features.",
     cta: "See Plans",
     badge: "INCLUDED FREE",
-    accent: "#10b981",
-    accentRGB: "16,185,129",
+    accent: "#4A8C2A",
+    accentRGB: "74,140,42",
     statsData: {
       items: [
         { value: "SSL", label: "Security Certificate" },
@@ -423,8 +423,8 @@ const DESIGNS: AdDesign[] = [
     subline: "No hidden fees. No surprises.\nFlat rates you can plan around.",
     cta: "Get a Free Demo",
     badge: "FULL PRICE LIST",
-    accent: "#6366f1",
-    accentRGB: "99,102,241",
+    accent: "#9B59B6",
+    accentRGB: "155,89,182",
     roiData: {
       year1Them: "",
       year1Us: "",
@@ -449,8 +449,8 @@ const DESIGNS: AdDesign[] = [
     subline: "You're probably paying $20/mo\nfor the same thing right now.\nSwitch and save $204 every year.",
     cta: "Switch Your Hosting",
     badge: "SAVE 85%",
-    accent: "#10b981",
-    accentRGB: "16,185,129",
+    accent: "#4A8C2A",
+    accentRGB: "74,140,42",
     bulletPoints: [
       "Same speed, same uptime",
       "Free SSL certificate included",
@@ -468,8 +468,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Your current hosting bill is\npaying for nothing extra.",
     cta: "See Plans",
     badge: "THE REAL NUMBERS",
-    accent: "#10b981",
-    accentRGB: "16,185,129",
+    accent: "#4A8C2A",
+    accentRGB: "74,140,42",
     roiData: {
       year1Them: "$240/yr",
       year1Us: "$36/yr",
@@ -492,8 +492,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Most hosts charge $15-$25/mo\nfor basic shared hosting.\nWe charge $3. Same features.",
     cta: "Switch Today",
     badge: "STOP OVERPAYING",
-    accent: "#10b981",
-    accentRGB: "16,185,129",
+    accent: "#4A8C2A",
+    accentRGB: "74,140,42",
     savingsRows: [
       { label: "Monthly Hosting", them: "$20/mo", us: "$3/mo" },
       { label: "Annual Total", them: "$240/yr", us: "$36/yr" },
@@ -510,8 +510,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Switch hosting — $25 migration fee.\nSave $204/yr. That covers a $200\nwebsite in the first 12 months.",
     cta: "Get Started",
     badge: "HOSTING PAYS FOR ITSELF",
-    accent: "#10b981",
-    accentRGB: "16,185,129",
+    accent: "#4A8C2A",
+    accentRGB: "74,140,42",
     processSteps: [
       "You pay $20/mo hosting now",
       "Switch to us — $25 migration fee",
@@ -548,8 +548,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Same hosting. Different price.\nWhy are you still paying more?",
     cta: "Make the Switch",
     badge: "SIDE BY SIDE",
-    accent: "#10b981",
-    accentRGB: "16,185,129",
+    accent: "#4A8C2A",
+    accentRGB: "74,140,42",
     comparisonData: {
       them: "Your Current Host",
       themPrice: "$20/mo",
@@ -568,8 +568,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Others charge extra for these.\nWe include them free.",
     cta: "View Plans",
     badge: "ALL INCLUDED AT $3/MO",
-    accent: "#10b981",
-    accentRGB: "16,185,129",
+    accent: "#4A8C2A",
+    accentRGB: "74,140,42",
     statsData: {
       items: [
         { value: "SSL", label: "Free Certificate" },
@@ -588,8 +588,8 @@ const DESIGNS: AdDesign[] = [
     headline: "DOA",
     subline: "Design over Atlanta",
     cta: "",
-    accent: "#6366f1",
-    accentRGB: "99,102,241",
+    accent: "#9B59B6",
+    accentRGB: "155,89,182",
   },
   // ─── 27. PROFILE PIC — GRADIENT INITIALS ───
   {
@@ -612,8 +612,8 @@ const DESIGNS: AdDesign[] = [
     headline: "DOA",
     subline: "Design over Atlanta",
     cta: "",
-    accent: "#10b981",
-    accentRGB: "16,185,129",
+    accent: "#4A8C2A",
+    accentRGB: "74,140,42",
   },
   // ─── 29. BANNER — FULL BRAND ───
   {
@@ -624,8 +624,8 @@ const DESIGNS: AdDesign[] = [
     headline: "Design over Atlanta",
     subline: "Custom Websites from $200 · Graphic Design · AI Tools · Hosting from $3/mo",
     cta: "designoveratlanta.com",
-    accent: "#6366f1",
-    accentRGB: "99,102,241",
+    accent: "#9B59B6",
+    accentRGB: "155,89,182",
     bulletPoints: [
       "Websites from $200",
       "Hosting from $3/mo",
@@ -642,8 +642,8 @@ const DESIGNS: AdDesign[] = [
     headline: "Design over Atlanta",
     subline: "Web Design · Graphic Design · AI Automation · Affordable Hosting",
     cta: "designoveratlanta.com",
-    accent: "#10b981",
-    accentRGB: "16,185,129",
+    accent: "#4A8C2A",
+    accentRGB: "74,140,42",
     bulletPoints: [
       "Custom Websites",
       "$3/mo Hosting",
@@ -660,8 +660,8 @@ const DESIGNS: AdDesign[] = [
     headline: "Design over Atlanta",
     subline: "Websites · Design · AI Tools · Atlanta, GA",
     cta: "(470) 758-3549",
-    accent: "#6366f1",
-    accentRGB: "99,102,241",
+    accent: "#9B59B6",
+    accentRGB: "155,89,182",
   },
 ];
 
@@ -704,7 +704,7 @@ function renderAd(canvas: HTMLCanvasElement, variant: AdVariant, design: AdDesig
 
 function drawBackground(ctx: CanvasRenderingContext2D, w: number, h: number, s: number, design: AdDesign) {
   // Dark base
-  ctx.fillStyle = "#050a14";
+  ctx.fillStyle = "#1a0a24";
   ctx.fillRect(0, 0, w, h);
 
   // Mesh gradient orbs
@@ -1513,7 +1513,7 @@ function renderProfileLayout(ctx: CanvasRenderingContext2D, w: number, h: number
   const r = Math.min(w, h) / 2;
 
   // Dark background
-  ctx.fillStyle = "#050a14";
+  ctx.fillStyle = "#1a0a24";
   ctx.fillRect(0, 0, w, h);
 
   // Accent radial glow
@@ -1570,7 +1570,7 @@ function renderBannerLayout(ctx: CanvasRenderingContext2D, w: number, h: number,
   const bPad = isUltraWide ? 120 * s : pad;
 
   // Background
-  ctx.fillStyle = "#050a14";
+  ctx.fillStyle = "#1a0a24";
   ctx.fillRect(0, 0, w, h);
 
   // Mesh gradient orbs
@@ -1847,7 +1847,7 @@ export default function AdsPage() {
                         onClick={() => setActiveDesign(i)}
                         className={`flex items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-semibold transition-all ${
                           i === activeDesign
-                            ? "border-accent bg-accent/10 text-accent-light shadow-[0_0_16px_rgba(99,102,241,0.15)]"
+                            ? "border-accent bg-accent/10 text-accent-light shadow-[0_0_16px_rgba(155,89,182,0.15)]"
                             : "border-white/6 bg-white/[0.02] text-text-muted hover:border-white/12 hover:text-text-white"
                         }`}
                       >
@@ -1872,7 +1872,7 @@ export default function AdsPage() {
                   onClick={() => setActivePlatform(p)}
                   className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold transition-all ${
                     p === activePlatform
-                      ? "bg-accent text-white shadow-[0_0_14px_rgba(99,102,241,0.3)]"
+                      ? "bg-accent text-white shadow-[0_0_14px_rgba(155,89,182,0.3)]"
                       : "bg-white/[0.03] text-text-muted hover:bg-white/[0.07] hover:text-text-white"
                   }`}
                 >
@@ -1919,7 +1919,7 @@ export default function AdsPage() {
                   className={`mt-2.5 flex w-full items-center justify-center gap-2 rounded-xl py-2.5 text-sm font-bold transition-all ${
                     isDownloading
                       ? "bg-accent/20 text-accent-light cursor-wait"
-                      : "bg-accent text-white hover:bg-accent-light hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(99,102,241,0.25)]"
+                      : "bg-accent text-white hover:bg-accent-light hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(155,89,182,0.25)]"
                   }`}
                 >
                   {isDownloading ? (

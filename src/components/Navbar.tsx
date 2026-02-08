@@ -49,7 +49,7 @@ export default function Navbar() {
               >
                 {l.label}
                 {pathname === l.href && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 bg-accent rounded-full" />
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 rounded-full gradient-cta" />
                 )}
               </Link>
             </li>
@@ -57,7 +57,7 @@ export default function Navbar() {
           <li className="ml-3">
             <Link
               href="/contact"
-              className="bg-accent hover:bg-accent-light text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_0_30px_rgba(99,102,241,0.25)]"
+              className="gradient-cta text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_0_30px_rgba(233,30,140,0.25)]"
             >
               Get a Demo
             </Link>
@@ -108,7 +108,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={() => setOpen(false)}
-            className="mt-4 bg-accent hover:bg-accent-light text-white font-semibold px-8 py-3 rounded-lg transition-all"
+            className="mt-4 gradient-cta text-white font-semibold px-8 py-3 rounded-lg transition-all"
           >
             Get a Demo
           </Link>

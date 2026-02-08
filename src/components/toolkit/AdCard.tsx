@@ -20,32 +20,32 @@ interface ThemeColors {
 function getColors(theme: AdDefinition["theme"]): ThemeColors {
   switch (theme) {
     case "dark": return {
-      bg: "#050a14", bg2: "#0c1220",
-      text: "#f1f5f9", textSub: "#94a3b8",
-      accent: "#6366f1", accentText: "#ffffff",
+      bg: "#1a0a24", bg2: "#2d1b3d",
+      text: "#f1f0f5", textSub: "#a89bb8",
+      accent: "#E91E8C", accentText: "#ffffff",
       border: "rgba(255,255,255,0.1)",
-      glow1: "rgba(99,102,241,0.15)", glow2: "rgba(16,185,129,0.1)",
+      glow1: "rgba(233,30,140,0.15)", glow2: "rgba(74,140,42,0.1)",
     };
     case "light": return {
-      bg: "#ffffff", bg2: "#f8fafc",
-      text: "#0f172a", textSub: "#64748b",
-      accent: "#6366f1", accentText: "#ffffff",
-      border: "#e2e8f0",
-      glow1: "rgba(99,102,241,0.08)", glow2: "rgba(16,185,129,0.06)",
+      bg: "#FAFAFF", bg2: "#f5f0fa",
+      text: "#2D1B3D", textSub: "#5c4a6e",
+      accent: "#9B59B6", accentText: "#ffffff",
+      border: "#e0d4ec",
+      glow1: "rgba(155,89,182,0.08)", glow2: "rgba(233,30,140,0.06)",
     };
     case "gradient": return {
-      bg: "#1e1b4b", bg2: "#4338ca",
-      text: "#ffffff", textSub: "#c7d2fe",
-      accent: "#ffffff", accentText: "#312e81",
+      bg: "#7B2D8E", bg2: "#E91E8C",
+      text: "#ffffff", textSub: "#f0d4ff",
+      accent: "#ffffff", accentText: "#7B2D8E",
       border: "rgba(255,255,255,0.2)",
-      glow1: "rgba(129,140,248,0.25)", glow2: "rgba(167,139,250,0.15)",
+      glow1: "rgba(233,30,140,0.25)", glow2: "rgba(245,166,35,0.15)",
     };
     case "minimal": return {
-      bg: "#f8fafc", bg2: "#f1f5f9",
-      text: "#1e293b", textSub: "#64748b",
-      accent: "#0f172a", accentText: "#ffffff",
-      border: "#e2e8f0",
-      glow1: "rgba(99,102,241,0.06)", glow2: "rgba(0,0,0,0.03)",
+      bg: "#FAFAFF", bg2: "#f5f0fa",
+      text: "#2D1B3D", textSub: "#5c4a6e",
+      accent: "#2D1B3D", accentText: "#ffffff",
+      border: "#e0d4ec",
+      glow1: "rgba(155,89,182,0.06)", glow2: "rgba(0,0,0,0.03)",
     };
   }
 }
@@ -412,12 +412,12 @@ export default function AdCard({ ad }: { ad: AdDefinition }) {
   const f = getFontSizes(ad.format);
 
   const bgStyle = ad.theme === "gradient"
-    ? { background: `linear-gradient(135deg, ${c.bg}, #312e81, ${c.bg2})` }
+    ? { background: `linear-gradient(135deg, ${c.bg}, #9B59B6, ${c.bg2})` }
     : { background: c.bg };
 
   return (
     <div
-      style={{ borderRadius: 12, border: "1px solid rgba(255,255,255,0.06)", background: "#0c1220", overflow: "hidden", transition: "all 0.2s" }}
+      style={{ borderRadius: 12, border: "1px solid rgba(255,255,255,0.08)", background: "#2d1b3d", overflow: "hidden", transition: "all 0.2s" }}
       data-ad-wrapper
     >
       {/* Preview container */}

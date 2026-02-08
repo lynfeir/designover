@@ -22,7 +22,7 @@ export default function Home() {
               <div className="flex gap-3 flex-wrap mb-12">
                 <Link
                   href="/contact"
-                  className="bg-accent hover:bg-accent-light text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_0_40px_rgba(99,102,241,0.25)]"
+                  className="gradient-cta text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_0_40px_rgba(233,30,140,0.25)]"
                 >
                   Get Your Free Demo
                 </Link>
@@ -65,7 +65,7 @@ export default function Home() {
                 <p className="text-text-muted text-sm mb-5">
                   Live preview &mdash; click through every page before you pay a cent.
                 </p>
-                <div className="bg-[#080d18] rounded-xl overflow-hidden border border-border-dark">
+                <div className="bg-[#130a1e] rounded-xl overflow-hidden border border-border-dark">
                   <div className="flex items-center gap-1.5 px-3 py-2.5 bg-white/[0.02] border-b border-border-dark">
                     <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
                     <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
@@ -80,7 +80,7 @@ export default function Home() {
                     <div className="h-2 rounded bg-white/[0.04] w-[55%]" />
                     <div className="h-2 rounded bg-white/[0.04] w-[85%]" />
                     <div className="h-2 rounded bg-white/[0.04] w-[35%]" />
-                    <div className="h-2 rounded bg-accent-soft w-[60%] mt-3" />
+                    <div className="h-2 rounded bg-magenta-soft w-[60%] mt-3" />
                   </div>
                 </div>
               </div>
@@ -94,13 +94,13 @@ export default function Home() {
                 className="absolute bottom-[15%] -left-6 bg-bg-card border border-border-dark rounded-lg px-4 py-2.5 text-xs text-text-muted shadow-lg"
                 style={{ animation: "float 6s ease-in-out infinite 2s" }}
               >
-                <svg className="w-4 h-4 inline mr-1 text-accent-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> AI booking live
+                <svg className="w-4 h-4 inline mr-1 text-[#E91E8C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> AI booking live
               </div>
               <div
                 className="absolute top-[45%] -right-10 bg-bg-card border border-border-dark rounded-lg px-4 py-2.5 text-xs text-text-muted shadow-lg"
                 style={{ animation: "float 6s ease-in-out infinite 4s" }}
               >
-                <svg className="w-4 h-4 inline mr-1 text-accent-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg> Mobile-first
+                <svg className="w-4 h-4 inline mr-1 text-[#F5A623]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg> Mobile-first
               </div>
             </div>
           </div>
@@ -111,7 +111,7 @@ export default function Home() {
       <section className="py-24 bg-bg-light">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-accent text-xs font-bold uppercase tracking-[0.12em] block mb-3">
+            <span className="text-accent-dark text-xs font-bold uppercase tracking-[0.12em] block mb-3">
               What We Do
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-text-dark mb-4">
@@ -125,33 +125,33 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                icon: <svg className="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}><path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5a17.92 17.92 0 01-8.716-2.247m0 0A8.966 8.966 0 013 12c0-1.97.633-3.79 1.708-5.274" /></svg>,
+                icon: <svg className="w-6 h-6 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}><path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5a17.92 17.92 0 01-8.716-2.247m0 0A8.966 8.966 0 013 12c0-1.97.633-3.79 1.708-5.274" /></svg>,
                 bg: "bg-accent-soft",
                 title: "Custom Websites",
                 desc: "Fully custom, mobile-first sites built to convert visitors into customers. No templates. Starts at just $200 — agencies charge $2,000+ for the same thing.",
                 tag: "From $200",
-                tagColor: "text-accent bg-accent-soft",
+                tagColor: "text-accent-dark bg-accent-soft",
               },
               {
-                icon: <svg className="w-6 h-6 text-[#3b82f6]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}><path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" /></svg>,
-                bg: "bg-[rgba(59,130,246,0.1)]",
+                icon: <svg className="w-6 h-6 text-[#E91E8C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}><path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" /></svg>,
+                bg: "bg-magenta-soft",
                 title: "Graphic Design",
                 desc: "Business cards, brochures, flyers, advertisements, social graphics — whatever your business needs to look sharp and stay consistent.",
                 tag: "From $99",
-                tagColor: "text-[#3b82f6] bg-[rgba(59,130,246,0.1)]",
+                tagColor: "text-[#E91E8C] bg-magenta-soft",
               },
               {
-                icon: <svg className="w-6 h-6 text-[#8b5cf6]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" /></svg>,
-                bg: "bg-[rgba(139,92,246,0.1)]",
+                icon: <svg className="w-6 h-6 text-[#F5A623]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" /></svg>,
+                bg: "bg-amber-soft",
                 title: "AI Business Tools",
                 desc: "Automated booking systems, smart intake forms, workflow bots — replace that extra hire with a system that runs 24/7.",
                 tag: "Custom Quote",
-                tagColor: "text-[#8b5cf6] bg-[rgba(139,92,246,0.1)]",
+                tagColor: "text-[#F5A623] bg-amber-soft",
               },
             ].map((s) => (
               <div
                 key={s.title}
-                className="reveal bg-white border border-border-light rounded-2xl p-8 flex flex-col transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="reveal bg-white border border-border-light rounded-2xl p-8 flex flex-col transition-all hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(155,89,182,0.1)]"
               >
                 <div
                   className={`w-13 h-13 rounded-xl flex items-center justify-center text-xl mb-5 ${s.bg}`}
@@ -173,7 +173,7 @@ export default function Home() {
           <div className="text-center mt-10">
             <Link
               href="/services"
-              className="inline-flex items-center border border-border-light text-text-dark font-semibold px-6 py-3 rounded-lg transition-all hover:border-accent hover:text-accent"
+              className="inline-flex items-center border border-border-light text-text-dark font-semibold px-6 py-3 rounded-lg transition-all hover:border-accent hover:text-accent-dark"
             >
               See Full Service Details →
             </Link>
@@ -184,8 +184,8 @@ export default function Home() {
       {/* Demo-First Promise */}
       <section className="py-20 bg-bg-dark">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="reveal relative bg-gradient-to-br from-[#0e1529] to-bg-card border border-border-dark rounded-2xl p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden">
-            <div className="absolute top-[-50%] right-[-10%] w-72 h-72 bg-[radial-gradient(circle,rgba(99,102,241,0.08),transparent_70%)] pointer-events-none" />
+          <div className="reveal relative bg-gradient-to-br from-[#2d1b3d] to-bg-card border border-border-dark rounded-2xl p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden">
+            <div className="absolute top-[-50%] right-[-10%] w-72 h-72 bg-[radial-gradient(circle,rgba(233,30,140,0.1),transparent_70%)] pointer-events-none" />
             <div>
               <h3 className="text-2xl font-bold text-text-white mb-2">
                 Every project starts with a free demo.
@@ -198,7 +198,7 @@ export default function Home() {
             </div>
             <Link
               href="/contact"
-              className="shrink-0 bg-accent hover:bg-accent-light text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5"
+              className="shrink-0 gradient-cta text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5"
             >
               Request Your Demo
             </Link>
@@ -210,7 +210,7 @@ export default function Home() {
       <section className="py-24 bg-bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-accent text-xs font-bold uppercase tracking-[0.12em] block mb-3">
+            <span className="text-accent-dark text-xs font-bold uppercase tracking-[0.12em] block mb-3">
               Process
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-text-dark mb-4">
@@ -263,7 +263,7 @@ export default function Home() {
       <section className="py-20 bg-bg-dark">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-accent text-xs font-bold uppercase tracking-[0.12em] block mb-3">
+            <span className="text-[#E91E8C] text-xs font-bold uppercase tracking-[0.12em] block mb-3">
               Testimonials
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-text-white mb-4">
@@ -291,14 +291,14 @@ export default function Home() {
                 key={t.name}
                 className="reveal relative bg-bg-card border border-border-dark rounded-2xl p-8"
               >
-                <span className="absolute top-2 left-5 text-6xl font-black text-accent/20 leading-none select-none">
+                <span className="absolute top-2 left-5 text-6xl font-black text-[#E91E8C]/20 leading-none select-none">
                   &ldquo;
                 </span>
                 <p className="text-text-muted italic text-[0.95rem] mb-5 relative z-10 leading-relaxed">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-accent-soft text-accent flex items-center justify-center text-sm font-bold">
+                  <div className="w-10 h-10 rounded-full bg-magenta-soft text-[#E91E8C] flex items-center justify-center text-sm font-bold">
                     {t.initials}
                   </div>
                   <div>
@@ -316,7 +316,7 @@ export default function Home() {
 
       {/* CTA */}
       <section className="relative py-20 bg-bg-dark text-center overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_80%_at_50%_50%,rgba(99,102,241,0.08),transparent_70%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_80%_at_50%_50%,rgba(123,45,142,0.1),transparent_70%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative">
           <h2 className="text-3xl sm:text-4xl font-bold text-text-white mb-4">
             Ready to See What We Can Build for You?
@@ -328,7 +328,7 @@ export default function Home() {
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
               href="/contact"
-              className="bg-accent hover:bg-accent-light text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5"
+              className="gradient-cta text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5"
             >
               Get Your Free Demo
             </Link>
