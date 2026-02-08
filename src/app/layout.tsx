@@ -8,6 +8,14 @@ export const metadata: Metadata = {
   title: "Design over Atlanta — Websites, Design & AI Tools for Business",
   description:
     "Custom websites from $200, graphic design, and AI automation tools for businesses. Hosting from just $3/mo. Demo site before you pay. Based in Atlanta, GA.",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
+  openGraph: {
+    images: [{ url: "/logo.png" }],
+  },
 };
 
 export default function RootLayout({
