@@ -224,11 +224,11 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {[
               {
-                name: "Fit4Lyfe",
-                url: "https://www.fit4lyfe.net/",
-                desc: "Fitness & wellness brand with bold visuals and seamless booking integration.",
-                color: "#E91E8C",
-                colorSoft: "rgba(233,30,140,0.12)",
+                name: "BookNST",
+                url: "https://booknst.com",
+                desc: "Booking platform with a smooth user flow and modern, conversion-focused design.",
+                color: "#9B59B6",
+                colorSoft: "rgba(155,89,182,0.12)",
               },
               {
                 name: "Pine Crest Camp",
@@ -238,18 +238,18 @@ export default function Home() {
                 colorSoft: "rgba(74,140,42,0.12)",
               },
               {
-                name: "BookNST",
-                url: "https://booknst.com",
-                desc: "Booking platform with a smooth user flow and modern, conversion-focused design.",
-                color: "#9B59B6",
-                colorSoft: "rgba(155,89,182,0.12)",
-              },
-              {
                 name: "Alchemy Auto Spa",
                 url: "https://carwash-hazel-two.vercel.app",
                 desc: "Premium car wash experience — sleek branding with an easy online booking system.",
                 color: "#F5A623",
                 colorSoft: "rgba(245,166,35,0.12)",
+              },
+              {
+                name: "Fit4Lyfe",
+                url: "https://www.fit4lyfe.net/",
+                desc: "Fitness & wellness brand with bold visuals and seamless booking integration.",
+                color: "#E91E8C",
+                colorSoft: "rgba(233,30,140,0.12)",
               },
             ].map((project) => (
               <a
