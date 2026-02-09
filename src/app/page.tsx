@@ -206,6 +206,126 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Our Work */}
+      <section className="py-24 bg-bg-light">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-[#E91E8C] text-xs font-bold uppercase tracking-[0.12em] block mb-3">
+              Portfolio
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-text-dark mb-4">
+              Sites We&apos;ve Built
+            </h2>
+            <p className="text-text-body text-lg">
+              Real businesses, real results. Every one of these started as a free
+              demo.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                name: "Fit4Lyfe",
+                url: "https://www.fit4lyfe.net/",
+                desc: "Fitness & wellness brand with bold visuals and seamless booking integration.",
+                color: "#E91E8C",
+                colorSoft: "rgba(233,30,140,0.12)",
+              },
+              {
+                name: "Pine Crest Camp",
+                url: "https://pinecrestcamp.life/",
+                desc: "Summer camp site built for parents — clean, inviting, and packed with info.",
+                color: "#4A8C2A",
+                colorSoft: "rgba(74,140,42,0.12)",
+              },
+              {
+                name: "BookNST",
+                url: "https://booknst.com",
+                desc: "Booking platform with a smooth user flow and modern, conversion-focused design.",
+                color: "#9B59B6",
+                colorSoft: "rgba(155,89,182,0.12)",
+              },
+              {
+                name: "Alchemy Auto Spa",
+                url: "https://carwash-hazel-two.vercel.app",
+                desc: "Premium car wash experience — sleek branding with an easy online booking system.",
+                color: "#F5A623",
+                colorSoft: "rgba(245,166,35,0.12)",
+              },
+            ].map((project) => (
+              <a
+                key={project.name}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="reveal group bg-white border border-border-light rounded-2xl overflow-hidden transition-all hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(155,89,182,0.12)]"
+              >
+                {/* Browser frame mockup */}
+                <div className="bg-[#1a0a24] border-b border-border-dark">
+                  <div className="flex items-center gap-1.5 px-4 py-2.5">
+                    <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
+                    <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
+                    <span className="w-2 h-2 rounded-full bg-[#28c840]" />
+                    <span className="ml-3 bg-white/[0.06] rounded px-3 py-0.5 text-[11px] text-text-muted flex-1 truncate">
+                      {project.url.replace(/https?:\/\//, "")}
+                    </span>
+                  </div>
+                  <div className="px-5 py-8 flex items-center justify-center min-h-[140px]">
+                    <div className="text-center">
+                      <div
+                        className="text-2xl font-extrabold mb-1"
+                        style={{ color: project.color }}
+                      >
+                        {project.name}
+                      </div>
+                      <div className="flex items-center justify-center gap-2 mt-2">
+                        <span
+                          className="w-1.5 h-1.5 rounded-full"
+                          style={{ backgroundColor: project.color }}
+                        />
+                        <span className="text-text-muted text-xs">Live Site</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* Info */}
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-lg font-bold text-text-dark group-hover:text-accent-dark transition-colors">
+                      {project.name}
+                    </h3>
+                    <svg
+                      className="w-4 h-4 text-text-body opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                      />
+                    </svg>
+                  </div>
+                  <p className="text-text-body text-sm leading-relaxed">
+                    {project.desc}
+                  </p>
+                  <span
+                    className="inline-block text-xs font-semibold px-3 py-1 rounded-full mt-3"
+                    style={{
+                      color: project.color,
+                      backgroundColor: project.colorSoft,
+                    }}
+                  >
+                    View Live Site →
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* How It Works */}
       <section className="py-24 bg-bg-white">
         <div className="max-w-7xl mx-auto px-6">
