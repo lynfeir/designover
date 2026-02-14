@@ -329,141 +329,292 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ PORTFOLIO — Shape-framed browser cards ══ */}
-      <section className="relative py-24 bg-bg-light overflow-hidden">
-        {/* Top diagonal entry */}
-        <div className="absolute top-0 left-0 w-full overflow-hidden" style={{ height: "80px" }}>
+      {/* ══ PORTFOLIO — Cinematic Device Showcase ══ */}
+      <section className="relative py-28 bg-bg-dark overflow-hidden">
+        {/* Multi-layer background composition */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Dot grid fading from top */}
           <div
-            className="absolute top-0 left-0 w-full h-full bg-bg-dark"
-            style={{ clipPath: "polygon(0 0, 100% 0, 100% 60%, 0 0)" }}
+            className="absolute inset-0"
+            style={{
+              backgroundImage: "radial-gradient(circle, rgba(155,89,182,0.06) 1px, transparent 1px)",
+              backgroundSize: "30px 30px",
+              maskImage: "linear-gradient(180deg, black 0%, transparent 40%)",
+              WebkitMaskImage: "linear-gradient(180deg, black 0%, transparent 40%)",
+            }}
           />
+          {/* Crossed diagonal slashes */}
+          <div className="absolute inset-0" style={{
+            background: `
+              linear-gradient(160deg, transparent 20%, rgba(233,30,140,0.025) 21%, rgba(233,30,140,0.025) 23%, transparent 24%),
+              linear-gradient(160deg, transparent 75%, rgba(245,166,35,0.02) 76%, rgba(245,166,35,0.02) 78%, transparent 79%)
+            `,
+          }} />
+          {/* Large glow orb */}
+          <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-[#7B2D8E] opacity-[0.03] blur-[200px]" />
         </div>
+
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-[#E91E8C] text-xs font-bold uppercase tracking-[0.12em] block mb-3">
+          {/* Section header */}
+          <div className="text-center max-w-2xl mx-auto mb-20">
+            <span className="text-[#E91E8C] text-xs font-bold uppercase tracking-[0.15em] block mb-3">
               Portfolio
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-text-dark mb-4">
-              Sites We&apos;ve <span className="gradient-text">Built</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-white mb-5">
+              Sites We&apos;ve <span className="shimmer-text">Shipped</span>
             </h2>
-            <p className="text-text-body text-lg">
-              Real businesses, real results. Every one of these started as a free
-              demo.
+            <p className="text-text-muted text-lg leading-relaxed">
+              Real businesses. Real revenue. Every project started with a free demo
+              and ended with a client who never looked back.
             </p>
-            <div className="gradient-line w-20 mx-auto mt-6" />
+            <div className="gradient-line w-24 mx-auto mt-6" />
           </div>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+
+          {/* Portfolio showcase — staggered alternating layout */}
+          <div className="space-y-20">
             {[
               {
                 name: "BookNST",
                 url: "https://booknst.com",
-                desc: "Booking platform with a smooth user flow and modern, conversion-focused design.",
+                tagline: "Booking made effortless",
+                desc: "A full-featured booking platform with instant confirmations, calendar sync, and a conversion funnel that turns visitors into customers. Mobile-first, lightning fast.",
+                niche: "SaaS / Booking",
+                tags: ["Next.js", "Booking Engine", "Mobile-First", "SEO"],
                 color: "#9B59B6",
-                colorSoft: "rgba(155,89,182,0.12)",
+                colorSoft: "rgba(155,89,182,0.10)",
+                colorGlow: "rgba(155,89,182,0.15)",
+                stat: "Custom booking flow",
+                reverse: false,
               },
               {
                 name: "Pine Crest Camp",
                 url: "https://pinecrestcamp.life/",
-                desc: "Summer camp site built for parents — clean, inviting, and packed with info.",
+                tagline: "Where summer memories start",
+                desc: "Built for parents making one of the biggest decisions of their summer. Clean information architecture, trust-first design, and a registration flow that converts worried parents into happy campers.",
+                niche: "Recreation / Camp",
+                tags: ["Family-Focused", "Trust Design", "Registration", "Info-Rich"],
                 color: "#4A8C2A",
-                colorSoft: "rgba(74,140,42,0.12)",
+                colorSoft: "rgba(74,140,42,0.10)",
+                colorGlow: "rgba(74,140,42,0.15)",
+                stat: "Registration-optimized",
+                reverse: true,
               },
               {
                 name: "Alchemy Auto Spa",
                 url: "https://carwash-hazel-two.vercel.app",
-                desc: "Premium car wash experience — sleek branding with an easy online booking system.",
+                tagline: "Premium detail, premium feel",
+                desc: "A luxury car care brand that needed a digital presence matching the quality of their service. Sleek dark design, online booking integration, and service packages that sell themselves.",
+                niche: "Auto / Luxury",
+                tags: ["Dark Theme", "Booking System", "Brand Design", "Luxury"],
                 color: "#F5A623",
-                colorSoft: "rgba(245,166,35,0.12)",
+                colorSoft: "rgba(245,166,35,0.10)",
+                colorGlow: "rgba(245,166,35,0.15)",
+                stat: "Online booking enabled",
+                reverse: false,
               },
               {
                 name: "Fit4Lyfe",
                 url: "https://www.fit4lyfe.net/",
-                desc: "Fitness & wellness brand with bold visuals and seamless booking integration.",
+                tagline: "Bold brand, bold results",
+                desc: "Fitness brand with the energy to match. High-impact visuals, seamless class booking integration, and a design system that scales across merch, social, and print.",
+                niche: "Fitness / Wellness",
+                tags: ["Bold Visuals", "Class Booking", "Brand System", "Responsive"],
                 color: "#E91E8C",
-                colorSoft: "rgba(233,30,140,0.12)",
+                colorSoft: "rgba(233,30,140,0.10)",
+                colorGlow: "rgba(233,30,140,0.15)",
+                stat: "Full brand + web system",
+                reverse: true,
               },
-            ].map((project) => (
-              <a
+            ].map((project, i) => (
+              <div
                 key={project.name}
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="reveal group bg-white border border-border-light rounded-2xl overflow-hidden hover-tilt"
+                className={`reveal flex flex-col ${
+                  project.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
+                } items-center gap-10 lg:gap-16`}
               >
-                {/* Browser frame mockup */}
-                <div className="bg-[#1a0a24] border-b border-border-dark">
-                  <div className="flex items-center gap-1.5 px-4 py-2.5">
-                    <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
-                    <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
-                    <span className="w-2 h-2 rounded-full bg-[#28c840]" />
-                    <span className="ml-3 bg-white/[0.06] rounded px-3 py-0.5 text-[11px] text-text-muted flex-1 truncate">
-                      {project.url.replace(/https?:\/\//, "")}
-                    </span>
-                  </div>
-                  <div className="px-5 py-8 flex items-center justify-center min-h-[140px] relative overflow-hidden">
-                    {/* Diagonal accent stripe */}
+                {/* Device mockup side */}
+                <div className="w-full lg:w-[55%] perspective-container">
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`block device-tilt relative rounded-2xl overflow-hidden group trace-border`}
+                    style={{ "--trace-color": project.color } as React.CSSProperties}
+                  >
+                    {/* Glow behind device */}
                     <div
-                      className="absolute inset-0 pointer-events-none"
-                      style={{
-                        background: `linear-gradient(135deg, transparent 45%, ${project.color}08 46%, ${project.color}08 55%, transparent 56%)`,
-                      }}
+                      className="absolute -inset-4 rounded-3xl blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                      style={{ background: project.colorGlow }}
                     />
-                    <div className="text-center relative z-10">
-                      <div
-                        className="text-2xl font-extrabold mb-1"
-                        style={{ color: project.color }}
-                      >
-                        {project.name}
+                    {/* Browser chrome */}
+                    <div className="relative bg-[#1a0a24] border border-white/[0.06] rounded-2xl overflow-hidden shadow-2xl">
+                      {/* Title bar */}
+                      <div className="flex items-center gap-1.5 px-4 py-3 bg-white/[0.02] border-b border-white/[0.05]">
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
+                        <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+                        <div className="ml-3 flex-1 bg-white/[0.04] rounded-md px-3 py-1 flex items-center gap-2">
+                          <svg className="w-3 h-3 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" /></svg>
+                          <span className="text-[11px] text-white/30 truncate">
+                            {project.url.replace(/https?:\/\//, "").replace(/\/$/, "")}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex items-center justify-center gap-2 mt-2">
-                        <span
-                          className="w-1.5 h-1.5 rounded-full animate-pulse"
-                          style={{ backgroundColor: project.color }}
-                        />
-                        <span className="text-text-muted text-xs">Live Site</span>
+                      {/* Site preview area */}
+                      <div className="relative min-h-[220px] sm:min-h-[280px] flex flex-col items-center justify-center px-8 py-12">
+                        {/* Multi-layer background inside preview */}
+                        <div className="absolute inset-0 pointer-events-none">
+                          {/* Radial glow from project color */}
+                          <div
+                            className="absolute inset-0"
+                            style={{
+                              background: `radial-gradient(ellipse 60% 60% at 50% 50%, ${project.color}0A, transparent 70%)`,
+                            }}
+                          />
+                          {/* Diagonal slash */}
+                          <div
+                            className="absolute inset-0"
+                            style={{
+                              background: `linear-gradient(135deg, transparent 40%, ${project.color}06 41%, ${project.color}06 60%, transparent 61%)`,
+                            }}
+                          />
+                          {/* Grid lines */}
+                          <div
+                            className="absolute inset-0 opacity-[0.03]"
+                            style={{
+                              backgroundImage: `
+                                linear-gradient(${project.color} 1px, transparent 1px),
+                                linear-gradient(90deg, ${project.color} 1px, transparent 1px)
+                              `,
+                              backgroundSize: "40px 40px",
+                            }}
+                          />
+                        </div>
+                        {/* Project name display */}
+                        <div className="relative z-10 text-center">
+                          <div
+                            className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2"
+                            style={{ color: project.color }}
+                          >
+                            {project.name}
+                          </div>
+                          <div className="text-white/40 text-sm font-medium italic">
+                            {project.tagline}
+                          </div>
+                          <div className="flex items-center justify-center gap-2 mt-4">
+                            <span
+                              className="w-2 h-2 rounded-full animate-pulse"
+                              style={{ backgroundColor: project.color }}
+                            />
+                            <span className="text-white/30 text-xs uppercase tracking-wider font-semibold">
+                              Live &amp; Running
+                            </span>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                    {/* Reflection effect */}
+                    <div
+                      className="hidden lg:block h-16 rounded-b-2xl overflow-hidden opacity-[0.06]"
+                      style={{
+                        background: `linear-gradient(180deg, ${project.color}20, transparent)`,
+                        transform: "scaleY(-1)",
+                        maskImage: "linear-gradient(180deg, black, transparent)",
+                        WebkitMaskImage: "linear-gradient(180deg, black, transparent)",
+                      }}
+                    />
+                  </a>
                 </div>
-                {/* Info */}
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-lg font-bold text-text-dark group-hover:text-accent-dark transition-colors">
-                      {project.name}
-                    </h3>
-                    <svg
-                      className="w-4 h-4 text-text-body opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                      />
-                    </svg>
-                  </div>
-                  <p className="text-text-body text-sm leading-relaxed">
-                    {project.desc}
-                  </p>
+
+                {/* Info side */}
+                <div className="w-full lg:w-[45%]">
+                  {/* Niche tag */}
                   <span
-                    className="inline-block text-xs font-semibold px-3 py-1 rounded-full mt-3"
+                    className="niche-tag inline-block text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1 rounded-full mb-4"
                     style={{
                       color: project.color,
                       backgroundColor: project.colorSoft,
                     }}
                   >
-                    View Live Site →
+                    {project.niche}
                   </span>
+                  {/* Project number */}
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-white/10 text-6xl font-black leading-none select-none">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent" />
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-text-white mb-2">
+                    {project.name}
+                  </h3>
+                  <p className="text-text-muted text-[0.95rem] leading-relaxed mb-5">
+                    {project.desc}
+                  </p>
+                  {/* Tech tags */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[11px] font-semibold px-2.5 py-1 rounded-md bg-white/[0.04] text-white/50 border border-white/[0.06]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  {/* Stat callout */}
+                  <div className="flex items-center gap-3 mb-6">
+                    <div
+                      className="w-8 h-8 rounded-lg flex items-center justify-center"
+                      style={{ backgroundColor: project.colorSoft }}
+                    >
+                      <svg className="w-4 h-4" style={{ color: project.color }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                      </svg>
+                    </div>
+                    <span className="text-text-muted text-sm font-medium">{project.stat}</span>
+                  </div>
+                  {/* CTA */}
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 font-semibold text-sm transition-all hover:-translate-y-0.5 group/link"
+                    style={{ color: project.color }}
+                  >
+                    View Live Site
+                    <svg className="w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                    </svg>
+                  </a>
                 </div>
-              </a>
+              </div>
             ))}
+          </div>
+
+          {/* Bottom metric strip */}
+          <div className="mt-20 pt-10 border-t border-white/[0.06]">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+              {[
+                { value: "4", label: "Live Sites Shown", color: "#9B59B6" },
+                { value: "150+", label: "Total Projects", color: "#E91E8C" },
+                { value: "100%", label: "Demo-First", color: "#4A8C2A" },
+                { value: "5+", label: "Years Running", color: "#F5A623" },
+              ].map((m) => (
+                <div key={m.label} className="reveal">
+                  <div className="step-number text-3xl font-extrabold text-text-white inline-block">
+                    {m.value}
+                  </div>
+                  <div className="text-text-muted text-xs uppercase tracking-wider mt-1">
+                    {m.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Bottom diagonal */}
+        {/* Bottom diagonal transition */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden" style={{ height: "80px" }}>
           <div
             className="absolute bottom-0 left-0 w-full h-full bg-bg-white"
