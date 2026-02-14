@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import PricingSection from "@/components/PricingSection";
 
 export default function Home() {
@@ -123,22 +124,22 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Floating chips */}
+              {/* Floating chips — no slash-card to avoid overflow:hidden clipping */}
               <div
-                className="absolute top-[8%] -right-4 bg-bg-card border border-border-dark rounded-lg px-4 py-2.5 text-xs text-text-muted shadow-lg slash-card"
-                style={{ animation: "floatDeep 8s ease-in-out infinite" }}
+                className="absolute top-[10%] right-0 bg-bg-card border border-border-dark rounded-lg px-4 py-2.5 text-xs text-text-muted shadow-lg z-10"
+                style={{ animation: "float 6s ease-in-out infinite" }}
               >
                 <svg className="w-4 h-4 inline mr-1 text-accent-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg> Logo ready
               </div>
               <div
-                className="absolute bottom-[15%] -left-6 bg-bg-card border border-border-dark rounded-lg px-4 py-2.5 text-xs text-text-muted shadow-lg slash-card"
-                style={{ animation: "floatDeep 8s ease-in-out infinite 2.5s" }}
+                className="absolute bottom-[18%] left-0 bg-bg-card border border-border-dark rounded-lg px-4 py-2.5 text-xs text-text-muted shadow-lg z-10"
+                style={{ animation: "float 6s ease-in-out infinite 2s" }}
               >
                 <svg className="w-4 h-4 inline mr-1 text-[#E91E8C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> AI booking live
               </div>
               <div
-                className="absolute top-[45%] -right-10 bg-bg-card border border-border-dark rounded-lg px-4 py-2.5 text-xs text-text-muted shadow-lg slash-card"
-                style={{ animation: "floatDeep 8s ease-in-out infinite 5s" }}
+                className="absolute top-[48%] right-[-4px] bg-bg-card border border-border-dark rounded-lg px-4 py-2.5 text-xs text-text-muted shadow-lg z-10"
+                style={{ animation: "float 6s ease-in-out infinite 4s" }}
               >
                 <svg className="w-4 h-4 inline mr-1 text-[#F5A623]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg> Mobile-first
               </div>
@@ -213,8 +214,7 @@ export default function Home() {
             ].map((s) => (
               <div
                 key={s.title}
-                className="reveal slash-card hover-tilt bg-white border border-border-light rounded-2xl p-8 flex flex-col"
-                style={{ boxShadow: `0 0 0 0 ${s.accent}00` }}
+                className="reveal hover-tilt bg-white border border-border-light rounded-2xl p-8 flex flex-col relative"
               >
                 <div
                   className={`w-13 h-13 rounded-xl flex items-center justify-center text-xl mb-5 ${s.bg}`}
@@ -285,6 +285,50 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ══ MEET THE FOUNDER — Personal trust element ══ */}
+      <section className="py-20 bg-bg-dark relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="reveal flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            {/* Headshot */}
+            <div className="relative shrink-0">
+              <div className="w-40 h-40 md:w-52 md:h-52 rounded-2xl overflow-hidden border-2 border-accent/20 shadow-2xl relative">
+                <Image
+                  src="/headshot-hunter.jpeg"
+                  alt="Hunter Weeks — Founder of Design over Atlanta"
+                  fill
+                  className="object-cover object-top"
+                />
+              </div>
+              {/* Gradient accent corner */}
+              <div className="absolute -bottom-2 -right-2 w-12 h-12 rounded-lg gradient-cta opacity-20" />
+              <div className="absolute -top-2 -left-2 w-8 h-8 rounded-lg bg-accent opacity-15" />
+            </div>
+            {/* Copy */}
+            <div>
+              <span className="text-accent text-xs font-bold uppercase tracking-[0.12em] block mb-2">
+                Meet the Founder
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-bold text-text-white mb-3">
+                Hunter Weeks
+              </h3>
+              <p className="text-text-muted text-base leading-relaxed mb-4 max-w-lg">
+                No account managers. No middlemen. You work directly with me &mdash;
+                the person writing your code, designing your graphics, and building your AI tools.
+                5+ years, 150+ projects, and every single one started with a free demo.
+              </p>
+              <div className="flex gap-3 flex-wrap">
+                <Link
+                  href="/about"
+                  className="border border-white/20 hover:border-accent-light/40 hover:bg-white/[0.04] text-text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all hover:-translate-y-0.5"
+                >
+                  Learn More About Me →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ══ PORTFOLIO — Shape-framed browser cards ══ */}
       <section className="relative py-24 bg-bg-light overflow-hidden">
         {/* Top diagonal entry */}
@@ -344,7 +388,7 @@ export default function Home() {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="reveal group browser-stack bg-white border border-border-light rounded-2xl overflow-hidden hover-tilt"
+                className="reveal group bg-white border border-border-light rounded-2xl overflow-hidden hover-tilt"
               >
                 {/* Browser frame mockup */}
                 <div className="bg-[#1a0a24] border-b border-border-dark">
@@ -382,7 +426,7 @@ export default function Home() {
                   </div>
                 </div>
                 {/* Info */}
-                <div className="p-6 slash-card">
+                <div className="p-6">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-lg font-bold text-text-dark group-hover:text-accent-dark transition-colors">
                       {project.name}
@@ -540,7 +584,7 @@ export default function Home() {
             ].map((t) => (
               <div
                 key={t.name}
-                className="reveal relative bg-bg-card border border-border-dark rounded-2xl p-8 slash-stripe hover-tilt"
+                className="reveal relative bg-bg-card border border-border-dark rounded-2xl p-8 hover-tilt"
               >
                 {/* Code bracket accent */}
                 <span className="absolute top-3 left-5 text-4xl font-bold leading-none select-none font-mono" style={{ color: `${t.accent}15` }}>{`{`}</span>
@@ -600,6 +644,16 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Code bracket frame */}
           <span className="text-accent/10 text-sm font-mono tracking-wider block mb-6">&lt;build_something_great&gt;</span>
+          {/* Founder avatar */}
+          <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-accent/30 mx-auto mb-6 shadow-lg">
+            <Image
+              src="/headshot-hunter.jpeg"
+              alt="Hunter Weeks"
+              width={64}
+              height={64}
+              className="object-cover object-top w-full h-full"
+            />
+          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-white mb-4">
             Ready to See What We Can{" "}
             <span className="shimmer-text">Build</span> for You?

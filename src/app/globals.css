@@ -344,12 +344,13 @@ h1, h2, h3, h4, h5, h6 {
   transform: skewX(-12deg);
 }
 
-/* Interactive hover tilt */
+/* Interactive hover lift */
 .hover-tilt {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .hover-tilt:hover {
-  transform: translateY(-4px) rotate(-0.5deg);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(155,89,182,0.1);
 }
 
 /* Shimmer text effect for highlighted words */

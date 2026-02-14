@@ -76,8 +76,8 @@ export default function PricingSection() {
         {/* Pricing Cards */}
         <div className="grid md:grid-cols-3 gap-6">
           {/* Starter */}
-          <div className="reveal slash-card hover-tilt bg-bg-card border border-border-dark rounded-2xl p-8 flex flex-col">
-            {/* Bracket accents */}
+          <div className="reveal relative hover-tilt bg-bg-card border border-border-dark rounded-2xl p-8 flex flex-col">
+            {/* Bracket accent */}
             <span className="absolute top-3 left-4 text-3xl font-bold text-accent/8 leading-none select-none font-mono">{`{`}</span>
             <div className="text-xs font-bold uppercase tracking-[0.1em] text-text-muted mb-2">
               Starter
@@ -116,7 +116,7 @@ export default function PricingSection() {
           </div>
 
           {/* Professional */}
-          <div className="reveal relative slash-card hover-tilt bg-bg-card border-2 border-[#E91E8C] rounded-2xl p-8 flex flex-col glow-magenta">
+          <div className="reveal relative hover-tilt bg-bg-card border-2 border-[#E91E8C] rounded-2xl p-8 flex flex-col glow-magenta">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 gradient-cta text-white text-[11px] font-bold uppercase tracking-wider px-4 py-1 rounded-full">
               Most Popular
             </div>
@@ -158,7 +158,7 @@ export default function PricingSection() {
           </div>
 
           {/* Enterprise */}
-          <div className="reveal slash-card hover-tilt bg-bg-card border border-border-dark rounded-2xl p-8 flex flex-col">
+          <div className="reveal relative hover-tilt bg-bg-card border border-border-dark rounded-2xl p-8 flex flex-col">
             <span className="absolute bottom-3 right-4 text-3xl font-bold text-accent/8 leading-none select-none font-mono">{`}`}</span>
             <div className="text-xs font-bold uppercase tracking-[0.1em] text-text-muted mb-2">
               Enterprise
