@@ -17,6 +17,16 @@ export default function PricingSection() {
           WebkitMaskImage: "radial-gradient(ellipse 60% 40% at 50% 30%, black 10%, transparent 70%)",
         }}
       />
+      {/* Fine grid lines — barely perceptible architectural texture */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.015]"
+        style={{
+          backgroundImage: "linear-gradient(rgba(155,89,182,1) 1px, transparent 1px), linear-gradient(90deg, rgba(155,89,182,1) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+          maskImage: "linear-gradient(180deg, transparent 0%, black 30%, black 70%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(180deg, transparent 0%, black 30%, black 70%, transparent 100%)",
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-6">
@@ -37,6 +47,14 @@ export default function PricingSection() {
 
         {/* Savings Callout */}
         <div className="reveal max-w-3xl mx-auto mb-14 relative bg-gradient-to-r from-emerald/10 to-accent-soft border border-emerald/20 rounded-2xl p-8 text-center slash-stripe overflow-hidden">
+          {/* Grid texture inside savings callout */}
+          <div
+            className="absolute inset-0 pointer-events-none opacity-[0.02]"
+            style={{
+              backgroundImage: "linear-gradient(rgba(74,140,42,1) 1px, transparent 1px), linear-gradient(90deg, rgba(74,140,42,1) 1px, transparent 1px)",
+              backgroundSize: "32px 32px",
+            }}
+          />
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-4 relative z-10">
             <div>
               <div className="text-text-muted text-xs uppercase tracking-wider mb-1">
@@ -74,21 +92,34 @@ export default function PricingSection() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 relative">
+          {/* Connecting line between cards (desktop only) */}
+          <div className="hidden md:block absolute top-1/2 left-[16.7%] right-[16.7%] h-px bg-gradient-to-r from-accent/5 via-[#E91E8C]/10 to-accent/5 z-0" />
+
           {/* Starter */}
-          <div className="reveal relative hover-tilt bg-bg-card border border-border-dark rounded-2xl p-8 flex flex-col">
+          <div className="reveal relative hover-tilt bg-bg-card border border-border-dark rounded-2xl p-8 flex flex-col overflow-hidden group z-10">
+            {/* Grid texture on hover */}
+            <div
+              className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-[0.015] transition-opacity duration-700"
+              style={{
+                backgroundImage: "linear-gradient(rgba(155,89,182,1) 1px, transparent 1px), linear-gradient(90deg, rgba(155,89,182,1) 1px, transparent 1px)",
+                backgroundSize: "24px 24px",
+              }}
+            />
+            {/* Corner accent triangle */}
+            <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none" style={{ background: "linear-gradient(135deg, transparent 50%, rgba(155,89,182,0.04) 50%)" }} />
             {/* Bracket accent */}
             <span className="absolute top-3 left-4 text-3xl font-bold text-accent/8 leading-none select-none font-mono">{`{`}</span>
-            <div className="text-xs font-bold uppercase tracking-[0.1em] text-text-muted mb-2">
+            <div className="text-xs font-bold uppercase tracking-[0.1em] text-text-muted mb-2 relative z-10">
               Starter
             </div>
-            <div className="text-5xl font-extrabold text-text-white leading-none mb-1">
+            <div className="text-5xl font-extrabold text-text-white leading-none mb-1 relative z-10">
               $3<span className="text-base font-normal text-text-muted">/mo</span>
             </div>
-            <div className="text-sm text-text-muted mb-6">
+            <div className="text-sm text-text-muted mb-6 relative z-10">
               Just $36/year &mdash; unbeatable value
             </div>
-            <ul className="space-y-3 mb-8 flex-1">
+            <ul className="space-y-3 mb-8 flex-1 relative z-10">
               {[
                 "Fast, secure hosting",
                 "SSL certificate included",
@@ -109,27 +140,42 @@ export default function PricingSection() {
             </ul>
             <Link
               href="/contact"
-              className="w-full text-center border border-white/20 hover:border-white/40 hover:bg-white/[0.04] text-text-white font-semibold py-3 rounded-lg transition-all"
+              className="w-full text-center border border-white/20 hover:border-white/40 hover:bg-white/[0.04] text-text-white font-semibold py-3 rounded-lg transition-all relative z-10"
             >
               Get Started
             </Link>
           </div>
 
           {/* Professional */}
-          <div className="reveal relative hover-tilt bg-bg-card border-2 border-[#E91E8C] rounded-2xl p-8 flex flex-col glow-magenta">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 gradient-cta text-white text-[11px] font-bold uppercase tracking-wider px-4 py-1 rounded-full">
+          <div className="reveal relative hover-tilt bg-bg-card border-2 border-[#E91E8C] rounded-2xl p-8 flex flex-col glow-magenta overflow-hidden group z-10">
+            {/* Grid texture on hover */}
+            <div
+              className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-[0.02] transition-opacity duration-700"
+              style={{
+                backgroundImage: "linear-gradient(rgba(233,30,140,1) 1px, transparent 1px), linear-gradient(90deg, rgba(233,30,140,1) 1px, transparent 1px)",
+                backgroundSize: "24px 24px",
+              }}
+            />
+            {/* Diagonal slash accent */}
+            <div className="absolute inset-0 pointer-events-none" style={{
+              background: "linear-gradient(135deg, transparent 60%, rgba(233,30,140,0.03) 61%)",
+            }} />
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 gradient-cta text-white text-[11px] font-bold uppercase tracking-wider px-4 py-1 rounded-full z-20">
               Most Popular
             </div>
-            <div className="text-xs font-bold uppercase tracking-[0.1em] text-text-muted mb-2">
+            {/* Bracket accents */}
+            <span className="absolute top-3 left-4 text-3xl font-bold leading-none select-none font-mono" style={{ color: "rgba(233,30,140,0.08)" }}>{`{`}</span>
+            <span className="absolute bottom-3 right-4 text-3xl font-bold leading-none select-none font-mono" style={{ color: "rgba(233,30,140,0.08)" }}>{`}`}</span>
+            <div className="text-xs font-bold uppercase tracking-[0.1em] text-text-muted mb-2 relative z-10">
               Professional
             </div>
-            <div className="text-5xl font-extrabold text-text-white leading-none mb-1">
+            <div className="text-5xl font-extrabold text-text-white leading-none mb-1 relative z-10">
               $9<span className="text-base font-normal text-text-muted">/mo</span>
             </div>
-            <div className="text-sm text-text-muted mb-6">
+            <div className="text-sm text-text-muted mb-6 relative z-10">
               Support + monthly updates
             </div>
-            <ul className="space-y-3 mb-8 flex-1">
+            <ul className="space-y-3 mb-8 flex-1 relative z-10">
               {[
                 "Everything in Starter",
                 "Priority support (same-day)",
@@ -151,25 +197,36 @@ export default function PricingSection() {
             </ul>
             <Link
               href="/contact"
-              className="w-full text-center gradient-cta text-white font-semibold py-3 rounded-lg transition-all"
+              className="w-full text-center gradient-cta text-white font-semibold py-3 rounded-lg transition-all relative z-10"
             >
               Get Started
             </Link>
           </div>
 
           {/* Enterprise */}
-          <div className="reveal relative hover-tilt bg-bg-card border border-border-dark rounded-2xl p-8 flex flex-col">
+          <div className="reveal relative hover-tilt bg-bg-card border border-border-dark rounded-2xl p-8 flex flex-col overflow-hidden group z-10">
+            {/* Grid texture on hover */}
+            <div
+              className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-[0.015] transition-opacity duration-700"
+              style={{
+                backgroundImage: "linear-gradient(rgba(245,166,35,1) 1px, transparent 1px), linear-gradient(90deg, rgba(245,166,35,1) 1px, transparent 1px)",
+                backgroundSize: "24px 24px",
+              }}
+            />
+            {/* Corner accent triangle */}
+            <div className="absolute bottom-0 left-0 w-20 h-20 pointer-events-none" style={{ background: "linear-gradient(315deg, transparent 50%, rgba(245,166,35,0.03) 50%)" }} />
+            <span className="absolute top-3 left-4 text-3xl font-bold leading-none select-none font-mono" style={{ color: "rgba(245,166,35,0.06)" }}>{`{`}</span>
             <span className="absolute bottom-3 right-4 text-3xl font-bold text-accent/8 leading-none select-none font-mono">{`}`}</span>
-            <div className="text-xs font-bold uppercase tracking-[0.1em] text-text-muted mb-2">
+            <div className="text-xs font-bold uppercase tracking-[0.1em] text-text-muted mb-2 relative z-10">
               Enterprise
             </div>
-            <div className="text-5xl font-extrabold text-text-white leading-none mb-1">
+            <div className="text-5xl font-extrabold text-text-white leading-none mb-1 relative z-10">
               $19<span className="text-base font-normal text-text-muted">/mo</span>
             </div>
-            <div className="text-sm text-text-muted mb-6">
+            <div className="text-sm text-text-muted mb-6 relative z-10">
               Dedicated partner for growth
             </div>
-            <ul className="space-y-3 mb-8 flex-1">
+            <ul className="space-y-3 mb-8 flex-1 relative z-10">
               {[
                 "Everything in Professional",
                 "Dedicated Slack/phone support",
@@ -192,7 +249,7 @@ export default function PricingSection() {
             </ul>
             <Link
               href="/contact"
-              className="w-full text-center border border-white/20 hover:border-white/40 hover:bg-white/[0.04] text-text-white font-semibold py-3 rounded-lg transition-all"
+              className="w-full text-center border border-white/20 hover:border-white/40 hover:bg-white/[0.04] text-text-white font-semibold py-3 rounded-lg transition-all relative z-10"
             >
               Get Started
             </Link>

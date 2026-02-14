@@ -91,8 +91,16 @@ export default function Home() {
 
             {/* Right — Visual with browser stack */}
             <div className="relative hidden lg:flex items-center justify-center animate-[fadeRight_0.7s_ease_both_0.15s]">
-              <div className="browser-stack">
-                <div className="bg-bg-card border border-border-dark rounded-2xl p-8 w-full max-w-md shadow-2xl slash-card relative">
+              {/* Faint grid behind the card */}
+              <div
+                className="absolute inset-0 opacity-[0.02] pointer-events-none"
+                style={{
+                  backgroundImage: "linear-gradient(rgba(155,89,182,1) 1px, transparent 1px), linear-gradient(90deg, rgba(155,89,182,1) 1px, transparent 1px)",
+                  backgroundSize: "48px 48px",
+                }}
+              />
+              <div className="perspective-container">
+                <div className="device-tilt bg-bg-card border border-border-dark rounded-2xl p-8 w-full max-w-md shadow-2xl relative">
                   <div className="inline-flex items-center gap-2 bg-emerald-soft text-emerald text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
                     <span className="w-1.5 h-1.5 bg-emerald rounded-full animate-pulse" />
                     Your demo is ready
@@ -214,19 +222,34 @@ export default function Home() {
             ].map((s) => (
               <div
                 key={s.title}
-                className="reveal hover-tilt bg-white border border-border-light rounded-2xl p-8 flex flex-col relative"
+                className="reveal hover-tilt bg-white border border-border-light rounded-2xl p-8 flex flex-col relative overflow-hidden group"
               >
+                {/* Grid line texture — barely visible */}
                 <div
-                  className={`w-13 h-13 rounded-xl flex items-center justify-center text-xl mb-5 ${s.bg}`}
+                  className="absolute inset-0 pointer-events-none opacity-[0.02]"
+                  style={{
+                    backgroundImage: `linear-gradient(${s.accent} 1px, transparent 1px), linear-gradient(90deg, ${s.accent} 1px, transparent 1px)`,
+                    backgroundSize: "32px 32px",
+                  }}
+                />
+                {/* Corner accent triangle */}
+                <div
+                  className="absolute top-0 right-0 w-20 h-20 pointer-events-none"
+                  style={{ background: `linear-gradient(135deg, transparent 50%, ${s.accent}06 50%)` }}
+                />
+                {/* Bracket accent */}
+                <span className="absolute top-2 left-3 text-2xl font-bold leading-none select-none font-mono opacity-[0.04]" style={{ color: s.accent }}>{`{`}</span>
+                <div
+                  className={`w-13 h-13 rounded-xl flex items-center justify-center text-xl mb-5 ${s.bg} relative z-10`}
                 >
                   {s.icon}
                 </div>
-                <h3 className="text-xl font-bold text-text-dark mb-2">{s.title}</h3>
-                <p className="text-text-body text-[0.95rem] flex-1 leading-relaxed">
+                <h3 className="text-xl font-bold text-text-dark mb-2 relative z-10">{s.title}</h3>
+                <p className="text-text-body text-[0.95rem] flex-1 leading-relaxed relative z-10">
                   {s.desc}
                 </p>
                 <span
-                  className={`inline-block text-xs font-semibold px-3 py-1 rounded-full mt-4 w-fit ${s.tagColor}`}
+                  className={`inline-block text-xs font-semibold px-3 py-1 rounded-full mt-4 w-fit relative z-10 ${s.tagColor}`}
                 >
                   {s.tag}
                 </span>
@@ -287,11 +310,23 @@ export default function Home() {
 
       {/* ══ MEET THE FOUNDER — Personal trust element ══ */}
       <section className="py-20 bg-bg-dark relative overflow-hidden">
+        {/* Diagonal accent line */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: "linear-gradient(155deg, transparent 55%, rgba(155,89,182,0.02) 56%, rgba(155,89,182,0.02) 58%, transparent 59%)",
+        }} />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="reveal flex flex-col md:flex-row items-center gap-10 md:gap-16">
-            {/* Headshot */}
+            {/* Headshot with layered depth */}
             <div className="relative shrink-0">
-              <div className="w-40 h-40 md:w-52 md:h-52 rounded-2xl overflow-hidden border-2 border-accent/20 shadow-2xl relative">
+              {/* Grid behind headshot */}
+              <div
+                className="absolute -inset-6 opacity-[0.03] pointer-events-none rounded-2xl"
+                style={{
+                  backgroundImage: "linear-gradient(rgba(155,89,182,1) 1px, transparent 1px), linear-gradient(90deg, rgba(155,89,182,1) 1px, transparent 1px)",
+                  backgroundSize: "24px 24px",
+                }}
+              />
+              <div className="w-40 h-40 md:w-52 md:h-52 rounded-2xl overflow-hidden border border-accent/15 shadow-2xl relative">
                 <Image
                   src="/headshot_square_preview_1024.png"
                   alt="Hunter Weeks — Founder of Design over Atlanta"
@@ -299,9 +334,9 @@ export default function Home() {
                   className="object-cover object-top"
                 />
               </div>
-              {/* Gradient accent corner */}
-              <div className="absolute -bottom-2 -right-2 w-12 h-12 rounded-lg gradient-cta opacity-20" />
-              <div className="absolute -top-2 -left-2 w-8 h-8 rounded-lg bg-accent opacity-15" />
+              {/* Subtle accent shapes */}
+              <div className="absolute -bottom-3 -right-3 w-14 h-14 rounded-xl border border-accent/10 pointer-events-none" />
+              <div className="absolute -top-3 -left-3 w-10 h-10 rounded-xl border border-[#E91E8C]/8 pointer-events-none" />
             </div>
             {/* Copy */}
             <div>
@@ -441,10 +476,10 @@ export default function Home() {
                     className={`block device-tilt relative rounded-2xl overflow-hidden group trace-border`}
                     style={{ "--trace-color": project.color } as React.CSSProperties}
                   >
-                    {/* Glow behind device */}
+                    {/* Subtle glow behind device — restrained, not poppy */}
                     <div
-                      className="absolute -inset-4 rounded-3xl blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-                      style={{ background: project.colorGlow }}
+                      className="absolute -inset-8 rounded-3xl blur-[80px] opacity-0 group-hover:opacity-30 transition-opacity duration-1000 pointer-events-none"
+                      style={{ background: project.color }}
                     />
                     {/* Browser chrome */}
                     <div className="relative bg-[#1a0a24] border border-white/[0.06] rounded-2xl overflow-hidden shadow-2xl">
@@ -625,6 +660,14 @@ export default function Home() {
 
       {/* ══ PROCESS — Slash-connected steps ══ */}
       <section className="relative py-24 bg-bg-white overflow-hidden">
+        {/* Faint grid texture */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.015]"
+          style={{
+            backgroundImage: "linear-gradient(#7B2D8E 1px, transparent 1px), linear-gradient(90deg, #7B2D8E 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-accent-dark text-xs font-bold uppercase tracking-[0.12em] block mb-3">
@@ -639,43 +682,68 @@ export default function Home() {
             </p>
             <div className="gradient-line w-20 mx-auto mt-6" />
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+            {/* Connecting line between steps (desktop only) */}
+            <div className="hidden lg:block absolute top-[72px] left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-[#7B2D8E]/10 via-[#E91E8C]/15 to-[#F5A623]/10 z-0" />
             {[
               {
                 n: "01",
                 title: "Discovery",
                 desc: "Share your goals, audience, and timeline. We ask the right questions to nail the scope.",
                 accent: "#7B2D8E",
+                icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>,
               },
               {
                 n: "02",
                 title: "Free Demo",
                 desc: "We build a working preview of your site or design. You review it hands-on, no payment required.",
                 accent: "#9B59B6",
+                icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>,
               },
               {
                 n: "03",
                 title: "Refine",
                 desc: "Approve, tweak, or pivot. We iterate fast until every detail is dialed in.",
                 accent: "#E91E8C",
+                icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" /></svg>,
               },
               {
                 n: "04",
                 title: "Launch",
                 desc: "Final files delivered or site goes live. You get everything — source files, assets, full ownership.",
                 accent: "#F5A623",
+                icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" /></svg>,
               },
             ].map((s) => (
-              <div key={s.n} className="reveal relative text-center p-8 group">
+              <div key={s.n} className="reveal relative text-center p-8 group z-10">
                 {/* Diagonal accent bg on hover */}
                 <div
-                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                   style={{
-                    background: `linear-gradient(135deg, transparent 60%, ${s.accent}08 61%, ${s.accent}08 100%)`,
+                    background: `linear-gradient(135deg, transparent 55%, ${s.accent}05 56%)`,
+                  }}
+                />
+                {/* Grid on hover */}
+                <div
+                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-[0.015] transition-opacity duration-500 pointer-events-none"
+                  style={{
+                    backgroundImage: `linear-gradient(${s.accent} 1px, transparent 1px), linear-gradient(90deg, ${s.accent} 1px, transparent 1px)`,
+                    backgroundSize: "20px 20px",
                   }}
                 />
                 <div className="relative z-10">
-                  <div className="step-number text-5xl font-black leading-none mb-4" style={{ color: `${s.accent}20` }}>
+                  {/* Step icon circle */}
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 border transition-colors duration-300"
+                    style={{
+                      backgroundColor: `${s.accent}08`,
+                      borderColor: `${s.accent}15`,
+                      color: s.accent,
+                    }}
+                  >
+                    {s.icon}
+                  </div>
+                  <div className="step-number text-4xl font-black leading-none mb-3" style={{ color: `${s.accent}15` }}>
                     {s.n}
                   </div>
                   <h3 className="text-lg font-bold text-text-dark mb-2">{s.title}</h3>
@@ -704,6 +772,18 @@ export default function Home() {
         <div className="absolute inset-0 pointer-events-none" style={{
           background: "linear-gradient(160deg, transparent 35%, rgba(155,89,182,0.02) 36%, rgba(155,89,182,0.02) 65%, transparent 66%)",
         }} />
+        {/* Fine grid lines */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.012]"
+          style={{
+            backgroundImage: "linear-gradient(rgba(233,30,140,1) 1px, transparent 1px), linear-gradient(90deg, rgba(233,30,140,1) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
+            maskImage: "radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%)",
+            WebkitMaskImage: "radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%)",
+          }}
+        />
+        {/* Soft orb behind cards */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#9B59B6] opacity-[0.02] blur-[150px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-[#E91E8C] text-xs font-bold uppercase tracking-[0.12em] block mb-3">
@@ -735,8 +815,25 @@ export default function Home() {
             ].map((t) => (
               <div
                 key={t.name}
-                className="reveal relative bg-bg-card border border-border-dark rounded-2xl p-8 hover-tilt"
+                className="reveal relative bg-bg-card border border-border-dark rounded-2xl p-8 hover-tilt overflow-hidden group"
               >
+                {/* Grid texture on hover — very subtle */}
+                <div
+                  className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-[0.015] transition-opacity duration-700"
+                  style={{
+                    backgroundImage: `linear-gradient(${t.accent} 1px, transparent 1px), linear-gradient(90deg, ${t.accent} 1px, transparent 1px)`,
+                    backgroundSize: "28px 28px",
+                  }}
+                />
+                {/* Corner accent triangle */}
+                <div
+                  className="absolute top-0 right-0 w-24 h-24 pointer-events-none"
+                  style={{ background: `linear-gradient(135deg, transparent 50%, ${t.accent}05 50%)` }}
+                />
+                {/* Diagonal slash */}
+                <div className="absolute inset-0 pointer-events-none" style={{
+                  background: `linear-gradient(155deg, transparent 65%, ${t.accent}03 66%)`,
+                }} />
                 {/* Code bracket accent */}
                 <span className="absolute top-3 left-5 text-4xl font-bold leading-none select-none font-mono" style={{ color: `${t.accent}15` }}>{`{`}</span>
                 <span className="absolute bottom-3 right-5 text-4xl font-bold leading-none select-none font-mono" style={{ color: `${t.accent}15` }}>{`}`}</span>
@@ -780,6 +877,16 @@ export default function Home() {
               linear-gradient(155deg, transparent 65%, rgba(245,166,35,0.03) 66%, rgba(245,166,35,0.03) 68%, transparent 69%)
             `,
           }} />
+          {/* Fine grid lines — architectural depth */}
+          <div
+            className="absolute inset-0 opacity-[0.015]"
+            style={{
+              backgroundImage: "linear-gradient(rgba(155,89,182,1) 1px, transparent 1px), linear-gradient(90deg, rgba(155,89,182,1) 1px, transparent 1px)",
+              backgroundSize: "40px 40px",
+              maskImage: "radial-gradient(ellipse 50% 60% at 50% 50%, black 20%, transparent 70%)",
+              WebkitMaskImage: "radial-gradient(ellipse 50% 60% at 50% 50%, black 20%, transparent 70%)",
+            }}
+          />
           {/* Dot grid fade */}
           <div
             className="absolute inset-0"
@@ -795,15 +902,19 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Code bracket frame */}
           <span className="text-accent/10 text-sm font-mono tracking-wider block mb-6">&lt;build_something_great&gt;</span>
-          {/* Founder avatar */}
-          <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-accent/30 mx-auto mb-6 shadow-lg">
-            <Image
-              src="/headshot_square_preview_1024.png"
-              alt="Hunter Weeks"
-              width={64}
-              height={64}
-              className="object-cover object-top w-full h-full"
-            />
+          {/* Founder avatar with layered depth */}
+          <div className="relative inline-block mb-6">
+            {/* Subtle accent ring */}
+            <div className="absolute -inset-2 rounded-full border border-accent/8 pointer-events-none" />
+            <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-accent/30 shadow-lg relative">
+              <Image
+                src="/headshot_square_preview_1024.png"
+                alt="Hunter Weeks"
+                width={64}
+                height={64}
+                className="object-cover object-top w-full h-full"
+              />
+            </div>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-white mb-4">
             Ready to See What We Can{" "}
@@ -816,7 +927,7 @@ export default function Home() {
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
               href="/contact"
-              className="gradient-cta text-white font-semibold px-8 py-4 rounded-lg transition-all hover:-translate-y-1 hover:shadow-[0_8px_50px_rgba(233,30,140,0.35)] text-lg"
+              className="gradient-cta text-white font-semibold px-8 py-4 rounded-lg transition-all hover:-translate-y-1 hover:shadow-[0_8px_50px_rgba(233,30,140,0.25)] text-lg"
             >
               Get Your Free Demo
             </Link>
