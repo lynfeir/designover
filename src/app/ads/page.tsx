@@ -663,6 +663,203 @@ const DESIGNS: AdDesign[] = [
     accent: "#9B59B6",
     accentRGB: "155,89,182",
   },
+
+  // ═══════════════════════════════════════════════
+  // SLASH ARCHITECTURE — Photo-Concept Ad Series
+  // ═══════════════════════════════════════════════
+
+  // ─── 32. FOUNDER STORY — HUNTER HEADSHOT CONCEPT ───
+  {
+    id: "founder-story",
+    name: "Meet the Founder",
+    category: "Personal Brand",
+    layout: "hero",
+    headline: "One Dev.\nNo Agency.\nBetter Results.",
+    subline: "Hi, I'm Hunter. I build custom\nwebsites for $200 that agencies\ncharge $2,000+ for.",
+    cta: "Work With Me Directly",
+    badge: "MEET HUNTER",
+    accent: "#9B59B6",
+    accentRGB: "155,89,182",
+    bulletPoints: [
+      "Direct access — no middlemen",
+      "Same-day response guaranteed",
+      "5+ years, 150+ projects shipped",
+      "100% code ownership included",
+    ],
+  },
+  // ─── 33. PORTFOLIO SHOWCASE — BEFORE/AFTER ───
+  {
+    id: "portfolio-showcase",
+    name: "Portfolio Flex",
+    category: "Personal Brand",
+    layout: "stats",
+    headline: "Real Sites.\nReal Businesses.\nReal Results.",
+    subline: "Every project in our portfolio\nis live and generating revenue.",
+    cta: "See All Projects",
+    badge: "LIVE PORTFOLIO",
+    accent: "#E91E8C",
+    accentRGB: "233,30,140",
+    statsData: {
+      items: [
+        { value: "Fit4Lyfe", label: "3x Conversions" },
+        { value: "BookNST", label: "Booking Platform" },
+        { value: "PCC", label: "Camp Enrollment" },
+        { value: "Alchemy", label: "Premium Auto Spa" },
+      ],
+    },
+  },
+  // ─── 34. THE STACK — EVERYTHING YOU GET ───
+  {
+    id: "the-stack",
+    name: "The Full Stack",
+    category: "Personal Brand",
+    layout: "process",
+    headline: "What $200\nActually Gets You",
+    subline: "Not a template. Not a theme.\nA fully custom-coded website\nbuilt from scratch.",
+    cta: "Get Your Free Demo",
+    badge: "THE $200 STACK",
+    accent: "#9B59B6",
+    accentRGB: "155,89,182",
+    processSteps: [
+      "Custom responsive design",
+      "Hand-coded (React/Next.js)",
+      "Mobile-first, blazing fast",
+      "SEO optimized from day one",
+      "SSL certificate included",
+      "Full source code — you own it",
+    ],
+  },
+  // ─── 35. NICHE CALLOUT — RESTAURANTS ───
+  {
+    id: "niche-restaurants",
+    name: "Restaurants",
+    category: "Niche Ads",
+    layout: "hero",
+    headline: "Your Restaurant\nNeeds More Than\nA Menu PDF.",
+    subline: "Online ordering, reservations,\nGoogle Maps, reviews — all in\none custom $200 website.",
+    cta: "See Restaurant Demos",
+    badge: "RESTAURANTS",
+    accent: "#f59e0b",
+    accentRGB: "245,158,11",
+    bulletPoints: [
+      "Online menu with photos",
+      "Reservation system built in",
+      "Google Maps integration",
+      "Mobile-first design",
+    ],
+  },
+  // ─── 36. NICHE CALLOUT — FITNESS ───
+  {
+    id: "niche-fitness",
+    name: "Fitness & Gyms",
+    category: "Niche Ads",
+    layout: "hero",
+    headline: "Your Gym's\nWebsite Should\nWork As Hard\nAs You Do.",
+    subline: "Class schedules, membership\nsign-ups, trainer profiles —\ncustom-built from $200.",
+    cta: "Build Your Gym Site",
+    badge: "FITNESS & GYMS",
+    accent: "#4A8C2A",
+    accentRGB: "74,140,42",
+    bulletPoints: [
+      "Class schedule integration",
+      "Membership sign-up forms",
+      "Trainer bio pages",
+      "Photo galleries & testimonials",
+    ],
+  },
+  // ─── 37. NICHE CALLOUT — BARBERS/SALONS ───
+  {
+    id: "niche-beauty",
+    name: "Barbers & Salons",
+    category: "Niche Ads",
+    layout: "hero",
+    headline: "Barbers. Salons.\nSpas. Your Clients\nAre Googling You.",
+    subline: "Online booking, portfolio gallery,\npricing page — all custom.\nStarting at $200.",
+    cta: "Get Your Salon Site",
+    badge: "BEAUTY & GROOMING",
+    accent: "#E91E8C",
+    accentRGB: "233,30,140",
+    bulletPoints: [
+      "Online booking system",
+      "Service menu & pricing",
+      "Before/after photo gallery",
+      "Instagram feed integration",
+    ],
+  },
+  // ─── 38. NICHE CALLOUT — CONTRACTORS ───
+  {
+    id: "niche-contractors",
+    name: "Contractors",
+    category: "Niche Ads",
+    layout: "hero",
+    headline: "Contractors:\nYour Best Lead\nGen Tool Is A\n$200 Website.",
+    subline: "Project galleries, quote requests,\nservice areas, reviews —\ncustom-coded. Not a template.",
+    cta: "Get Your Contractor Site",
+    badge: "HOME SERVICES",
+    accent: "#3b82f6",
+    accentRGB: "59,130,246",
+    bulletPoints: [
+      "Project photo galleries",
+      "Quote request forms",
+      "Service area maps",
+      "Google review integration",
+    ],
+  },
+  // ─── 39. THE ANTI-AGENCY ───
+  {
+    id: "anti-agency",
+    name: "Anti-Agency",
+    category: "Personal Brand",
+    layout: "urgency",
+    headline: "We're Not\nAn Agency.\nThat's The Point.",
+    subline: "No account managers. No project\nmanagers. No bloated teams.\nJust one skilled developer who\nbuilds your site and talks to\nyou directly.",
+    cta: "Skip the Agency",
+    badge: "THE ANTI-AGENCY",
+    accent: "#f43f5e",
+    accentRGB: "244,63,94",
+    bulletPoints: [
+      "You talk to the person building your site",
+      "No telephone game, no miscommunication",
+      "Faster turnaround — 3-7 days, not 3-7 weeks",
+    ],
+  },
+  // ─── 40. SOCIAL PROOF WALL ───
+  {
+    id: "proof-wall",
+    name: "Proof Wall",
+    category: "Social Proof",
+    layout: "testimonial",
+    headline: "Don't Take\nOur Word For It",
+    subline: "Real reviews from real business owners.",
+    cta: "Read All Reviews",
+    badge: "CLIENT RESULTS",
+    accent: "#f59e0b",
+    accentRGB: "245,158,11",
+    testimonialData: {
+      quote: "I was paying $200/mo for hosting on a template site. Hunter built me a custom site for $200 total and hosting is $3/mo. I save over $2,000/year now.",
+      name: "Atlanta Business Owner",
+      title: "Service Industry",
+    },
+  },
+  // ─── 41. THE DARE ───
+  {
+    id: "the-dare",
+    name: "The Dare",
+    category: "Eye-Catcher",
+    layout: "eye-catcher",
+    headline: "Find a Better\nCustom Site\nFor $200.",
+    subline: "We'll wait.\n\nNo templates. No page builders.\nHand-coded from scratch.\nOwn every line of code.",
+    cta: "Take the Challenge",
+    badge: "WE DARE YOU",
+    accent: "#f43f5e",
+    accentRGB: "244,63,94",
+    bulletPoints: [
+      "100% custom code — not WordPress",
+      "Free demo before you pay a dime",
+      "150+ businesses already switched",
+      "Same-day response guaranteed",
+    ],
+  },
 ];
 
 /* ═══════════════════════ CANVAS RENDERERS ═══════════════════════ */
@@ -1818,11 +2015,11 @@ export default function AdsPage() {
             <span className="gradient-text">Convert</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-text-muted leading-relaxed">
-            31 marketing-driven ad designs across every platform.
+            41 marketing-driven ad designs across every platform.
             Hosting switches, redesigns, profile pics, banners — ready to post.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-semibold text-text-muted">
-            <span className="rounded-full bg-white/[0.05] px-3 py-1">31 Ad Designs</span>
+            <span className="rounded-full bg-white/[0.05] px-3 py-1">41 Ad Designs</span>
             <span className="rounded-full bg-white/[0.05] px-3 py-1">21 Platform Sizes</span>
             <span className="rounded-full bg-white/[0.05] px-3 py-1">Full Resolution PNGs</span>
             <span className="rounded-full bg-white/[0.05] px-3 py-1">One-Click Download</span>

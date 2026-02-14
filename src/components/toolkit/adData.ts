@@ -11,7 +11,10 @@ export type AdCategory =
   | "stats"
   | "limited"
   | "comparison"
-  | "faq";
+  | "faq"
+  | "founder"
+  | "niche"
+  | "portfolio";
 export type AdTheme = "dark" | "light" | "gradient" | "minimal";
 
 // Layout variants for visual diversity
@@ -77,6 +80,9 @@ export const CATEGORY_LABELS: Record<AdCategory, string> = {
   limited: "Limited Time",
   comparison: "Comparisons",
   faq: "FAQ Teasers",
+  founder: "Founder Story",
+  niche: "Niche Callouts",
+  portfolio: "Portfolio",
 };
 
 let _id = 0;
@@ -275,4 +281,58 @@ export const ADS: AdDefinition[] = [
 
   // Bonus TW
   { id: id("tw"), headline: "Your Website, Your Rules", subtext: "No locked-in platforms. No monthly template fees. Just custom code you own.", cta: "Learn More", format: "twitter", category: "service", theme: "gradient", layout: "diagonal" },
+
+  // ══════════════════════════════════════════
+  // FOUNDER STORY — PERSONAL BRAND (12 ads)
+  // ══════════════════════════════════════════
+
+  // IG Post — Founder
+  { id: id("ig"), headline: "One Dev.\nNo Agency.\nBetter Results.", subtext: "I'm Hunter. I build custom websites for $200 that agencies charge $2,000+ for. Direct access, no middlemen.", cta: "Work With Me", format: "ig-post", category: "founder", theme: "dark", layout: "left-align" },
+  { id: id("ig"), headline: "I'm Not\nAn Agency.\nThat's The Point.", subtext: "No account managers. No project managers. Just one developer who builds your site and talks to you directly.", cta: "Skip the Agency", format: "ig-post", category: "founder", theme: "gradient", layout: "diagonal" },
+  { id: id("ig"), headline: "What $200\nActually Gets You", subtext: "Custom responsive design. Hand-coded React/Next.js. Mobile-first. SEO optimized. SSL included. Full source code — you own it.", cta: "See the Full Stack", format: "ig-post", category: "founder", theme: "dark", layout: "icon-top", icon: "⚡" },
+
+  // IG Story — Founder
+  { id: id("story"), headline: "Hi, I'm\nHunter.", subtext: "I build custom websites\nfor small businesses.\nFrom $200.\nNo templates. No BS.", cta: "Tap to Start", format: "ig-story", category: "founder", theme: "dark", layout: "centered" },
+  { id: id("story"), headline: "Why I\nCharge\n$200", subtext: "No office rent.\nNo sales team.\nNo overhead.\nJust a dev who builds.", cta: "Learn More", format: "ig-story", category: "founder", theme: "gradient", layout: "minimal-line" },
+
+  // FB Post — Founder
+  { id: id("fb"), headline: "Meet Your Developer — Not an Account Manager", subtext: "At Design over Atlanta, you talk directly to the person building your site. No telephone game. No miscommunication. Faster results.", cta: "Meet Hunter", format: "fb-post", category: "founder", theme: "dark", layout: "left-align" },
+  { id: id("fb"), headline: "One Developer. 150+ Businesses. $200 Websites.", subtext: "I cut the overhead so you don't pay for my office rent, sales team, or project managers. Just clean code at honest prices.", cta: "See My Work", format: "fb-post", category: "founder", theme: "minimal", layout: "corner-accent" },
+
+  // Twitter — Founder
+  { id: id("tw"), headline: "Your dev should know your name.", subtext: "At DOA, you work directly with me. No ticket system, no account rep.", cta: "Let's Talk", format: "twitter", category: "founder", theme: "dark", layout: "minimal-line" },
+  { id: id("tw"), headline: "I'm the anti-agency.", subtext: "One dev. $200 websites. 150+ happy clients. Direct communication. Fast turnaround.", cta: "See Results", format: "twitter", category: "founder", theme: "gradient", layout: "bottom-bar" },
+
+  // ══════════════════════════════════════════
+  // NICHE CALLOUTS (12 ads)
+  // ══════════════════════════════════════════
+
+  // Restaurants
+  { id: id("ig"), headline: "Your Restaurant\nNeeds More Than\nA Menu PDF.", subtext: "Online ordering, reservations, Google Maps, reviews — all in one custom $200 website.", cta: "See Restaurant Demos", format: "ig-post", category: "niche", theme: "dark", layout: "icon-top", icon: "🍽️" },
+  { id: id("story"), headline: "Restaurant\nOwners:", subtext: "Your competitors are\ntaking online orders.\nAre you?\n\nCustom site from $200.", cta: "Get Started", format: "ig-story", category: "niche", theme: "dark", layout: "split" },
+  { id: id("fb"), headline: "Restaurant Owners: Your Customers Are Ordering Online", subtext: "If you don't have online ordering, you're losing revenue to the place down the street that does. Custom site from $200.", cta: "Build Your Restaurant Site", format: "fb-post", category: "niche", theme: "dark", layout: "left-align" },
+
+  // Fitness / Gyms
+  { id: id("ig"), headline: "Your Gym's\nWebsite Should\nWork As Hard\nAs You Do.", subtext: "Class schedules, membership sign-ups, trainer profiles — custom-built from $200.", cta: "Build Your Gym Site", format: "ig-post", category: "niche", theme: "dark", layout: "corner-accent" },
+  { id: id("story"), headline: "Gym\nOwners:", subtext: "Class schedules.\nMembership signups.\nTrainer bios.\nAll for $200.", cta: "Let's Build", format: "ig-story", category: "niche", theme: "gradient", layout: "stacked-badges", pills: ["Classes", "Signups", "Trainers", "Gallery"] },
+  { id: id("fb"), headline: "Gym & Fitness Studio Websites From $200", subtext: "Class schedules, membership sign-ups, trainer profiles, photo galleries. Custom-coded, not a template.", cta: "See Fitness Demos", format: "fb-post", category: "niche", theme: "dark", layout: "icon-top", icon: "💪" },
+
+  // Barbers / Salons
+  { id: id("ig"), headline: "Barbers. Salons.\nSpas. Your Clients\nAre Googling You.", subtext: "Online booking, portfolio gallery, pricing page — all custom. Starting at $200.", cta: "Get Your Salon Site", format: "ig-post", category: "niche", theme: "gradient", layout: "diagonal" },
+  { id: id("story"), headline: "Barbers\n&\nSalons:", subtext: "Online booking.\nBefore/after gallery.\nPricing & services.\nAll from $200.", cta: "Book a Demo", format: "ig-story", category: "niche", theme: "dark", layout: "icon-top", icon: "✂️" },
+
+  // Contractors
+  { id: id("ig"), headline: "Contractors:\nYour Best Lead\nGen Is A Website.", subtext: "Project galleries, quote requests, service areas, reviews — custom-coded for $200.", cta: "Build Your Site", format: "ig-post", category: "niche", theme: "dark", layout: "left-align" },
+  { id: id("fb"), headline: "Contractors & Home Services: Get More Leads for $200", subtext: "Project galleries, quote request forms, service area maps, review integration. Custom website, not a template.", cta: "See Contractor Demos", format: "fb-post", category: "niche", theme: "dark", layout: "stacked-badges", pills: ["Gallery", "Quotes", "Maps", "Reviews"] },
+
+  // ══════════════════════════════════════════
+  // PORTFOLIO SHOWCASE (6 ads)
+  // ══════════════════════════════════════════
+
+  { id: id("ig"), headline: "Real Sites.\nReal Businesses.\nReal Results.", subtext: "Every project in our portfolio is live and generating revenue for real businesses.", cta: "See All Projects", format: "ig-post", category: "portfolio", theme: "dark", layout: "big-number", statNumber: "150+", statLabel: "Live Websites" },
+  { id: id("story"), headline: "Our Work\nSpeaks\nFor Itself.", subtext: "BookNST. Pine Crest Camp.\nAlchemy Auto Spa. Fit4Lyfe.\n\nAll custom. All $200.", cta: "View Portfolio", format: "ig-story", category: "portfolio", theme: "dark", layout: "stacked-badges", pills: ["BookNST", "Pine Crest", "Alchemy", "Fit4Lyfe"] },
+  { id: id("fb"), headline: "150+ Live Websites. Every One Custom-Coded.", subtext: "BookNST, Pine Crest Camp, Alchemy Auto Spa, Fit4Lyfe — real businesses with real results. See our full portfolio.", cta: "View Our Work", format: "fb-post", category: "portfolio", theme: "dark", layout: "corner-accent" },
+  { id: id("tw"), headline: "150+ websites shipped. All custom.", subtext: "BookNST. Pine Crest Camp. Alchemy Auto Spa. Fit4Lyfe. Real sites, real businesses.", cta: "See Portfolio", format: "twitter", category: "portfolio", theme: "dark", layout: "left-align" },
+  { id: id("ig"), headline: "Fit4Lyfe:\n3x Conversions\nAfter Launch", subtext: "We built their landing page. It loads instantly and converts 3x better than their old site.", cta: "Get Results Like This", format: "ig-post", category: "portfolio", theme: "gradient", layout: "big-number", statNumber: "3x", statLabel: "More Conversions" },
+  { id: id("story"), headline: "Case Study:\nFit4Lyfe", subtext: "Before: slow template site.\nAfter: custom-coded, blazing fast.\nResult: 3x better conversions.\n\nAll for $200.", cta: "Your Turn", format: "ig-story", category: "portfolio", theme: "dark", layout: "bottom-bar" },
 ];
