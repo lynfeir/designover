@@ -409,17 +409,18 @@ export default function Home() {
           <div className="space-y-20">
             {[
               {
-                name: "BookNST",
+                name: "BookNest",
                 url: "https://booknst.com",
-                tagline: "Booking made effortless",
-                desc: "A full-featured booking platform with instant confirmations, calendar sync, and a conversion funnel that turns visitors into customers. Mobile-first, lightning fast.",
-                niche: "SaaS / Booking",
-                tags: ["Next.js", "Booking Engine", "Mobile-First", "SEO"],
+                tagline: "Your library, beautifully organized",
+                desc: "A book tracking platform where readers collect, review, and highlight their favorite reads. Notes along the journey, summaries on demand, and a personal library that grows with you.",
+                niche: "SaaS / Book Tracking",
+                tags: ["Next.js", "Reading Platform", "Mobile-First", "SEO"],
                 color: "#9B59B6",
                 colorSoft: "rgba(155,89,182,0.10)",
                 colorGlow: "rgba(155,89,182,0.15)",
-                stat: "Custom booking flow",
+                stat: "Personal library system",
                 reverse: false,
+                scene: "booking",
               },
               {
                 name: "Pine Crest Camp",
@@ -433,6 +434,7 @@ export default function Home() {
                 colorGlow: "rgba(74,140,42,0.15)",
                 stat: "Registration-optimized",
                 reverse: true,
+                scene: "camp",
               },
               {
                 name: "Alchemy Auto Spa",
@@ -446,6 +448,7 @@ export default function Home() {
                 colorGlow: "rgba(245,166,35,0.15)",
                 stat: "Online booking enabled",
                 reverse: false,
+                scene: "autospa",
               },
               {
                 name: "Fit4Lyfe",
@@ -459,6 +462,49 @@ export default function Home() {
                 colorGlow: "rgba(233,30,140,0.15)",
                 stat: "Full brand + web system",
                 reverse: true,
+                scene: "fitness",
+              },
+              {
+                name: "RAFVAC Solutions",
+                url: "https://rafvacsolutions.com/",
+                tagline: "Precision climate, every time",
+                desc: "A 25+ year HVAC powerhouse serving Central Pennsylvania. EPA-certified technicians, emergency availability, and a digital presence that matches the reliability of their service — from residential comfort to commercial refrigeration.",
+                niche: "HVAC / Services",
+                tags: ["Service Business", "Lead Gen", "Trust Design", "Responsive"],
+                color: "#2196F3",
+                colorSoft: "rgba(33,150,243,0.10)",
+                colorGlow: "rgba(33,150,243,0.15)",
+                stat: "24/7 service visibility",
+                reverse: false,
+                scene: "hvac",
+              },
+              {
+                name: "Top Notch Roofing",
+                url: "https://topnotch-omega.vercel.app/",
+                tagline: "Built from the top down",
+                desc: "Full-service roofing contractor serving metro Atlanta with GAF and Owens Corning certifications. Clean professional design with portfolio galleries, insurance claim guidance, and conversion-focused CTAs throughout.",
+                niche: "Roofing / Construction",
+                tags: ["Contractor Site", "Portfolio Gallery", "Certifications", "Lead Gen"],
+                color: "#FF6B35",
+                colorSoft: "rgba(255,107,53,0.10)",
+                colorGlow: "rgba(255,107,53,0.15)",
+                stat: "Certified contractor showcase",
+                reverse: true,
+                scene: "roofing",
+              },
+              {
+                name: "Baasit Sumra Fitness",
+                url: "http://baasitsumra.fitness/_",
+                tagline: "Train every discipline",
+                desc: "Multi-discipline fitness coaching combining strength training, martial arts mastery, yoga, and speed development. Dark cinematic design with program showcases and training galleries that sell the transformation.",
+                niche: "Fitness / Coaching",
+                tags: ["Dark Theme", "Multi-Program", "Gallery", "Mobile-First"],
+                color: "#00BFA5",
+                colorSoft: "rgba(0,191,165,0.10)",
+                colorGlow: "rgba(0,191,165,0.15)",
+                stat: "Full coaching platform",
+                reverse: false,
+                scene: "martial",
               },
             ].map((project, i) => (
               <div
@@ -495,57 +541,467 @@ export default function Home() {
                           </span>
                         </div>
                       </div>
-                      {/* Site preview area */}
-                      <div className="relative min-h-[220px] sm:min-h-[280px] flex flex-col items-center justify-center px-8 py-12">
-                        {/* Multi-layer background inside preview */}
-                        <div className="absolute inset-0 pointer-events-none">
-                          {/* Radial glow from project color */}
-                          <div
-                            className="absolute inset-0"
-                            style={{
+                      {/* Unique Themed Site Preview per Project */}
+                      <div className="relative min-h-[280px] sm:min-h-[340px] flex items-center justify-center overflow-hidden scene-container">
+
+                        {/* ── BOOK TRACKING SCENE: Floating books + highlight lines + notes ── */}
+                        {project.scene === "booking" && (
+                          <div className="absolute inset-0 pointer-events-none">
+                            {/* Warm library ambient glow */}
+                            <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse 65% 55% at 50% 50%, ${project.color}0C, transparent 70%)` }} />
+                            {/* Floating book shapes */}
+                            {[0,1,2,3,4].map((n) => (
+                              <div key={n} className={`absolute scene-book scene-book-${n}`}>
+                                <div className="relative" style={{
+                                  width: [50, 42, 56, 38, 46][n] + "px",
+                                  height: [64, 54, 72, 48, 58][n] + "px",
+                                }}>
+                                  {/* Book cover */}
+                                  <div className="absolute inset-0 rounded-r-md rounded-l-sm" style={{
+                                    background: `linear-gradient(135deg, ${project.color}${["18","12","20","10","15"][n]}, ${project.color}${["0A","08","0D","06","09"][n]})`,
+                                    border: `1px solid ${project.color}20`,
+                                    boxShadow: `2px 2px 8px ${project.color}08`,
+                                  }} />
+                                  {/* Spine */}
+                                  <div className="absolute left-0 top-1 bottom-1 w-[3px] rounded-l-sm" style={{
+                                    background: `${project.color}25`,
+                                  }} />
+                                  {/* Page lines */}
+                                  <div className="absolute top-[25%] left-[20%] right-[15%] space-y-1.5">
+                                    {[0,1,2].map((l) => (
+                                      <div key={l} className="h-[1px]" style={{
+                                        background: `${project.color}${l === 0 ? "18" : "0C"}`,
+                                        width: `${85 - l * 15}%`,
+                                      }} />
+                                    ))}
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                            {/* Highlight marker streaks */}
+                            {[0,1,2].map((n) => (
+                              <div key={n} className={`absolute scene-highlight scene-highlight-${n}`} style={{
+                                width: [80, 60, 70][n] + "px", height: "4px",
+                                borderRadius: "2px",
+                                background: `linear-gradient(90deg, ${["#F5E663","#FF9F43","#9B59B6"][n]}20, ${["#F5E663","#FF9F43","#9B59B6"][n]}08)`,
+                              }} />
+                            ))}
+                            {/* Floating quote marks */}
+                            <div className="absolute top-[15%] right-[12%] scene-quote-mark">
+                              <span className="text-4xl font-serif" style={{ color: `${project.color}15` }}>&ldquo;</span>
+                            </div>
+                            <div className="absolute bottom-[20%] left-[10%] scene-quote-mark-2">
+                              <span className="text-3xl font-serif" style={{ color: `${project.color}10` }}>&rdquo;</span>
+                            </div>
+                            {/* Star rating dots */}
+                            <div className="absolute bottom-[16%] right-[15%] flex gap-1 scene-stars">
+                              {[0,1,2,3,4].map((s) => (
+                                <svg key={s} className="w-2.5 h-2.5" viewBox="0 0 24 24" fill={project.color} opacity={s < 4 ? 0.2 : 0.08}>
+                                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* ── CAMP SCENE: Pine trees + mountain range + fireflies ── */}
+                        {project.scene === "camp" && (
+                          <div className="absolute inset-0 pointer-events-none">
+                            {/* Sky gradient — sunset to twilight */}
+                            <div className="absolute inset-0 scene-camp-sky" style={{
+                              background: `linear-gradient(180deg, #0D1B0E 0%, ${project.color}15 40%, #1a2a12 100%)`,
+                            }} />
+                            {/* Mountain silhouettes */}
+                            <div className="absolute bottom-0 left-0 w-full h-[55%]">
+                              <div className="absolute bottom-0 w-full h-full" style={{
+                                clipPath: "polygon(0% 100%, 0% 60%, 8% 45%, 18% 55%, 28% 30%, 40% 50%, 52% 20%, 62% 40%, 72% 25%, 82% 42%, 92% 35%, 100% 50%, 100% 100%)",
+                                background: `linear-gradient(180deg, ${project.color}20, ${project.color}08)`,
+                              }} />
+                              <div className="absolute bottom-0 w-full h-[80%]" style={{
+                                clipPath: "polygon(0% 100%, 0% 70%, 10% 55%, 22% 65%, 35% 40%, 48% 58%, 60% 35%, 73% 52%, 85% 38%, 95% 55%, 100% 45%, 100% 100%)",
+                                background: `linear-gradient(180deg, ${project.color}12, ${project.color}04)`,
+                              }} />
+                            </div>
+                            {/* Pine tree silhouettes */}
+                            {[15, 30, 55, 72, 88].map((left, n) => (
+                              <div key={n} className="absolute bottom-[15%]" style={{
+                                left: `${left}%`,
+                                width: "0", height: "0",
+                                borderLeft: `${12 + n * 2}px solid transparent`,
+                                borderRight: `${12 + n * 2}px solid transparent`,
+                                borderBottom: `${35 + n * 5}px solid ${project.color}${n % 2 === 0 ? "18" : "10"}`,
+                                filter: "blur(0.5px)",
+                              }} />
+                            ))}
+                            {/* Fireflies */}
+                            {[0,1,2,3,4,5,6].map((n) => (
+                              <div key={n} className={`absolute w-1 h-1 rounded-full scene-firefly scene-firefly-${n}`}
+                                style={{ backgroundColor: "#F5E663", boxShadow: "0 0 6px 2px #F5E66360" }} />
+                            ))}
+                          </div>
+                        )}
+
+                        {/* ── AUTO SPA SCENE: Water droplets + sparkle shimmer + car silhouette ── */}
+                        {project.scene === "autospa" && (
+                          <div className="absolute inset-0 pointer-events-none">
+                            {/* Dark luxury gradient */}
+                            <div className="absolute inset-0" style={{
+                              background: `radial-gradient(ellipse 70% 60% at 50% 60%, ${project.color}0C, transparent 70%)`,
+                            }} />
+                            {/* Car silhouette — proper SVG sedan profile */}
+                            <div className="absolute bottom-[22%] left-1/2 -translate-x-1/2 scene-auto-car">
+                              <svg className="w-[220px] sm:w-[280px] h-[80px] sm:h-[100px]" viewBox="0 0 280 100" fill="none" preserveAspectRatio="xMidYMid meet">
+                                {/* Car body */}
+                                <path d="M30 65 L30 55 Q30 50 35 48 L65 42 Q80 38 90 28 L120 18 Q130 15 145 15 L190 15 Q205 15 210 22 L225 38 Q230 42 240 44 L255 48 Q260 50 260 55 L260 65 Q260 70 255 70 L35 70 Q30 70 30 65 Z"
+                                  fill={`${project.color}10`} stroke={project.color} strokeWidth="0.8" opacity="0.3" />
+                                {/* Windshield */}
+                                <path d="M95 30 L125 17 Q130 15 140 15 L180 15 Q185 15 188 18 L205 30 Q207 33 200 33 L100 33 Q93 33 95 30 Z"
+                                  fill={`${project.color}08`} stroke={project.color} strokeWidth="0.5" opacity="0.2" />
+                                {/* Roof line highlight */}
+                                <path d="M120 15 L190 15" stroke={project.color} strokeWidth="0.5" opacity="0.25" />
+                                {/* Front wheel */}
+                                <circle cx="75" cy="70" r="14" fill={`${project.color}08`} stroke={project.color} strokeWidth="0.8" opacity="0.25" />
+                                <circle cx="75" cy="70" r="9" fill="none" stroke={project.color} strokeWidth="0.5" opacity="0.15" />
+                                <circle cx="75" cy="70" r="3" fill={`${project.color}15`} />
+                                {/* Rear wheel */}
+                                <circle cx="215" cy="70" r="14" fill={`${project.color}08`} stroke={project.color} strokeWidth="0.8" opacity="0.25" />
+                                <circle cx="215" cy="70" r="9" fill="none" stroke={project.color} strokeWidth="0.5" opacity="0.15" />
+                                <circle cx="215" cy="70" r="3" fill={`${project.color}15`} />
+                                {/* Headlight */}
+                                <ellipse cx="40" cy="52" rx="6" ry="4" fill={`${project.color}15`} opacity="0.4" />
+                                {/* Taillight */}
+                                <ellipse cx="252" cy="52" rx="4" ry="4" fill="#E8444415" opacity="0.4" />
+                                {/* Door line */}
+                                <path d="M145 18 L145 65" stroke={project.color} strokeWidth="0.3" opacity="0.1" />
+                                {/* Ground shadow */}
+                                <ellipse cx="145" cy="88" rx="100" ry="6" fill={`${project.color}08`} />
+                              </svg>
+                            </div>
+                            {/* Water droplets falling */}
+                            {[0,1,2,3,4,5,6,7].map((n) => (
+                              <div key={n} className={`absolute scene-droplet scene-droplet-${n}`} style={{
+                                width: `${3 + (n % 3)}px`, height: `${5 + (n % 3) * 2}px`,
+                                borderRadius: "50% 50% 50% 50% / 60% 60% 40% 40%",
+                                background: `linear-gradient(180deg, ${project.color}40, ${project.color}15)`,
+                              }} />
+                            ))}
+                            {/* Sparkle bursts */}
+                            {[0,1,2,3].map((n) => (
+                              <div key={n} className={`absolute scene-sparkle scene-sparkle-${n}`}>
+                                <svg className="w-3 h-3" viewBox="0 0 24 24" fill={project.color} opacity={0.5}>
+                                  <path d="M12 0L14 10L24 12L14 14L12 24L10 14L0 12L10 10Z" />
+                                </svg>
+                              </div>
+                            ))}
+                            {/* Polished reflection sweep */}
+                            <div className="absolute bottom-[18%] left-[10%] right-[10%] h-[1px] scene-auto-shine" style={{
+                              background: `linear-gradient(90deg, transparent, ${project.color}30, transparent)`,
+                            }} />
+                          </div>
+                        )}
+
+                        {/* ── FITNESS SCENE: Pulse line + rising chevrons + energy meter ── */}
+                        {project.scene === "fitness" && (
+                          <div className="absolute inset-0 pointer-events-none">
+                            {/* Energy gradient */}
+                            <div className="absolute inset-0" style={{
+                              background: `radial-gradient(ellipse 50% 50% at 50% 60%, ${project.color}10, transparent 70%)`,
+                            }} />
+                            {/* Heartbeat / pulse line */}
+                            <svg className="absolute top-1/2 left-0 w-full h-16 -translate-y-1/2 scene-pulse-line" viewBox="0 0 600 60" fill="none" preserveAspectRatio="none">
+                              <path d="M0 30 L120 30 L150 30 L170 10 L185 50 L200 5 L215 45 L230 30 L260 30 L600 30"
+                                stroke={project.color} strokeWidth="1.5" strokeLinecap="round" opacity="0.25" />
+                            </svg>
+                            {/* Rising chevrons */}
+                            {[0,1,2,3,4].map((n) => (
+                              <div key={n} className={`absolute scene-chevron scene-chevron-${n}`}>
+                                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke={project.color} strokeWidth={2} opacity={0.2}>
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                                </svg>
+                              </div>
+                            ))}
+                            {/* Energy meter bar */}
+                            <div className="absolute bottom-[18%] left-1/2 -translate-x-1/2 w-[180px] sm:w-[220px] h-[6px] rounded-full" style={{
+                              background: `${project.color}10`, border: `1px solid ${project.color}10`,
+                            }}>
+                              <div className="h-full rounded-full scene-energy-fill" style={{
+                                background: `linear-gradient(90deg, ${project.color}50, ${project.color})`,
+                              }} />
+                            </div>
+                            {/* Floating rep counters */}
+                            {[0,1,2].map((n) => (
+                              <div key={n} className={`absolute scene-rep-counter scene-rep-counter-${n}`}>
+                                <span className="text-lg font-black" style={{ color: `${project.color}30` }}>
+                                  {["01","02","03"][n]}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        {/* ── HVAC SCENE: Thermometer + airflow + fan + temperature display ── */}
+                        {project.scene === "hvac" && (
+                          <div className="absolute inset-0 pointer-events-none">
+                            {/* Temperature gradient — cool blue to warm red split */}
+                            <div className="absolute inset-0" style={{
+                              background: `linear-gradient(135deg, #1a3a5c12 0%, transparent 50%, #E8444408 100%)`,
+                            }} />
+                            {/* Central ambient glow */}
+                            <div className="absolute inset-0 scene-hvac-temp" style={{
+                              background: `radial-gradient(ellipse 50% 50% at 50% 50%, ${project.color}0C, transparent 70%)`,
+                            }} />
+                            {/* Rotating fan/vent in center background */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scene-hvac-fan">
+                              <svg className="w-[120px] h-[120px] sm:w-[150px] sm:h-[150px]" viewBox="0 0 100 100" fill="none">
+                                {/* Outer ring */}
+                                <circle cx="50" cy="50" r="46" stroke={project.color} strokeWidth="0.5" opacity="0.1" />
+                                <circle cx="50" cy="50" r="38" stroke={project.color} strokeWidth="0.5" opacity="0.06" strokeDasharray="3 3" />
+                                {/* Fan blades */}
+                                <path d="M50 50 Q55 30 50 12 Q45 30 50 50" fill={`${project.color}12`} />
+                                <path d="M50 50 Q70 55 88 50 Q70 45 50 50" fill={`${project.color}10`} />
+                                <path d="M50 50 Q45 70 50 88 Q55 70 50 50" fill={`${project.color}12`} />
+                                <path d="M50 50 Q30 45 12 50 Q30 55 50 50" fill={`${project.color}10`} />
+                                {/* Center hub */}
+                                <circle cx="50" cy="50" r="5" fill={`${project.color}15`} stroke={project.color} strokeWidth="0.5" opacity="0.2" />
+                              </svg>
+                            </div>
+                            {/* Airflow wave lines */}
+                            {[0,1,2,3].map((n) => (
+                              <svg key={n} className={`absolute w-full scene-airflow scene-airflow-${n}`} style={{ top: `${22 + n * 16}%` }}
+                                viewBox="0 0 600 30" fill="none" preserveAspectRatio="none">
+                                <path d={`M0 15 Q75 ${n % 2 === 0 ? 2 : 28} 150 15 Q225 ${n % 2 === 0 ? 28 : 2} 300 15 Q375 ${n % 2 === 0 ? 2 : 28} 450 15 Q525 ${n % 2 === 0 ? 28 : 2} 600 15`}
+                                  stroke={project.color} strokeWidth="1" strokeLinecap="round" opacity="0.12" />
+                              </svg>
+                            ))}
+                            {/* Thermometer — left side */}
+                            <div className="absolute left-[10%] top-[22%] scene-thermometer">
+                              <div className="w-3 h-20 rounded-full relative" style={{ border: `1px solid ${project.color}20`, background: `${project.color}04` }}>
+                                {/* Tick marks */}
+                                {[0,1,2,3,4].map((t) => (
+                                  <div key={t} className="absolute right-[-6px] w-[4px] h-[1px]" style={{
+                                    top: `${15 + t * 17}%`, background: `${project.color}20`,
+                                  }} />
+                                ))}
+                                <div className="absolute bottom-0 left-0.5 right-0.5 rounded-full scene-thermo-fill" style={{
+                                  background: `linear-gradient(180deg, #E84444, ${project.color})`,
+                                }} />
+                              </div>
+                              <div className="w-5 h-5 rounded-full -ml-1 -mt-0.5" style={{
+                                background: `radial-gradient(circle, ${project.color}, ${project.color}60)`,
+                                boxShadow: `0 0 12px ${project.color}30`,
+                              }} />
+                            </div>
+                            {/* Temperature readout — right side */}
+                            <div className="absolute right-[10%] top-[22%] scene-temp-readout">
+                              <div className="px-2.5 py-1.5 rounded-lg" style={{ border: `1px solid ${project.color}15`, background: `${project.color}05` }}>
+                                <span className="text-lg font-mono font-bold scene-temp-value" style={{ color: `${project.color}50` }}>72°</span>
+                                <span className="text-[8px] block text-center uppercase tracking-wider" style={{ color: `${project.color}25` }}>set</span>
+                              </div>
+                            </div>
+                            {/* Snowflake — top left */}
+                            <div className="absolute top-[15%] left-[28%] scene-snowflake">
+                              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke={project.color} strokeWidth="1" opacity="0.2">
+                                <line x1="12" y1="2" x2="12" y2="22" /><line x1="2" y1="12" x2="22" y2="12" />
+                                <line x1="5.5" y1="5.5" x2="18.5" y2="18.5" /><line x1="18.5" y1="5.5" x2="5.5" y2="18.5" />
+                                <circle cx="12" cy="12" r="2" />
+                              </svg>
+                            </div>
+                            {/* Flame — top right */}
+                            <div className="absolute top-[16%] right-[28%] scene-flame">
+                              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" opacity="0.2">
+                                <path d="M12 22c-4 0-7-3-7-7 0-3 2-5 4-8 1-1.5 2-3 2.5-5 .5 2 1.5 3.5 2.5 5 2 3 4 5 4 8 0 4-3 7-7 7z"
+                                  stroke="#E84444" strokeWidth="1" fill="#E8444408" />
+                                <path d="M12 22c-2 0-3.5-1.5-3.5-3.5 0-1.5 1-2.5 2-4 .5-.7 1-1.5 1.3-2.5.3 1 .8 1.8 1.2 2.5 1 1.5 2 2.5 2 4 0 2-1.5 3.5-3 3.5z"
+                                  stroke="#E84444" strokeWidth="0.5" fill="#E8444406" />
+                              </svg>
+                            </div>
+                            {/* Duct grid pattern — more subtle */}
+                            <div className="absolute inset-0 opacity-[0.03]" style={{
+                              backgroundImage: `repeating-linear-gradient(90deg, ${project.color} 0px, ${project.color} 1px, transparent 1px, transparent 28px),
+                                repeating-linear-gradient(0deg, ${project.color} 0px, ${project.color} 1px, transparent 1px, transparent 28px)`,
+                              maskImage: "radial-gradient(ellipse 60% 55% at 50% 50%, black, transparent)",
+                              WebkitMaskImage: "radial-gradient(ellipse 60% 55% at 50% 50%, black, transparent)",
+                            }} />
+                            {/* EPA badge */}
+                            <div className="absolute bottom-[14%] left-[12%] scene-epa-badge">
+                              <div className="flex items-center gap-1.5 px-2 py-1 rounded-md" style={{
+                                border: `1px solid ${project.color}12`, background: `${project.color}04`,
+                              }}>
+                                <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke={project.color} strokeWidth="1.5" opacity="0.3">
+                                  <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
+                                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                </svg>
+                                <span className="text-[7px] font-bold uppercase tracking-wider" style={{ color: `${project.color}25` }}>EPA Cert</span>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
+                        {/* ── ROOFING SCENE: House SVG + shingle pattern + shield ── */}
+                        {project.scene === "roofing" && (
+                          <div className="absolute inset-0 pointer-events-none">
+                            {/* Sky gradient */}
+                            <div className="absolute inset-0" style={{
+                              background: `linear-gradient(180deg, ${project.color}06, transparent 50%, ${project.color}03)`,
+                            }} />
+                            {/* House silhouette — properly centered SVG */}
+                            <div className="absolute bottom-[14%] left-1/2 -translate-x-1/2 scene-roof-peak">
+                              <svg className="w-[220px] sm:w-[270px] h-[130px] sm:h-[155px]" viewBox="0 0 270 155" fill="none" preserveAspectRatio="xMidYMid meet">
+                                {/* Roof */}
+                                <path d="M135 8 L255 72 L15 72 Z" fill={`${project.color}12`} stroke={project.color} strokeWidth="0.8" opacity="0.3" />
+                                {/* Ridge line */}
+                                <path d="M135 8 L135 12" stroke={project.color} strokeWidth="1" opacity="0.25" />
+                                {/* Roof overhang shadow */}
+                                <path d="M25 72 L245 72" stroke={project.color} strokeWidth="0.5" opacity="0.15" />
+                                {/* Shingle lines on roof */}
+                                <path d="M60 52 L210 52" stroke={project.color} strokeWidth="0.3" opacity="0.08" />
+                                <path d="M45 62 L225 62" stroke={project.color} strokeWidth="0.3" opacity="0.06" />
+                                <path d="M80 42 L190 42" stroke={project.color} strokeWidth="0.3" opacity="0.06" />
+                                {/* House body */}
+                                <rect x="35" y="72" width="200" height="65" fill={`${project.color}06`} stroke={project.color} strokeWidth="0.6" opacity="0.2" />
+                                {/* Front door */}
+                                <rect x="120" y="100" width="30" height="37" rx="2" fill={`${project.color}10`} stroke={project.color} strokeWidth="0.5" opacity="0.2" />
+                                <circle cx="144" cy="120" r="1.5" fill={project.color} opacity="0.2" />
+                                {/* Left window */}
+                                <rect x="60" y="85" width="28" height="22" rx="1" fill={`${project.color}08`} stroke={project.color} strokeWidth="0.5" opacity="0.2" />
+                                <line x1="74" y1="85" x2="74" y2="107" stroke={project.color} strokeWidth="0.3" opacity="0.12" />
+                                <line x1="60" y1="96" x2="88" y2="96" stroke={project.color} strokeWidth="0.3" opacity="0.12" />
+                                {/* Right window */}
+                                <rect x="182" y="85" width="28" height="22" rx="1" fill={`${project.color}08`} stroke={project.color} strokeWidth="0.5" opacity="0.2" />
+                                <line x1="196" y1="85" x2="196" y2="107" stroke={project.color} strokeWidth="0.3" opacity="0.12" />
+                                <line x1="182" y1="96" x2="210" y2="96" stroke={project.color} strokeWidth="0.3" opacity="0.12" />
+                                {/* Chimney */}
+                                <rect x="185" y="20" width="18" height="38" fill={`${project.color}10`} stroke={project.color} strokeWidth="0.5" opacity="0.2" />
+                                {/* Ground line */}
+                                <path d="M10 137 L260 137" stroke={project.color} strokeWidth="0.4" opacity="0.1" />
+                                {/* Ground shadow */}
+                                <ellipse cx="135" cy="142" rx="110" ry="5" fill={`${project.color}06`} />
+                              </svg>
+                            </div>
+                            {/* Shingle texture overlay on roof area */}
+                            <div className="absolute top-[15%] left-[12%] right-[12%] h-[30%] scene-shingles" style={{
+                              backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 8px, ${project.color}06 8px, ${project.color}06 9px),
+                                repeating-linear-gradient(90deg, transparent, transparent 18px, ${project.color}04 18px, ${project.color}04 19px)`,
+                              maskImage: "linear-gradient(180deg, black 10%, transparent 70%)",
+                              WebkitMaskImage: "linear-gradient(180deg, black 10%, transparent 70%)",
+                            }} />
+                            {/* Certification shield */}
+                            <div className="absolute top-[15%] right-[12%] scene-shield">
+                              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke={project.color} strokeWidth="1.2" opacity="0.25">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                            </div>
+                            {/* GAF badge */}
+                            <div className="absolute top-[16%] left-[10%] scene-gaf-badge">
+                              <div className="px-2 py-1 rounded-md" style={{ border: `1px solid ${project.color}12`, background: `${project.color}04` }}>
+                                <span className="text-[7px] font-bold uppercase tracking-wider" style={{ color: `${project.color}25` }}>GAF Certified</span>
+                              </div>
+                            </div>
+                            {/* Floating measurement markers */}
+                            {[0,1,2].map((n) => (
+                              <div key={n} className={`absolute scene-measure scene-measure-${n}`}>
+                                <div className="flex items-center gap-1">
+                                  <div className="w-4 h-[1px]" style={{ background: `${project.color}20` }} />
+                                  <span className="text-[8px] font-mono" style={{ color: `${project.color}25` }}>
+                                    {["12ft","24ft","8ft"][n]}
+                                  </span>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        {/* ── MARTIAL ARTS / FITNESS SCENE: Octagon + strike lines + discipline icons ── */}
+                        {project.scene === "martial" && (
+                          <div className="absolute inset-0 pointer-events-none">
+                            {/* Dark cinematic gradient */}
+                            <div className="absolute inset-0" style={{
                               background: `radial-gradient(ellipse 60% 60% at 50% 50%, ${project.color}0A, transparent 70%)`,
-                            }}
-                          />
-                          {/* Diagonal slash */}
-                          <div
-                            className="absolute inset-0"
-                            style={{
-                              background: `linear-gradient(135deg, transparent 40%, ${project.color}06 41%, ${project.color}06 60%, transparent 61%)`,
-                            }}
-                          />
-                          {/* Grid lines */}
-                          <div
-                            className="absolute inset-0 opacity-[0.03]"
-                            style={{
-                              backgroundImage: `
-                                linear-gradient(${project.color} 1px, transparent 1px),
-                                linear-gradient(90deg, ${project.color} 1px, transparent 1px)
-                              `,
-                              backgroundSize: "40px 40px",
-                            }}
-                          />
+                            }} />
+                            {/* Octagon ring outline */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scene-octagon">
+                              <svg className="w-[200px] h-[200px] sm:w-[250px] sm:h-[250px]" viewBox="0 0 200 200" fill="none">
+                                <polygon points="60,10 140,10 190,60 190,140 140,190 60,190 10,140 10,60"
+                                  stroke={project.color} strokeWidth="1" opacity="0.15" fill="none" />
+                                <polygon points="70,25 130,25 175,70 175,130 130,175 70,175 25,130 25,70"
+                                  stroke={project.color} strokeWidth="0.5" opacity="0.08" fill="none" strokeDasharray="4 4" />
+                              </svg>
+                            </div>
+                            {/* Strike / action lines radiating from center */}
+                            {[0,1,2,3,4,5].map((n) => (
+                              <div key={n} className={`absolute top-1/2 left-1/2 scene-strike scene-strike-${n}`} style={{
+                                width: "60px", height: "1.5px",
+                                background: `linear-gradient(90deg, ${project.color}25, transparent)`,
+                                transformOrigin: "left center",
+                                transform: `rotate(${n * 60}deg)`,
+                              }} />
+                            ))}
+                            {/* Discipline icons floating */}
+                            <div className="absolute top-[18%] left-[15%] scene-disc scene-disc-0">
+                              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke={project.color} strokeWidth="1.2" opacity="0.2">
+                                <circle cx="12" cy="12" r="10" /><path d="M12 6v12M6 12h12" />
+                              </svg>
+                            </div>
+                            <div className="absolute top-[20%] right-[15%] scene-disc scene-disc-1">
+                              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke={project.color} strokeWidth="1.2" opacity="0.2">
+                                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                                <line x1="4" y1="22" x2="4" y2="15" />
+                              </svg>
+                            </div>
+                            <div className="absolute bottom-[22%] right-[20%] scene-disc scene-disc-2">
+                              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke={project.color} strokeWidth="1.2" opacity="0.2">
+                                <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 01-3.46 0" />
+                              </svg>
+                            </div>
+                            {/* Power level bars */}
+                            <div className="absolute bottom-[15%] left-1/2 -translate-x-1/2 flex gap-1.5">
+                              {[0,1,2,3,4].map((n) => (
+                                <div key={n} className={`scene-power-bar scene-power-bar-${n}`} style={{
+                                  width: "4px", height: `${12 + n * 5}px`,
+                                  borderRadius: "2px",
+                                  background: `${project.color}${15 + n * 8}`,
+                                }} />
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* ── Central floating text overlay (shared) ── */}
+                        <div className="relative z-10 text-center scene-text-float" style={{ transformStyle: "preserve-3d" }}>
+                          <div className="relative z-10 px-4">
+                            <div
+                              className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2"
+                              style={{ color: project.color, textShadow: `0 0 30px ${project.color}30, 0 0 60px ${project.color}15` }}
+                            >
+                              {project.name}
+                            </div>
+                            <div className="text-white/40 text-sm font-medium italic scene-tagline-drift">
+                              {project.tagline}
+                            </div>
+                            <div className="flex items-center justify-center gap-2 mt-4">
+                              <span className="relative flex h-2.5 w-2.5">
+                                <span
+                                  className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                                  style={{ backgroundColor: project.color }}
+                                />
+                                <span
+                                  className="relative inline-flex rounded-full h-2.5 w-2.5"
+                                  style={{ backgroundColor: project.color }}
+                                />
+                              </span>
+                              <span className="text-white/30 text-xs uppercase tracking-wider font-semibold">
+                                Live &amp; Running
+                              </span>
+                            </div>
+                          </div>
                         </div>
-                        {/* Project name display */}
-                        <div className="relative z-10 text-center">
-                          <div
-                            className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2"
-                            style={{ color: project.color }}
-                          >
-                            {project.name}
-                          </div>
-                          <div className="text-white/40 text-sm font-medium italic">
-                            {project.tagline}
-                          </div>
-                          <div className="flex items-center justify-center gap-2 mt-4">
-                            <span
-                              className="w-2 h-2 rounded-full animate-pulse"
-                              style={{ backgroundColor: project.color }}
-                            />
-                            <span className="text-white/30 text-xs uppercase tracking-wider font-semibold">
-                              Live &amp; Running
-                            </span>
-                          </div>
-                        </div>
+
+                        {/* Corner accent markers */}
+                        <div className="absolute top-4 left-4 w-4 h-4 pointer-events-none" style={{ borderTop: `2px solid ${project.color}25`, borderLeft: `2px solid ${project.color}25` }} />
+                        <div className="absolute top-4 right-4 w-4 h-4 pointer-events-none" style={{ borderTop: `2px solid ${project.color}25`, borderRight: `2px solid ${project.color}25` }} />
+                        <div className="absolute bottom-4 left-4 w-4 h-4 pointer-events-none" style={{ borderBottom: `2px solid ${project.color}25`, borderLeft: `2px solid ${project.color}25` }} />
+                        <div className="absolute bottom-4 right-4 w-4 h-4 pointer-events-none" style={{ borderBottom: `2px solid ${project.color}25`, borderRight: `2px solid ${project.color}25` }} />
                       </div>
                     </div>
                     {/* Reflection effect */}
@@ -631,7 +1087,7 @@ export default function Home() {
           <div className="mt-20 pt-10 border-t border-white/[0.06]">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
               {[
-                { value: "4", label: "Live Sites Shown", color: "#9B59B6" },
+                { value: "7", label: "Live Sites Shown", color: "#9B59B6" },
                 { value: "150+", label: "Total Projects", color: "#E91E8C" },
                 { value: "100%", label: "Demo-First", color: "#4A8C2A" },
                 { value: "5+", label: "Years Running", color: "#F5A623" },
