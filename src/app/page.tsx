@@ -5,30 +5,30 @@ import PricingSection from "@/components/PricingSection";
 export default function Home() {
   return (
     <>
-      {/* ══ HERO — Slash Architecture ══ */}
+      {/* ══ HERO — Arch Architecture ══ */}
       <section className="relative bg-bg-dark text-text-white min-h-[calc(100vh-72px)] flex items-center overflow-hidden">
         {/* Background layers */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* Diagonal gradient slash */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#7B2D8E]/10 via-transparent to-[#E91E8C]/5" />
+          {/* Gradient arch */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1B4D72]/10 via-transparent to-[#E8A838]/5" />
           {/* Dot grid */}
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: "radial-gradient(circle, rgba(155,89,182,0.08) 1px, transparent 1px)",
+              backgroundImage: "radial-gradient(circle, rgba(43,123,191,0.08) 1px, transparent 1px)",
               backgroundSize: "32px 32px",
               maskImage: "radial-gradient(ellipse 80% 60% at 70% 40%, black 20%, transparent 70%)",
               WebkitMaskImage: "radial-gradient(ellipse 80% 60% at 70% 40%, black 20%, transparent 70%)",
             }}
           />
           {/* Floating orbs */}
-          <div className="absolute top-[15%] right-[10%] w-[400px] h-[400px] rounded-full bg-[#7B2D8E] opacity-[0.06] blur-[120px]" />
-          <div className="absolute bottom-[20%] left-[5%] w-[300px] h-[300px] rounded-full bg-[#E91E8C] opacity-[0.04] blur-[100px]" />
-          {/* Diagonal slash line */}
+          <div className="absolute top-[15%] right-[10%] w-[400px] h-[400px] rounded-full bg-[#1B4D72] opacity-[0.06] blur-[120px]" />
+          <div className="absolute bottom-[20%] left-[5%] w-[300px] h-[300px] rounded-full bg-[#E8A838] opacity-[0.04] blur-[100px]" />
+          {/* Arch accent line */}
           <div
             className="absolute top-0 left-0 w-full h-full"
             style={{
-              background: "linear-gradient(160deg, transparent 45%, rgba(233,30,140,0.04) 46%, rgba(233,30,140,0.04) 47%, transparent 48%)",
+              background: "linear-gradient(160deg, transparent 45%, rgba(43,123,191,0.04) 46%, rgba(43,123,191,0.04) 47%, transparent 48%)",
             }}
           />
         </div>
@@ -37,9 +37,9 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left — copy */}
             <div className="animate-[fadeLeft_0.7s_ease_both]">
-              {/* Code bracket accent */}
+              {/* Arch accent */}
               <div className="relative inline-block mb-4">
-                <span className="text-accent/20 text-sm font-mono tracking-wider">&lt;design&gt;</span>
+                <span className="text-accent/20 text-sm font-semibold tracking-[0.2em] uppercase">Est. Atlanta, GA</span>
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-extrabold leading-[1.08] mb-6 text-text-white">
                 Websites, Design &amp;{" "}
@@ -55,7 +55,7 @@ export default function Home() {
               <div className="flex gap-3 flex-wrap mb-12">
                 <Link
                   href="/contact"
-                  className="relative gradient-cta text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(233,30,140,0.3)] group"
+                  className="relative gradient-cta text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(232,168,56,0.3)] group"
                 >
                   <span className="relative z-10">Get Your Free Demo</span>
                 </Link>
@@ -66,7 +66,7 @@ export default function Home() {
                   View Services
                 </Link>
               </div>
-              {/* Stats bar with slash accents */}
+              {/* Stats bar with arch accents */}
               <div className="flex gap-8 pt-6 border-t border-border-dark flex-wrap">
                 {[
                   { num: "150+", label: "Projects" },
@@ -85,7 +85,7 @@ export default function Home() {
                 ))}
               </div>
               <div className="mt-6">
-                <span className="text-accent/20 text-sm font-mono tracking-wider">&lt;/design&gt;</span>
+                <span className="text-accent/20 text-sm font-semibold tracking-[0.2em] uppercase">Est. Atlanta, GA</span>
               </div>
             </div>
 
@@ -95,7 +95,7 @@ export default function Home() {
               <div
                 className="absolute inset-0 opacity-[0.02] pointer-events-none"
                 style={{
-                  backgroundImage: "linear-gradient(rgba(155,89,182,1) 1px, transparent 1px), linear-gradient(90deg, rgba(155,89,182,1) 1px, transparent 1px)",
+                  backgroundImage: "linear-gradient(rgba(43,123,191,1) 1px, transparent 1px), linear-gradient(90deg, rgba(43,123,191,1) 1px, transparent 1px)",
                   backgroundSize: "48px 48px",
                 }}
               />
@@ -111,7 +111,7 @@ export default function Home() {
                   <p className="text-text-muted text-sm mb-5">
                     Live preview &mdash; click through every page before you pay a cent.
                   </p>
-                  <div className="bg-[#130a1e] rounded-xl overflow-hidden border border-border-dark">
+                  <div className="bg-[#0A1628] rounded-xl overflow-hidden border border-border-dark">
                     <div className="flex items-center gap-1.5 px-3 py-2.5 bg-white/[0.02] border-b border-border-dark">
                       <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
                       <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
@@ -132,7 +132,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Floating chips — no slash-card to avoid overflow:hidden clipping */}
+              {/* Floating chips */}
               <div
                 className="absolute top-[10%] right-0 bg-bg-card border border-border-dark rounded-lg px-4 py-2.5 text-xs text-text-muted shadow-lg z-10"
                 style={{ animation: "float 6s ease-in-out infinite" }}
@@ -143,34 +143,34 @@ export default function Home() {
                 className="absolute bottom-[18%] left-0 bg-bg-card border border-border-dark rounded-lg px-4 py-2.5 text-xs text-text-muted shadow-lg z-10"
                 style={{ animation: "float 6s ease-in-out infinite 2s" }}
               >
-                <svg className="w-4 h-4 inline mr-1 text-[#E91E8C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> AI booking live
+                <svg className="w-4 h-4 inline mr-1 text-[#E8A838]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> AI booking live
               </div>
               <div
                 className="absolute top-[48%] right-[-4px] bg-bg-card border border-border-dark rounded-lg px-4 py-2.5 text-xs text-text-muted shadow-lg z-10"
                 style={{ animation: "float 6s ease-in-out infinite 4s" }}
               >
-                <svg className="w-4 h-4 inline mr-1 text-[#F5A623]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg> Mobile-first
+                <svg className="w-4 h-4 inline mr-1 text-[#4FA3D9]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg> Mobile-first
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom diagonal slash transition */}
+        {/* Bottom arch transition */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden" style={{ height: "80px" }}>
           <div
             className="absolute bottom-0 left-0 w-full h-full bg-bg-light"
-            style={{ clipPath: "polygon(0 60%, 100% 0, 100% 100%, 0 100%)" }}
+            style={{ clipPath: "ellipse(55% 100% at 50% 100%)" }}
           />
         </div>
       </section>
 
       {/* ══ SERVICES — Layered shape cards ══ */}
-      <section className="relative py-24 bg-bg-light overflow-hidden section-slash">
+      <section className="relative py-24 bg-bg-light overflow-hidden section-arch">
         {/* Subtle dot grid */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(circle, rgba(123,45,142,0.05) 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(circle, rgba(43,123,191,0.05) 1px, transparent 1px)",
             backgroundSize: "28px 28px",
             maskImage: "linear-gradient(180deg, black 0%, transparent 80%)",
             WebkitMaskImage: "linear-gradient(180deg, black 0%, transparent 80%)",
@@ -195,29 +195,29 @@ export default function Home() {
               {
                 icon: <svg className="w-6 h-6 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}><path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5a17.92 17.92 0 01-8.716-2.247m0 0A8.966 8.966 0 013 12c0-1.97.633-3.79 1.708-5.274" /></svg>,
                 bg: "bg-accent-soft",
-                accent: "#9B59B6",
+                accent: "#2B7BBF",
                 title: "Custom Websites",
                 desc: "Fully custom, mobile-first sites built to convert visitors into customers. No templates. Starts at just $200 — agencies charge $2,000+ for the same thing.",
                 tag: "From $200",
                 tagColor: "text-accent-dark bg-accent-soft",
               },
               {
-                icon: <svg className="w-6 h-6 text-[#E91E8C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}><path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" /></svg>,
+                icon: <svg className="w-6 h-6 text-[#E8A838]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}><path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" /></svg>,
                 bg: "bg-magenta-soft",
-                accent: "#E91E8C",
+                accent: "#E8A838",
                 title: "Graphic Design",
                 desc: "Business cards, brochures, flyers, advertisements, social graphics — whatever your business needs to look sharp and stay consistent.",
                 tag: "From $99",
-                tagColor: "text-[#E91E8C] bg-magenta-soft",
+                tagColor: "text-[#E8A838] bg-magenta-soft",
               },
               {
-                icon: <svg className="w-6 h-6 text-[#F5A623]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" /></svg>,
+                icon: <svg className="w-6 h-6 text-[#4FA3D9]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" /></svg>,
                 bg: "bg-amber-soft",
-                accent: "#F5A623",
+                accent: "#4FA3D9",
                 title: "AI Business Tools",
                 desc: "Automated booking systems, smart intake forms, workflow bots — replace that extra hire with a system that runs 24/7.",
                 tag: "Custom Quote",
-                tagColor: "text-[#F5A623] bg-amber-soft",
+                tagColor: "text-[#4FA3D9] bg-[rgba(79,163,217,0.12)]",
               },
             ].map((s) => (
               <div
@@ -237,8 +237,8 @@ export default function Home() {
                   className="absolute top-0 right-0 w-20 h-20 pointer-events-none"
                   style={{ background: `linear-gradient(135deg, transparent 50%, ${s.accent}06 50%)` }}
                 />
-                {/* Bracket accent */}
-                <span className="absolute top-2 left-3 text-2xl font-bold leading-none select-none font-mono opacity-[0.04]" style={{ color: s.accent }}>{`{`}</span>
+                {/* Arch accent */}
+                <div className="absolute top-0 left-[10%] right-[10%] h-[3px] rounded-b-full bg-gradient-to-r from-transparent via-accent/20 to-transparent pointer-events-none" />
                 <div
                   className={`w-13 h-13 rounded-xl flex items-center justify-center text-xl mb-5 ${s.bg} relative z-10`}
                 >
@@ -266,28 +266,27 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Diagonal transition to dark */}
+        {/* Arch transition to dark */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden" style={{ height: "80px" }}>
           <div
             className="absolute bottom-0 left-0 w-full h-full bg-bg-dark"
-            style={{ clipPath: "polygon(0 100%, 100% 40%, 100% 100%, 0 100%)" }}
+            style={{ clipPath: "ellipse(55% 100% at 50% 100%)" }}
           />
         </div>
       </section>
 
       {/* ══ DEMO-FIRST PROMISE — Shape panel ══ */}
       <section className="py-20 bg-bg-dark relative overflow-hidden">
-        {/* Background diagonal */}
+        {/* Background arch */}
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: "linear-gradient(165deg, transparent 40%, rgba(233,30,140,0.03) 41%, rgba(233,30,140,0.03) 60%, transparent 61%)",
+          background: "linear-gradient(165deg, transparent 40%, rgba(43,123,191,0.03) 41%, rgba(43,123,191,0.03) 60%, transparent 61%)",
         }} />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="reveal relative bg-gradient-to-br from-[#2d1b3d] to-bg-card border border-border-dark rounded-2xl p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden slash-stripe">
-            {/* Bracket decorators */}
-            <span className="absolute top-4 left-6 text-5xl font-bold text-accent/10 leading-none select-none font-mono">{`{`}</span>
-            <span className="absolute bottom-4 right-6 text-5xl font-bold text-accent/10 leading-none select-none font-mono">{`}`}</span>
+          <div className="reveal relative bg-gradient-to-br from-[#143049] to-bg-card border border-border-dark rounded-2xl p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden spire-accent">
+            {/* Arch accent decorators */}
+            <div className="absolute top-0 left-[10%] right-[10%] h-[3px] rounded-b-full bg-gradient-to-r from-transparent via-accent/20 to-transparent pointer-events-none" />
             {/* Glow orb */}
-            <div className="absolute top-[-50%] right-[-10%] w-72 h-72 bg-[radial-gradient(circle,rgba(233,30,140,0.1),transparent_70%)] pointer-events-none" />
+            <div className="absolute top-[-50%] right-[-10%] w-72 h-72 bg-[radial-gradient(circle,rgba(43,123,191,0.1),transparent_70%)] pointer-events-none" />
             <div>
               <h3 className="text-2xl font-bold text-text-white mb-2">
                 Every project starts with a free demo.
@@ -300,7 +299,7 @@ export default function Home() {
             </div>
             <Link
               href="/contact"
-              className="shrink-0 gradient-cta text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(233,30,140,0.3)]"
+              className="shrink-0 gradient-cta text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(232,168,56,0.3)]"
             >
               Request Your Demo
             </Link>
@@ -310,9 +309,9 @@ export default function Home() {
 
       {/* ══ MEET THE FOUNDER — Personal trust element ══ */}
       <section className="py-20 bg-bg-dark relative overflow-hidden">
-        {/* Diagonal accent line */}
+        {/* Arch accent line */}
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: "linear-gradient(155deg, transparent 55%, rgba(155,89,182,0.02) 56%, rgba(155,89,182,0.02) 58%, transparent 59%)",
+          background: "linear-gradient(155deg, transparent 55%, rgba(43,123,191,0.02) 56%, rgba(43,123,191,0.02) 58%, transparent 59%)",
         }} />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="reveal flex flex-col md:flex-row items-center gap-10 md:gap-16">
@@ -322,7 +321,7 @@ export default function Home() {
               <div
                 className="absolute -inset-6 opacity-[0.03] pointer-events-none rounded-2xl"
                 style={{
-                  backgroundImage: "linear-gradient(rgba(155,89,182,1) 1px, transparent 1px), linear-gradient(90deg, rgba(155,89,182,1) 1px, transparent 1px)",
+                  backgroundImage: "linear-gradient(rgba(43,123,191,1) 1px, transparent 1px), linear-gradient(90deg, rgba(43,123,191,1) 1px, transparent 1px)",
                   backgroundSize: "24px 24px",
                 }}
               />
@@ -336,7 +335,7 @@ export default function Home() {
               </div>
               {/* Subtle accent shapes */}
               <div className="absolute -bottom-3 -right-3 w-14 h-14 rounded-xl border border-accent/10 pointer-events-none" />
-              <div className="absolute -top-3 -left-3 w-10 h-10 rounded-xl border border-[#E91E8C]/8 pointer-events-none" />
+              <div className="absolute -top-3 -left-3 w-10 h-10 rounded-xl border border-[#E8A838]/8 pointer-events-none" />
             </div>
             {/* Copy */}
             <div>
@@ -372,27 +371,27 @@ export default function Home() {
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: "radial-gradient(circle, rgba(155,89,182,0.06) 1px, transparent 1px)",
+              backgroundImage: "radial-gradient(circle, rgba(43,123,191,0.06) 1px, transparent 1px)",
               backgroundSize: "30px 30px",
               maskImage: "linear-gradient(180deg, black 0%, transparent 40%)",
               WebkitMaskImage: "linear-gradient(180deg, black 0%, transparent 40%)",
             }}
           />
-          {/* Crossed diagonal slashes */}
+          {/* Crossed arch accents */}
           <div className="absolute inset-0" style={{
             background: `
-              linear-gradient(160deg, transparent 20%, rgba(233,30,140,0.025) 21%, rgba(233,30,140,0.025) 23%, transparent 24%),
-              linear-gradient(160deg, transparent 75%, rgba(245,166,35,0.02) 76%, rgba(245,166,35,0.02) 78%, transparent 79%)
+              linear-gradient(160deg, transparent 20%, rgba(43,123,191,0.025) 21%, rgba(43,123,191,0.025) 23%, transparent 24%),
+              linear-gradient(160deg, transparent 75%, rgba(79,163,217,0.02) 76%, rgba(79,163,217,0.02) 78%, transparent 79%)
             `,
           }} />
           {/* Large glow orb */}
-          <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-[#7B2D8E] opacity-[0.03] blur-[200px]" />
+          <div className="absolute top-[30%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-[#1B4D72] opacity-[0.03] blur-[200px]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Section header */}
           <div className="text-center max-w-2xl mx-auto mb-20">
-            <span className="text-[#E91E8C] text-xs font-bold uppercase tracking-[0.15em] block mb-3">
+            <span className="text-[#E8A838] text-xs font-bold uppercase tracking-[0.15em] block mb-3">
               Portfolio
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-white mb-5">
@@ -415,9 +414,9 @@ export default function Home() {
                 desc: "A book tracking platform where readers collect, review, and highlight their favorite reads. Notes along the journey, summaries on demand, and a personal library that grows with you.",
                 niche: "SaaS / Book Tracking",
                 tags: ["Next.js", "Reading Platform", "Mobile-First", "SEO"],
-                color: "#9B59B6",
-                colorSoft: "rgba(155,89,182,0.10)",
-                colorGlow: "rgba(155,89,182,0.15)",
+                color: "#2B7BBF",
+                colorSoft: "rgba(43,123,191,0.10)",
+                colorGlow: "rgba(43,123,191,0.15)",
                 stat: "Personal library system",
                 reverse: false,
                 scene: "booking",
@@ -443,9 +442,9 @@ export default function Home() {
                 desc: "A luxury car care brand that needed a digital presence matching the quality of their service. Sleek dark design, online booking integration, and service packages that sell themselves.",
                 niche: "Auto / Luxury",
                 tags: ["Dark Theme", "Booking System", "Brand Design", "Luxury"],
-                color: "#F5A623",
-                colorSoft: "rgba(245,166,35,0.10)",
-                colorGlow: "rgba(245,166,35,0.15)",
+                color: "#4FA3D9",
+                colorSoft: "rgba(79,163,217,0.10)",
+                colorGlow: "rgba(79,163,217,0.15)",
                 stat: "Online booking enabled",
                 reverse: false,
                 scene: "autospa",
@@ -457,9 +456,9 @@ export default function Home() {
                 desc: "Fitness brand with the energy to match. High-impact visuals, seamless class booking integration, and a design system that scales across merch, social, and print.",
                 niche: "Fitness / Wellness",
                 tags: ["Bold Visuals", "Class Booking", "Brand System", "Responsive"],
-                color: "#E91E8C",
-                colorSoft: "rgba(233,30,140,0.10)",
-                colorGlow: "rgba(233,30,140,0.15)",
+                color: "#E8A838",
+                colorSoft: "rgba(232,168,56,0.10)",
+                colorGlow: "rgba(232,168,56,0.15)",
                 stat: "Full brand + web system",
                 reverse: true,
                 scene: "fitness",
@@ -528,7 +527,7 @@ export default function Home() {
                       style={{ background: project.color }}
                     />
                     {/* Browser chrome */}
-                    <div className="relative bg-[#1a0a24] border border-white/[0.06] rounded-2xl overflow-hidden shadow-2xl">
+                    <div className="relative bg-[#0A1628] border border-white/[0.06] rounded-2xl overflow-hidden shadow-2xl">
                       {/* Title bar */}
                       <div className="flex items-center gap-1.5 px-4 py-3 bg-white/[0.02] border-b border-white/[0.05]">
                         <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
@@ -583,7 +582,7 @@ export default function Home() {
                               <div key={n} className={`absolute scene-highlight scene-highlight-${n}`} style={{
                                 width: [80, 60, 70][n] + "px", height: "4px",
                                 borderRadius: "2px",
-                                background: `linear-gradient(90deg, ${["#F5E663","#FF9F43","#9B59B6"][n]}20, ${["#F5E663","#FF9F43","#9B59B6"][n]}08)`,
+                                background: `linear-gradient(90deg, ${["#F5E663","#FF9F43","#2B7BBF"][n]}20, ${["#F5E663","#FF9F43","#2B7BBF"][n]}08)`,
                               }} />
                             ))}
                             {/* Floating quote marks */}
@@ -1087,10 +1086,10 @@ export default function Home() {
           <div className="mt-20 pt-10 border-t border-white/[0.06]">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
               {[
-                { value: "7", label: "Live Sites Shown", color: "#9B59B6" },
-                { value: "150+", label: "Total Projects", color: "#E91E8C" },
+                { value: "7", label: "Live Sites Shown", color: "#2B7BBF" },
+                { value: "150+", label: "Total Projects", color: "#E8A838" },
                 { value: "100%", label: "Demo-First", color: "#4A8C2A" },
-                { value: "5+", label: "Years Running", color: "#F5A623" },
+                { value: "5+", label: "Years Running", color: "#4FA3D9" },
               ].map((m) => (
                 <div key={m.label} className="reveal">
                   <div className="step-number text-3xl font-extrabold text-text-white inline-block">
@@ -1105,22 +1104,22 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Bottom diagonal transition */}
+        {/* Bottom arch transition */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden" style={{ height: "80px" }}>
           <div
             className="absolute bottom-0 left-0 w-full h-full bg-bg-white"
-            style={{ clipPath: "polygon(0 60%, 100% 0, 100% 100%, 0 100%)" }}
+            style={{ clipPath: "ellipse(55% 100% at 50% 100%)" }}
           />
         </div>
       </section>
 
-      {/* ══ PROCESS — Slash-connected steps ══ */}
+      {/* ══ PROCESS — Arch-connected steps ══ */}
       <section className="relative py-24 bg-bg-white overflow-hidden">
         {/* Faint grid texture */}
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.015]"
           style={{
-            backgroundImage: "linear-gradient(#7B2D8E 1px, transparent 1px), linear-gradient(90deg, #7B2D8E 1px, transparent 1px)",
+            backgroundImage: "linear-gradient(#1B4D72 1px, transparent 1px), linear-gradient(90deg, #1B4D72 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }}
         />
@@ -1140,39 +1139,39 @@ export default function Home() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
             {/* Connecting line between steps (desktop only) */}
-            <div className="hidden lg:block absolute top-[72px] left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-[#7B2D8E]/10 via-[#E91E8C]/15 to-[#F5A623]/10 z-0" />
+            <div className="hidden lg:block absolute top-[72px] left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-[#1B4D72]/10 via-[#E8A838]/15 to-[#4FA3D9]/10 z-0" />
             {[
               {
                 n: "01",
                 title: "Discovery",
                 desc: "Share your goals, audience, and timeline. We ask the right questions to nail the scope.",
-                accent: "#7B2D8E",
+                accent: "#1B4D72",
                 icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>,
               },
               {
                 n: "02",
                 title: "Free Demo",
                 desc: "We build a working preview of your site or design. You review it hands-on, no payment required.",
-                accent: "#9B59B6",
+                accent: "#2B7BBF",
                 icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>,
               },
               {
                 n: "03",
                 title: "Refine",
                 desc: "Approve, tweak, or pivot. We iterate fast until every detail is dialed in.",
-                accent: "#E91E8C",
+                accent: "#E8A838",
                 icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" /></svg>,
               },
               {
                 n: "04",
                 title: "Launch",
                 desc: "Final files delivered or site goes live. You get everything — source files, assets, full ownership.",
-                accent: "#F5A623",
+                accent: "#4FA3D9",
                 icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" /></svg>,
               },
             ].map((s) => (
               <div key={s.n} className="reveal relative text-center p-8 group z-10">
-                {/* Diagonal accent bg on hover */}
+                {/* Arch accent bg on hover */}
                 <div
                   className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                   style={{
@@ -1210,11 +1209,11 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Bottom diagonal */}
+        {/* Bottom arch */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden" style={{ height: "80px" }}>
           <div
             className="absolute bottom-0 left-0 w-full h-full bg-bg-dark"
-            style={{ clipPath: "polygon(0 100%, 100% 40%, 100% 100%, 0 100%)" }}
+            style={{ clipPath: "ellipse(55% 100% at 50% 100%)" }}
           />
         </div>
       </section>
@@ -1222,27 +1221,27 @@ export default function Home() {
       {/* Monthly Plans */}
       <PricingSection />
 
-      {/* ══ TESTIMONIALS — Bracket-framed cards ══ */}
+      {/* ══ TESTIMONIALS — Arch-framed cards ══ */}
       <section className="py-20 bg-bg-dark relative overflow-hidden">
-        {/* Diagonal background texture */}
+        {/* Background texture */}
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: "linear-gradient(160deg, transparent 35%, rgba(155,89,182,0.02) 36%, rgba(155,89,182,0.02) 65%, transparent 66%)",
+          background: "linear-gradient(160deg, transparent 35%, rgba(43,123,191,0.02) 36%, rgba(43,123,191,0.02) 65%, transparent 66%)",
         }} />
         {/* Fine grid lines */}
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.012]"
           style={{
-            backgroundImage: "linear-gradient(rgba(233,30,140,1) 1px, transparent 1px), linear-gradient(90deg, rgba(233,30,140,1) 1px, transparent 1px)",
+            backgroundImage: "linear-gradient(rgba(43,123,191,1) 1px, transparent 1px), linear-gradient(90deg, rgba(43,123,191,1) 1px, transparent 1px)",
             backgroundSize: "56px 56px",
             maskImage: "radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%)",
             WebkitMaskImage: "radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%)",
           }}
         />
         {/* Soft orb behind cards */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#9B59B6] opacity-[0.02] blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#2B7BBF] opacity-[0.02] blur-[150px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-[#E91E8C] text-xs font-bold uppercase tracking-[0.12em] block mb-3">
+            <span className="text-[#E8A838] text-xs font-bold uppercase tracking-[0.12em] block mb-3">
               Testimonials
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-text-white mb-4">
@@ -1258,7 +1257,7 @@ export default function Home() {
                 name: "Cindy Evanoff",
                 role: "Manager, Pine Crest Camp",
                 initials: "CE",
-                accent: "#9B59B6",
+                accent: "#2B7BBF",
               },
               {
                 quote:
@@ -1266,7 +1265,7 @@ export default function Home() {
                 name: "Brooke Brum",
                 role: "CEO, Fit4Lyfe",
                 initials: "BB",
-                accent: "#E91E8C",
+                accent: "#E8A838",
               },
             ].map((t) => (
               <div
@@ -1286,13 +1285,12 @@ export default function Home() {
                   className="absolute top-0 right-0 w-24 h-24 pointer-events-none"
                   style={{ background: `linear-gradient(135deg, transparent 50%, ${t.accent}05 50%)` }}
                 />
-                {/* Diagonal slash */}
+                {/* Arch accent */}
                 <div className="absolute inset-0 pointer-events-none" style={{
                   background: `linear-gradient(155deg, transparent 65%, ${t.accent}03 66%)`,
                 }} />
-                {/* Code bracket accent */}
-                <span className="absolute top-3 left-5 text-4xl font-bold leading-none select-none font-mono" style={{ color: `${t.accent}15` }}>{`{`}</span>
-                <span className="absolute bottom-3 right-5 text-4xl font-bold leading-none select-none font-mono" style={{ color: `${t.accent}15` }}>{`}`}</span>
+                {/* Arch top accent */}
+                <div className="absolute top-0 left-[10%] right-[10%] h-[3px] rounded-b-full bg-gradient-to-r from-transparent via-accent/20 to-transparent pointer-events-none" />
                 {/* Quote mark */}
                 <span className="absolute top-2 left-12 text-6xl font-black leading-none select-none" style={{ color: `${t.accent}20` }}>
                   &ldquo;
@@ -1320,24 +1318,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ CTA — Dramatic slash composition ══ */}
+      {/* ══ CTA — Dramatic arch composition ══ */}
       <section className="relative py-24 bg-bg-dark text-center overflow-hidden">
         {/* Layered background */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Central glow orb */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#7B2D8E] opacity-[0.06] blur-[150px]" />
-          {/* Cross diagonal slashes */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#1B4D72] opacity-[0.06] blur-[150px]" />
+          {/* Cross arch accents */}
           <div className="absolute inset-0" style={{
             background: `
-              linear-gradient(155deg, transparent 30%, rgba(233,30,140,0.04) 31%, rgba(233,30,140,0.04) 33%, transparent 34%),
-              linear-gradient(155deg, transparent 65%, rgba(245,166,35,0.03) 66%, rgba(245,166,35,0.03) 68%, transparent 69%)
+              linear-gradient(155deg, transparent 30%, rgba(43,123,191,0.04) 31%, rgba(43,123,191,0.04) 33%, transparent 34%),
+              linear-gradient(155deg, transparent 65%, rgba(79,163,217,0.03) 66%, rgba(79,163,217,0.03) 68%, transparent 69%)
             `,
           }} />
           {/* Fine grid lines — architectural depth */}
           <div
             className="absolute inset-0 opacity-[0.015]"
             style={{
-              backgroundImage: "linear-gradient(rgba(155,89,182,1) 1px, transparent 1px), linear-gradient(90deg, rgba(155,89,182,1) 1px, transparent 1px)",
+              backgroundImage: "linear-gradient(rgba(43,123,191,1) 1px, transparent 1px), linear-gradient(90deg, rgba(43,123,191,1) 1px, transparent 1px)",
               backgroundSize: "40px 40px",
               maskImage: "radial-gradient(ellipse 50% 60% at 50% 50%, black 20%, transparent 70%)",
               WebkitMaskImage: "radial-gradient(ellipse 50% 60% at 50% 50%, black 20%, transparent 70%)",
@@ -1347,7 +1345,7 @@ export default function Home() {
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: "radial-gradient(circle, rgba(155,89,182,0.06) 1px, transparent 1px)",
+              backgroundImage: "radial-gradient(circle, rgba(43,123,191,0.06) 1px, transparent 1px)",
               backgroundSize: "24px 24px",
               maskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, black 10%, transparent 70%)",
               WebkitMaskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, black 10%, transparent 70%)",
@@ -1356,8 +1354,8 @@ export default function Home() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          {/* Code bracket frame */}
-          <span className="text-accent/10 text-sm font-mono tracking-wider block mb-6">&lt;build_something_great&gt;</span>
+          {/* Arch divider */}
+          <div className="flex justify-center mb-6"><div className="w-16 h-1 rounded-full bg-gradient-to-r from-transparent via-accent/20 to-transparent" /></div>
           {/* Founder avatar with layered depth */}
           <div className="relative inline-block mb-6">
             {/* Subtle accent ring */}
@@ -1383,7 +1381,7 @@ export default function Home() {
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
               href="/contact"
-              className="gradient-cta text-white font-semibold px-8 py-4 rounded-lg transition-all hover:-translate-y-1 hover:shadow-[0_8px_50px_rgba(233,30,140,0.25)] text-lg"
+              className="gradient-cta text-white font-semibold px-8 py-4 rounded-lg transition-all hover:-translate-y-1 hover:shadow-[0_8px_50px_rgba(232,168,56,0.25)] text-lg"
             >
               Get Your Free Demo
             </Link>
@@ -1394,7 +1392,7 @@ export default function Home() {
               Call (470) 758-3549
             </a>
           </div>
-          <span className="text-accent/10 text-sm font-mono tracking-wider block mt-8">&lt;/build_something_great&gt;</span>
+          <div className="flex justify-center mt-8"><div className="w-16 h-1 rounded-full bg-gradient-to-r from-transparent via-accent/20 to-transparent" /></div>
         </div>
       </section>
     </>

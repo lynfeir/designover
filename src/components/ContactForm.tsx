@@ -55,7 +55,7 @@ export default function ContactForm() {
     "w-full px-4 py-3 border border-border-light rounded-lg text-sm bg-white text-text-dark focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/10 transition-all";
 
   return (
-    <div className="reveal bg-white border border-border-light rounded-2xl p-8 relative shadow-[0_8px_40px_rgba(155,89,182,0.06)]">
+    <div className="reveal bg-white border border-border-light rounded-2xl p-8 relative shadow-[0_8px_40px_rgba(43,123,191,0.06)]">
       {/* Toast */}
       {toast && (
         <div

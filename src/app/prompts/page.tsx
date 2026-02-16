@@ -244,7 +244,7 @@ export default function PromptsPage() {
               onClick={() => setActiveCategory("all")}
               className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-all ${
                 activeCategory === "all"
-                  ? "bg-accent text-white shadow-[0_0_14px_rgba(155,89,182,0.3)]"
+                  ? "bg-accent text-white shadow-[0_0_14px_rgba(43,123,191,0.3)]"
                   : "bg-white/[0.03] text-text-muted hover:bg-white/[0.07] hover:text-text-white"
               }`}
             >
@@ -256,7 +256,7 @@ export default function PromptsPage() {
                 onClick={() => setActiveCategory(cat)}
                 className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-all ${
                   activeCategory === cat
-                    ? "bg-accent text-white shadow-[0_0_14px_rgba(155,89,182,0.3)]"
+                    ? "bg-accent text-white shadow-[0_0_14px_rgba(43,123,191,0.3)]"
                     : "bg-white/[0.03] text-text-muted hover:bg-white/[0.07] hover:text-text-white"
                 }`}
               >
@@ -373,8 +373,8 @@ export default function PromptsPage() {
           <h2 className="text-lg font-bold mb-4"><span className="gradient-text">Free AI Image Tools</span></h2>
           <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-5">
             {[
-              { name: "Ideogram", desc: "Best for text in images and stylized graphics. 25 free images/day.", color: "#9B59B6" },
-              { name: "Leonardo AI", desc: "Best for photorealistic and cinematic shots. 150 free tokens/day.", color: "#E91E8C" },
+              { name: "Ideogram", desc: "Best for text in images and stylized graphics. 25 free images/day.", color: "#2B7BBF" },
+              { name: "Leonardo AI", desc: "Best for photorealistic and cinematic shots. 150 free tokens/day.", color: "#E8A838" },
               { name: "Playground AI", desc: "Best for quick iterations and batch generation. 500 free images/day.", color: "#4A8C2A" },
               { name: "Canva AI", desc: "Best if you already use Canva. 50 free generations/month.", color: "#F5A623" },
               { name: "Microsoft Designer", desc: "Free with Microsoft account. Great for social media graphics.", color: "#3b82f6" },

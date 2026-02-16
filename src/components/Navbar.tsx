@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
@@ -31,8 +32,11 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl w-full mx-auto px-6 flex justify-between items-center">
-        <Link href="/" className="font-bold text-xl tracking-tight text-text-white">
-          Design <span className="gradient-text">over</span> Atlanta
+        <Link href="/" className="flex items-center gap-2.5">
+          <Image src="/doa-logo-transparent-square-1024.png" alt="Design Over Atlanta" width={36} height={36} className="rounded" />
+          <span className="font-bold text-xl tracking-tight text-text-white">
+            Design <span className="gradient-text">over</span> Atlanta
+          </span>
         </Link>
 
         {/* Desktop */}
@@ -57,7 +61,7 @@ export default function Navbar() {
           <li className="ml-3">
             <Link
               href="/contact"
-              className="gradient-cta text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_0_30px_rgba(233,30,140,0.25)]"
+              className="gradient-cta text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_0_30px_rgba(232,168,56,0.25)]"
             >
               Get a Demo
             </Link>

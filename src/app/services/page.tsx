@@ -13,20 +13,20 @@ export default function ServicesPage() {
     <>
       {/* Hero */}
       <section className="relative bg-bg-dark text-text-white py-20 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(123,45,142,0.06),transparent_70%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(43,123,191,0.06),transparent_70%)] pointer-events-none" />
         {/* Grid lines */}
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.015]"
           style={{
-            backgroundImage: "linear-gradient(rgba(155,89,182,1) 1px, transparent 1px), linear-gradient(90deg, rgba(155,89,182,1) 1px, transparent 1px)",
+            backgroundImage: "linear-gradient(rgba(43,123,191,1) 1px, transparent 1px), linear-gradient(90deg, rgba(43,123,191,1) 1px, transparent 1px)",
             backgroundSize: "48px 48px",
             maskImage: "linear-gradient(180deg, transparent 0%, black 40%, black 60%, transparent 100%)",
             WebkitMaskImage: "linear-gradient(180deg, transparent 0%, black 40%, black 60%, transparent 100%)",
           }}
         />
-        {/* Diagonal slash */}
+        {/* Arch accent */}
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: "linear-gradient(160deg, transparent 45%, rgba(233,30,140,0.03) 46%, rgba(233,30,140,0.03) 48%, transparent 49%)",
+          background: "linear-gradient(160deg, transparent 45%, rgba(43,123,191,0.03) 46%, rgba(43,123,191,0.03) 48%, transparent 49%)",
         }} />
         <div className="max-w-7xl mx-auto px-6 relative">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">Services</h1>
@@ -45,7 +45,7 @@ export default function ServicesPage() {
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.012]"
           style={{
-            backgroundImage: "linear-gradient(#9B59B6 1px, transparent 1px), linear-gradient(90deg, #9B59B6 1px, transparent 1px)",
+            backgroundImage: "linear-gradient(#2B7BBF 1px, transparent 1px), linear-gradient(90deg, #2B7BBF 1px, transparent 1px)",
             backgroundSize: "56px 56px",
             maskImage: "linear-gradient(180deg, black 0%, transparent 60%)",
             WebkitMaskImage: "linear-gradient(180deg, black 0%, transparent 60%)",
@@ -90,9 +90,7 @@ export default function ServicesPage() {
             </div>
             <div className="reveal bg-bg-light border border-border-light rounded-2xl p-8 relative overflow-hidden">
               {/* Corner accent triangle */}
-              <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none" style={{ background: "linear-gradient(135deg, transparent 50%, rgba(155,89,182,0.04) 50%)" }} />
-              {/* Bracket accent */}
-              <span className="absolute top-2 left-3 text-2xl font-bold leading-none select-none font-mono text-accent/[0.06]">{`{`}</span>
+              <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none" style={{ background: "linear-gradient(135deg, transparent 50%, rgba(43,123,191,0.04) 50%)" }} />
               <h4 className="font-bold text-text-dark mb-5 relative z-10">
                 Website Project Examples
               </h4>
@@ -144,9 +142,9 @@ export default function ServicesPage() {
 
       {/* Graphic Design */}
       <section id="design" className="relative py-24 bg-bg-light overflow-hidden">
-        {/* Diagonal slash accent */}
+        {/* Arch accent */}
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: "linear-gradient(155deg, transparent 50%, rgba(155,89,182,0.02) 51%, rgba(155,89,182,0.02) 53%, transparent 54%)",
+          background: "linear-gradient(155deg, transparent 50%, rgba(43,123,191,0.02) 51%, rgba(43,123,191,0.02) 53%, transparent 54%)",
         }} />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
@@ -171,7 +169,7 @@ export default function ServicesPage() {
                 </p>
               </div>
               <div className="flex gap-3 items-center flex-wrap">
-                <span className="bg-[rgba(155,89,182,0.12)] text-accent-light px-4 py-1.5 rounded-full text-sm font-bold">
+                <span className="bg-[rgba(43,123,191,0.12)] text-accent-light px-4 py-1.5 rounded-full text-sm font-bold">
                   From $99
                 </span>
                 <span className="text-text-body text-sm">
@@ -181,8 +179,7 @@ export default function ServicesPage() {
             </div>
             <div className="reveal lg:order-1 bg-white border border-border-light rounded-2xl p-8 relative overflow-hidden">
               {/* Corner accent triangle */}
-              <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none" style={{ background: "linear-gradient(135deg, transparent 50%, rgba(181,126,220,0.04) 50%)" }} />
-              <span className="absolute top-2 left-3 text-2xl font-bold leading-none select-none font-mono" style={{ color: "rgba(181,126,220,0.06)" }}>{`{`}</span>
+              <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none" style={{ background: "linear-gradient(135deg, transparent 50%, rgba(43,123,191,0.04) 50%)" }} />
               <h4 className="font-bold text-text-dark mb-5 relative z-10">
                 Common Design Projects
               </h4>
@@ -238,7 +235,7 @@ export default function ServicesPage() {
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.012]"
           style={{
-            backgroundImage: "linear-gradient(#E91E8C 1px, transparent 1px), linear-gradient(90deg, #E91E8C 1px, transparent 1px)",
+            backgroundImage: "linear-gradient(#E8A838 1px, transparent 1px), linear-gradient(90deg, #E8A838 1px, transparent 1px)",
             backgroundSize: "56px 56px",
             maskImage: "linear-gradient(180deg, transparent 0%, black 40%, transparent 100%)",
             WebkitMaskImage: "linear-gradient(180deg, transparent 0%, black 40%, transparent 100%)",
@@ -247,7 +244,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div className="reveal">
-              <span className="text-[#E91E8C] text-xs font-bold uppercase tracking-[0.12em] block mb-3">
+              <span className="text-[#E8A838] text-xs font-bold uppercase tracking-[0.12em] block mb-3">
                 03 — AI Business Tools
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-text-dark mb-6">
@@ -269,7 +266,7 @@ export default function ServicesPage() {
                 </p>
               </div>
               <div className="flex gap-3 items-center flex-wrap">
-                <span className="bg-[rgba(233,30,140,0.12)] text-[#E91E8C] px-4 py-1.5 rounded-full text-sm font-bold">
+                <span className="bg-[rgba(43,123,191,0.12)] text-[#E8A838] px-4 py-1.5 rounded-full text-sm font-bold">
                   Custom Quote
                 </span>
                 <span className="text-text-body text-sm">
@@ -279,8 +276,7 @@ export default function ServicesPage() {
             </div>
             <div className="reveal bg-bg-light border border-border-light rounded-2xl p-8 relative overflow-hidden">
               {/* Corner accent triangle */}
-              <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none" style={{ background: "linear-gradient(135deg, transparent 50%, rgba(233,30,140,0.04) 50%)" }} />
-              <span className="absolute top-2 left-3 text-2xl font-bold leading-none select-none font-mono" style={{ color: "rgba(233,30,140,0.06)" }}>{`{`}</span>
+              <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none" style={{ background: "linear-gradient(135deg, transparent 50%, rgba(43,123,191,0.04) 50%)" }} />
               <h4 className="font-bold text-text-dark mb-5 relative z-10">How It Works</h4>
               <div className="flex flex-col gap-5">
                 {[
@@ -301,7 +297,7 @@ export default function ServicesPage() {
                   },
                 ].map((s) => (
                   <div key={s.n} className="flex gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[rgba(233,30,140,0.12)] flex items-center justify-center text-xs font-bold text-[#E91E8C] shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-[rgba(43,123,191,0.12)] flex items-center justify-center text-xs font-bold text-[#E8A838] shrink-0">
                       {s.n}
                     </div>
                     <div>
@@ -326,7 +322,7 @@ export default function ServicesPage() {
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.015]"
           style={{
-            backgroundImage: "linear-gradient(rgba(155,89,182,1) 1px, transparent 1px), linear-gradient(90deg, rgba(155,89,182,1) 1px, transparent 1px)",
+            backgroundImage: "linear-gradient(rgba(43,123,191,1) 1px, transparent 1px), linear-gradient(90deg, rgba(43,123,191,1) 1px, transparent 1px)",
             backgroundSize: "48px 48px",
             maskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, black 20%, transparent 70%)",
             WebkitMaskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, black 20%, transparent 70%)",
@@ -346,8 +342,6 @@ export default function ServicesPage() {
             </h2>
             <div className="grid sm:grid-cols-2 gap-6 mb-8">
               <div className="bg-bg-card border border-border-dark rounded-2xl p-8 relative overflow-hidden">
-                {/* Bracket accent */}
-                <span className="absolute top-2 left-3 text-2xl font-bold leading-none select-none font-mono text-rose/[0.08]">{`{`}</span>
                 <div className="text-xs uppercase tracking-wider text-text-muted mb-2 relative z-10">
                   Typical Agency
                 </div>
@@ -368,7 +362,6 @@ export default function ServicesPage() {
               <div className="bg-bg-card border border-accent/30 rounded-2xl p-8 glow-accent relative overflow-hidden">
                 {/* Corner accent triangle */}
                 <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none" style={{ background: "linear-gradient(135deg, transparent 50%, rgba(74,140,42,0.05) 50%)" }} />
-                <span className="absolute top-2 left-3 text-2xl font-bold leading-none select-none font-mono text-emerald/[0.08]">{`{`}</span>
                 <div className="text-xs uppercase tracking-wider text-text-muted mb-2 relative z-10">
                   Design over Atlanta
                 </div>
@@ -400,22 +393,22 @@ export default function ServicesPage() {
 
       {/* CTA */}
       <section className="relative py-20 bg-bg-dark text-center overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_80%_at_50%_50%,rgba(123,45,142,0.08),transparent_70%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_80%_at_50%_50%,rgba(43,123,191,0.08),transparent_70%)] pointer-events-none" />
         {/* Grid lines */}
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.012]"
           style={{
-            backgroundImage: "linear-gradient(rgba(155,89,182,1) 1px, transparent 1px), linear-gradient(90deg, rgba(155,89,182,1) 1px, transparent 1px)",
+            backgroundImage: "linear-gradient(rgba(43,123,191,1) 1px, transparent 1px), linear-gradient(90deg, rgba(43,123,191,1) 1px, transparent 1px)",
             backgroundSize: "40px 40px",
             maskImage: "radial-gradient(ellipse 40% 50% at 50% 50%, black 20%, transparent 70%)",
             WebkitMaskImage: "radial-gradient(ellipse 40% 50% at 50% 50%, black 20%, transparent 70%)",
           }}
         />
-        {/* Cross diagonal slashes */}
+        {/* Cross arch accents */}
         <div className="absolute inset-0 pointer-events-none" style={{
           background: `
-            linear-gradient(155deg, transparent 35%, rgba(233,30,140,0.03) 36%, rgba(233,30,140,0.03) 38%, transparent 39%),
-            linear-gradient(155deg, transparent 60%, rgba(245,166,35,0.02) 61%, rgba(245,166,35,0.02) 63%, transparent 64%)
+            linear-gradient(155deg, transparent 35%, rgba(43,123,191,0.03) 36%, rgba(43,123,191,0.03) 38%, transparent 39%),
+            linear-gradient(155deg, transparent 60%, rgba(79,163,217,0.02) 61%, rgba(79,163,217,0.02) 63%, transparent 64%)
           `,
         }} />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -430,7 +423,7 @@ export default function ServicesPage() {
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
               href="/contact"
-              className="gradient-cta text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(233,30,140,0.25)]"
+              className="gradient-cta text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(232,168,56,0.3)]"
             >
               Get Your Free Demo
             </Link>

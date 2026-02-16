@@ -20,32 +20,32 @@ interface ThemeColors {
 function getColors(theme: AdDefinition["theme"]): ThemeColors {
   switch (theme) {
     case "dark": return {
-      bg: "#1a0a24", bg2: "#2d1b3d",
-      text: "#f1f0f5", textSub: "#a89bb8",
-      accent: "#E91E8C", accentText: "#ffffff",
+      bg: "#0A1628", bg2: "#143049",
+      text: "#E8EDF3", textSub: "#8A9BB0",
+      accent: "#E8A838", accentText: "#ffffff",
       border: "rgba(255,255,255,0.1)",
-      glow1: "rgba(233,30,140,0.15)", glow2: "rgba(74,140,42,0.1)",
+      glow1: "rgba(43,123,191,0.15)", glow2: "rgba(74,140,42,0.1)",
     };
     case "light": return {
-      bg: "#FAFAFF", bg2: "#f5f0fa",
-      text: "#2D1B3D", textSub: "#5c4a6e",
-      accent: "#9B59B6", accentText: "#ffffff",
-      border: "#e0d4ec",
-      glow1: "rgba(155,89,182,0.08)", glow2: "rgba(233,30,140,0.06)",
+      bg: "#F8FAFC", bg2: "#F0F4F8",
+      text: "#0D2137", textSub: "#3A4F65",
+      accent: "#2B7BBF", accentText: "#ffffff",
+      border: "#D4DDE6",
+      glow1: "rgba(43,123,191,0.08)", glow2: "rgba(232,168,56,0.06)",
     };
     case "gradient": return {
-      bg: "#7B2D8E", bg2: "#E91E8C",
-      text: "#ffffff", textSub: "#f0d4ff",
-      accent: "#ffffff", accentText: "#7B2D8E",
+      bg: "#1B4D72", bg2: "#2B7BBF",
+      text: "#ffffff", textSub: "#D4DDE6",
+      accent: "#ffffff", accentText: "#1B4D72",
       border: "rgba(255,255,255,0.2)",
-      glow1: "rgba(233,30,140,0.25)", glow2: "rgba(245,166,35,0.15)",
+      glow1: "rgba(43,123,191,0.25)", glow2: "rgba(79,163,217,0.15)",
     };
     case "minimal": return {
-      bg: "#FAFAFF", bg2: "#f5f0fa",
-      text: "#2D1B3D", textSub: "#5c4a6e",
-      accent: "#2D1B3D", accentText: "#ffffff",
-      border: "#e0d4ec",
-      glow1: "rgba(155,89,182,0.06)", glow2: "rgba(0,0,0,0.03)",
+      bg: "#F0F4F8", bg2: "#D4DDE6",
+      text: "#0D2137", textSub: "#3A4F65",
+      accent: "#0D2137", accentText: "#ffffff",
+      border: "#D4DDE6",
+      glow1: "rgba(43,123,191,0.06)", glow2: "rgba(0,0,0,0.03)",
     };
   }
 }
@@ -115,7 +115,7 @@ function LayoutSplit({ ad, c, f, w, h }: LayoutProps) {
           ))}
         </div>
         <div style={{ padding: w * 0.06, display: "flex", alignItems: "flex-end", height: "100%" }}>
-          <div style={{ fontSize: f.headline * 0.7, fontWeight: 800, color: "#fff", lineHeight: 1.1, whiteSpace: "pre-line", fontFamily: "'Satoshi','Inter',sans-serif" }}>
+          <div style={{ fontSize: f.headline * 0.7, fontWeight: 800, color: "#fff", lineHeight: 1.1, whiteSpace: "pre-line", fontFamily: "var(--font-barlow-condensed), var(--font-inter), sans-serif" }}>
             {ad.headline}
           </div>
         </div>
@@ -136,7 +136,7 @@ function LayoutBigNumber({ ad, c, f, w }: LayoutProps) {
       <div style={{ position: "relative", zIndex: 2, padding: w * 0.07, textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100%" }}>
         {/* Big stat */}
         {ad.statNumber && (
-          <div style={{ fontSize: f.stat, fontWeight: 900, color: c.accent, lineHeight: 1, fontFamily: "'Satoshi','Inter',sans-serif", letterSpacing: "-0.04em" }}>
+          <div style={{ fontSize: f.stat, fontWeight: 900, color: c.accent, lineHeight: 1, fontFamily: "var(--font-barlow-condensed), var(--font-inter), sans-serif", letterSpacing: "-0.04em" }}>
             {ad.statNumber}
           </div>
         )}
@@ -164,7 +164,7 @@ function LayoutQuote({ ad, c, f, w }: LayoutProps) {
           &ldquo;
         </div>
         {/* Quote text */}
-        <div style={{ fontSize: f.quote, color: c.text, fontWeight: 600, lineHeight: 1.35, whiteSpace: "pre-line", fontStyle: "italic", maxWidth: "90%", fontFamily: "'Satoshi','Inter',sans-serif" }}>
+        <div style={{ fontSize: f.quote, color: c.text, fontWeight: 600, lineHeight: 1.35, whiteSpace: "pre-line", fontStyle: "italic", maxWidth: "90%", fontFamily: "var(--font-barlow-condensed), var(--font-inter), sans-serif" }}>
           {ad.headline}
         </div>
         {/* Author */}
@@ -192,7 +192,7 @@ function LayoutComparisonTable({ ad, c, f, w, h }: LayoutProps) {
   return (
     <>
       <div style={{ position: "relative", zIndex: 2, padding: w * 0.06, display: "flex", flexDirection: "column", justifyContent: "center", height: "100%", textAlign: "center" }}>
-        <div style={{ fontSize: f.headline * 0.7, fontWeight: 800, color: c.text, lineHeight: 1.15, marginBottom: h * 0.03, fontFamily: "'Satoshi','Inter',sans-serif" }}>
+        <div style={{ fontSize: f.headline * 0.7, fontWeight: 800, color: c.text, lineHeight: 1.15, marginBottom: h * 0.03, fontFamily: "var(--font-barlow-condensed), var(--font-inter), sans-serif" }}>
           {ad.headline}
         </div>
         {/* Two columns */}
@@ -356,7 +356,7 @@ function Glows({ c, w }: { c: ThemeColors; w: number }) {
 function Headline({ ad, c, f, align }: { ad: AdDefinition; c: ThemeColors; f: ReturnType<typeof getFontSizes>; align: string }) {
   if (ad.layout === "quote") return null; // quote layout handles its own headline
   return (
-    <div style={{ fontSize: f.headline, fontWeight: 800, color: c.text, lineHeight: 1.1, whiteSpace: "pre-line", letterSpacing: "-0.02em", fontFamily: "'Satoshi','Inter',sans-serif", textAlign: align as "left" | "center" }}>
+    <div style={{ fontSize: f.headline, fontWeight: 800, color: c.text, lineHeight: 1.1, whiteSpace: "pre-line", letterSpacing: "-0.02em", fontFamily: "var(--font-barlow-condensed), var(--font-inter), sans-serif", textAlign: align as "left" | "center" }}>
       {ad.headline}
     </div>
   );
@@ -412,12 +412,12 @@ export default function AdCard({ ad }: { ad: AdDefinition }) {
   const f = getFontSizes(ad.format);
 
   const bgStyle = ad.theme === "gradient"
-    ? { background: `linear-gradient(135deg, ${c.bg}, #9B59B6, ${c.bg2})` }
+    ? { background: `linear-gradient(135deg, ${c.bg}, #2B7BBF, ${c.bg2})` }
     : { background: c.bg };
 
   return (
     <div
-      style={{ borderRadius: 12, border: "1px solid rgba(255,255,255,0.08)", background: "#2d1b3d", overflow: "hidden", transition: "all 0.2s" }}
+      style={{ borderRadius: 12, border: "1px solid rgba(255,255,255,0.08)", background: "#143049", overflow: "hidden", transition: "all 0.2s" }}
       data-ad-wrapper
     >
       {/* Preview container */}

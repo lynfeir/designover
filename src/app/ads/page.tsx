@@ -83,8 +83,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Agencies charge $2,000-$5,000+\nfor the same thing.\nWe charge $200.",
     cta: "Get a Free Demo",
     badge: "10x CHEAPER",
-    accent: "#9B59B6",
-    accentRGB: "155,89,182",
+    accent: "#2B7BBF",
+    accentRGB: "43,123,191",
     bulletPoints: [
       "Hand-coded, no templates",
       "Mobile-first & SEO-ready",
@@ -126,8 +126,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Same quality. Same result.\nA fraction of the cost.",
     cta: "Switch to Us",
     badge: "THE COMPARISON",
-    accent: "#9B59B6",
-    accentRGB: "155,89,182",
+    accent: "#2B7BBF",
+    accentRGB: "43,123,191",
     comparisonData: {
       them: "Typical Agency",
       themPrice: "$2,000+",
@@ -183,8 +183,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Atlanta's most affordable\ncreative studio.",
     cta: "Join Them",
     badge: "PROVEN TRACK RECORD",
-    accent: "#9B59B6",
-    accentRGB: "155,89,182",
+    accent: "#2B7BBF",
+    accentRGB: "43,123,191",
     statsData: {
       items: [
         { value: "150+", label: "Projects Delivered" },
@@ -297,8 +297,8 @@ const DESIGNS: AdDesign[] = [
     subline: "One partner for web, design & AI.",
     cta: "Get Started",
     badge: "ALL-IN-ONE",
-    accent: "#9B59B6",
-    accentRGB: "155,89,182",
+    accent: "#2B7BBF",
+    accentRGB: "43,123,191",
     statsData: {
       items: [
         { value: "$200", label: "Custom Websites" },
@@ -381,8 +381,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Clear rules. No surprises.\nNo hidden fees. No BS.",
     cta: "Start Your Project",
     badge: "THE DOA RULEBOOK",
-    accent: "#9B59B6",
-    accentRGB: "155,89,182",
+    accent: "#2B7BBF",
+    accentRGB: "43,123,191",
     processSteps: [
       "You see a demo before you pay",
       "No contracts — cancel anytime",
@@ -423,8 +423,8 @@ const DESIGNS: AdDesign[] = [
     subline: "No hidden fees. No surprises.\nFlat rates you can plan around.",
     cta: "Get a Free Demo",
     badge: "FULL PRICE LIST",
-    accent: "#9B59B6",
-    accentRGB: "155,89,182",
+    accent: "#2B7BBF",
+    accentRGB: "43,123,191",
     roiData: {
       year1Them: "",
       year1Us: "",
@@ -588,8 +588,8 @@ const DESIGNS: AdDesign[] = [
     headline: "DOA",
     subline: "Design over Atlanta",
     cta: "",
-    accent: "#9B59B6",
-    accentRGB: "155,89,182",
+    accent: "#2B7BBF",
+    accentRGB: "43,123,191",
   },
   // ─── 27. PROFILE PIC — GRADIENT INITIALS ───
   {
@@ -624,8 +624,8 @@ const DESIGNS: AdDesign[] = [
     headline: "Design over Atlanta",
     subline: "Custom Websites from $200 · Graphic Design · AI Tools · Hosting from $3/mo",
     cta: "designoveratlanta.com",
-    accent: "#9B59B6",
-    accentRGB: "155,89,182",
+    accent: "#2B7BBF",
+    accentRGB: "43,123,191",
     bulletPoints: [
       "Websites from $200",
       "Hosting from $3/mo",
@@ -660,8 +660,8 @@ const DESIGNS: AdDesign[] = [
     headline: "Design over Atlanta",
     subline: "Websites · Design · AI Tools · Atlanta, GA",
     cta: "(470) 758-3549",
-    accent: "#9B59B6",
-    accentRGB: "155,89,182",
+    accent: "#2B7BBF",
+    accentRGB: "43,123,191",
   },
 
   // ═══════════════════════════════════════════════
@@ -678,8 +678,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Hi, I'm Hunter. I build custom\nwebsites for $200 that agencies\ncharge $2,000+ for.",
     cta: "Work With Me Directly",
     badge: "MEET HUNTER",
-    accent: "#9B59B6",
-    accentRGB: "155,89,182",
+    accent: "#2B7BBF",
+    accentRGB: "43,123,191",
     bulletPoints: [
       "Direct access — no middlemen",
       "Same-day response guaranteed",
@@ -697,8 +697,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Every project in our portfolio\nis live and generating revenue.",
     cta: "See All Projects",
     badge: "LIVE PORTFOLIO",
-    accent: "#E91E8C",
-    accentRGB: "233,30,140",
+    accent: "#E8A838",
+    accentRGB: "232,168,56",
     statsData: {
       items: [
         { value: "Fit4Lyfe", label: "3x Conversions" },
@@ -718,8 +718,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Not a template. Not a theme.\nA fully custom-coded website\nbuilt from scratch.",
     cta: "Get Your Free Demo",
     badge: "THE $200 STACK",
-    accent: "#9B59B6",
-    accentRGB: "155,89,182",
+    accent: "#2B7BBF",
+    accentRGB: "43,123,191",
     processSteps: [
       "Custom responsive design",
       "Hand-coded (React/Next.js)",
@@ -777,8 +777,8 @@ const DESIGNS: AdDesign[] = [
     subline: "Online booking, portfolio gallery,\npricing page — all custom.\nStarting at $200.",
     cta: "Get Your Salon Site",
     badge: "BEAUTY & GROOMING",
-    accent: "#E91E8C",
-    accentRGB: "233,30,140",
+    accent: "#E8A838",
+    accentRGB: "232,168,56",
     bulletPoints: [
       "Online booking system",
       "Service menu & pricing",
@@ -901,7 +901,7 @@ function renderAd(canvas: HTMLCanvasElement, variant: AdVariant, design: AdDesig
 
 function drawBackground(ctx: CanvasRenderingContext2D, w: number, h: number, s: number, design: AdDesign) {
   // Dark base
-  ctx.fillStyle = "#1a0a24";
+  ctx.fillStyle = "#0A1628";
   ctx.fillRect(0, 0, w, h);
 
   // Mesh gradient orbs
@@ -978,7 +978,7 @@ function drawBrandingBar(ctx: CanvasRenderingContext2D, w: number, h: number, s:
 
   // Logo
   const fs = Math.round((isWide ? 16 : 20) * s);
-  ctx.font = `700 ${fs}px 'Satoshi','Inter',sans-serif`;
+  ctx.font = `700 ${fs}px 'Barlow Condensed','Inter',sans-serif`;
   ctx.textBaseline = "middle";
   const ly = barY + barH / 2;
 
@@ -1037,7 +1037,7 @@ function drawBadge(ctx: CanvasRenderingContext2D, x: number, y: number, text: st
 
 function drawHeadline(ctx: CanvasRenderingContext2D, text: string, x: number, y: number, s: number, maxW: number, isPortrait: boolean, isWide: boolean): number {
   const fs = Math.round((isWide ? 44 : isPortrait ? 62 : 52) * s);
-  ctx.font = `800 ${fs}px 'Satoshi','Inter',sans-serif`;
+  ctx.font = `800 ${fs}px 'Barlow Condensed','Inter',sans-serif`;
   ctx.textBaseline = "top";
   const lines = text.split("\n");
   const lh = fs * 1.12;
@@ -1171,7 +1171,7 @@ function renderEyeCatcherLayout(ctx: CanvasRenderingContext2D, w: number, h: num
 
   // Giant price
   const bigFS = Math.round((isW ? 80 : isP ? 110 : 90) * s);
-  ctx.font = `900 ${bigFS}px 'Satoshi','Inter',sans-serif`;
+  ctx.font = `900 ${bigFS}px 'Barlow Condensed','Inter',sans-serif`;
   ctx.textBaseline = "top";
   const priceGrad = ctx.createLinearGradient(pad, cy, pad + ctx.measureText(d.headline).width, cy + bigFS);
   priceGrad.addColorStop(0, "#ffffff");
@@ -1228,7 +1228,7 @@ function renderComparisonLayout(ctx: CanvasRenderingContext2D, w: number, h: num
   ctx.textBaseline = "top";
   ctx.fillText(cd.them, cardX1 + 20 * s, cardY1 + 20 * s);
 
-  ctx.font = `800 ${Math.round(38 * s)}px 'Satoshi','Inter',sans-serif`;
+  ctx.font = `800 ${Math.round(38 * s)}px 'Barlow Condensed','Inter',sans-serif`;
   ctx.fillStyle = "#f87171";
   ctx.fillText(cd.themPrice, cardX1 + 20 * s, cardY1 + 50 * s);
 
@@ -1265,7 +1265,7 @@ function renderComparisonLayout(ctx: CanvasRenderingContext2D, w: number, h: num
   ctx.textBaseline = "top";
   ctx.fillText(cd.us, cardX2 + 20 * s, cardY2 + 20 * s);
 
-  ctx.font = `800 ${Math.round(38 * s)}px 'Satoshi','Inter',sans-serif`;
+  ctx.font = `800 ${Math.round(38 * s)}px 'Barlow Condensed','Inter',sans-serif`;
   ctx.fillStyle = "#ffffff";
   ctx.fillText(cd.usPrice, cardX2 + 20 * s, cardY2 + 50 * s);
 
@@ -1277,7 +1277,7 @@ function renderComparisonLayout(ctx: CanvasRenderingContext2D, w: number, h: num
 
   // Savings banner
   const savFS = Math.round(20 * s);
-  ctx.font = `800 ${savFS}px 'Satoshi','Inter',sans-serif`;
+  ctx.font = `800 ${savFS}px 'Barlow Condensed','Inter',sans-serif`;
   const savText = cd.savings;
   const savTW = ctx.measureText(savText).width;
   const savPX = 24 * s, savPY = 14 * s;
@@ -1375,7 +1375,7 @@ function renderROILayout(ctx: CanvasRenderingContext2D, w: number, h: number, s:
   // Big savings callout (only if roiData has values)
   if (rd.saved) {
     const bigFS = Math.round(28 * s);
-    ctx.font = `800 ${bigFS}px 'Satoshi','Inter',sans-serif`;
+    ctx.font = `800 ${bigFS}px 'Barlow Condensed','Inter',sans-serif`;
     ctx.fillStyle = "#10b981";
     ctx.textBaseline = "top";
     ctx.fillText(`You save ${rd.saved} in Year 1`, pad, cy);
@@ -1388,7 +1388,7 @@ function renderROILayout(ctx: CanvasRenderingContext2D, w: number, h: number, s:
   } else {
     // Generic bottom line for pricing menus
     const bigFS = Math.round(22 * s);
-    ctx.font = `700 ${bigFS}px 'Satoshi','Inter',sans-serif`;
+    ctx.font = `700 ${bigFS}px 'Barlow Condensed','Inter',sans-serif`;
     ctx.fillStyle = "#10b981";
     ctx.textBaseline = "top";
     ctx.fillText("No hidden fees. No hourly billing. Ever.", pad, cy);
@@ -1455,7 +1455,7 @@ function renderSavingsLayout(ctx: CanvasRenderingContext2D, w: number, h: number
     } else {
       // Savings highlight
       const savFS = Math.round(32 * s);
-      ctx.font = `900 ${savFS}px 'Satoshi','Inter',sans-serif`;
+      ctx.font = `900 ${savFS}px 'Barlow Condensed','Inter',sans-serif`;
       ctx.fillStyle = d.accent;
       ctx.textBaseline = "top";
       ctx.fillText(row.us, pad, cy);
@@ -1480,7 +1480,7 @@ function renderTestimonialLayout(ctx: CanvasRenderingContext2D, w: number, h: nu
   // Big stat if available
   if (td.stat) {
     const statFS = Math.round((isP ? 120 : 80) * s);
-    ctx.font = `900 ${statFS}px 'Satoshi','Inter',sans-serif`;
+    ctx.font = `900 ${statFS}px 'Barlow Condensed','Inter',sans-serif`;
     ctx.textBaseline = "top";
     const sg = ctx.createLinearGradient(pad, cy, pad + ctx.measureText(td.stat).width, cy + statFS);
     sg.addColorStop(0, d.accent);
@@ -1491,7 +1491,7 @@ function renderTestimonialLayout(ctx: CanvasRenderingContext2D, w: number, h: nu
     // Label next to stat
     const statW = ctx.measureText(td.stat).width;
     const lblFS = Math.round(24 * s);
-    ctx.font = `700 ${lblFS}px 'Satoshi','Inter',sans-serif`;
+    ctx.font = `700 ${lblFS}px 'Barlow Condensed','Inter',sans-serif`;
     ctx.fillStyle = "#f1f5f9";
     ctx.fillText("Better", pad + statW + 12 * s, cy + statFS * 0.2);
     ctx.fillText("Conversions", pad + statW + 12 * s, cy + statFS * 0.2 + lblFS * 1.2);
@@ -1587,7 +1587,7 @@ function renderStatsLayout(ctx: CanvasRenderingContext2D, w: number, h: number, 
 
     // Value
     const valFS = Math.round(36 * s);
-    ctx.font = `900 ${valFS}px 'Satoshi','Inter',sans-serif`;
+    ctx.font = `900 ${valFS}px 'Barlow Condensed','Inter',sans-serif`;
     const vg = ctx.createLinearGradient(cx, cellY, cx + cellW, cellY + cellH);
     vg.addColorStop(0, "#ffffff");
     vg.addColorStop(1, d.accent);
@@ -1710,7 +1710,7 @@ function renderProfileLayout(ctx: CanvasRenderingContext2D, w: number, h: number
   const r = Math.min(w, h) / 2;
 
   // Dark background
-  ctx.fillStyle = "#1a0a24";
+  ctx.fillStyle = "#0A1628";
   ctx.fillRect(0, 0, w, h);
 
   // Accent radial glow
@@ -1737,7 +1737,7 @@ function renderProfileLayout(ctx: CanvasRenderingContext2D, w: number, h: number
 
   // "DOA" letters
   const bigFS = Math.round(90 * s);
-  ctx.font = `900 ${bigFS}px 'Satoshi','Inter',sans-serif`;
+  ctx.font = `900 ${bigFS}px 'Barlow Condensed','Inter',sans-serif`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   const tg = ctx.createLinearGradient(cx - 80 * s, cy - 40 * s, cx + 80 * s, cy + 40 * s);
@@ -1767,7 +1767,7 @@ function renderBannerLayout(ctx: CanvasRenderingContext2D, w: number, h: number,
   const bPad = isUltraWide ? 120 * s : pad;
 
   // Background
-  ctx.fillStyle = "#1a0a24";
+  ctx.fillStyle = "#0A1628";
   ctx.fillRect(0, 0, w, h);
 
   // Mesh gradient orbs
@@ -1802,7 +1802,7 @@ function renderBannerLayout(ctx: CanvasRenderingContext2D, w: number, h: number,
 
   // Logo text: "Design over Atlanta"
   const logoFS = Math.round((isUltraWide ? 48 : 40) * s);
-  ctx.font = `800 ${logoFS}px 'Satoshi','Inter',sans-serif`;
+  ctx.font = `800 ${logoFS}px 'Barlow Condensed','Inter',sans-serif`;
   ctx.textBaseline = "middle";
 
   // Measure parts
@@ -2044,7 +2044,7 @@ export default function AdsPage() {
                         onClick={() => setActiveDesign(i)}
                         className={`flex items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-semibold transition-all ${
                           i === activeDesign
-                            ? "border-accent bg-accent/10 text-accent-light shadow-[0_0_16px_rgba(155,89,182,0.15)]"
+                            ? "border-accent bg-accent/10 text-accent-light shadow-[0_0_16px_rgba(43,123,191,0.15)]"
                             : "border-white/6 bg-white/[0.02] text-text-muted hover:border-white/12 hover:text-text-white"
                         }`}
                       >
@@ -2069,7 +2069,7 @@ export default function AdsPage() {
                   onClick={() => setActivePlatform(p)}
                   className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold transition-all ${
                     p === activePlatform
-                      ? "bg-accent text-white shadow-[0_0_14px_rgba(155,89,182,0.3)]"
+                      ? "bg-accent text-white shadow-[0_0_14px_rgba(43,123,191,0.3)]"
                       : "bg-white/[0.03] text-text-muted hover:bg-white/[0.07] hover:text-text-white"
                   }`}
                 >
@@ -2116,7 +2116,7 @@ export default function AdsPage() {
                   className={`mt-2.5 flex w-full items-center justify-center gap-2 rounded-xl py-2.5 text-sm font-bold transition-all ${
                     isDownloading
                       ? "bg-accent/20 text-accent-light cursor-wait"
-                      : "bg-accent text-white hover:bg-accent-light hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(155,89,182,0.25)]"
+                      : "bg-accent text-white hover:bg-accent-light hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(43,123,191,0.25)]"
                   }`}
                 >
                   {isDownloading ? (

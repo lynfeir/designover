@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 
 export default function Footer() {
@@ -8,15 +9,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <h4 className="font-bold text-lg text-text-white mb-4">
-              Design <span className="gradient-text">over</span> Atlanta
-            </h4>
+            <div className="flex items-center gap-3 mb-4">
+              <Image src="/doa-logo-transparent-square-1024.png" alt="Design Over Atlanta" width={32} height={32} className="rounded" />
+              <h4 className="font-bold text-lg text-text-white">
+                Design <span className="gradient-text">over</span> Atlanta
+              </h4>
+            </div>
             <p className="text-text-muted text-sm leading-relaxed mb-4">
               Custom websites, business graphics, and AI automation tools for businesses that want to grow without the overhead. Based in Atlanta, GA.
             </p>
             <a
               href="tel:4707583549"
-              className="text-[#E91E8C] font-semibold text-base inline-block mb-2"
+              className="text-accent font-semibold text-base inline-block mb-2"
             >
               (470) 758-3549
             </a>
