@@ -27,15 +27,15 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 w-full z-50 min-h-[72px] flex items-center transition-all duration-300 ${
         scrolled
-          ? "bg-bg-dark/95 backdrop-blur-xl border-b border-white/[0.08]"
-          : "bg-bg-dark/80 backdrop-blur-md border-b border-white/[0.04]"
+          ? "bg-white shadow-sm border-b border-border-light"
+          : "bg-white/80 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl w-full mx-auto px-6 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2.5">
           <Image src="/doa-logo-transparent-square-1024.png" alt="Design Over Atlanta" width={36} height={36} className="rounded" />
-          <span className="font-bold text-xl tracking-tight text-text-white">
-            Design <span className="gradient-text">over</span> Atlanta
+          <span className="font-bold text-xl tracking-tight text-text-heading">
+            Design <span className="text-terra">over</span> Atlanta
           </span>
         </Link>
 
@@ -47,13 +47,13 @@ export default function Navbar() {
                 href={l.href}
                 className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                   pathname === l.href
-                    ? "text-text-white bg-white/[0.08]"
-                    : "text-text-muted hover:text-text-white hover:bg-white/[0.05]"
+                    ? "text-text-heading bg-terra-soft"
+                    : "text-text-body hover:text-text-heading"
                 }`}
               >
                 {l.label}
                 {pathname === l.href && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 rounded-full gradient-cta" />
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 rounded-full bg-terra" />
                 )}
               </Link>
             </li>
@@ -61,7 +61,7 @@ export default function Navbar() {
           <li className="ml-3">
             <Link
               href="/contact"
-              className="gradient-cta text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-[0_0_30px_rgba(232,168,56,0.25)]"
+              className="bg-terra hover:bg-terra-dark text-white font-semibold text-sm px-5 py-2.5 rounded-lg btn-hover"
             >
               Get a Demo
             </Link>
@@ -75,17 +75,17 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`w-5 h-0.5 bg-text-white rounded transition-all ${
+            className={`w-5 h-0.5 bg-text-heading rounded transition-all ${
               open ? "rotate-45 translate-y-[7px]" : ""
             }`}
           />
           <span
-            className={`w-5 h-0.5 bg-text-white rounded transition-all ${
+            className={`w-5 h-0.5 bg-text-heading rounded transition-all ${
               open ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`w-5 h-0.5 bg-text-white rounded transition-all ${
+            className={`w-5 h-0.5 bg-text-heading rounded transition-all ${
               open ? "-rotate-45 -translate-y-[7px]" : ""
             }`}
           />
@@ -94,7 +94,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden fixed top-[72px] left-0 w-full h-[calc(100vh-72px)] bg-bg-dark/98 backdrop-blur-xl flex flex-col items-center pt-10 gap-2 z-50">
+        <div className="md:hidden fixed top-[72px] left-0 w-full h-[calc(100vh-72px)] bg-bg-cream backdrop-blur-xl flex flex-col items-center pt-10 gap-2 z-50">
           {links.map((l) => (
             <Link
               key={l.href}
@@ -102,8 +102,8 @@ export default function Navbar() {
               onClick={() => setOpen(false)}
               className={`text-lg font-medium px-6 py-3 rounded-lg transition-all ${
                 pathname === l.href
-                  ? "text-text-white bg-white/[0.08]"
-                  : "text-text-muted hover:text-text-white"
+                  ? "text-text-heading bg-terra-soft"
+                  : "text-text-body hover:text-text-heading"
               }`}
             >
               {l.label}
@@ -112,7 +112,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={() => setOpen(false)}
-            className="mt-4 gradient-cta text-white font-semibold px-8 py-3 rounded-lg transition-all"
+            className="mt-4 bg-terra hover:bg-terra-dark text-white font-semibold px-8 py-3 rounded-lg btn-hover"
           >
             Get a Demo
           </Link>
