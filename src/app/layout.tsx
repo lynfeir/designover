@@ -39,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${barlowCondensed.variable}`}>
-      <body className="bg-bg-dark text-text-white antialiased">
+      <body className="bg-bg-cream text-text-body antialiased">
         <Navbar />
         <main className="pt-[72px]">{children}</main>
         <Footer />
