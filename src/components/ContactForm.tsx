@@ -52,15 +52,15 @@ export default function ContactForm() {
   }
 
   const inputClass =
-    "w-full px-4 py-3 border border-border-light rounded-lg text-sm bg-white text-text-dark focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/10 transition-all";
+    "w-full px-4 py-3 border border-border-light rounded-lg text-sm bg-white text-text-dark focus:outline-none focus:border-sage focus:ring-2 focus:ring-sage/10 transition-all";
 
   return (
-    <div className="reveal bg-white border border-border-light rounded-2xl p-8 relative shadow-[0_8px_40px_rgba(43,123,191,0.06)]">
+    <div className="reveal bg-white border border-border-light rounded-2xl p-8 relative shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
       {/* Toast */}
       {toast && (
         <div
           className={`fixed top-[90px] right-5 z-[9999] px-6 py-4 rounded-xl shadow-2xl text-white text-sm font-medium max-w-sm transition-transform ${
-            toast.type === "success" ? "bg-emerald" : "bg-rose"
+            toast.type === "success" ? "bg-success" : "bg-error"
           }`}
         >
           {toast.msg}
@@ -69,8 +69,8 @@ export default function ContactForm() {
 
       {submitted ? (
         <div className="text-center py-12">
-          <div className="w-16 h-16 rounded-full bg-emerald-soft flex items-center justify-center mx-auto mb-5">
-            <svg className="w-8 h-8 text-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <div className="w-16 h-16 rounded-full bg-success-soft flex items-center justify-center mx-auto mb-5">
+            <svg className="w-8 h-8 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
           </div>
@@ -83,7 +83,7 @@ export default function ContactForm() {
           </p>
           <button
             onClick={clearForm}
-            className="border border-border-light hover:border-accent hover:text-accent-dark text-text-dark font-semibold text-sm px-6 py-2.5 rounded-lg transition-all"
+            className="border border-border-light hover:border-terra hover:text-terra text-text-dark font-semibold text-sm px-6 py-2.5 rounded-lg transition-all"
           >
             Send Another Request
           </button>
@@ -193,7 +193,7 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={sending}
-              className="w-full gradient-cta text-white font-semibold py-3.5 rounded-lg transition-all disabled:opacity-60"
+              className="w-full bg-terra hover:bg-terra-dark text-white btn-hover rounded-lg font-semibold py-3.5 transition-all disabled:opacity-60"
             >
               {sending ? "Sending..." : "Send Request"}
             </button>
