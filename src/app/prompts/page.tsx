@@ -200,12 +200,11 @@ export default function PromptsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-bg-dark">
+    <div className="min-h-screen bg-bg-cream">
       {/* Hero */}
       <section className="relative overflow-hidden py-20 pb-10">
-        <div className="absolute inset-0 mesh-bg" />
         <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-xs font-bold tracking-wider text-accent-light uppercase mb-6">
+          <div className="inline-flex items-center gap-2 rounded-full border border-terra/20 bg-terra/5 px-4 py-1.5 text-xs font-bold tracking-wider text-terra uppercase mb-6">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
             </svg>
@@ -213,21 +212,21 @@ export default function PromptsPage() {
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] mb-4">
             AI Photo Prompts for{" "}
-            <span className="gradient-text">Your Ads</span>
+            <span className="text-terra">Your Ads</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-text-muted leading-relaxed">
             18 copy-paste prompts for free AI image generators.
             Create branded photos for your social media ads in seconds.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-semibold text-text-muted">
-            <span className="rounded-full bg-white/[0.05] px-3 py-1">18 Prompts</span>
-            <span className="rounded-full bg-white/[0.05] px-3 py-1">100% Free Tools</span>
-            <span className="rounded-full bg-white/[0.05] px-3 py-1">Brand-Matched Colors</span>
-            <span className="rounded-full bg-white/[0.05] px-3 py-1">Copy & Paste</span>
+            <span className="rounded-full bg-terra/5 px-3 py-1">18 Prompts</span>
+            <span className="rounded-full bg-terra/5 px-3 py-1">100% Free Tools</span>
+            <span className="rounded-full bg-terra/5 px-3 py-1">Brand-Matched Colors</span>
+            <span className="rounded-full bg-terra/5 px-3 py-1">Copy & Paste</span>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-2">
             {["Ideogram", "Leonardo AI", "Playground AI", "Canva AI", "Microsoft Designer"].map((tool) => (
-              <span key={tool} className="rounded-lg border border-accent/20 bg-accent/5 px-3 py-1.5 text-xs font-semibold text-accent-light">
+              <span key={tool} className="rounded-lg border border-terra/20 bg-terra/5 px-3 py-1.5 text-xs font-semibold text-terra">
                 {tool} — Free
               </span>
             ))}
@@ -236,7 +235,7 @@ export default function PromptsPage() {
       </section>
 
       {/* Category Filter */}
-      <section className="sticky top-[72px] z-30 border-b border-border-dark bg-bg-dark/92 backdrop-blur-xl">
+      <section className="sticky top-[72px] z-30 border-b border-border bg-bg-cream/92 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-6 py-4">
           <div className="flex flex-wrap items-center gap-2">
             <label className="text-[10px] font-bold uppercase tracking-widest text-text-muted/60 mr-1">Category:</label>
@@ -244,8 +243,8 @@ export default function PromptsPage() {
               onClick={() => setActiveCategory("all")}
               className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-all ${
                 activeCategory === "all"
-                  ? "bg-accent text-white shadow-[0_0_14px_rgba(43,123,191,0.3)]"
-                  : "bg-white/[0.03] text-text-muted hover:bg-white/[0.07] hover:text-text-white"
+                  ? "bg-terra text-white"
+                  : "bg-terra/5 text-text-muted hover:bg-terra/10 hover:text-terra"
               }`}
             >
               All ({PROMPTS.length})
@@ -256,8 +255,8 @@ export default function PromptsPage() {
                 onClick={() => setActiveCategory(cat)}
                 className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-all ${
                   activeCategory === cat
-                    ? "bg-accent text-white shadow-[0_0_14px_rgba(43,123,191,0.3)]"
-                    : "bg-white/[0.03] text-text-muted hover:bg-white/[0.07] hover:text-text-white"
+                    ? "bg-terra text-white"
+                    : "bg-terra/5 text-text-muted hover:bg-terra/10 hover:text-terra"
                 }`}
               >
                 {cat} ({PROMPTS.filter((p) => p.category === cat).length})
@@ -273,14 +272,14 @@ export default function PromptsPage() {
           {filtered.map((prompt) => (
             <div
               key={prompt.id}
-              className="group rounded-2xl border border-border-dark bg-bg-card p-5 transition-all hover:border-white/10 hover:bg-bg-card-hover hover:-translate-y-1 hover:shadow-lg"
+              className="group rounded-2xl border border-border bg-white p-5 transition-all hover:border-terra/20 hover:bg-bg-sage/40 hover:-translate-y-1 hover:shadow-lg"
             >
               {/* Header */}
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <h3 className="text-base font-bold text-text-white">{prompt.title}</h3>
+                  <h3 className="text-base font-bold text-text-heading">{prompt.title}</h3>
                   <div className="mt-1 flex items-center gap-2">
-                    <span className="rounded-full bg-accent/10 px-2 py-0.5 text-[10px] font-bold text-accent-light uppercase tracking-wider">
+                    <span className="rounded-full bg-terra/10 px-2 py-0.5 text-[10px] font-bold text-terra uppercase tracking-wider">
                       {prompt.category}
                     </span>
                     <span className="text-[10px] text-text-muted">{prompt.platform}</span>
@@ -291,7 +290,7 @@ export default function PromptsPage() {
                   className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-bold transition-all ${
                     copiedId === prompt.id
                       ? "bg-emerald/20 text-emerald"
-                      : "bg-accent/10 text-accent-light hover:bg-accent/20"
+                      : "bg-terra/10 text-terra hover:bg-terra/20"
                   }`}
                 >
                   {copiedId === prompt.id ? (
@@ -313,13 +312,13 @@ export default function PromptsPage() {
               </div>
 
               {/* Prompt Text */}
-              <div className="rounded-xl bg-bg-dark/60 border border-white/[0.04] p-3.5 mb-3">
+              <div className="rounded-xl bg-bg-cream/60 border border-terra/10 p-3.5 mb-3">
                 <p className="text-xs text-text-muted leading-relaxed line-clamp-4 font-mono">
                   {prompt.prompt}
                 </p>
                 <button
                   onClick={() => copyPrompt(prompt.id, prompt.prompt)}
-                  className="mt-2 text-[10px] font-semibold text-accent-light hover:text-accent transition-colors"
+                  className="mt-2 text-[10px] font-semibold text-terra hover:text-terra transition-colors"
                 >
                   Click to expand & copy full prompt
                 </button>
@@ -327,7 +326,7 @@ export default function PromptsPage() {
 
               {/* Tips */}
               <div className="mb-3">
-                <p className="text-[11px] font-semibold text-text-white mb-0.5">How to use:</p>
+                <p className="text-[11px] font-semibold text-text-heading mb-0.5">How to use:</p>
                 <p className="text-[11px] text-text-muted leading-relaxed">{prompt.tips}</p>
               </div>
 
@@ -336,7 +335,7 @@ export default function PromptsPage() {
                 {prompt.bestFor.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-white/[0.04] border border-white/[0.06] px-2 py-0.5 text-[10px] font-medium text-text-muted"
+                    className="rounded-full bg-terra/5 border border-terra/10 px-2 py-0.5 text-[10px] font-medium text-text-muted"
                   >
                     {tag}
                   </span>
@@ -349,8 +348,8 @@ export default function PromptsPage() {
 
       {/* How To Use Section */}
       <section className="mx-auto max-w-7xl px-6 pb-10">
-        <div className="rounded-2xl border border-border-dark bg-bg-card p-6">
-          <h2 className="text-lg font-bold mb-3"><span className="gradient-text">How to Create Free Ad Photos</span></h2>
+        <div className="rounded-2xl border border-border bg-white p-6">
+          <h2 className="text-lg font-bold mb-3"><span className="text-terra">How to Create Free Ad Photos</span></h2>
           <div className="grid gap-4 sm:grid-cols-4">
             {[
               { t: "Copy a Prompt", d: "Click the copy button on any prompt card. The full prompt is copied to your clipboard." },
@@ -359,7 +358,7 @@ export default function PromptsPage() {
               { t: "Download & Use", d: "Download the image, overlay your ad text, and post. Pair with our Ad Studio for full ads." },
             ].map((tip) => (
               <div key={tip.t}>
-                <h3 className="text-sm font-bold text-text-white mb-1">{tip.t}</h3>
+                <h3 className="text-sm font-bold text-text-heading mb-1">{tip.t}</h3>
                 <p className="text-xs text-text-muted leading-relaxed">{tip.d}</p>
               </div>
             ))}
@@ -369,8 +368,8 @@ export default function PromptsPage() {
 
       {/* Free Tools Reference */}
       <section className="mx-auto max-w-7xl px-6 pb-16">
-        <div className="rounded-2xl border border-border-dark bg-bg-card p-6">
-          <h2 className="text-lg font-bold mb-4"><span className="gradient-text">Free AI Image Tools</span></h2>
+        <div className="rounded-2xl border border-border bg-white p-6">
+          <h2 className="text-lg font-bold mb-4"><span className="text-terra">Free AI Image Tools</span></h2>
           <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-5">
             {[
               { name: "Ideogram", desc: "Best for text in images and stylized graphics. 25 free images/day.", color: "#2B7BBF" },
@@ -379,10 +378,10 @@ export default function PromptsPage() {
               { name: "Canva AI", desc: "Best if you already use Canva. 50 free generations/month.", color: "#F5A623" },
               { name: "Microsoft Designer", desc: "Free with Microsoft account. Great for social media graphics.", color: "#3b82f6" },
             ].map((tool) => (
-              <div key={tool.name} className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+              <div key={tool.name} className="rounded-xl border border-terra/10 bg-terra/5 p-4">
                 <div className="flex items-center gap-2 mb-2">
                   <div className="w-2.5 h-2.5 rounded-full" style={{ background: tool.color }} />
-                  <h3 className="text-sm font-bold text-text-white">{tool.name}</h3>
+                  <h3 className="text-sm font-bold text-text-heading">{tool.name}</h3>
                 </div>
                 <p className="text-[11px] text-text-muted leading-relaxed">{tool.desc}</p>
               </div>

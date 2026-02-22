@@ -98,18 +98,18 @@ export default function MarketingPlans() {
       {PLANS.map((plan, i) => (
         <div
           key={i}
-          className="border border-white/[0.06] rounded-xl bg-bg-card overflow-hidden transition-all"
+          className="border border-terra/10 rounded-xl bg-white overflow-hidden transition-all"
         >
           <button
             onClick={() => setExpanded(expanded === i ? null : i)}
-            className="w-full text-left p-6 flex items-start justify-between gap-4 hover:bg-bg-card-hover transition-colors cursor-pointer"
+            className="w-full text-left p-6 flex items-start justify-between gap-4 hover:bg-bg-sage/40 transition-colors cursor-pointer"
           >
             <div>
-              <h3 className="text-lg font-bold text-text-white">{plan.title}</h3>
+              <h3 className="text-lg font-bold text-text-heading">{plan.title}</h3>
               <p className="text-text-muted text-sm mt-1">{plan.description}</p>
             </div>
             <div className="flex items-center gap-3 shrink-0">
-              <span className="text-xs text-text-muted bg-white/[0.06] px-3 py-1 rounded-full">
+              <span className="text-xs text-text-muted bg-terra/10 px-3 py-1 rounded-full">
                 {plan.duration}
               </span>
               <svg
@@ -128,11 +128,11 @@ export default function MarketingPlans() {
             </div>
           </button>
           {expanded === i && (
-            <div className="px-6 pb-6 border-t border-white/[0.04]">
+            <div className="px-6 pb-6 border-t border-terra/10">
               <ol className="mt-4 space-y-3">
                 {plan.steps.map((step, j) => (
                   <li key={j} className="flex gap-3 text-sm">
-                    <span className="text-accent font-bold shrink-0 w-6 text-right">{j + 1}.</span>
+                    <span className="text-terra font-bold shrink-0 w-6 text-right">{j + 1}.</span>
                     <span className="text-text-muted leading-relaxed">{step}</span>
                   </li>
                 ))}

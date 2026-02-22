@@ -35,7 +35,7 @@ export default function AdGrid() {
   }, [search, formatFilter, categoryFilter, themeFilter]);
 
   const selectClass =
-    "bg-bg-card border border-white/[0.08] rounded-lg px-3 py-2 text-sm text-text-white focus:outline-none focus:border-accent transition-colors cursor-pointer";
+    "bg-white border border-terra/15 rounded-lg px-3 py-2 text-sm text-text-heading focus:outline-none focus:border-terra transition-colors cursor-pointer";
 
   return (
     <div>
@@ -46,7 +46,7 @@ export default function AdGrid() {
           placeholder="Search ads..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="bg-bg-card border border-white/[0.08] rounded-lg px-4 py-2 text-sm text-text-white placeholder:text-text-muted focus:outline-none focus:border-accent transition-colors flex-1 min-w-[200px]"
+          className="bg-white border border-terra/15 rounded-lg px-4 py-2 text-sm text-text-heading placeholder:text-text-muted focus:outline-none focus:border-terra transition-colors flex-1 min-w-[200px]"
         />
         <select
           value={formatFilter}
@@ -82,7 +82,7 @@ export default function AdGrid() {
 
       {/* Count */}
       <p className="text-text-muted text-sm mb-6">
-        Showing <span className="text-text-white font-semibold">{filtered.length}</span> of {ADS.length} ads
+        Showing <span className="text-text-heading font-semibold">{filtered.length}</span> of {ADS.length} ads
       </p>
 
       {/* Grid */}
@@ -96,7 +96,7 @@ export default function AdGrid() {
               setCategoryFilter("all");
               setThemeFilter("all");
             }}
-            className="mt-4 text-accent hover:text-accent-light text-sm font-medium transition-colors"
+            className="mt-4 text-terra hover:text-terra text-sm font-medium transition-colors"
           >
             Clear all filters
           </button>

@@ -417,7 +417,7 @@ export default function AdCard({ ad }: { ad: AdDefinition }) {
 
   return (
     <div
-      style={{ borderRadius: 12, border: "1px solid rgba(255,255,255,0.08)", background: "#143049", overflow: "hidden", transition: "all 0.2s" }}
+      style={{ borderRadius: 12, border: "1px solid #e0d5c8", background: "#ffffff", overflow: "hidden", transition: "all 0.2s" }}
       data-ad-wrapper
     >
       {/* Preview container */}
@@ -464,7 +464,7 @@ export default function AdCard({ ad }: { ad: AdDefinition }) {
       {/* Info bar */}
       <div style={{ padding: "12px 16px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
         <div style={{ minWidth: 0 }}>
-          <p className="text-text-white text-sm font-semibold truncate">
+          <p className="text-text-heading text-sm font-semibold truncate">
             {ad.headline.replace(/\n/g, " ").substring(0, 45)}{ad.headline.length > 45 ? "..." : ""}
           </p>
           <p className="text-text-muted text-xs mt-0.5">

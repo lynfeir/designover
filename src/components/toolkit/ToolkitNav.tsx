@@ -24,8 +24,8 @@ export default function ToolkitNav({
           onClick={() => onChange(tab.id)}
           className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all cursor-pointer ${
             active === tab.id
-              ? "bg-accent text-white shadow-lg shadow-accent/20"
-              : "bg-white/[0.04] text-text-muted hover:bg-white/[0.08] hover:text-text-white"
+              ? "bg-terra text-white shadow-lg shadow-terra/20"
+              : "bg-terra/5 text-text-muted hover:bg-terra/10 hover:text-terra"
           }`}
         >
           <svg
@@ -43,7 +43,7 @@ export default function ToolkitNav({
           {tab.label}
           {tab.count && (
             <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-              active === tab.id ? "bg-white/20" : "bg-white/[0.06]"
+              active === tab.id ? "bg-terra/20" : "bg-terra/10"
             }`}>
               {tab.count}
             </span>

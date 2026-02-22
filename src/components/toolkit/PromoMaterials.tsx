@@ -157,17 +157,17 @@ export default function PromoMaterials() {
     <div className="space-y-8">
       {MATERIALS.map((mat) => (
         <div key={mat.category}>
-          <h3 className="text-text-white font-bold text-lg mb-4">{mat.category}</h3>
+          <h3 className="text-text-heading font-bold text-lg mb-4">{mat.category}</h3>
           <div className="space-y-4">
             {mat.items.map((item) => {
               const key = `${mat.category}-${item.title}`;
               return (
-                <div key={key} className="bg-bg-card border border-white/[0.06] rounded-xl p-5">
+                <div key={key} className="bg-white border border-terra/10 rounded-xl p-5">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-text-white font-semibold text-sm">{item.title}</span>
+                    <span className="text-text-heading font-semibold text-sm">{item.title}</span>
                     <button
                       onClick={() => copy(item.content, key)}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.06] hover:bg-white/[0.1] text-text-muted hover:text-text-white text-xs font-medium transition-all cursor-pointer"
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-terra/10 hover:bg-terra/15 text-text-muted hover:text-terra text-xs font-medium transition-all cursor-pointer"
                     >
                       {copied === key ? (
                         <>
@@ -182,7 +182,7 @@ export default function PromoMaterials() {
                       )}
                     </button>
                   </div>
-                  <pre className="text-text-muted text-sm whitespace-pre-wrap font-[inherit] leading-relaxed bg-white/[0.02] rounded-lg p-4">
+                  <pre className="text-text-muted text-sm whitespace-pre-wrap font-[inherit] leading-relaxed bg-terra/5 rounded-lg p-4">
                     {item.content}
                   </pre>
                 </div>

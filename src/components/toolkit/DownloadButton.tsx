@@ -53,7 +53,7 @@ export default function DownloadButton({ targetId, filename, width, height }: Pr
   return (
     <button
       onClick={download}
-      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-accent hover:bg-accent-light text-white text-xs font-semibold transition-all hover:-translate-y-0.5"
+      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-terra hover:bg-terra-dark text-white text-xs font-semibold transition-all hover:-translate-y-0.5"
     >
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
