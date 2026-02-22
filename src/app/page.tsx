@@ -70,7 +70,7 @@ export default function Home() {
                 <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-terra/10 via-honey/10 to-sage/10 -z-10" />
                 <div className="w-80 h-96 rounded-2xl overflow-hidden border-2 border-border shadow-xl">
                   <Image
-                    src="/headshot_square_preview_1024.png"
+                    src="/hunterheadshot.png"
                     alt="Hunter Weeks — Founder of Design over Atlanta"
                     fill
                     className="object-cover object-top"
@@ -217,7 +217,7 @@ export default function Home() {
             <div className="relative shrink-0">
               <div className="w-40 h-40 md:w-52 md:h-52 rounded-2xl overflow-hidden border-2 border-border shadow-lg relative">
                 <Image
-                  src="/headshot_square_preview_1024.png"
+                  src="/hunterheadshot.png"
                   alt="Hunter Weeks — Founder of Design over Atlanta"
                   fill
                   className="object-cover object-top"
@@ -583,7 +583,7 @@ export default function Home() {
           <div className="relative inline-block mb-6">
             <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-terra/30 shadow-lg">
               <Image
-                src="/headshot_square_preview_1024.png"
+                src="/hunterheadshot.png"
                 alt="Hunter Weeks"
                 width={64}
                 height={64}

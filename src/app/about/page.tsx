@@ -31,7 +31,7 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="relative rounded-2xl overflow-hidden border border-border aspect-[4/5] max-w-md mx-auto lg:mx-0">
                   <Image
-                    src="/headshot.png"
+                    src="/hunterheadshot.png"
                     alt="Hunter Weeks — Founder of Design over Atlanta"
                     fill
                     className="object-cover"
