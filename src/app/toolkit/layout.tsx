@@ -12,20 +12,20 @@ export default function ToolkitLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-bg-dark text-text-white">
+    <div className="min-h-screen bg-bg-cream text-text-body">
       {/* Minimal header — no main site nav */}
-      <header className="sticky top-0 z-50 bg-bg-dark/95 backdrop-blur-xl border-b border-white/[0.08]">
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-border-light">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-white font-bold text-sm">
+            <div className="w-8 h-8 rounded-lg bg-terra flex items-center justify-center text-white font-bold text-sm">
               D
             </div>
             <div>
-              <span className="font-bold text-text-white text-sm">Design <span className="gradient-text">over</span> Atlanta</span>
+              <span className="font-bold text-text-heading text-sm">Design <span className="text-terra">over</span> Atlanta</span>
               <span className="text-text-muted text-xs ml-2 hidden sm:inline">Marketing Toolkit</span>
             </div>
           </div>
-          <span className="text-[10px] uppercase tracking-[0.2em] text-text-muted bg-white/[0.06] px-3 py-1 rounded-full">
+          <span className="text-[10px] uppercase tracking-[0.2em] text-text-muted bg-bg-sage px-3 py-1 rounded-full">
             Internal Use
           </span>
         </div>
