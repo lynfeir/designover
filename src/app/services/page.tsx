@@ -12,22 +12,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-bg-dark text-text-white py-20 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(43,123,191,0.06),transparent_70%)] pointer-events-none" />
-        {/* Grid lines */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.015]"
-          style={{
-            backgroundImage: "linear-gradient(rgba(43,123,191,1) 1px, transparent 1px), linear-gradient(90deg, rgba(43,123,191,1) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-            maskImage: "linear-gradient(180deg, transparent 0%, black 40%, black 60%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(180deg, transparent 0%, black 40%, black 60%, transparent 100%)",
-          }}
-        />
-        {/* Arch accent */}
-        <div className="absolute inset-0 pointer-events-none" style={{
-          background: "linear-gradient(160deg, transparent 45%, rgba(43,123,191,0.03) 46%, rgba(43,123,191,0.03) 48%, transparent 49%)",
-        }} />
+      <section className="relative bg-bg-cream text-text-heading py-20 text-center overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">Services</h1>
           <p className="text-text-muted text-lg max-w-xl mx-auto">
@@ -35,26 +20,16 @@ export default function ServicesPage() {
             goals. Flat pricing, fast delivery, and a free demo on every web
             project.
           </p>
-          <div className="gradient-line w-20 mx-auto mt-6" />
+          <div className="h-[3px] w-20 bg-terra rounded mx-auto mt-6" />
         </div>
       </section>
 
       {/* Websites */}
-      <section id="websites" className="relative py-24 bg-bg-white overflow-hidden">
-        {/* Faint grid texture */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.012]"
-          style={{
-            backgroundImage: "linear-gradient(#2B7BBF 1px, transparent 1px), linear-gradient(90deg, #2B7BBF 1px, transparent 1px)",
-            backgroundSize: "56px 56px",
-            maskImage: "linear-gradient(180deg, black 0%, transparent 60%)",
-            WebkitMaskImage: "linear-gradient(180deg, black 0%, transparent 60%)",
-          }}
-        />
+      <section id="websites" className="relative py-24 bg-bg-sage overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div className="reveal">
-              <span className="text-accent text-xs font-bold uppercase tracking-[0.12em] block mb-3">
+              <span className="text-terra text-xs font-bold uppercase tracking-[0.12em] block mb-3">
                 01 — Websites
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-text-dark mb-6">
@@ -80,7 +55,7 @@ export default function ServicesPage() {
                 </p>
               </div>
               <div className="flex gap-3 items-center flex-wrap">
-                <span className="bg-accent-soft text-accent px-4 py-1.5 rounded-full text-sm font-bold">
+                <span className="bg-terra-soft text-terra px-4 py-1.5 rounded-full text-sm font-bold">
                   From $200
                 </span>
                 <span className="text-text-body text-sm">
@@ -88,9 +63,7 @@ export default function ServicesPage() {
                 </span>
               </div>
             </div>
-            <div className="reveal bg-bg-light border border-border-light rounded-2xl p-8 relative overflow-hidden">
-              {/* Corner accent triangle */}
-              <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none" style={{ background: "linear-gradient(135deg, transparent 50%, rgba(43,123,191,0.04) 50%)" }} />
+            <div className="reveal bg-white border border-border-light shadow-sm card-hover rounded-2xl p-8 relative overflow-hidden">
               <h4 className="font-bold text-text-dark mb-5 relative z-10">
                 Website Project Examples
               </h4>
@@ -129,7 +102,7 @@ export default function ServicesPage() {
                       </div>
                       <div className="text-text-body text-xs">{p.desc}</div>
                     </div>
-                    <span className="text-accent font-bold text-sm whitespace-nowrap">
+                    <span className="text-terra font-bold text-sm whitespace-nowrap">
                       {p.price}
                     </span>
                   </div>
@@ -141,15 +114,11 @@ export default function ServicesPage() {
       </section>
 
       {/* Graphic Design */}
-      <section id="design" className="relative py-24 bg-bg-light overflow-hidden">
-        {/* Arch accent */}
-        <div className="absolute inset-0 pointer-events-none" style={{
-          background: "linear-gradient(155deg, transparent 50%, rgba(43,123,191,0.02) 51%, rgba(43,123,191,0.02) 53%, transparent 54%)",
-        }} />
+      <section id="design" className="relative py-24 bg-bg-sage overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div className="reveal lg:order-2">
-              <span className="text-accent-light text-xs font-bold uppercase tracking-[0.12em] block mb-3">
+              <span className="text-terra text-xs font-bold uppercase tracking-[0.12em] block mb-3">
                 02 — Graphic Design
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-text-dark mb-6">
@@ -169,7 +138,7 @@ export default function ServicesPage() {
                 </p>
               </div>
               <div className="flex gap-3 items-center flex-wrap">
-                <span className="bg-[rgba(43,123,191,0.12)] text-accent-light px-4 py-1.5 rounded-full text-sm font-bold">
+                <span className="bg-terra-soft text-terra px-4 py-1.5 rounded-full text-sm font-bold">
                   From $99
                 </span>
                 <span className="text-text-body text-sm">
@@ -177,9 +146,7 @@ export default function ServicesPage() {
                 </span>
               </div>
             </div>
-            <div className="reveal lg:order-1 bg-white border border-border-light rounded-2xl p-8 relative overflow-hidden">
-              {/* Corner accent triangle */}
-              <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none" style={{ background: "linear-gradient(135deg, transparent 50%, rgba(43,123,191,0.04) 50%)" }} />
+            <div className="reveal lg:order-1 bg-white border border-border-light shadow-sm card-hover rounded-2xl p-8 relative overflow-hidden">
               <h4 className="font-bold text-text-dark mb-5 relative z-10">
                 Common Design Projects
               </h4>
@@ -218,7 +185,7 @@ export default function ServicesPage() {
                       </div>
                       <div className="text-text-body text-xs">{p.desc}</div>
                     </div>
-                    <span className="text-accent-light font-bold text-sm whitespace-nowrap">
+                    <span className="text-terra font-bold text-sm whitespace-nowrap">
                       {p.price}
                     </span>
                   </div>
@@ -230,21 +197,11 @@ export default function ServicesPage() {
       </section>
 
       {/* AI Tools */}
-      <section id="ai-tools" className="relative py-24 bg-bg-white overflow-hidden">
-        {/* Grid texture */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.012]"
-          style={{
-            backgroundImage: "linear-gradient(#E8A838 1px, transparent 1px), linear-gradient(90deg, #E8A838 1px, transparent 1px)",
-            backgroundSize: "56px 56px",
-            maskImage: "linear-gradient(180deg, transparent 0%, black 40%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(180deg, transparent 0%, black 40%, transparent 100%)",
-          }}
-        />
+      <section id="ai-tools" className="relative py-24 bg-bg-sage overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <div className="reveal">
-              <span className="text-[#E8A838] text-xs font-bold uppercase tracking-[0.12em] block mb-3">
+              <span className="text-honey text-xs font-bold uppercase tracking-[0.12em] block mb-3">
                 03 — AI Business Tools
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-text-dark mb-6">
@@ -266,7 +223,7 @@ export default function ServicesPage() {
                 </p>
               </div>
               <div className="flex gap-3 items-center flex-wrap">
-                <span className="bg-[rgba(43,123,191,0.12)] text-[#E8A838] px-4 py-1.5 rounded-full text-sm font-bold">
+                <span className="bg-honey-soft text-honey px-4 py-1.5 rounded-full text-sm font-bold">
                   Custom Quote
                 </span>
                 <span className="text-text-body text-sm">
@@ -274,9 +231,7 @@ export default function ServicesPage() {
                 </span>
               </div>
             </div>
-            <div className="reveal bg-bg-light border border-border-light rounded-2xl p-8 relative overflow-hidden">
-              {/* Corner accent triangle */}
-              <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none" style={{ background: "linear-gradient(135deg, transparent 50%, rgba(43,123,191,0.04) 50%)" }} />
+            <div className="reveal bg-white border border-border-light shadow-sm card-hover rounded-2xl p-8 relative overflow-hidden">
               <h4 className="font-bold text-text-dark mb-5 relative z-10">How It Works</h4>
               <div className="flex flex-col gap-5">
                 {[
@@ -297,7 +252,7 @@ export default function ServicesPage() {
                   },
                 ].map((s) => (
                   <div key={s.n} className="flex gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[rgba(43,123,191,0.12)] flex items-center justify-center text-xs font-bold text-[#E8A838] shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-honey-soft flex items-center justify-center text-xs font-bold text-honey shrink-0">
                       {s.n}
                     </div>
                     <div>
@@ -317,71 +272,55 @@ export default function ServicesPage() {
       </section>
 
       {/* Why Our Pricing Wins */}
-      <section className="relative py-20 bg-bg-dark overflow-hidden">
-        {/* Grid lines */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.015]"
-          style={{
-            backgroundImage: "linear-gradient(rgba(43,123,191,1) 1px, transparent 1px), linear-gradient(90deg, rgba(43,123,191,1) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-            maskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, black 20%, transparent 70%)",
-            WebkitMaskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, black 20%, transparent 70%)",
-          }}
-        />
-        {/* Diagonal slash */}
-        <div className="absolute inset-0 pointer-events-none" style={{
-          background: "linear-gradient(155deg, transparent 40%, rgba(74,140,42,0.02) 41%, rgba(74,140,42,0.02) 43%, transparent 44%)",
-        }} />
+      <section className="relative py-20 bg-bg-cream overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="reveal max-w-3xl mx-auto text-center">
-            <span className="text-accent text-xs font-bold uppercase tracking-[0.12em] block mb-3">
+            <span className="text-terra text-xs font-bold uppercase tracking-[0.12em] block mb-3">
               The Math
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-text-heading mb-6">
               Why Clients Switch to Us
             </h2>
             <div className="grid sm:grid-cols-2 gap-6 mb-8">
-              <div className="bg-bg-card border border-border-dark rounded-2xl p-8 relative overflow-hidden">
+              <div className="bg-white border border-border-light shadow-sm card-hover rounded-2xl p-8 relative overflow-hidden">
                 <div className="text-xs uppercase tracking-wider text-text-muted mb-2 relative z-10">
                   Typical Agency
                 </div>
-                <div className="text-2xl font-extrabold text-rose mb-1">
+                <div className="text-2xl font-extrabold text-error mb-1">
                   $2,000&ndash;$5,000+
                 </div>
                 <div className="text-text-muted text-sm mb-3">Website design</div>
-                <div className="text-2xl font-extrabold text-rose mb-1">
+                <div className="text-2xl font-extrabold text-error mb-1">
                   $20/mo
                 </div>
                 <div className="text-text-muted text-sm">Hosting</div>
-                <div className="border-t border-border-dark mt-4 pt-4">
+                <div className="border-t border-border-light mt-4 pt-4">
                   <div className="text-text-muted text-sm">
-                    Year 1 total: <span className="text-rose font-bold">$2,240+</span>
+                    Year 1 total: <span className="text-error font-bold">$2,240+</span>
                   </div>
                 </div>
               </div>
-              <div className="bg-bg-card border border-accent/30 rounded-2xl p-8 glow-accent relative overflow-hidden">
-                {/* Corner accent triangle */}
-                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none" style={{ background: "linear-gradient(135deg, transparent 50%, rgba(74,140,42,0.05) 50%)" }} />
+              <div className="bg-white border border-terra/15 rounded-2xl p-8 relative overflow-hidden shadow-sm card-hover">
                 <div className="text-xs uppercase tracking-wider text-text-muted mb-2 relative z-10">
                   Design over Atlanta
                 </div>
-                <div className="text-2xl font-extrabold text-emerald mb-1">
+                <div className="text-2xl font-extrabold text-success mb-1">
                   $200
                 </div>
                 <div className="text-text-muted text-sm mb-3">Website design</div>
-                <div className="text-2xl font-extrabold text-emerald mb-1">
+                <div className="text-2xl font-extrabold text-success mb-1">
                   $3/mo
                 </div>
                 <div className="text-text-muted text-sm">Hosting</div>
-                <div className="border-t border-border-dark mt-4 pt-4">
+                <div className="border-t border-border-light mt-4 pt-4">
                   <div className="text-text-muted text-sm">
-                    Year 1 total: <span className="text-emerald font-bold">$236</span>
+                    Year 1 total: <span className="text-success font-bold">$236</span>
                   </div>
                 </div>
               </div>
             </div>
             <p className="text-text-muted text-base">
-              Same quality. Same result. <strong className="text-accent-light">10x less cost.</strong> The hosting savings alone
+              Same quality. Same result. <strong className="text-terra">10x less cost.</strong> The hosting savings alone
               pay off the website design in a few months.
             </p>
           </div>
@@ -392,28 +331,9 @@ export default function ServicesPage() {
       <PricingSection />
 
       {/* CTA */}
-      <section className="relative py-20 bg-bg-dark text-center overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_80%_at_50%_50%,rgba(43,123,191,0.08),transparent_70%)] pointer-events-none" />
-        {/* Grid lines */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.012]"
-          style={{
-            backgroundImage: "linear-gradient(rgba(43,123,191,1) 1px, transparent 1px), linear-gradient(90deg, rgba(43,123,191,1) 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-            maskImage: "radial-gradient(ellipse 40% 50% at 50% 50%, black 20%, transparent 70%)",
-            WebkitMaskImage: "radial-gradient(ellipse 40% 50% at 50% 50%, black 20%, transparent 70%)",
-          }}
-        />
-        {/* Cross arch accents */}
-        <div className="absolute inset-0 pointer-events-none" style={{
-          background: `
-            linear-gradient(155deg, transparent 35%, rgba(43,123,191,0.03) 36%, rgba(43,123,191,0.03) 38%, transparent 39%),
-            linear-gradient(155deg, transparent 60%, rgba(79,163,217,0.02) 61%, rgba(79,163,217,0.02) 63%, transparent 64%)
-          `,
-        }} />
+      <section className="relative py-20 bg-bg-cream text-center overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <span className="text-accent/10 text-sm font-mono tracking-wider block mb-4">&lt;get_started&gt;</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-text-heading mb-4">
             Let&apos;s Build Something That Works
           </h2>
           <p className="text-text-muted max-w-lg mx-auto mb-8 text-lg">
@@ -423,18 +343,17 @@ export default function ServicesPage() {
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
               href="/contact"
-              className="gradient-cta text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(232,168,56,0.3)]"
+              className="bg-terra hover:bg-terra-dark text-white font-semibold btn-hover px-7 py-3.5 rounded-lg transition-all hover:-translate-y-1"
             >
               Get Your Free Demo
             </Link>
             <a
               href="tel:4707583549"
-              className="border border-white/20 hover:border-white/40 hover:bg-white/[0.04] text-text-white font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5"
+              className="border border-border hover:border-terra text-text-heading hover:text-terra font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5"
             >
               Call (470) 758-3549
             </a>
           </div>
-          <span className="text-accent/10 text-sm font-mono tracking-wider block mt-6">&lt;/get_started&gt;</span>
         </div>
       </section>
     </>
