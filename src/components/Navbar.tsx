@@ -9,12 +9,16 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Dark transparent mode on homepage before scroll
+  const isDark = isHome && !scrolled && !open;
 
   const links = [
     { href: "/", label: "Home" },
@@ -25,16 +29,24 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 min-h-[72px] flex items-center transition-all duration-300 ${
-        scrolled
-          ? "bg-white shadow-sm border-b border-border-light"
-          : "bg-white/80 backdrop-blur-sm"
+      className={`fixed top-0 w-full z-50 min-h-[72px] flex items-center transition-all duration-500 ${
+        isDark
+          ? "bg-transparent"
+          : scrolled
+            ? "bg-white shadow-sm border-b border-border-light"
+            : "bg-white/80 backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-7xl w-full mx-auto px-6 flex justify-between items-center">
+      <div className="max-w-[1400px] w-full mx-auto px-6 lg:px-12 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2.5">
-          <Image src="/doa-logo-transparent-square-1024.png" alt="Design Over Atlanta" width={36} height={36} className="rounded" />
-          <span className="font-bold text-xl tracking-tight text-text-heading">
+          <Image
+            src="/doa-logo-transparent-square-1024.png"
+            alt="Design Over Atlanta"
+            width={36}
+            height={36}
+            className={`rounded transition-all duration-500 ${isDark ? "brightness-0 invert" : ""}`}
+          />
+          <span className={`font-bold text-xl tracking-tight transition-colors duration-500 ${isDark ? "text-white" : "text-text-heading"}`}>
             Design <span className="text-terra">over</span> Atlanta
           </span>
         </Link>
@@ -45,14 +57,18 @@ export default function Navbar() {
             <li key={l.href}>
               <Link
                 href={l.href}
-                className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                   pathname === l.href
-                    ? "text-text-heading bg-terra-soft"
-                    : "text-text-body hover:text-text-heading"
+                    ? isDark
+                      ? "text-white bg-white/10"
+                      : "text-text-heading bg-terra-soft"
+                    : isDark
+                      ? "text-white/60 hover:text-white"
+                      : "text-text-body hover:text-text-heading"
                 }`}
               >
                 {l.label}
-                {pathname === l.href && (
+                {pathname === l.href && !isDark && (
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 rounded-full bg-terra" />
                 )}
               </Link>
@@ -75,19 +91,19 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`w-5 h-0.5 bg-text-heading rounded transition-all ${
-              open ? "rotate-45 translate-y-[7px]" : ""
-            }`}
+            className={`w-5 h-0.5 rounded transition-all ${
+              isDark ? "bg-white" : "bg-text-heading"
+            } ${open ? "rotate-45 translate-y-[7px]" : ""}`}
           />
           <span
-            className={`w-5 h-0.5 bg-text-heading rounded transition-all ${
-              open ? "opacity-0" : ""
-            }`}
+            className={`w-5 h-0.5 rounded transition-all ${
+              isDark ? "bg-white" : "bg-text-heading"
+            } ${open ? "opacity-0" : ""}`}
           />
           <span
-            className={`w-5 h-0.5 bg-text-heading rounded transition-all ${
-              open ? "-rotate-45 -translate-y-[7px]" : ""
-            }`}
+            className={`w-5 h-0.5 rounded transition-all ${
+              isDark ? "bg-white" : "bg-text-heading"
+            } ${open ? "-rotate-45 -translate-y-[7px]" : ""}`}
           />
         </button>
       </div>

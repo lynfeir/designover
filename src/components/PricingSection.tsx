@@ -2,74 +2,67 @@ import Link from "next/link";
 
 export default function PricingSection() {
   return (
-    <section id="plans" className="relative py-24 bg-bg-cream overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center max-w-2xl mx-auto mb-6">
-          <span className="text-terra text-xs font-bold uppercase tracking-[0.12em] block mb-3">
-            Monthly Plans
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-text-heading mb-4">
-            Hosting That <span className="text-terra">Pays for Itself</span>
-          </h2>
-          <p className="text-text-muted text-lg">
-            Most hosting companies charge $15&ndash;$25/mo for basic hosting alone.
-            Our plans start at <strong className="text-text-heading">$3/mo</strong> &mdash; that&apos;s
-            roughly $36/year. Need business automation? We quote those separately
-            based on your ROI.
-          </p>
-          <div className="h-[3px] w-20 bg-terra rounded mx-auto mt-6" />
-        </div>
-
-        {/* Savings Callout */}
-        <div className="reveal max-w-3xl mx-auto mb-14 bg-bg-sage border border-border rounded-2xl p-8 text-center">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-4">
-            <div>
-              <div className="text-text-muted text-xs uppercase tracking-wider mb-1">
-                Typical Hosting Elsewhere
-              </div>
-              <div className="text-3xl font-extrabold text-error line-through decoration-error/40">
-                $20/mo
-              </div>
-              <div className="text-text-muted text-sm">$240/year</div>
-            </div>
-            <div className="text-3xl text-text-muted hidden sm:block">&rarr;</div>
-            <div>
-              <div className="text-text-muted text-xs uppercase tracking-wider mb-1">
-                Our Starter Plan
-              </div>
-              <div className="text-3xl font-extrabold text-success">$3/mo</div>
-              <div className="text-text-muted text-sm">$36/year</div>
-            </div>
-            <div className="text-3xl text-text-muted hidden sm:block">= </div>
-            <div>
-              <div className="text-text-muted text-xs uppercase tracking-wider mb-1">
-                You Save
-              </div>
-              <div className="text-3xl font-extrabold text-terra">
-                $204/yr
-              </div>
-              <div className="text-success text-sm font-semibold">85% less</div>
-            </div>
+    <section id="plans" className="relative py-20 lg:py-28 bg-bg-cream overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+        {/* Header — left-aligned, editorial */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 lg:mb-16">
+          <div>
+            <span className="text-terra text-[10px] font-bold uppercase tracking-[0.25em] block mb-3">
+              Monthly Plans
+            </span>
+            <h2 className="text-3xl lg:text-5xl font-bold text-text-heading tracking-tight leading-tight">
+              Hosting That Pays
+              <br className="hidden sm:block" />
+              <span className="text-terra">for Itself</span>
+            </h2>
           </div>
-          <p className="text-text-muted text-sm max-w-xl mx-auto">
-            A $200 website design + $36/year hosting = <strong className="text-text-heading">$236 your first year</strong>.
-            That&apos;s less than what most people pay for hosting alone elsewhere. By month 12,
-            the design has already paid for itself.
+          <p className="text-text-muted text-sm max-w-sm mt-4 lg:mt-0 lg:text-right">
+            Most hosting companies charge $15&ndash;$25/mo for basic hosting
+            alone. Our plans start at <strong className="text-text-heading">$3/mo</strong>.
           </p>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6 relative">
+        {/* Savings comparison — horizontal, not a card */}
+        <div className="mb-14 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10 pb-10 border-b border-border">
+          <div>
+            <div className="text-text-muted text-[10px] uppercase tracking-[0.15em] mb-1">
+              Typical Elsewhere
+            </div>
+            <div className="text-2xl font-black text-text-heading line-through decoration-error/30">
+              $20/mo
+            </div>
+            <div className="text-text-muted text-xs">$240/year</div>
+          </div>
+          <div className="text-2xl text-text-muted hidden sm:block">&rarr;</div>
+          <div>
+            <div className="text-text-muted text-[10px] uppercase tracking-[0.15em] mb-1">
+              Our Starter Plan
+            </div>
+            <div className="text-2xl font-black text-success">$3/mo</div>
+            <div className="text-text-muted text-xs">$36/year</div>
+          </div>
+          <div className="text-2xl text-text-muted hidden sm:block">=</div>
+          <div>
+            <div className="text-text-muted text-[10px] uppercase tracking-[0.15em] mb-1">
+              You Save
+            </div>
+            <div className="text-2xl font-black text-terra">$204/yr</div>
+            <div className="text-success text-xs font-semibold">85% less</div>
+          </div>
+        </div>
+
+        {/* Pricing — 3-column, varied styling */}
+        <div className="grid md:grid-cols-3 gap-6">
           {/* Starter */}
-          <div className="reveal bg-white border border-border rounded-2xl shadow-sm card-hover p-8 flex flex-col">
-            <div className="text-xs font-bold uppercase tracking-[0.1em] text-text-muted mb-2">
+          <div className="bg-white border border-border p-8 flex flex-col">
+            <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-text-muted mb-4">
               Starter
             </div>
-            <div className="text-5xl font-extrabold text-text-heading leading-none mb-1">
+            <div className="text-5xl font-black text-text-heading leading-none mb-1">
               $3<span className="text-base font-normal text-text-muted">/mo</span>
             </div>
-            <div className="text-sm text-text-muted mb-6">
-              Just $36/year &mdash; unbeatable value
+            <div className="text-xs text-text-muted mb-8">
+              Just $36/year
             </div>
             <ul className="space-y-3 mb-8 flex-1">
               {[
@@ -81,10 +74,10 @@ export default function PricingSection() {
               ].map((f) => (
                 <li
                   key={f}
-                  className="text-text-body text-sm flex items-center gap-2.5"
+                  className="text-text-body text-sm flex items-start gap-2.5"
                 >
-                  <span className="text-success font-bold text-xs shrink-0">
-                    ✓
+                  <span className="text-success font-bold text-xs mt-0.5 shrink-0">
+                    &#10003;
                   </span>
                   {f}
                 </li>
@@ -92,24 +85,22 @@ export default function PricingSection() {
             </ul>
             <Link
               href="/contact"
-              className="w-full text-center border border-border hover:border-terra text-text-heading hover:text-terra font-semibold py-3 rounded-lg transition-all"
+              className="w-full text-center border border-border hover:border-terra text-text-heading hover:text-terra font-semibold py-3 transition-all text-sm"
             >
               Get Started
             </Link>
           </div>
 
-          {/* Professional */}
-          <div className="reveal bg-white border-2 border-terra rounded-2xl shadow-md card-hover p-8 flex flex-col relative overflow-hidden">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-terra text-white text-[11px] font-bold uppercase tracking-wider px-4 py-1 rounded-full z-20">
-              Most Popular
-            </div>
-            <div className="text-xs font-bold uppercase tracking-[0.1em] text-text-muted mb-2">
+          {/* Professional — highlighted */}
+          <div className="bg-forest text-white p-8 flex flex-col relative">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-terra" />
+            <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/50 mb-4">
               Professional
             </div>
-            <div className="text-5xl font-extrabold text-text-heading leading-none mb-1">
-              $9<span className="text-base font-normal text-text-muted">/mo</span>
+            <div className="text-5xl font-black leading-none mb-1">
+              $9<span className="text-base font-normal text-white/50">/mo</span>
             </div>
-            <div className="text-sm text-text-muted mb-6">
+            <div className="text-xs text-white/40 mb-8">
               Support + monthly updates
             </div>
             <ul className="space-y-3 mb-8 flex-1">
@@ -123,10 +114,10 @@ export default function PricingSection() {
               ].map((f) => (
                 <li
                   key={f}
-                  className="text-text-body text-sm flex items-center gap-2.5"
+                  className="text-white/70 text-sm flex items-start gap-2.5"
                 >
-                  <span className="text-success font-bold text-xs shrink-0">
-                    ✓
+                  <span className="text-terra font-bold text-xs mt-0.5 shrink-0">
+                    &#10003;
                   </span>
                   {f}
                 </li>
@@ -134,21 +125,21 @@ export default function PricingSection() {
             </ul>
             <Link
               href="/contact"
-              className="w-full text-center bg-terra hover:bg-terra-dark text-white btn-hover font-semibold py-3 rounded-lg transition-all"
+              className="w-full text-center bg-terra hover:bg-terra-light text-white font-bold py-3 transition-all text-sm tracking-wider uppercase"
             >
               Get Started
             </Link>
           </div>
 
           {/* Growth */}
-          <div className="reveal bg-white border border-border rounded-2xl shadow-sm card-hover p-8 flex flex-col">
-            <div className="text-xs font-bold uppercase tracking-[0.1em] text-text-muted mb-2">
+          <div className="bg-white border border-border p-8 flex flex-col">
+            <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-text-muted mb-4">
               Growth
             </div>
-            <div className="text-5xl font-extrabold text-text-heading leading-none mb-1">
+            <div className="text-5xl font-black text-text-heading leading-none mb-1">
               $19<span className="text-base font-normal text-text-muted">/mo</span>
             </div>
-            <div className="text-sm text-text-muted mb-6">
+            <div className="text-xs text-text-muted mb-8">
               Dedicated partner for growth
             </div>
             <ul className="space-y-3 mb-8 flex-1">
@@ -163,10 +154,10 @@ export default function PricingSection() {
               ].map((f) => (
                 <li
                   key={f}
-                  className="text-text-body text-sm flex items-center gap-2.5"
+                  className="text-text-body text-sm flex items-start gap-2.5"
                 >
-                  <span className="text-success font-bold text-xs shrink-0">
-                    ✓
+                  <span className="text-success font-bold text-xs mt-0.5 shrink-0">
+                    &#10003;
                   </span>
                   {f}
                 </li>
@@ -174,35 +165,38 @@ export default function PricingSection() {
             </ul>
             <Link
               href="/contact"
-              className="w-full text-center border border-border hover:border-terra text-text-heading hover:text-terra font-semibold py-3 rounded-lg transition-all"
+              className="w-full text-center border border-border hover:border-terra text-text-heading hover:text-terra font-semibold py-3 transition-all text-sm"
             >
               Get Started
             </Link>
           </div>
         </div>
 
-        {/* Automation callout */}
-        <div className="reveal max-w-3xl mx-auto mt-10 bg-forest border border-forest rounded-2xl p-8 text-center">
-          <h3 className="text-white font-bold text-lg mb-2">
-            Need Business Automation?
-          </h3>
-          <p className="text-white/70 text-sm mb-5 max-w-lg mx-auto">
-            Custom tool builds start at $200/month or a one-time project fee.
-            We scope the ROI first &mdash; if it won&apos;t save you money, we won&apos;t build it.
-          </p>
+        {/* Automation callout — matches dark sections */}
+        <div className="mt-10 bg-forest p-8 lg:p-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+          <div>
+            <h3 className="text-white font-bold text-lg mb-2">
+              Need Business Automation?
+            </h3>
+            <p className="text-white/50 text-sm max-w-lg">
+              Custom tool builds start at $200/month or a one-time project fee.
+              We scope the ROI first &mdash; if it won&apos;t save you money, we
+              won&apos;t build it.
+            </p>
+          </div>
           <Link
             href="/contact"
-            className="inline-block bg-terra hover:bg-terra-dark text-white btn-hover font-semibold text-sm px-6 py-3 rounded-lg transition-all"
+            className="shrink-0 bg-terra hover:bg-terra-light text-white font-bold text-sm px-7 py-3.5 tracking-wider uppercase transition-colors"
           >
             Get a Free ROI Analysis
           </Link>
         </div>
 
         {/* Bottom note */}
-        <p className="text-center text-text-muted text-sm mt-8 max-w-xl mx-auto">
-          No contracts. Cancel anytime. All plans include hosting, SSL, and backups.
-          Compare that to the $15&ndash;$25/mo most companies charge for hosting alone &mdash;
-          before you even get support.
+        <p className="text-text-muted text-xs mt-8 max-w-xl">
+          No contracts. Cancel anytime. All plans include hosting, SSL, and
+          backups. Compare that to the $15&ndash;$25/mo most companies charge
+          for hosting alone &mdash; before you even get support.
         </p>
       </div>
     </section>

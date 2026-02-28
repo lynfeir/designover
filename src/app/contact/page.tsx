@@ -12,10 +12,15 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-bg-cream py-20 text-center overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative">
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 text-text-heading">Contact</h1>
-          <p className="text-text-body text-lg max-w-xl mx-auto">
+      <section className="relative bg-forest py-20 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative">
+          <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-white/50 block mb-4">
+            Contact
+          </span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4">
+            Contact
+          </h1>
+          <p className="text-white/70 text-lg max-w-xl">
             Request a free website demo, get an automation quote, or tell us
             what&apos;s eating your time. We respond within hours.
           </p>
@@ -24,14 +29,14 @@ export default function ContactPage() {
 
       {/* Contact Section */}
       <section className="py-24 bg-bg-cream">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-start">
             {/* Form */}
             <ContactForm />
 
             {/* Sidebar */}
-            <div className="reveal flex flex-col gap-5">
-              <h2 className="text-2xl font-bold text-text-heading mb-1">
+            <div className="flex flex-col gap-5">
+              <h2 className="text-2xl font-bold tracking-tight text-text-heading mb-1">
                 Get In Touch
               </h2>
               <p className="text-text-body text-sm">
@@ -92,9 +97,9 @@ export default function ContactPage() {
               ].map((c) => (
                 <div
                   key={c.title}
-                  className="flex gap-4 items-start p-5 bg-bg-sage border border-border-light rounded-2xl"
+                  className="flex gap-4 items-start p-5 bg-bg-sage border border-border-light"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-terra-soft flex items-center justify-center text-lg shrink-0">
+                  <div className="w-10 h-10 bg-terra-soft flex items-center justify-center text-lg shrink-0">
                     {c.icon}
                   </div>
                   <div>
@@ -107,7 +112,7 @@ export default function ContactPage() {
               ))}
 
               {/* Urgent CTA */}
-              <div className="bg-forest border border-forest rounded-2xl p-7 text-center">
+              <div className="bg-forest border border-forest p-7 text-center">
                 <h4 className="text-white font-bold mb-2">
                   Need Something Today?
                 </h4>
@@ -118,13 +123,13 @@ export default function ContactPage() {
                 <div className="flex gap-3 flex-wrap justify-center">
                   <a
                     href="tel:4707583549"
-                    className="bg-terra hover:bg-terra-dark text-white btn-hover font-semibold text-sm px-5 py-2.5 rounded-lg transition-all"
+                    className="bg-terra hover:bg-terra-dark text-white font-bold text-sm px-7 py-3.5 tracking-wider uppercase transition-colors"
                   >
                     Call Now
                   </a>
                   <a
                     href="sms:4707583549"
-                    className="border border-white/20 hover:border-white/40 hover:bg-white/[0.04] text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all"
+                    className="border border-white/20 hover:border-white/40 hover:bg-white/[0.04] text-white font-bold text-sm px-7 py-3.5 tracking-wider uppercase transition-colors"
                   >
                     Text Hunter
                   </a>
@@ -137,16 +142,16 @@ export default function ContactPage() {
 
       {/* FAQ */}
       <section className="py-24 bg-bg-sage">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-terra text-xs font-bold uppercase tracking-[0.12em] block mb-3">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className="max-w-2xl mb-14">
+            <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-terra block mb-3">
               FAQ
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-text-heading">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-text-heading">
               Common Questions
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-5 max-w-4xl">
             {[
               {
                 q: 'What does "demo first" mean?',
@@ -183,7 +188,7 @@ export default function ContactPage() {
             ].map((faq) => (
               <div
                 key={faq.q}
-                className="reveal bg-white border border-border-light rounded-2xl p-7 transition-all hover:shadow-sm"
+                className="bg-white border border-border-light p-7"
               >
                 <h4 className="font-bold text-text-heading text-sm mb-2">
                   {faq.q}
@@ -198,25 +203,25 @@ export default function ContactPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-20 bg-bg-honey text-center overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative">
-          <h2 className="text-3xl sm:text-4xl font-bold text-text-heading mb-4">
+      <section className="relative py-20 bg-forest overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
             Your Business Is Losing Money on Manual Work
           </h2>
-          <p className="text-text-body max-w-lg mx-auto mb-8 text-lg">
+          <p className="text-white/70 max-w-lg mb-8 text-lg">
             Free website demo. Free automation audit. Zero commitment until
             you see the ROI.
           </p>
-          <div className="flex gap-3 justify-center flex-wrap">
+          <div className="flex gap-3 flex-wrap">
             <a
               href="tel:4707583549"
-              className="bg-terra hover:bg-terra-dark text-white btn-hover font-semibold px-7 py-3.5 rounded-lg transition-all hover:-translate-y-0.5"
+              className="bg-terra hover:bg-terra-dark text-white font-bold px-7 py-3.5 text-sm tracking-wider uppercase transition-colors"
             >
               Call (470) 758-3549
             </a>
             <Link
               href="#contact-form"
-              className="border border-border hover:border-terra text-text-heading hover:text-terra font-semibold px-7 py-3.5 rounded-lg transition-all"
+              className="border border-white/20 hover:border-white/40 hover:bg-white/[0.04] text-white font-bold px-7 py-3.5 text-sm tracking-wider uppercase transition-colors"
             >
               Fill Out the Form
             </Link>
