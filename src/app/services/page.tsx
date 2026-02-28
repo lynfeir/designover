@@ -14,13 +14,13 @@ export default function ServicesPage() {
       {/* ─── HERO — Dark, editorial, left-aligned ─── */}
       <section className="relative py-24 lg:py-32 bg-forest overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
-          <p className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase mb-6">
+          <p className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase flex items-center gap-2 mb-6"><span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />
             Services
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05] max-w-3xl mb-6">
             Two Tiers. One Goal.
           </h1>
-          <p className="text-white/45 text-lg max-w-xl leading-relaxed">
+          <p className="text-white/70 text-lg max-w-xl leading-relaxed">
             Stop your business from bleeding money on
             things a computer should handle.
           </p>
@@ -32,7 +32,7 @@ export default function ServicesPage() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-14 items-start">
             <div>
-              <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase block mb-3">
+              <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase flex items-center gap-2 mb-3"><span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />
                 Tier 1 — Websites
               </span>
               <h2 className="text-3xl lg:text-[3.2rem] font-bold text-text-heading leading-[1.05] mb-6 tracking-tight">
@@ -121,7 +121,7 @@ export default function ServicesPage() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-14 items-start">
             <div className="lg:order-2">
-              <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase block mb-3">
+              <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase flex items-center gap-2 mb-3"><span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />
                 02 — Graphic Design
               </span>
               <h2 className="text-3xl lg:text-[3.2rem] font-bold text-text-heading leading-[1.05] mb-6 tracking-tight">
@@ -200,24 +200,25 @@ export default function ServicesPage() {
       </section>
 
       {/* ─── BUSINESS AUTOMATION — Tier 2, dark forest (high-value) ─── */}
-      <section id="ai-tools" className="py-20 lg:py-28 bg-forest overflow-hidden">
+      <section id="ai-tools" className="relative py-20 lg:py-28 bg-forest overflow-hidden">
+        <div className="absolute top-[15%] left-[3%] w-[80px] h-[80px] border border-terra/[0.08] rotate-45 pointer-events-none hidden lg:block" />
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-14 items-start">
             <div>
-              <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase block mb-3">
+              <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase flex items-center gap-2 mb-3"><span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />
                 Tier 2 — Business Automation
               </span>
               <h2 className="text-3xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-6 tracking-tight">
                 We Find the Work That&apos;s Costing You Money &mdash; And We Kill It
               </h2>
-              <p className="text-white/50 leading-relaxed mb-4">
+              <p className="text-white/70 leading-relaxed mb-4">
                 You&apos;re paying someone $30/hr to do something a computer should
                 handle. That&apos;s $62,400 a year. We build the fix &mdash; custom
                 automation tools that eliminate manual computer work.
               </p>
               <div className="mb-6">
                 <h4 className="font-bold text-white mb-2">What We Automate</h4>
-                <p className="text-white/50 text-sm leading-loose m-0">
+                <p className="text-white/70 text-sm leading-loose m-0">
                   CNC file automation · Booking systems · Workflow bots ·
                   Data processing tools · Custom internal dashboards ·
                   Scheduling automation · Customer self-service portals ·
@@ -226,14 +227,14 @@ export default function ServicesPage() {
               </div>
               <div className="mb-6">
                 <h4 className="font-bold text-white mb-2">Industries We Serve</h4>
-                <p className="text-white/50 text-sm leading-loose m-0">
+                <p className="text-white/70 text-sm leading-loose m-0">
                   Cabinet shops · Contractors · HVAC · Auto shops ·
                   Restaurants · Real estate · Medical offices · Landscaping
                 </p>
               </div>
               <div className="mb-6">
                 <h4 className="font-bold text-white mb-2">Pricing</h4>
-                <p className="text-white/50 text-sm leading-loose m-0">
+                <p className="text-white/70 text-sm leading-loose m-0">
                   One-time builds: $5,000&ndash;$25,000 | Monthly subscription: $200&ndash;$1,000/mo
                 </p>
               </div>
@@ -241,7 +242,7 @@ export default function ServicesPage() {
                 <span className="text-terra text-sm font-bold">
                   From $200/mo
                 </span>
-                <span className="text-white/40 text-sm">
+                <span className="text-white/65 text-sm">
                   Scoped to your workflow
                 </span>
               </div>
@@ -274,7 +275,7 @@ export default function ServicesPage() {
                       <div className="font-semibold text-white text-sm">
                         {s.title}
                       </div>
-                      <p className="text-white/40 text-xs mt-0.5 leading-relaxed m-0">
+                      <p className="text-white/65 text-xs mt-0.5 leading-relaxed m-0">
                         {s.desc}
                       </p>
                     </div>
@@ -290,7 +291,7 @@ export default function ServicesPage() {
       <section className="py-20 lg:py-28 bg-bg-cream overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="mb-14">
-            <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase block mb-3">
+            <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase flex items-center gap-2 mb-3"><span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />
               The Math
             </span>
             <h2 className="text-3xl lg:text-5xl font-bold text-text-heading tracking-tight leading-tight">
@@ -392,6 +393,7 @@ export default function ServicesPage() {
 
       {/* ─── CTA — Dark, editorial, left-aligned ─── */}
       <section className="relative py-20 lg:py-28 bg-forest overflow-hidden">
+        <div className="absolute top-[15%] left-[3%] w-[80px] h-[80px] border border-terra/[0.08] rotate-45 pointer-events-none hidden lg:block" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">
             <h2 className="text-3xl lg:text-[3.5rem] font-black text-white leading-[0.95] tracking-tight mb-6">
@@ -401,7 +403,7 @@ export default function ServicesPage() {
               <br />
               <span className="text-terra">Should Do.</span>
             </h2>
-            <p className="text-white/40 max-w-md mb-10 text-base leading-relaxed">
+            <p className="text-white/65 max-w-md mb-10 text-base leading-relaxed">
               Get a free demo site or tell us what&apos;s eating your time.
               Same-day response guaranteed.
             </p>
@@ -414,7 +416,7 @@ export default function ServicesPage() {
               </Link>
               <a
                 href="tel:4707583549"
-                className="border border-white/15 hover:border-white/40 text-white/50 hover:text-white font-medium px-8 py-4 text-sm tracking-wider uppercase transition-all"
+                className="border border-white/25 hover:border-white/50 text-white/70 hover:text-white font-medium px-8 py-4 text-sm tracking-wider uppercase transition-all"
               >
                 (470) 758-3549
               </a>

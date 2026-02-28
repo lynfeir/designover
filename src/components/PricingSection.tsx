@@ -7,8 +7,8 @@ export default function PricingSection() {
         {/* Header — left-aligned, editorial */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 lg:mb-16">
           <div>
-            <span className="text-terra text-[10px] font-bold uppercase tracking-[0.25em] block mb-3">
-              Monthly Plans
+            <span className="text-terra text-[10px] font-bold uppercase tracking-[0.25em] flex items-center gap-2 mb-3">
+              <span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />Monthly Plans
             </span>
             <h2 className="text-3xl lg:text-5xl font-bold text-text-heading tracking-tight leading-tight">
               Hosting That Pays
@@ -94,13 +94,13 @@ export default function PricingSection() {
           {/* Professional — highlighted */}
           <div className="bg-forest text-white p-8 flex flex-col relative">
             <div className="absolute top-0 left-0 right-0 h-1 bg-terra" />
-            <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/50 mb-4">
-              Professional
+            <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.15em] text-white/70 mb-4">
+              <span className="inline-block w-1.5 h-1.5 bg-white/70 rotate-45" />Professional
             </div>
             <div className="text-5xl font-black leading-none mb-1">
-              $9<span className="text-base font-normal text-white/50">/mo</span>
+              $9<span className="text-base font-normal text-white/70">/mo</span>
             </div>
-            <div className="text-xs text-white/40 mb-8">
+            <div className="text-xs text-white/65 mb-8">
               Support + monthly updates
             </div>
             <ul className="space-y-3 mb-8 flex-1">
@@ -178,7 +178,7 @@ export default function PricingSection() {
             <h3 className="text-white font-bold text-lg mb-2">
               Need Business Automation?
             </h3>
-            <p className="text-white/50 text-sm max-w-lg">
+            <p className="text-white/70 text-sm max-w-lg">
               Custom tool builds start at $200/month or a one-time project fee.
               We scope the ROI first &mdash; if it won&apos;t save you money, we
               won&apos;t build it.

@@ -14,7 +14,7 @@ export default function AboutPage() {
       {/* ─── HERO — Dark, editorial, left-aligned ─── */}
       <section className="relative py-24 lg:py-32 bg-forest overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase block mb-6">
+          <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase flex items-center gap-2 mb-6"><span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />
             About
           </span>
           <h1 className="text-4xl lg:text-6xl font-black text-white leading-tight tracking-tight max-w-3xl">
@@ -22,7 +22,7 @@ export default function AboutPage() {
             <br />
             Himself to Code
           </h1>
-          <p className="text-white/40 text-base lg:text-lg max-w-xl mt-6 leading-relaxed">
+          <p className="text-white/65 text-base lg:text-lg max-w-xl mt-6 leading-relaxed">
             A web developer who understands CNC machines. The only person in the room who does both.
           </p>
         </div>
@@ -34,7 +34,7 @@ export default function AboutPage() {
           <div className="flex flex-col lg:flex-row">
             {/* Text side */}
             <div className="flex-1 px-6 lg:px-12 py-16 lg:py-24 flex flex-col justify-center">
-              <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase block mb-4">
+              <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase flex items-center gap-2 mb-4"><span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />
                 Founder
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold text-text-heading leading-tight mb-6 tracking-tight">
@@ -94,7 +94,7 @@ export default function AboutPage() {
       {/* ─── WHAT SETS US APART — Left-aligned, border accent cards ─── */}
       <section className="py-20 lg:py-28 bg-bg-sage overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase block mb-3">
+          <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase flex items-center gap-2 mb-3"><span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />
             Why Us
           </span>
           <h2 className="text-3xl lg:text-4xl font-bold text-text-heading tracking-tight mb-14 lg:mb-16">
@@ -169,7 +169,7 @@ export default function AboutPage() {
       {/* ─── TESTIMONIALS — Editorial: one large quote, others smaller ─── */}
       <section className="py-20 lg:py-28 bg-bg-sage overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase block mb-3">
+          <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase flex items-center gap-2 mb-3"><span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />
             Client Feedback
           </span>
           <h2 className="text-3xl lg:text-4xl font-bold text-text-heading tracking-tight mb-14 lg:mb-16">
@@ -247,7 +247,7 @@ export default function AboutPage() {
               <br />
               Costing You Money
             </h2>
-            <p className="text-white/40 text-base max-w-md mb-10 leading-relaxed">
+            <p className="text-white/65 text-base max-w-md mb-10 leading-relaxed">
               Free website demo or a quick automation audit. No pressure, no commitments.
             </p>
             <div className="flex gap-3 flex-wrap">
@@ -259,7 +259,7 @@ export default function AboutPage() {
               </Link>
               <a
                 href="tel:4707583549"
-                className="border border-white/15 hover:border-white/40 text-white/50 hover:text-white font-medium px-8 py-4 text-sm tracking-wider uppercase transition-all"
+                className="border border-white/25 hover:border-white/40 text-white/70 hover:text-white font-medium px-8 py-4 text-sm tracking-wider uppercase transition-all"
               >
                 (470) 758-3549
               </a>

@@ -14,7 +14,7 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="relative bg-forest py-20 overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative">
-          <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-white/50 block mb-4">
+          <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-white/70 flex items-center gap-2 mb-4"><span className="inline-block w-1.5 h-1.5 bg-white/70 rotate-45" />
             Contact
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4">
@@ -129,7 +129,7 @@ export default function ContactPage() {
                   </a>
                   <a
                     href="sms:4707583549"
-                    className="border border-white/20 hover:border-white/40 hover:bg-white/[0.04] text-white font-bold text-sm px-7 py-3.5 tracking-wider uppercase transition-colors"
+                    className="border border-white/25 hover:border-white/40 hover:bg-white/[0.04] text-white font-bold text-sm px-7 py-3.5 tracking-wider uppercase transition-colors"
                   >
                     Text Hunter
                   </a>
@@ -144,7 +144,7 @@ export default function ContactPage() {
       <section className="py-24 bg-bg-sage">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="max-w-2xl mb-14">
-            <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-terra block mb-3">
+            <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-terra flex items-center gap-2 mb-3"><span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />
               FAQ
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-text-heading">
@@ -221,7 +221,7 @@ export default function ContactPage() {
             </a>
             <Link
               href="#contact-form"
-              className="border border-white/20 hover:border-white/40 hover:bg-white/[0.04] text-white font-bold px-7 py-3.5 text-sm tracking-wider uppercase transition-colors"
+              className="border border-white/25 hover:border-white/40 hover:bg-white/[0.04] text-white font-bold px-7 py-3.5 text-sm tracking-wider uppercase transition-colors"
             >
               Fill Out the Form
             </Link>

@@ -33,7 +33,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-[10px] font-bold tracking-[0.25em] uppercase text-white mb-4">Services</h4>
+            <h4 className="flex items-center gap-2 text-[10px] font-bold tracking-[0.25em] uppercase text-white mb-4"><span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />Services</h4>
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/services#websites" className="text-white/60 hover:text-white transition-colors">Custom Websites</Link></li>
               <li><Link href="/services#automation" className="text-white/60 hover:text-white transition-colors">Business Automation</Link></li>
@@ -44,7 +44,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="text-[10px] font-bold tracking-[0.25em] uppercase text-white mb-4">Company</h4>
+            <h4 className="flex items-center gap-2 text-[10px] font-bold tracking-[0.25em] uppercase text-white mb-4"><span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />Company</h4>
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/about" className="text-white/60 hover:text-white transition-colors">About</Link></li>
               <li><Link href="/contact" className="text-white/60 hover:text-white transition-colors">Contact</Link></li>
@@ -55,7 +55,7 @@ export default function Footer() {
 
           {/* Hours */}
           <div>
-            <h4 className="text-[10px] font-bold tracking-[0.25em] uppercase text-white mb-4">Hours</h4>
+            <h4 className="flex items-center gap-2 text-[10px] font-bold tracking-[0.25em] uppercase text-white mb-4"><span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />Hours</h4>
             <p className="text-white/60 text-sm leading-relaxed">
               Mon &ndash; Fri: 9 AM &ndash; 7 PM
               <br />
@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 text-center text-white/40 text-xs">
+        <div className="border-t border-white/10 pt-6 text-center text-white/65 text-xs">
           &copy; {new Date().getFullYear()} Design over Atlanta. All rights reserved.
         </div>
       </div>
