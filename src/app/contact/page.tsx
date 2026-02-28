@@ -16,8 +16,8 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-6 relative">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 text-text-heading">Contact</h1>
           <p className="text-text-body text-lg max-w-xl mx-auto">
-            Request a free demo, get a same-day quote, or just ask a question.
-            We respond within hours.
+            Request a free website demo, get an automation quote, or tell us
+            what&apos;s eating your time. We respond within hours.
           </p>
         </div>
       </section>
@@ -154,7 +154,7 @@ export default function ContactPage() {
               },
               {
                 q: "How fast can you deliver?",
-                a: "Graphic design: 24–72 hours. Websites: 3–7 days. AI tools: depends on scope — we'll give you a timeline after the initial call. Rush options are always available.",
+                a: "Graphic design: 24–72 hours. Websites: 24–48 hours. Automation tools: depends on scope — we'll give you a timeline after the initial call. Rush options are always available.",
               },
               {
                 q: "Why is your hosting so cheap?",
@@ -165,8 +165,16 @@ export default function ContactPage() {
                 a: "Yes — 100%. Source code, design files, assets — it's all yours. No proprietary lock-in, no platform you can't leave.",
               },
               {
-                q: "What kind of AI tools do you build?",
-                a: "Anything that replaces a manual step in your business workflow. The most common: online booking systems so customers don't have to call, automated confirmations, smart intake forms, and internal workflow bots.",
+                q: "What is business automation?",
+                a: "Anything that replaces a manual step in your business workflow. We've built CNC automation for cabinet shops, booking systems for service businesses, workflow bots for data entry, and internal tools for process management. If you're paying someone to do repetitive computer work, we can probably automate it.",
+              },
+              {
+                q: "What industries do you work with?",
+                a: "We work with any business that has manual inefficiencies, but our sweet spot is cabinet shops, contractors, HVAC companies, auto shops, restaurants, real estate, medical offices, and landscaping companies.",
+              },
+              {
+                q: "How do you price automation projects?",
+                a: "Two ways: one-time builds ($5,000–$25,000 depending on complexity) or monthly subscription ($200–$1,000/mo). We always scope the ROI first. If our tool won't save you at least 3x what it costs, we'll tell you upfront.",
               },
               {
                 q: "Do you offer payment plans?",
@@ -193,11 +201,11 @@ export default function ContactPage() {
       <section className="relative py-20 bg-bg-honey text-center overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative">
           <h2 className="text-3xl sm:text-4xl font-bold text-text-heading mb-4">
-            Ready to Get Started?
+            Your Business Is Losing Money on Manual Work
           </h2>
           <p className="text-text-body max-w-lg mx-auto mb-8 text-lg">
-            Free demo on every website project. Same-day quotes on design and AI
-            tools. Zero commitment until you&apos;re happy.
+            Free website demo. Free automation audit. Zero commitment until
+            you see the ROI.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
             <a

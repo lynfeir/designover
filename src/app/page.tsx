@@ -16,17 +16,17 @@ export default function Home() {
             {/* Left — copy */}
             <div>
               <span className="text-terra text-sm font-semibold tracking-[0.15em] uppercase block mb-4">
-                Design over Atlanta
+                Design or Automation
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-extrabold leading-[1.08] mb-6 text-text-heading">
-                Websites, Design &amp;{" "}
-                <span className="text-terra">AI&nbsp;Tools</span>
-                <br />
-                That Work for Your Business
+                We Find What&apos;s Costing{" "}
+                <br className="hidden sm:inline" />
+                You Money &mdash;{" "}
+                <span className="text-terra">And&nbsp;We&nbsp;Kill&nbsp;It</span>
               </h1>
               <p className="text-text-body text-lg max-w-lg mb-8 leading-relaxed">
-                Custom sites starting at $200 &mdash; a fraction of what agencies charge.
-                Hosting from just $3/mo while others charge $20+. Every project
+                Custom websites from $200, delivered in 48 hours. Business automation
+                tools that replace manual work and save thousands. Every project
                 starts with a free demo &mdash; no commitment.
               </p>
               <div className="flex gap-3 flex-wrap mb-12">
@@ -40,15 +40,15 @@ export default function Home() {
                   href="/services"
                   className="border border-border hover:border-terra text-text-heading hover:text-terra font-semibold px-7 py-3.5 rounded-lg transition-all"
                 >
-                  View Services
+                  See How We Save You Money
                 </Link>
               </div>
               {/* Stats bar */}
               <div className="flex gap-8 pt-6 border-t border-border flex-wrap">
                 {[
-                  { num: "150+", label: "Projects" },
                   { num: "$200", label: "Sites From" },
-                  { num: "$3/mo", label: "Hosting From" },
+                  { num: "48hr", label: "Turnaround" },
+                  { num: "$62K", label: "Avg Savings" },
                   { num: "100%", label: "Demo First" },
                 ].map((s) => (
                   <div key={s.label}>
@@ -78,8 +78,8 @@ export default function Home() {
                 </div>
                 {/* Floating stat card */}
                 <div className="absolute -bottom-6 -left-8 bg-white rounded-xl shadow-lg border border-border-light px-5 py-3">
-                  <div className="text-2xl font-extrabold text-terra">5+</div>
-                  <div className="text-xs text-text-muted uppercase tracking-wider">Years Running</div>
+                  <div className="text-lg font-extrabold text-terra leading-tight">Carpenter</div>
+                  <div className="text-xs text-text-muted uppercase tracking-wider">Turned Coder</div>
                 </div>
                 {/* Floating CTA card */}
                 <div className="absolute -top-4 -right-6 bg-white rounded-xl shadow-lg border border-border-light px-5 py-3">
@@ -96,11 +96,11 @@ export default function Home() {
       <section className="py-6 bg-bg-sage border-y border-border-light">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-center gap-8 flex-wrap text-text-muted text-sm">
-            <span className="font-semibold text-text-heading">Trusted by 50+ Atlanta businesses</span>
+            <span className="font-semibold text-text-heading">Trusted by 50+ businesses</span>
             <span className="hidden sm:inline text-border">|</span>
             <span>Websites from $200</span>
             <span className="hidden sm:inline text-border">|</span>
-            <span>Hosting from $3/mo</span>
+            <span>Business Automation from $200/mo</span>
             <span className="hidden sm:inline text-border">|</span>
             <span>Free demo on every project</span>
           </div>
@@ -115,11 +115,11 @@ export default function Home() {
               What We Do
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-text-heading mb-4">
-              Everything Your Business Needs to <span className="text-terra">Stand Out</span>
+              Two Ways We Save Your Business <span className="text-terra">Money</span>
             </h2>
             <p className="text-text-body text-lg">
-              From custom websites to AI automation — all at prices that don&apos;t
-              make you flinch.
+              Whether you need a website that converts or tools that eliminate
+              busywork &mdash; we build it fast and price it fair.
             </p>
             <div className="h-[3px] w-20 bg-terra rounded mx-auto mt-6" />
           </div>
@@ -133,7 +133,7 @@ export default function Home() {
                   </svg>
                 ),
                 title: "Custom Websites",
-                desc: "Fully custom, mobile-first sites built to convert visitors into customers. No templates. Starts at just $200 — agencies charge $2,000+ for the same thing.",
+                desc: "Your competitor is showing up online. You're not. We build fully custom, mobile-first sites in 24-48 hours for $200. Agencies charge $2,000+ for the same thing.",
                 tag: "From $200",
               },
               {
@@ -152,9 +152,9 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" />
                   </svg>
                 ),
-                title: "AI Business Tools",
-                desc: "Automated booking systems, smart intake forms, workflow bots — replace that extra hire with a system that runs 24/7.",
-                tag: "Custom Quote",
+                title: "Business Automation",
+                desc: "You're paying $30/hr for tasks a computer should do. We build custom tools that eliminate manual work — CNC automation, booking systems, workflow bots, data processing.",
+                tag: "From $200/mo",
               },
             ].map((s) => (
               <div
@@ -194,8 +194,8 @@ export default function Home() {
                 Every project starts with a free demo.
               </h3>
               <p className="text-text-body text-base">
-                See your site live &mdash; fully designed and functional &mdash; before you
-                spend a dollar. If you love it, we move forward. If not, no hard
+                See your site live &mdash; fully designed and functional &mdash; within 48 hours,
+                before you spend a dollar. If you love it, we move forward. If not, no hard
                 feelings.
               </p>
             </div>
@@ -233,9 +233,10 @@ export default function Home() {
                 Hunter Weeks
               </h3>
               <p className="text-text-body text-base leading-relaxed mb-4 max-w-lg">
-                No account managers. No middlemen. You work directly with me &mdash;
-                the person writing your code, designing your graphics, and building your AI tools.
-                5+ years, 150+ projects, and every single one started with a free demo.
+                Carpenter turned coder. I work on the shop floor and I write the software.
+                A web developer doesn&apos;t understand CNC machines. A CNC consultant doesn&apos;t code.
+                I do both &mdash; and I build the tools that bridge the gap.
+                5+ years, 150+ projects, and every one started with a free demo.
               </p>
               <Link
                 href="/about"
@@ -459,7 +460,7 @@ export default function Home() {
               {
                 n: "01",
                 title: "Discovery",
-                desc: "Share your goals, audience, and timeline. We ask the right questions to nail the scope.",
+                desc: "Tell us what's costing you time or money. We figure out if you need a website, an automation tool, or both.",
                 icon: (
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -592,12 +593,12 @@ export default function Home() {
             </div>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-heading mb-4">
-            Ready to See What We Can{" "}
-            <span className="text-terra">Build</span> for You?
+            Your Competitor Is Showing Up{" "}
+            <span className="text-terra">Online</span>. You&apos;re Not.
           </h2>
           <p className="text-text-body max-w-lg mx-auto mb-8 text-lg">
-            Get a free demo site &mdash; fully designed and clickable &mdash; with zero
-            commitment. If you love it, we&apos;ll make it yours.
+            Get a free demo site or a quick automation audit &mdash; with zero
+            commitment. We&apos;ll show you where you&apos;re losing money and how to fix it.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
             <Link

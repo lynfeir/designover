@@ -16,7 +16,7 @@ export default function Footer() {
               </h4>
             </div>
             <p className="text-text-body text-sm leading-relaxed mb-4">
-              Custom websites, business graphics, and AI automation tools for businesses that want to grow without the overhead. Based in Atlanta, GA.
+              Custom websites from $200 and business automation tools that eliminate manual work. We find what&apos;s costing you money and we kill it.
             </p>
             <a
               href="tel:4707583549"
@@ -27,7 +27,7 @@ export default function Footer() {
             <p className="text-sm text-text-body">
               <strong className="text-text-heading">Hunter Weeks</strong>
               <br />
-              Founder &amp; Creative Director
+              Founder &amp; Builder
             </p>
           </div>
 
@@ -36,8 +36,8 @@ export default function Footer() {
             <h4 className="font-semibold text-text-heading mb-4">Services</h4>
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/services#websites" className="text-text-body hover:text-terra transition-colors">Custom Websites</Link></li>
+              <li><Link href="/services#automation" className="text-text-body hover:text-terra transition-colors">Business Automation</Link></li>
               <li><Link href="/services#design" className="text-text-body hover:text-terra transition-colors">Graphic Design</Link></li>
-              <li><Link href="/services#ai-tools" className="text-text-body hover:text-terra transition-colors">AI Business Tools</Link></li>
               <li><Link href="/services#plans" className="text-text-body hover:text-terra transition-colors">Monthly Plans</Link></li>
             </ul>
           </div>

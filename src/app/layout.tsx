@@ -21,7 +21,7 @@ const barlowCondensed = Barlow_Condensed({
 export const metadata: Metadata = {
   title: "Design over Atlanta",
   description:
-    "Custom websites from $200, graphic design, and AI automation tools for businesses. Hosting from just $3/mo. Demo site before you pay. Based in Atlanta, GA.",
+    "Custom websites from $200 in 48 hours. Business automation tools that eliminate manual work. We find what's costing you money and we kill it. Based in Atlanta, GA.",
   icons: {
     icon: "/doa-logo-transparent-square-1024.png",
     shortcut: "/doa-logo-transparent-square-1024.png",

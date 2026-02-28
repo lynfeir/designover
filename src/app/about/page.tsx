@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About — Design over Atlanta",
   description:
-    "Meet Hunter Weeks, founder of Design over Atlanta. Custom websites from $200, graphic design, and AI tools for businesses worldwide.",
+    "Meet Hunter Weeks — carpenter turned coder. Custom websites from $200 and business automation tools that eliminate manual work. Based in Atlanta, GA.",
 };
 
 export default function AboutPage() {
@@ -16,8 +16,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 relative">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">About</h1>
           <p className="text-text-muted text-lg max-w-xl mx-auto">
-            One person, no layers. You work directly with the person building
-            your site, designing your graphics, and wiring up your AI tools.
+            A carpenter who taught himself to code. A web developer who understands CNC machines. The only person in the room who does both.
           </p>
           <div className="h-[3px] w-20 bg-terra rounded mx-auto mt-6" />
         </div>
@@ -51,25 +50,16 @@ export default function AboutPage() {
                 Hunter Weeks
               </h2>
               <p className="text-text-muted text-base leading-relaxed mb-4">
-                I started Design over Atlanta because I got tired of watching
-                small businesses overpay for mediocre websites and design work.
-                Most agencies charge thousands for a templated WordPress site and
-                call it custom. I thought that was a bad deal.
+                I&apos;m a carpenter who taught himself to code. I&apos;ve stood at the workbench cutting cabinet parts and sat at the desk writing the software that automates the cuts. I started Design over Atlanta because I kept seeing two problems nobody was solving: small businesses overpaying for websites, and shops wasting thousands of hours on manual computer work that should be automated.
               </p>
               <p className="text-text-muted text-base leading-relaxed mb-4">
-                So I built something simpler: hand-coded websites starting at
-                $200 &mdash; when other companies would charge $2,000 or more for the
-                same quality. Clean graphic design delivered fast. And AI-powered
-                tools that let businesses automate the busywork.
+                A web developer doesn&apos;t understand CNC machines. A CNC consultant doesn&apos;t code. A SaaS company doesn&apos;t know what it&apos;s like to stand at the bench. I do all three &mdash; and that&apos;s what makes DOA different. I build custom websites starting at $200 and automation tools that replace the manual busywork costing your business real money.
               </p>
               <p className="text-text-muted text-base leading-relaxed mb-6">
-                And hosting? Just $3/mo while competitors charge $20+.
-                Your entire website pays for itself in savings within months.
-                Every web project starts with a free demo. You see it working
-                before you spend a dollar.
+                Every web project starts with a free demo. You see it working before you spend a dollar. For automation, I scope the ROI first &mdash; if it won&apos;t save you money, I won&apos;t build it.
               </p>
               <div className="flex gap-3 flex-wrap mb-6">
-                {["5+ Years in Business", "150+ Projects", "Atlanta, GA"].map(
+                {["Carpenter Turned Coder", "150+ Projects", "Atlanta, GA"].map(
                   (tag) => (
                     <span
                       key={tag}
@@ -120,8 +110,8 @@ export default function AboutPage() {
               },
               {
                 icon: "💰",
-                title: "Unbeatable Pricing",
-                desc: "Websites from $200 when agencies charge $2,000+. Hosting from $3/mo when others charge $20. No hidden fees, no inflated markup.",
+                title: "Carpenter Who Codes",
+                desc: "I work on the shop floor AND write the software. A web developer doesn\u2019t understand your machines. A consultant doesn\u2019t code. I do both.",
               },
               {
                 icon: "🤝",
@@ -130,13 +120,13 @@ export default function AboutPage() {
               },
               {
                 icon: "🤖",
-                title: "AI That Saves You Money",
-                desc: "If there's a bottleneck in your workflow where you're paying someone to do repetitive tasks, we can build an automated system that does it for a fraction of the cost.",
+                title: "ROI or Nothing",
+                desc: "We don\u2019t build tools for fun. Every automation project starts with an ROI analysis. If it won\u2019t save you money, we won\u2019t take the job.",
               },
               {
                 icon: "🚀",
-                title: "Fast Delivery",
-                desc: "Most design work delivered in 24–72 hours. Websites in 3–7 days. Rush options available when you need something yesterday.",
+                title: "48-Hour Delivery",
+                desc: "Most websites delivered in 24-48 hours. Design work in 24-72 hours. We move fast because your business can\u2019t wait.",
               },
               {
                 icon: "📂",
@@ -167,8 +157,8 @@ export default function AboutPage() {
             {[
               { num: "150+", label: "Projects Delivered" },
               { num: "5+", label: "Years in Business" },
-              { num: "48hr", label: "Avg Turnaround" },
-              { num: "100%", label: "Demo-First Policy" },
+              { num: "24-48hr", label: "Delivery" },
+              { num: "8+", label: "Industries Served" },
             ].map((s) => (
               <div key={s.label} className="reveal">
                 <span className="block text-3xl font-extrabold text-terra mb-1 inline-block">
@@ -264,10 +254,10 @@ export default function AboutPage() {
       <section className="relative py-20 bg-bg-cream text-center overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <h2 className="text-3xl sm:text-4xl font-bold text-text-heading mb-4">
-            Let&apos;s Talk About Your Project
+            Let&apos;s Find What&apos;s Costing You Money
           </h2>
           <p className="text-text-muted max-w-lg mx-auto mb-8 text-lg">
-            Get a free demo or a same-day quote. No pressure, no commitments.
+            Free website demo or a quick automation audit. No pressure, no commitments.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
             <Link

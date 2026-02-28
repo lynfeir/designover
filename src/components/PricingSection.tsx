@@ -14,8 +14,8 @@ export default function PricingSection() {
           <p className="text-text-muted text-lg">
             Most hosting companies charge $15&ndash;$25/mo for basic hosting alone.
             Our plans start at <strong className="text-text-heading">$3/mo</strong> &mdash; that&apos;s
-            roughly $36/year. At those rates, the cost of your entire website
-            design is paid off within a few months of savings.
+            roughly $36/year. Need business automation? We quote those separately
+            based on your ROI.
           </p>
           <div className="h-[3px] w-20 bg-terra rounded mx-auto mt-6" />
         </div>
@@ -140,10 +140,10 @@ export default function PricingSection() {
             </Link>
           </div>
 
-          {/* Enterprise */}
+          {/* Growth */}
           <div className="reveal bg-white border border-border rounded-2xl shadow-sm card-hover p-8 flex flex-col">
             <div className="text-xs font-bold uppercase tracking-[0.1em] text-text-muted mb-2">
-              Enterprise
+              Growth
             </div>
             <div className="text-5xl font-extrabold text-text-heading leading-none mb-1">
               $19<span className="text-base font-normal text-text-muted">/mo</span>
@@ -156,9 +156,9 @@ export default function PricingSection() {
                 "Everything in Professional",
                 "Dedicated Slack/phone support",
                 "5 hours of updates/mo",
-                "AI tool maintenance included",
+                "Priority automation support",
                 "Advanced analytics & reporting",
-                "Priority feature requests",
+                "Monthly tool health checks",
                 "99.9% uptime SLA",
               ].map((f) => (
                 <li
@@ -179,6 +179,23 @@ export default function PricingSection() {
               Get Started
             </Link>
           </div>
+        </div>
+
+        {/* Automation callout */}
+        <div className="reveal max-w-3xl mx-auto mt-10 bg-forest border border-forest rounded-2xl p-8 text-center">
+          <h3 className="text-white font-bold text-lg mb-2">
+            Need Business Automation?
+          </h3>
+          <p className="text-white/70 text-sm mb-5 max-w-lg mx-auto">
+            Custom tool builds start at $200/month or a one-time project fee.
+            We scope the ROI first &mdash; if it won&apos;t save you money, we won&apos;t build it.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block bg-terra hover:bg-terra-dark text-white btn-hover font-semibold text-sm px-6 py-3 rounded-lg transition-all"
+          >
+            Get a Free ROI Analysis
+          </Link>
         </div>
 
         {/* Bottom note */}

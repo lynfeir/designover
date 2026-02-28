@@ -140,15 +140,15 @@ export default function ContactForm() {
               </label>
               <select name="service" required className={inputClass}>
                 <option value="">Select a service</option>
-                <option value="website">Custom Website</option>
+                <option value="website">Custom Website ($200)</option>
                 <option value="graphic-design">
                   Graphic Design (cards, ads, brochures)
                 </option>
-                <option value="ai-tool">
-                  AI Business Tool (booking, automation)
+                <option value="automation">
+                  Business Automation (eliminate manual work)
                 </option>
-                <option value="monthly-plan">Monthly Hosting Plan</option>
-                <option value="bundle">Website + Design Bundle</option>
+                <option value="website-automation">Website + Automation Bundle</option>
+                <option value="monthly-plan">Monthly Hosting/Support Plan</option>
                 <option value="other">Something Else</option>
               </select>
             </div>
@@ -158,11 +158,11 @@ export default function ContactForm() {
               </label>
               <select name="budget" className={inputClass}>
                 <option value="">Select range</option>
-                <option value="under-500">Under $500</option>
-                <option value="500-1000">$500 &ndash; $1,000</option>
-                <option value="1000-2500">$1,000 &ndash; $2,500</option>
-                <option value="over-2500">Over $2,500</option>
-                <option value="monthly">Monthly plan only</option>
+                <option value="under-500">Under $500 (website/design)</option>
+                <option value="500-1500">$500 &ndash; $1,500</option>
+                <option value="1500-5000">$1,500 &ndash; $5,000</option>
+                <option value="5000-25000">$5,000 &ndash; $25,000 (automation build)</option>
+                <option value="monthly">Monthly subscription ($200&ndash;$1K/mo)</option>
                 <option value="discuss">Let&apos;s discuss</option>
               </select>
             </div>

@@ -51,7 +51,7 @@ export default function TermsPage() {
             <ul className="list-disc ml-6 space-y-1">
               <li><strong>Custom Website Design &amp; Development</strong> &mdash; Hand-coded websites starting at $200 for landing pages. Multi-page business sites, e-commerce builds, and full redesigns are available at tiered pricing.</li>
               <li><strong>Graphic Design</strong> &mdash; Business cards, logos, flyers, brochures, social media graphics, and other print/digital materials starting at $99.</li>
-              <li><strong>AI Business Tools</strong> &mdash; Booking systems, intake forms, chatbot assistants, and workflow automation bots. Pricing varies by project scope.</li>
+              <li><strong>Business Automation</strong> &mdash; Custom tools that eliminate manual work: CNC automation, booking systems, workflow bots, data processing, and internal dashboards. One-time builds from $5,000 or monthly subscription from $200/mo.</li>
               <li><strong>Web Hosting</strong> &mdash; Managed hosting plans starting at $3/mo. Includes SSL certificates, daily backups, and 99.9% uptime guarantee.</li>
               <li><strong>Hosting Migration</strong> &mdash; We can migrate your existing website from another host to our platform for a one-time fee of $25.</li>
             </ul>
@@ -94,7 +94,7 @@ export default function TermsPage() {
                   <tr className="border-b border-border"><td className="py-2 pr-4">Graphic Design</td><td className="py-2">From $99</td></tr>
                   <tr className="border-b border-border"><td className="py-2 pr-4">Hosting (monthly)</td><td className="py-2">$3 &ndash; $19/mo</td></tr>
                   <tr className="border-b border-border"><td className="py-2 pr-4">Hosting Migration</td><td className="py-2">$25 (one-time)</td></tr>
-                  <tr><td className="py-2 pr-4">AI Business Tools</td><td className="py-2">Custom quote</td></tr>
+                  <tr><td className="py-2 pr-4">Business Automation</td><td className="py-2">From $200/mo or $5,000+</td></tr>
                 </tbody>
               </table>
             </div>
