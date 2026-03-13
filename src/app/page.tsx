@@ -50,14 +50,14 @@ export default function Home() {
             <br />
             Costing You Money
             <br />
-            <span className="text-terra">&amp; We Kill It</span>
+            <span className="text-terra">&amp; We Fix It</span>
           </h1>
 
           <div className="mt-10 lg:mt-14 flex flex-col lg:flex-row lg:items-end gap-8 lg:gap-20">
             <p className="text-white/70 max-w-sm text-base leading-relaxed">
-              Custom websites from $200, delivered in 48 hours. Automation tools
-              that replace $62K/year of manual work. Every project starts with a
-              free demo.
+              Custom websites and business systems built to remove bottlenecks,
+              reduce manual work, and help your company run cleaner as it grows.
+              Every project starts with a free demo or ROI review.
             </p>
             <div className="flex gap-3 flex-wrap">
               <Link
@@ -115,9 +115,10 @@ export default function Home() {
                 Custom Websites
               </h2>
               <p className="text-text-body text-lg leading-relaxed mb-8 max-w-xl">
-                Your competitor is showing up online. You&apos;re not. We build
-                fully custom, mobile-first sites in 24&ndash;48 hours for $200
-                flat. Agencies charge $2,000+ for the same thing.
+                Your website should do more than exist. It should help customers
+                take the next step, reduce back-and-forth, and support how your
+                business actually runs. We build fast, custom sites that look
+                sharp, load fast, and make your operation easier to manage.
               </p>
               <div className="flex items-center gap-6 flex-wrap">
                 <Link
@@ -152,12 +153,14 @@ export default function Home() {
                 Tier Two
               </span>
               <h2 className="text-3xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-5 tracking-tight">
-                Business Automation
+                Business Systems &amp; Automation
               </h2>
               <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-xl">
-                You&apos;re paying $30/hr for tasks a computer should do. We
-                build custom tools that eliminate manual work &mdash; CNC
-                automation, booking systems, workflow bots, data processing.
+                If your team is spending valuable time on repetitive computer
+                work, disconnected information, or preventable admin, that&apos;s
+                where we step in. We build custom systems for booking, internal
+                workflows, approvals, reporting, task routing, customer
+                communication, and process visibility.
               </p>
               <Link
                 href="/contact"
@@ -458,13 +461,16 @@ export default function Home() {
                 Hunter Weeks
               </h2>
               <p className="text-text-body text-base leading-relaxed mb-4 max-w-lg">
-                Carpenter turned coder. I work on the shop floor and I write the
-                software. A web developer doesn&apos;t understand CNC machines.
-                A CNC consultant doesn&apos;t code. I do both &mdash; and I
-                build the tools that bridge the gap.
+                I started by building websites, booking systems, and workflow
+                tools. Over time, I realized most businesses don&apos;t lose
+                time because people are lazy &mdash; they lose time because
+                information gets stuck, tasks get repeated, and employees spend
+                too much of their day doing work a computer should already be
+                handling.
               </p>
               <p className="text-text-muted text-sm mb-8 max-w-lg">
-                5+ years, 150+ projects, and every one started with a free demo.
+                5+ years, 150+ projects. If there&apos;s no clear value in
+                changing something, we won&apos;t push it.
               </p>
               <Link
                 href="/about"
@@ -511,7 +517,7 @@ export default function Home() {
                 {
                   n: "01",
                   title: "Discovery",
-                  desc: "Tell us what\u2019s costing you time or money. We figure out if you need a website, an automation tool, or both.",
+                  desc: "Tell us where the business feels slow, messy, or harder than it should. We identify whether the right fix is a website, an internal system, an automation, or no change at all.",
                 },
                 {
                   n: "02",
@@ -618,9 +624,9 @@ export default function Home() {
               <span className="text-terra">Are You?</span>
             </h2>
             <p className="text-white/65 text-base max-w-md mb-10 leading-relaxed">
-              Get a free demo site or a quick automation audit &mdash; with zero
-              commitment. We&apos;ll show you where you&apos;re losing money and
-              how to fix it.
+              Get a free demo site or a workflow review &mdash; with zero
+              commitment. We&apos;ll show you where your business is losing
+              time and how to fix it.
             </p>
             <div className="flex gap-3 flex-wrap">
               <Link

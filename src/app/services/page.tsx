@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Services — Design over Atlanta",
   description:
-    "Custom websites from $200 delivered in 48 hours, plus business automation tools that eliminate manual work. Free demo before you pay.",
+    "Custom websites from $200 delivered in 48 hours, plus business systems and automation that remove bottlenecks and reduce manual work. Free demo before you pay.",
 };
 
 export default function ServicesPage() {
@@ -18,11 +18,12 @@ export default function ServicesPage() {
             Services
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05] max-w-3xl mb-6">
-            Two Tiers. One Goal.
+            Two Services. One Goal.
           </h1>
           <p className="text-white/70 text-lg max-w-xl leading-relaxed">
-            Stop your business from bleeding money on
-            things a computer should handle.
+            Build a stronger business by improving how customers move in,
+            how work moves through, and how information gets handled behind
+            the scenes.
           </p>
         </div>
       </section>
@@ -39,10 +40,11 @@ export default function ServicesPage() {
                 Custom Websites in 48 Hours, Starting at $200
               </h2>
               <p className="text-text-body leading-relaxed mb-4">
-                Your competitor is showing up online. You&apos;re not. Every site is
-                hand-coded and designed to your business. No cookie-cutter
-                templates. Mobile-first, fast-loading, and SEO-ready from day
-                one. You see a fully working demo before you pay anything.
+                Your website should support the way your business sells, books,
+                communicates, and grows. We build custom websites that are fast,
+                clear, easy to navigate, and designed around the action you want
+                customers to take. You see a fully working demo before you pay
+                anything.
               </p>
               <p className="text-text-body leading-relaxed mb-4">
                 <strong className="text-text-dark">Our base price is $200.</strong> Most web design
@@ -206,30 +208,34 @@ export default function ServicesPage() {
           <div className="grid lg:grid-cols-2 gap-14 items-start">
             <div>
               <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase flex items-center gap-2 mb-3"><span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />
-                Tier 2 — Business Automation
+                Tier 2 — Business Systems &amp; Automation
               </span>
               <h2 className="text-3xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-6 tracking-tight">
-                We Find the Work That&apos;s Costing You Money &mdash; And We Kill It
+                We Fix the Parts of the Business That Don&apos;t Flow
               </h2>
               <p className="text-white/70 leading-relaxed mb-4">
-                You&apos;re paying someone $30/hr to do something a computer should
-                handle. That&apos;s $62,400 a year. We build the fix &mdash; custom
-                automation tools that eliminate manual computer work.
+                When information is scattered, repetitive tasks pile up, and
+                staff spend their day handling avoidable admin, growth gets
+                harder than it should be. We build custom systems that organize
+                workflows, reduce manual work, improve visibility, and help your
+                business run with more control.
               </p>
               <div className="mb-6">
-                <h4 className="font-bold text-white mb-2">What We Automate</h4>
+                <h4 className="font-bold text-white mb-2">What We Build</h4>
                 <p className="text-white/70 text-sm leading-loose m-0">
-                  CNC file automation · Booking systems · Workflow bots ·
-                  Data processing tools · Custom internal dashboards ·
-                  Scheduling automation · Customer self-service portals ·
-                  Notification &amp; reminder systems
+                  Booking systems · Lead intake flows · Internal dashboards ·
+                  Approvals &amp; task routing · Quoting workflows ·
+                  Scheduling systems · Reporting tools · Client portals ·
+                  Data processing · Follow-up automation ·
+                  Notification systems · Operations tracking
                 </p>
               </div>
               <div className="mb-6">
-                <h4 className="font-bold text-white mb-2">Industries We Serve</h4>
+                <h4 className="font-bold text-white mb-2">Who This Is For</h4>
                 <p className="text-white/70 text-sm leading-loose m-0">
-                  Cabinet shops · Contractors · HVAC · Auto shops ·
-                  Restaurants · Real estate · Medical offices · Landscaping
+                  Service businesses · Local businesses · Operations-heavy teams ·
+                  Growing companies with repetitive admin · Companies that need
+                  better visibility across their workflow
                 </p>
               </div>
               <div className="mb-6">
@@ -253,18 +259,18 @@ export default function ServicesPage() {
                 {[
                   {
                     n: "1",
-                    title: "Identify the bottleneck",
-                    desc: "Where does manual work slow you down? CNC file prep, scheduling, data entry, invoicing — we find the friction point.",
+                    title: "Find the bottleneck",
+                    desc: "Where is work slowing down, getting missed, or being handled manually more often than it should?",
                   },
                   {
                     n: "2",
-                    title: "Build the solution",
-                    desc: "We design and build a custom automation tool — a booking system, a workflow bot, an internal dashboard — that fits directly into your existing process.",
+                    title: "Design the right fix",
+                    desc: "We map whether the answer is automation, better structure, a customer-facing system, an internal dashboard, or leaving the current process alone.",
                   },
                   {
                     n: "3",
-                    title: "Launch & support",
-                    desc: "We deploy it, train your team, and keep it running smoothly. The manual work stops. The savings start.",
+                    title: "Launch with clarity",
+                    desc: "We implement the system, train your team, and make sure it improves speed, visibility, and consistency.",
                   },
                 ].map((s) => (
                   <div key={s.n} className="flex gap-3">
@@ -384,6 +390,11 @@ export default function ServicesPage() {
           <p className="text-text-muted text-base">
             Same quality. Same result. <strong className="text-terra">10x less cost</strong> on websites.{" "}
             <strong className="text-terra">Save $60,000+/year</strong> on automation.
+          </p>
+          <p className="text-text-muted text-sm mt-3 max-w-2xl">
+            The goal isn&apos;t to replace good people. It&apos;s to stop using
+            skilled people for repetitive computer tasks that should already be
+            systemized.
           </p>
         </div>
       </section>

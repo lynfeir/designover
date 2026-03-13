@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact — Design over Atlanta",
   description:
-    "Get a free demo site or same-day quote. Call (470) 758-3549 or fill out the form. Custom websites, graphic design, and AI tools.",
+    "Get a free website demo, workflow review, or same-day quote. Call (470) 758-3549 or fill out the form. Custom websites, graphic design, and business systems.",
 };
 
 export default function ContactPage() {
@@ -21,8 +21,9 @@ export default function ContactPage() {
             Contact
           </h1>
           <p className="text-white/70 text-lg max-w-xl">
-            Request a free website demo, get an automation quote, or tell us
-            what&apos;s eating your time. We respond within hours.
+            Request a free website demo, ask for a workflow review, or tell us
+            where your business feels slow, messy, or too manual. We&apos;ll
+            help you figure out the right next step.
           </p>
         </div>
       </section>
@@ -171,15 +172,15 @@ export default function ContactPage() {
               },
               {
                 q: "What is business automation?",
-                a: "Anything that replaces a manual step in your business workflow. We've built CNC automation for cabinet shops, booking systems for service businesses, workflow bots for data entry, and internal tools for process management. If you're paying someone to do repetitive computer work, we can probably automate it.",
+                a: "Business automation means reducing or removing repetitive steps that slow your company down. That can include booking flows, approvals, scheduling, reporting, follow-up, data handling, internal dashboards, customer communication, or other tasks that don\u2019t need to be done manually every time. Sometimes it\u2019s full automation. Sometimes it\u2019s just better structure.",
               },
               {
                 q: "What industries do you work with?",
-                a: "We work with any business that has manual inefficiencies, but our sweet spot is cabinet shops, contractors, HVAC companies, auto shops, restaurants, real estate, medical offices, and landscaping companies.",
+                a: "We work with businesses across different industries. What matters most is not the niche \u2014 it\u2019s whether there are bottlenecks, repeated admin, poor information flow, or processes that need better structure. If the workflow problem is clear, we can usually help.",
               },
               {
                 q: "How do you price automation projects?",
-                a: "Two ways: one-time builds ($5,000–$25,000 depending on complexity) or monthly subscription ($200–$1,000/mo). We always scope the ROI first. If our tool won't save you at least 3x what it costs, we'll tell you upfront.",
+                a: "Two models: one-time builds or monthly support. We scope around value first. If the savings, visibility, or operational improvement aren\u2019t clear enough to justify the build, we\u2019ll say so before recommending anything.",
               },
               {
                 q: "Do you offer payment plans?",
@@ -206,11 +207,11 @@ export default function ContactPage() {
       <section className="relative py-20 bg-forest overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
-            Your Business Is Losing Money on Manual Work
+            Let&apos;s Find the Bottleneck
           </h2>
           <p className="text-white/70 max-w-lg mb-8 text-lg">
-            Free website demo. Free automation audit. Zero commitment until
-            you see the ROI.
+            Free website demo or workflow review. No pressure. No
+            overbuilding. Just a clear look at what would actually help.
           </p>
           <div className="flex gap-3 flex-wrap">
             <a
