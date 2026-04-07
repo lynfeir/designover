@@ -29,6 +29,7 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://designoveratlanta.com"),
   title: "Design over Atlanta",
   description:
     "Custom websites from $200 in 48 hours. Business automation tools that eliminate manual work. We find what's costing you money and we kill it. Based in Atlanta, GA.",

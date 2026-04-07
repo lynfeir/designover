@@ -1,7 +1,7 @@
 # DOA (Design over Atlanta) — Context
 
 ## What This Is
-The primary marketing website for Design over Atlanta, a web design and business automation agency. This is the production version hosted at lynfeirlinks.com (per CNAME). It offers custom websites from $200 with 48-hour delivery, plus business automation tools. Features an earthy, editorial design language with a forest/terra color scheme. Includes a marketing toolkit with 106 downloadable social media ads, marketing plans, referral program, and promotional materials.
+The primary marketing website for Design over Atlanta, a web design and business automation agency. This is the production version hosted at designoveratlanta.com (per CNAME). It offers custom websites from $200 with 48-hour delivery, plus business automation tools. Features an earthy, editorial design language with a forest/terra color scheme. Includes a marketing toolkit with 106 downloadable social media ads, marketing plans, referral program, and promotional materials.
 
 ## Tech Stack
 - Next.js 16.1.6 (App Router)
@@ -18,7 +18,7 @@ The primary marketing website for Design over Atlanta, a web design and business
 - `src/app/ads/` -- Ad showcase/gallery page
 - `src/components/` -- Shared: Navbar, Footer, ContactForm, PricingSection, ScrollReveal
 - `src/components/toolkit/` -- Toolkit-specific: AdGrid, MarketingPlans, ReferralProgram, PromoMaterials, ToolkitNav
-- CNAME file points to lynfeirlinks.com (custom domain via GitHub Pages or similar)
+- CNAME file points to designoveratlanta.com (deployed via Vercel)
 - Contact form submits to API route that sends email via Nodemailer
 
 ## Rules & Conventions
@@ -44,7 +44,7 @@ The primary marketing website for Design over Atlanta, a web design and business
 - Promotional materials (elevator pitches, email signatures, business cards, flyers, social bios)
 - Ad showcase page
 - Scroll reveal animations
-- Custom domain (lynfeirlinks.com)
+- Custom domain (designoveratlanta.com)
 
 ### Not Built / Incomplete
 - Prompts section (route exists, content unclear)
