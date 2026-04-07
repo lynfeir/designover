@@ -37,7 +37,7 @@ export default function ServicesPage() {
                 Tier 1 — Websites
               </span>
               <h2 className="font-[family-name:var(--font-display)] text-3xl lg:text-[3.2rem] font-bold text-foreground leading-[1.05] mb-6 tracking-tight">
-                Custom Websites in 48 Hours, Starting at $200
+                Custom Websites in 48 Hours, Starting at $399
               </h2>
               <p className="font-[family-name:var(--font-ui)] text-muted-fg leading-relaxed mb-4">
                 Your website should support the way your business sells, books,
@@ -47,7 +47,7 @@ export default function ServicesPage() {
                 anything.
               </p>
               <p className="font-[family-name:var(--font-ui)] text-muted-fg leading-relaxed mb-4">
-                <strong className="text-foreground">Our base price is $200.</strong> Most web design
+                <strong className="text-foreground">Our base price is $399.</strong> Most web design
                 companies charge $2,000&ndash;$5,000+ for a comparable site. You get the same
                 quality at a fraction of the cost &mdash; and you see it working before paying.
               </p>
@@ -61,7 +61,7 @@ export default function ServicesPage() {
               </div>
               <div className="flex gap-4 items-center flex-wrap">
                 <span className="font-[family-name:var(--font-mono)] text-primary text-sm font-bold">
-                  From $200
+                  From $399
                 </span>
                 <span className="font-[family-name:var(--font-ui)] text-muted-fg text-sm">
                   24&ndash;48 hour turnaround
@@ -77,12 +77,12 @@ export default function ServicesPage() {
                   {
                     title: "Landing Page",
                     desc: "Single page, contact form, mobile-ready",
-                    price: "$200",
+                    price: "$399",
                   },
                   {
                     title: "Business Website",
                     desc: "3–5 pages, SEO, analytics",
-                    price: "$400–$800",
+                    price: "$800–$1,500",
                   },
                   {
                     title: "E-commerce / Advanced",
@@ -335,7 +335,7 @@ export default function ServicesPage() {
                   Design over Atlanta
                 </div>
                 <div className="font-[family-name:var(--font-mono)] text-2xl font-bold text-success mb-1">
-                  $200
+                  $399
                 </div>
                 <div className="font-[family-name:var(--font-ui)] text-muted-fg text-sm mb-3">Website design</div>
                 <div className="font-[family-name:var(--font-mono)] text-2xl font-bold text-success mb-1">
@@ -344,7 +344,7 @@ export default function ServicesPage() {
                 <div className="font-[family-name:var(--font-ui)] text-muted-fg text-sm">Hosting</div>
                 <div className="border-t border-border/30 mt-4 pt-4">
                   <div className="font-[family-name:var(--font-ui)] text-muted-fg text-sm">
-                    Year 1 total: <span className="font-[family-name:var(--font-mono)] text-success font-bold">$344</span>
+                    Year 1 total: <span className="font-[family-name:var(--font-mono)] text-success font-bold">$543</span>
                   </div>
                 </div>
               </div>

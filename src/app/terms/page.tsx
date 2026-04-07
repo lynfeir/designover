@@ -49,7 +49,7 @@ export default function TermsPage() {
           <TermsSection number="2" title="Services Offered">
             <p>We provide the following services, subject to these Terms:</p>
             <ul className="list-disc ml-6 space-y-1">
-              <li><strong>Custom Website Design &amp; Development</strong> &mdash; Hand-coded websites starting at $200 for landing pages. Multi-page business sites, e-commerce builds, and full redesigns are available at tiered pricing.</li>
+              <li><strong>Custom Website Design &amp; Development</strong> &mdash; Hand-coded websites starting at $399 for landing pages. Multi-page business sites, e-commerce builds, and full redesigns are available at tiered pricing.</li>
               <li><strong>Graphic Design</strong> &mdash; Business cards, logos, flyers, brochures, social media graphics, and other print/digital materials starting at $99.</li>
               <li><strong>Business Systems &amp; Automation</strong> &mdash; Custom tools and internal systems that improve workflow, reduce manual admin, organize information, and support business operations. Examples may include booking systems, dashboards, reporting tools, workflow automations, portals, and data processing. One-time builds from $5,000 or monthly subscription from $200/mo.</li>
               <li><strong>Web Hosting</strong> &mdash; Managed hosting plans starting at $12/mo. Includes SSL certificates, daily backups, and 99.9% uptime guarantee.</li>
@@ -87,12 +87,12 @@ export default function TermsPage() {
                   </tr>
                 </thead>
                 <tbody className="text-foreground">
-                  <tr className="border-b border-border/30"><td className="py-2 pr-4">Landing Page</td><td className="py-2">$200</td></tr>
-                  <tr className="border-b border-border/30"><td className="py-2 pr-4">Business Website (3-5 pages)</td><td className="py-2">$400 &ndash; $800</td></tr>
-                  <tr className="border-b border-border/30"><td className="py-2 pr-4">E-commerce Website</td><td className="py-2">$1,000+</td></tr>
-                  <tr className="border-b border-border/30"><td className="py-2 pr-4">Website Redesign</td><td className="py-2">From $150</td></tr>
+                  <tr className="border-b border-border/30"><td className="py-2 pr-4">Landing Page</td><td className="py-2">$399</td></tr>
+                  <tr className="border-b border-border/30"><td className="py-2 pr-4">Business Website (3-5 pages)</td><td className="py-2">$800 &ndash; $1,500</td></tr>
+                  <tr className="border-b border-border/30"><td className="py-2 pr-4">E-commerce Website</td><td className="py-2">$2,000+</td></tr>
+                  <tr className="border-b border-border/30"><td className="py-2 pr-4">Website Redesign</td><td className="py-2">From $299</td></tr>
                   <tr className="border-b border-border/30"><td className="py-2 pr-4">Graphic Design</td><td className="py-2">From $99</td></tr>
-                  <tr className="border-b border-border/30"><td className="py-2 pr-4">Hosting (monthly)</td><td className="py-2">$3 &ndash; $19/mo</td></tr>
+                  <tr className="border-b border-border/30"><td className="py-2 pr-4">Hosting (monthly)</td><td className="py-2">$12 &ndash; $49/mo</td></tr>
                   <tr className="border-b border-border/30"><td className="py-2 pr-4">Hosting Migration</td><td className="py-2">$25 (one-time)</td></tr>
                   <tr><td className="py-2 pr-4">Business Automation</td><td className="py-2">From $200/mo or $5,000+</td></tr>
                 </tbody>

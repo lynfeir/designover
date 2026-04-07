@@ -28,7 +28,7 @@ export default function Footer() {
               </h4>
             </div>
             <p className="text-muted-fg text-sm leading-relaxed mb-5">
-              Custom websites from $200 and business automation tools that
+              Custom websites from $399 and business automation tools that
               eliminate manual work. We find what&apos;s costing you money and we
               kill it.
             </p>

@@ -182,7 +182,7 @@ export default function Home() {
             className="mt-16 lg:mt-24 pt-6 border-t border-foreground/10 flex gap-10 lg:gap-16 flex-wrap"
           >
             {[
-              { num: "$200", label: "sites from" },
+              { num: "$399", label: "sites from" },
               { num: "48hr", label: "delivery" },
               { num: "$62K", label: "avg savings" },
               { num: "150+", label: "shipped" },
@@ -261,7 +261,7 @@ export default function Home() {
                 <span className="text-muted-fg text-sm font-[family-name:var(--font-ui)]">
                   From{" "}
                   <strong className="font-[family-name:var(--font-mono)] text-foreground text-2xl font-bold">
-                    $200
+                    $399
                   </strong>
                 </span>
               </div>
