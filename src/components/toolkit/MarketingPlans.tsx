@@ -98,18 +98,18 @@ export default function MarketingPlans() {
       {PLANS.map((plan, i) => (
         <div
           key={i}
-          className="border border-terra/10 rounded-xl bg-white overflow-hidden transition-all"
+          className="border border-terra/10 rounded-xl bg-card overflow-hidden transition-all"
         >
           <button
             onClick={() => setExpanded(expanded === i ? null : i)}
-            className="w-full text-left p-6 flex items-start justify-between gap-4 hover:bg-bg-sage/40 transition-colors cursor-pointer"
+            className="w-full text-left p-6 flex items-start justify-between gap-4 hover:bg-card/40 transition-colors cursor-pointer"
           >
             <div>
-              <h3 className="text-lg font-bold text-text-heading">{plan.title}</h3>
-              <p className="text-text-muted text-sm mt-1">{plan.description}</p>
+              <h3 className="text-lg font-bold text-foreground">{plan.title}</h3>
+              <p className="text-muted-fg text-sm mt-1">{plan.description}</p>
             </div>
             <div className="flex items-center gap-3 shrink-0">
-              <span className="text-xs text-text-muted bg-terra/10 px-3 py-1 rounded-full">
+              <span className="text-xs text-muted-fg bg-primary/10 px-3 py-1 rounded-full">
                 {plan.duration}
               </span>
               <svg
@@ -121,7 +121,7 @@ export default function MarketingPlans() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className={`text-text-muted transition-transform ${expanded === i ? "rotate-180" : ""}`}
+                className={`text-muted-fg transition-transform ${expanded === i ? "rotate-180" : ""}`}
               >
                 <polyline points="6 9 12 15 18 9" />
               </svg>
@@ -132,8 +132,8 @@ export default function MarketingPlans() {
               <ol className="mt-4 space-y-3">
                 {plan.steps.map((step, j) => (
                   <li key={j} className="flex gap-3 text-sm">
-                    <span className="text-terra font-bold shrink-0 w-6 text-right">{j + 1}.</span>
-                    <span className="text-text-muted leading-relaxed">{step}</span>
+                    <span className="text-primary font-bold shrink-0 w-6 text-right">{j + 1}.</span>
+                    <span className="text-muted-fg leading-relaxed">{step}</span>
                   </li>
                 ))}
               </ol>

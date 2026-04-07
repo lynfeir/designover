@@ -464,10 +464,10 @@ export default function AdCard({ ad }: { ad: AdDefinition }) {
       {/* Info bar */}
       <div style={{ padding: "12px 16px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
         <div style={{ minWidth: 0 }}>
-          <p className="text-text-heading text-sm font-semibold truncate">
+          <p className="text-foreground text-sm font-semibold truncate">
             {ad.headline.replace(/\n/g, " ").substring(0, 45)}{ad.headline.length > 45 ? "..." : ""}
           </p>
-          <p className="text-text-muted text-xs mt-0.5">
+          <p className="text-muted-fg text-xs mt-0.5">
             {FORMAT_LABELS[ad.format]} &middot; {w}&times;{h}
           </p>
         </div>

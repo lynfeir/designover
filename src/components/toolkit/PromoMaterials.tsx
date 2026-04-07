@@ -157,17 +157,17 @@ export default function PromoMaterials() {
     <div className="space-y-8">
       {MATERIALS.map((mat) => (
         <div key={mat.category}>
-          <h3 className="text-text-heading font-bold text-lg mb-4">{mat.category}</h3>
+          <h3 className="text-foreground font-bold text-lg mb-4">{mat.category}</h3>
           <div className="space-y-4">
             {mat.items.map((item) => {
               const key = `${mat.category}-${item.title}`;
               return (
-                <div key={key} className="bg-white border border-terra/10 rounded-xl p-5">
+                <div key={key} className="bg-card border border-terra/10 rounded-xl p-5">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-text-heading font-semibold text-sm">{item.title}</span>
+                    <span className="text-foreground font-semibold text-sm">{item.title}</span>
                     <button
                       onClick={() => copy(item.content, key)}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-terra/10 hover:bg-terra/15 text-text-muted hover:text-terra text-xs font-medium transition-all cursor-pointer"
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/15 text-muted-fg hover:text-primary text-xs font-medium transition-all cursor-pointer"
                     >
                       {copied === key ? (
                         <>
@@ -182,7 +182,7 @@ export default function PromoMaterials() {
                       )}
                     </button>
                   </div>
-                  <pre className="text-text-muted text-sm whitespace-pre-wrap font-[inherit] leading-relaxed bg-terra/5 rounded-lg p-4">
+                  <pre className="text-muted-fg text-sm whitespace-pre-wrap font-[inherit] leading-relaxed bg-primary/5 rounded-lg p-4">
                     {item.content}
                   </pre>
                 </div>

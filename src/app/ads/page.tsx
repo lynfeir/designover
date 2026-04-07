@@ -1999,11 +1999,11 @@ export default function AdsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-bg-cream">
+    <div className="min-h-screen bg-background">
       {/* ─── Hero ─── */}
       <section className="relative overflow-hidden py-20 pb-10">
         <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-terra/20 bg-terra/5 px-4 py-1.5 text-xs font-bold tracking-wider text-terra uppercase mb-6">
+          <div className="inline-flex items-center gap-2 rounded-full border border-terra/20 bg-primary/5 px-4 py-1.5 text-xs font-bold tracking-wider text-primary uppercase mb-6">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
@@ -2011,30 +2011,30 @@ export default function AdsPage() {
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] mb-4">
             Ads That Actually{" "}
-            <span className="text-terra">Convert</span>
+            <span className="text-primary">Convert</span>
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-text-muted leading-relaxed">
+          <p className="mx-auto max-w-2xl text-lg text-muted-fg leading-relaxed">
             41 marketing-driven ad designs across every platform.
             Hosting switches, redesigns, profile pics, banners — ready to post.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-semibold text-text-muted">
-            <span className="rounded-full bg-terra/5 px-3 py-1">41 Ad Designs</span>
-            <span className="rounded-full bg-terra/5 px-3 py-1">21 Platform Sizes</span>
-            <span className="rounded-full bg-terra/5 px-3 py-1">Full Resolution PNGs</span>
-            <span className="rounded-full bg-terra/5 px-3 py-1">One-Click Download</span>
+          <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-semibold text-muted-fg">
+            <span className="rounded-full bg-primary/5 px-3 py-1">41 Ad Designs</span>
+            <span className="rounded-full bg-primary/5 px-3 py-1">21 Platform Sizes</span>
+            <span className="rounded-full bg-primary/5 px-3 py-1">Full Resolution PNGs</span>
+            <span className="rounded-full bg-primary/5 px-3 py-1">One-Click Download</span>
           </div>
         </div>
       </section>
 
       {/* ─── Controls ─── */}
-      <section className="sticky top-[72px] z-30 border-b border-border bg-bg-cream/92 backdrop-blur-xl">
+      <section className="sticky top-[72px] z-30 border-b border-border bg-background/92 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-6 py-4">
           {/* Design Selector — grouped by category */}
           <div className="mb-4">
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
               {designCategories.map((cat) => (
                 <div key={cat} className="flex items-center gap-1.5">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-text-muted/60 mr-1">{cat}:</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-fg/60 mr-1">{cat}:</span>
                   {DESIGNS.filter((d) => d.category === cat).map((d) => {
                     const i = DESIGNS.indexOf(d);
                     return (
@@ -2043,8 +2043,8 @@ export default function AdsPage() {
                         onClick={() => setActiveDesign(i)}
                         className={`flex items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-semibold transition-all ${
                           i === activeDesign
-                            ? "border-terra bg-terra/10 text-terra"
-                            : "border-terra/10 bg-terra/5 text-text-muted hover:border-terra/20 hover:text-terra"
+                            ? "border-terra bg-primary/10 text-primary"
+                            : "border-terra/10 bg-primary/5 text-muted-fg hover:border-terra/20 hover:text-primary"
                         }`}
                       >
                         <span className="w-2 h-2 rounded-full" style={{ background: d.accent }} />
@@ -2059,7 +2059,7 @@ export default function AdsPage() {
 
           {/* Platform Filter + Download All */}
           <div className="flex flex-wrap items-center gap-2">
-            <label className="text-[10px] font-bold uppercase tracking-widest text-text-muted/60 mr-1">Size:</label>
+            <label className="text-[10px] font-bold uppercase tracking-widest text-muted-fg/60 mr-1">Size:</label>
             {platforms.map((p) => {
               const v = VARIANTS.find((v) => v.category === p);
               return (
@@ -2068,8 +2068,8 @@ export default function AdsPage() {
                   onClick={() => setActivePlatform(p)}
                   className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold transition-all ${
                     p === activePlatform
-                      ? "bg-terra text-white"
-                      : "bg-terra/5 text-text-muted hover:bg-terra/10 hover:text-terra"
+                      ? "bg-primary text-white"
+                      : "bg-primary/5 text-muted-fg hover:bg-primary/10 hover:text-primary"
                   }`}
                 >
                   {p !== "all" && v && <PlatformIcon platform={v.platformIcon} className="w-3.5 h-3.5" />}
@@ -2097,16 +2097,16 @@ export default function AdsPage() {
             const aspect = variant.w / variant.h;
             const isDownloading = generating === variant.id;
             return (
-              <div key={variant.id} className="group rounded-2xl border border-border bg-white p-3.5 transition-all hover:border-terra/20 hover:bg-bg-sage/40 hover:-translate-y-1 hover:shadow-lg">
+              <div key={variant.id} className="group rounded-2xl border border-border bg-card p-3.5 transition-all hover:border-terra/20 hover:bg-card/40 hover:-translate-y-1 hover:shadow-lg">
                 <div className="mb-2.5 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <PlatformIcon platform={variant.platformIcon} className="w-4 h-4 text-text-muted" />
-                    <span className="text-sm font-semibold text-text-heading">{variant.platform}</span>
-                    <span className="text-[11px] text-text-muted">{variant.label}</span>
+                    <PlatformIcon platform={variant.platformIcon} className="w-4 h-4 text-muted-fg" />
+                    <span className="text-sm font-semibold text-foreground">{variant.platform}</span>
+                    <span className="text-[11px] text-muted-fg">{variant.label}</span>
                   </div>
-                  <span className="rounded-full bg-terra/5 px-2 py-0.5 text-[10px] font-bold text-text-muted">{variant.w}x{variant.h}</span>
+                  <span className="rounded-full bg-primary/5 px-2 py-0.5 text-[10px] font-bold text-muted-fg">{variant.w}x{variant.h}</span>
                 </div>
-                <div className="overflow-hidden rounded-xl bg-bg-cream border border-terra/10" style={{ aspectRatio: aspect }}>
+                <div className="overflow-hidden rounded-xl bg-background border border-terra/10" style={{ aspectRatio: aspect }}>
                   <canvas ref={(el) => setCanvasRef(variant.id, el)} className="w-full h-full" style={{ imageRendering: "auto" }} />
                 </div>
                 <button
@@ -2114,8 +2114,8 @@ export default function AdsPage() {
                   disabled={isDownloading}
                   className={`mt-2.5 flex w-full items-center justify-center gap-2 rounded-xl py-2.5 text-sm font-bold transition-all ${
                     isDownloading
-                      ? "bg-terra/20 text-terra cursor-wait"
-                      : "bg-terra text-white hover:bg-terra-dark hover:-translate-y-0.5"
+                      ? "bg-primary/20 text-primary cursor-wait"
+                      : "bg-primary text-white hover:bg-primary-dark hover:-translate-y-0.5"
                   }`}
                 >
                   {isDownloading ? (
@@ -2137,8 +2137,8 @@ export default function AdsPage() {
 
       {/* ─── Tips ─── */}
       <section className="mx-auto max-w-7xl px-6 pb-16">
-        <div className="rounded-2xl border border-border bg-white p-6">
-          <h2 className="text-lg font-bold mb-3"><span className="text-terra">How to Use</span></h2>
+        <div className="rounded-2xl border border-border bg-card p-6">
+          <h2 className="text-lg font-bold mb-3"><span className="text-primary">How to Use</span></h2>
           <div className="grid gap-4 sm:grid-cols-4">
             {[
               { t: "Choose an Ad", d: "Pick from 31 designs — hosting switches, profile pics, banners, pricing, and more." },
@@ -2147,8 +2147,8 @@ export default function AdsPage() {
               { t: "Post & Convert", d: "Upload directly to any platform. No cropping or resizing needed." },
             ].map((tip) => (
               <div key={tip.t}>
-                <h3 className="text-sm font-bold text-text-heading mb-1">{tip.t}</h3>
-                <p className="text-xs text-text-muted leading-relaxed">{tip.d}</p>
+                <h3 className="text-sm font-bold text-foreground mb-1">{tip.t}</h3>
+                <p className="text-xs text-muted-fg leading-relaxed">{tip.d}</p>
               </div>
             ))}
           </div>

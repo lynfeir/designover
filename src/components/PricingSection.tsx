@@ -1,69 +1,95 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { fadeUp, staggerContainer, viewport } from "@/lib/motion";
 
 export default function PricingSection() {
   return (
-    <section id="plans" className="relative py-20 lg:py-28 bg-bg-cream overflow-hidden">
+    <section id="plans" className="relative py-24 lg:py-32 bg-secondary overflow-hidden">
+      <div className="absolute inset-0 dot-pattern opacity-10 pointer-events-none" />
+
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
-        {/* Header — left-aligned, editorial */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 lg:mb-16">
-          <div>
-            <span className="text-terra text-[10px] font-bold uppercase tracking-[0.25em] flex items-center gap-2 mb-3">
-              <span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />Monthly Plans
+        {/* Header */}
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 lg:mb-20"
+        >
+          <motion.div variants={fadeUp}>
+            <span className="font-[family-name:var(--font-ui)] text-primary text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
+              Monthly Plans
             </span>
-            <h2 className="text-3xl lg:text-5xl font-bold text-text-heading tracking-tight leading-tight">
+            <h2 className="font-[family-name:var(--font-display)] text-4xl lg:text-6xl font-semibold tracking-tight leading-tight">
               Hosting That Pays
               <br className="hidden sm:block" />
-              <span className="text-terra">for Itself</span>
+              <span className="text-gold-gradient"> for Itself</span>
             </h2>
-          </div>
-          <p className="text-text-muted text-sm max-w-sm mt-4 lg:mt-0 lg:text-right">
+          </motion.div>
+          <motion.p variants={fadeUp} className="font-[family-name:var(--font-ui)] text-muted-fg text-sm max-w-sm mt-4 lg:mt-0 lg:text-right">
             Most hosting companies charge $15&ndash;$25/mo for basic hosting
-            alone. Our plans start at <strong className="text-text-heading">$3/mo</strong>.
-          </p>
-        </div>
+            alone. Our plans start at{" "}
+            <strong className="font-[family-name:var(--font-mono)] text-foreground">$3/mo</strong>.
+          </motion.p>
+        </motion.div>
 
-        {/* Savings comparison — horizontal, not a card */}
-        <div className="mb-14 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10 pb-10 border-b border-border">
+        {/* Savings comparison */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="mb-14 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10 pb-10 border-b border-border/30"
+        >
           <div>
-            <div className="text-text-muted text-[10px] uppercase tracking-[0.15em] mb-1">
+            <div className="font-[family-name:var(--font-ui)] text-muted-fg text-xs uppercase tracking-[0.15em] mb-1">
               Typical Elsewhere
             </div>
-            <div className="text-2xl font-black text-text-heading line-through decoration-error/30">
+            <div className="font-[family-name:var(--font-mono)] text-2xl font-bold text-foreground/50 line-through decoration-destructive/30">
               $20/mo
             </div>
-            <div className="text-text-muted text-xs">$240/year</div>
+            <div className="font-[family-name:var(--font-ui)] text-muted-fg text-xs">$240/year</div>
           </div>
-          <div className="text-2xl text-text-muted hidden sm:block">&rarr;</div>
+          <div className="text-2xl text-muted-fg hidden sm:block">&rarr;</div>
           <div>
-            <div className="text-text-muted text-[10px] uppercase tracking-[0.15em] mb-1">
+            <div className="font-[family-name:var(--font-ui)] text-muted-fg text-xs uppercase tracking-[0.15em] mb-1">
               Our Starter Plan
             </div>
-            <div className="text-2xl font-black text-success">$3/mo</div>
-            <div className="text-text-muted text-xs">$36/year</div>
+            <div className="font-[family-name:var(--font-mono)] text-2xl font-bold text-success">$3/mo</div>
+            <div className="font-[family-name:var(--font-ui)] text-muted-fg text-xs">$36/year</div>
           </div>
-          <div className="text-2xl text-text-muted hidden sm:block">=</div>
+          <div className="text-2xl text-muted-fg hidden sm:block">=</div>
           <div>
-            <div className="text-text-muted text-[10px] uppercase tracking-[0.15em] mb-1">
+            <div className="font-[family-name:var(--font-ui)] text-muted-fg text-xs uppercase tracking-[0.15em] mb-1">
               You Save
             </div>
-            <div className="text-2xl font-black text-terra">$204/yr</div>
-            <div className="text-success text-xs font-semibold">85% less</div>
+            <div className="font-[family-name:var(--font-mono)] text-2xl font-bold text-primary">$204/yr</div>
+            <div className="font-[family-name:var(--font-ui)] text-success text-xs font-semibold">85% less</div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Pricing — 3-column, varied styling */}
-        <div className="grid md:grid-cols-3 gap-6">
+        {/* Pricing cards */}
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="grid md:grid-cols-3 gap-6"
+        >
           {/* Starter */}
-          <div className="bg-white border border-border p-8 flex flex-col">
-            <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-text-muted mb-4">
+          <motion.div
+            variants={fadeUp}
+            className="bg-card border border-border/30 p-8 flex flex-col transition-all duration-500 hover:border-primary/20 hover:shadow-card"
+          >
+            <div className="font-[family-name:var(--font-ui)] text-xs font-bold uppercase tracking-[0.15em] text-muted-fg mb-4">
               Starter
             </div>
-            <div className="text-5xl font-black text-text-heading leading-none mb-1">
-              $3<span className="text-base font-normal text-text-muted">/mo</span>
+            <div className="font-[family-name:var(--font-mono)] text-5xl font-bold text-foreground leading-none mb-1">
+              $3<span className="text-base font-normal text-muted-fg">/mo</span>
             </div>
-            <div className="text-xs text-text-muted mb-8">
-              Just $36/year
-            </div>
+            <div className="font-[family-name:var(--font-ui)] text-xs text-muted-fg mb-8">Just $36/year</div>
             <ul className="space-y-3 mb-8 flex-1">
               {[
                 "Fast, secure hosting",
@@ -72,37 +98,33 @@ export default function PricingSection() {
                 "Email support (48hr response)",
                 "Uptime monitoring",
               ].map((f) => (
-                <li
-                  key={f}
-                  className="text-text-body text-sm flex items-start gap-2.5"
-                >
-                  <span className="text-success font-bold text-xs mt-0.5 shrink-0">
-                    &#10003;
-                  </span>
+                <li key={f} className="font-[family-name:var(--font-ui)] text-muted-fg text-sm flex items-start gap-2.5">
+                  <span className="text-success font-bold text-xs mt-0.5 shrink-0">&#10003;</span>
                   {f}
                 </li>
               ))}
             </ul>
             <Link
               href="/contact"
-              className="w-full text-center border border-border hover:border-terra text-text-heading hover:text-terra font-semibold py-3 transition-all text-sm"
+              className="w-full text-center border border-border/30 hover:border-primary text-foreground hover:text-primary font-[family-name:var(--font-ui)] font-semibold py-3 transition-all text-sm uppercase tracking-wider"
             >
               Get Started
             </Link>
-          </div>
+          </motion.div>
 
           {/* Professional — highlighted */}
-          <div className="bg-forest text-white p-8 flex flex-col relative">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-terra" />
-            <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.15em] text-white/70 mb-4">
-              <span className="inline-block w-1.5 h-1.5 bg-white/70 rotate-45" />Professional
+          <motion.div
+            variants={fadeUp}
+            className="relative bg-card border border-primary/30 p-8 flex flex-col shadow-gold transition-all duration-500 hover:shadow-[0_0_60px_oklch(72%_0.14_75/0.2)]"
+          >
+            <div className="absolute top-0 left-0 right-0 h-1 btn-shimmer" />
+            <div className="font-[family-name:var(--font-ui)] flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-primary mb-4">
+              Professional
             </div>
-            <div className="text-5xl font-black leading-none mb-1">
-              $9<span className="text-base font-normal text-white/70">/mo</span>
+            <div className="font-[family-name:var(--font-mono)] text-5xl font-bold text-foreground leading-none mb-1">
+              $9<span className="text-base font-normal text-muted-fg">/mo</span>
             </div>
-            <div className="text-xs text-white/65 mb-8">
-              Support + monthly updates
-            </div>
+            <div className="font-[family-name:var(--font-ui)] text-xs text-muted-fg mb-8">Support + monthly updates</div>
             <ul className="space-y-3 mb-8 flex-1">
               {[
                 "Everything in Starter",
@@ -112,36 +134,32 @@ export default function PricingSection() {
                 "Analytics dashboard",
                 "Quarterly strategy check-in",
               ].map((f) => (
-                <li
-                  key={f}
-                  className="text-white/70 text-sm flex items-start gap-2.5"
-                >
-                  <span className="text-terra font-bold text-xs mt-0.5 shrink-0">
-                    &#10003;
-                  </span>
+                <li key={f} className="font-[family-name:var(--font-ui)] text-muted-fg text-sm flex items-start gap-2.5">
+                  <span className="text-primary font-bold text-xs mt-0.5 shrink-0">&#10003;</span>
                   {f}
                 </li>
               ))}
             </ul>
             <Link
               href="/contact"
-              className="w-full text-center bg-terra hover:bg-terra-light text-white font-bold py-3 transition-all text-sm tracking-wider uppercase"
+              className="w-full text-center btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold py-3 text-sm tracking-[0.1em] uppercase"
             >
               Get Started
             </Link>
-          </div>
+          </motion.div>
 
           {/* Growth */}
-          <div className="bg-white border border-border p-8 flex flex-col">
-            <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-text-muted mb-4">
+          <motion.div
+            variants={fadeUp}
+            className="bg-card border border-border/30 p-8 flex flex-col transition-all duration-500 hover:border-primary/20 hover:shadow-card"
+          >
+            <div className="font-[family-name:var(--font-ui)] text-xs font-bold uppercase tracking-[0.15em] text-muted-fg mb-4">
               Growth
             </div>
-            <div className="text-5xl font-black text-text-heading leading-none mb-1">
-              $19<span className="text-base font-normal text-text-muted">/mo</span>
+            <div className="font-[family-name:var(--font-mono)] text-5xl font-bold text-foreground leading-none mb-1">
+              $19<span className="text-base font-normal text-muted-fg">/mo</span>
             </div>
-            <div className="text-xs text-text-muted mb-8">
-              Dedicated partner for growth
-            </div>
+            <div className="font-[family-name:var(--font-ui)] text-xs text-muted-fg mb-8">Dedicated partner for growth</div>
             <ul className="space-y-3 mb-8 flex-1">
               {[
                 "Everything in Professional",
@@ -152,33 +170,34 @@ export default function PricingSection() {
                 "Monthly tool health checks",
                 "99.9% uptime SLA",
               ].map((f) => (
-                <li
-                  key={f}
-                  className="text-text-body text-sm flex items-start gap-2.5"
-                >
-                  <span className="text-success font-bold text-xs mt-0.5 shrink-0">
-                    &#10003;
-                  </span>
+                <li key={f} className="font-[family-name:var(--font-ui)] text-muted-fg text-sm flex items-start gap-2.5">
+                  <span className="text-success font-bold text-xs mt-0.5 shrink-0">&#10003;</span>
                   {f}
                 </li>
               ))}
             </ul>
             <Link
               href="/contact"
-              className="w-full text-center border border-border hover:border-terra text-text-heading hover:text-terra font-semibold py-3 transition-all text-sm"
+              className="w-full text-center border border-border/30 hover:border-primary text-foreground hover:text-primary font-[family-name:var(--font-ui)] font-semibold py-3 transition-all text-sm uppercase tracking-wider"
             >
               Get Started
             </Link>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {/* Automation callout — matches dark sections */}
-        <div className="mt-10 bg-forest p-8 lg:p-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+        {/* Automation callout */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="mt-10 glass p-8 lg:p-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6"
+        >
           <div>
-            <h3 className="text-white font-bold text-lg mb-2">
+            <h3 className="font-[family-name:var(--font-display)] text-foreground font-semibold text-xl mb-2">
               Need Business Automation?
             </h3>
-            <p className="text-white/70 text-sm max-w-lg">
+            <p className="font-[family-name:var(--font-ui)] text-muted-fg text-sm max-w-lg">
               Custom tool builds start at $200/month or a one-time project fee.
               We scope the ROI first &mdash; if it won&apos;t save you money, we
               won&apos;t build it.
@@ -186,14 +205,14 @@ export default function PricingSection() {
           </div>
           <Link
             href="/contact"
-            className="shrink-0 bg-terra hover:bg-terra-light text-white font-bold text-sm px-7 py-3.5 tracking-wider uppercase transition-colors"
+            className="shrink-0 btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold text-sm px-7 py-3.5 tracking-[0.1em] uppercase"
           >
             Get a Free ROI Analysis
           </Link>
-        </div>
+        </motion.div>
 
         {/* Bottom note */}
-        <p className="text-text-muted text-xs mt-8 max-w-xl">
+        <p className="font-[family-name:var(--font-ui)] text-muted-fg text-xs mt-8 max-w-xl">
           No contracts. Cancel anytime. All plans include hosting, SSL, and
           backups. Compare that to the $15&ndash;$25/mo most companies charge
           for hosting alone &mdash; before you even get support.

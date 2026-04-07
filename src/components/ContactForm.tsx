@@ -52,15 +52,17 @@ export default function ContactForm() {
   }
 
   const inputClass =
-    "w-full px-4 py-3 border border-border-light text-sm bg-white text-text-dark focus:outline-none focus:border-sage focus:ring-2 focus:ring-sage/10 transition-all";
+    "w-full px-4 py-3 border border-border/50 text-sm bg-background/60 text-foreground placeholder:text-muted-fg/50 font-[family-name:var(--font-ui)] focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all input-glow";
 
   return (
-    <div className="bg-white border border-border-light p-8 relative shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
+    <div className="glass p-8 relative" style={{ boxShadow: "var(--shadow-card)" }}>
       {/* Toast */}
       {toast && (
         <div
-          className={`fixed top-[90px] right-5 z-[9999] px-6 py-4 shadow-2xl text-white text-sm font-medium max-w-sm transition-transform ${
-            toast.type === "success" ? "bg-success" : "bg-error"
+          className={`fixed top-[90px] right-5 z-[9999] px-6 py-4 shadow-2xl text-sm font-[family-name:var(--font-ui)] font-medium max-w-sm transition-transform ${
+            toast.type === "success"
+              ? "bg-success text-background"
+              : "bg-destructive text-foreground"
           }`}
         >
           {toast.msg}
@@ -69,91 +71,70 @@ export default function ContactForm() {
 
       {submitted ? (
         <div className="text-center py-12">
-          <div className="w-16 h-16 bg-success-soft flex items-center justify-center mx-auto mb-5">
-            <svg className="w-8 h-8 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <div className="w-20 h-20 mx-auto mb-5 flex items-center justify-center pulse-glow rounded-full bg-success/10 border border-success/20">
+            <svg className="w-10 h-10 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
           </div>
-          <h2 className="text-2xl font-bold text-text-dark mb-2">
+          <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-foreground mb-2">
             Thank you!
           </h2>
-          <p className="text-text-body text-sm mb-6 max-w-sm mx-auto">
+          <p className="font-[family-name:var(--font-ui)] text-muted-fg text-sm mb-6 max-w-sm mx-auto">
             We received your request and will reach out shortly. Expect a
             response within a few hours during business hours.
           </p>
           <button
             onClick={clearForm}
-            className="border border-border-light hover:border-terra hover:text-terra text-text-dark font-bold text-sm px-7 py-3.5 tracking-wider uppercase transition-colors"
+            className="border border-border/50 hover:border-primary text-foreground hover:text-primary font-[family-name:var(--font-ui)] font-bold text-sm px-7 py-3.5 tracking-wider uppercase transition-colors"
           >
             Send Another Request
           </button>
         </div>
       ) : (
         <>
-          <h2 className="text-2xl font-bold text-text-dark mb-2">
+          <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold text-foreground mb-2">
             Start Your Project
           </h2>
-          <p className="text-text-body text-sm mb-6">
+          <p className="font-[family-name:var(--font-ui)] text-muted-fg text-sm mb-6">
             Fill in what you can &mdash; we&apos;ll follow up with any questions. Website
             requests get a free demo before any payment is needed.
           </p>
 
           <form ref={formRef} onSubmit={handleSubmit} id="contact-form" className="space-y-5">
             <div>
-              <label className="block text-sm font-semibold text-text-dark mb-1.5">
+              <label className="block text-sm font-[family-name:var(--font-ui)] font-semibold text-foreground mb-1.5">
                 Your Name *
               </label>
-              <input
-                type="text"
-                name="name"
-                required
-                placeholder="Full name"
-                className={inputClass}
-              />
+              <input type="text" name="name" required placeholder="Full name" className={inputClass} />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-text-dark mb-1.5">
+              <label className="block text-sm font-[family-name:var(--font-ui)] font-semibold text-foreground mb-1.5">
                 Email *
               </label>
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="you@company.com"
-                className={inputClass}
-              />
+              <input type="email" name="email" required placeholder="you@company.com" className={inputClass} />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-text-dark mb-1.5">
+              <label className="block text-sm font-[family-name:var(--font-ui)] font-semibold text-foreground mb-1.5">
                 Phone
               </label>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="(470) 758-3549"
-                className={inputClass}
-              />
+              <input type="tel" name="phone" placeholder="(470) 758-3549" className={inputClass} />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-text-dark mb-1.5">
+              <label className="block text-sm font-[family-name:var(--font-ui)] font-semibold text-foreground mb-1.5">
                 What Do You Need? *
               </label>
               <select name="service" required className={inputClass}>
                 <option value="">Select a service</option>
                 <option value="website">Custom Website ($200)</option>
-                <option value="graphic-design">
-                  Graphic Design (cards, ads, brochures)
-                </option>
-                <option value="automation">
-                  Business Automation (eliminate manual work)
-                </option>
+                <option value="graphic-design">Graphic Design (cards, ads, brochures)</option>
+                <option value="automation">Business Automation (eliminate manual work)</option>
                 <option value="website-automation">Website + Automation Bundle</option>
                 <option value="monthly-plan">Monthly Hosting/Support Plan</option>
                 <option value="other">Something Else</option>
               </select>
             </div>
             <div>
-              <label className="block text-sm font-semibold text-text-dark mb-1.5">
+              <label className="block text-sm font-[family-name:var(--font-ui)] font-semibold text-foreground mb-1.5">
                 Budget Range
               </label>
               <select name="budget" className={inputClass}>
@@ -167,7 +148,7 @@ export default function ContactForm() {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-semibold text-text-dark mb-1.5">
+              <label className="block text-sm font-[family-name:var(--font-ui)] font-semibold text-foreground mb-1.5">
                 Timeline
               </label>
               <select name="timeline" className={inputClass}>
@@ -180,7 +161,7 @@ export default function ContactForm() {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-semibold text-text-dark mb-1.5">
+              <label className="block text-sm font-[family-name:var(--font-ui)] font-semibold text-foreground mb-1.5">
                 Project Details *
               </label>
               <textarea
@@ -193,11 +174,11 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={sending}
-              className="w-full bg-terra hover:bg-terra-dark text-white font-bold px-7 py-3.5 text-sm tracking-wider uppercase transition-colors disabled:opacity-60"
+              className="w-full btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold px-7 py-3.5 text-sm tracking-[0.1em] uppercase transition-all disabled:opacity-60"
             >
               {sending ? "Sending..." : "Send Request"}
             </button>
-            <p className="text-text-body text-xs text-center mt-3">
+            <p className="font-[family-name:var(--font-ui)] text-muted-fg text-xs text-center mt-3">
               Typical response within 2 hours (Mon&ndash;Fri, 9am&ndash;7pm)
             </p>
           </form>

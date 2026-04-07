@@ -9,23 +9,23 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-bg-cream">
+    <div className="min-h-screen bg-background">
       {/* Hero */}
       <section className="relative overflow-hidden py-20 pb-10">
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-terra/20 bg-terra/5 px-4 py-1.5 text-xs font-bold tracking-wider text-terra uppercase mb-6">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-bold tracking-wider text-primary uppercase mb-6">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
             Legal
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.08] mb-4">
-            Terms of <span className="text-terra">Service</span>
+          <h1 className="text-4xl sm:text-5xl font-semibold leading-[1.08] mb-4">
+            Terms of <span className="text-primary">Service</span>
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-text-muted leading-relaxed">
+          <p className="mx-auto max-w-2xl text-lg text-muted-fg leading-relaxed">
             Please read these terms carefully before engaging our services. By working with Design over Atlanta you agree to the following terms and conditions.
           </p>
-          <p className="mt-4 text-sm text-text-muted">
+          <p className="mt-4 text-sm text-muted-fg">
             Last updated: February 7, 2026
           </p>
         </div>
@@ -81,19 +81,19 @@ export default function TermsPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm mt-2 mb-4">
                 <thead>
-                  <tr className="border-b border-border text-text-muted text-left">
+                  <tr className="border-b border-border/30 text-muted-fg text-left">
                     <th className="py-2 pr-4">Service</th>
                     <th className="py-2">Starting Price</th>
                   </tr>
                 </thead>
-                <tbody className="text-text-heading">
-                  <tr className="border-b border-border"><td className="py-2 pr-4">Landing Page</td><td className="py-2">$200</td></tr>
-                  <tr className="border-b border-border"><td className="py-2 pr-4">Business Website (3-5 pages)</td><td className="py-2">$400 &ndash; $800</td></tr>
-                  <tr className="border-b border-border"><td className="py-2 pr-4">E-commerce Website</td><td className="py-2">$1,000+</td></tr>
-                  <tr className="border-b border-border"><td className="py-2 pr-4">Website Redesign</td><td className="py-2">From $150</td></tr>
-                  <tr className="border-b border-border"><td className="py-2 pr-4">Graphic Design</td><td className="py-2">From $99</td></tr>
-                  <tr className="border-b border-border"><td className="py-2 pr-4">Hosting (monthly)</td><td className="py-2">$3 &ndash; $19/mo</td></tr>
-                  <tr className="border-b border-border"><td className="py-2 pr-4">Hosting Migration</td><td className="py-2">$25 (one-time)</td></tr>
+                <tbody className="text-foreground">
+                  <tr className="border-b border-border/30"><td className="py-2 pr-4">Landing Page</td><td className="py-2">$200</td></tr>
+                  <tr className="border-b border-border/30"><td className="py-2 pr-4">Business Website (3-5 pages)</td><td className="py-2">$400 &ndash; $800</td></tr>
+                  <tr className="border-b border-border/30"><td className="py-2 pr-4">E-commerce Website</td><td className="py-2">$1,000+</td></tr>
+                  <tr className="border-b border-border/30"><td className="py-2 pr-4">Website Redesign</td><td className="py-2">From $150</td></tr>
+                  <tr className="border-b border-border/30"><td className="py-2 pr-4">Graphic Design</td><td className="py-2">From $99</td></tr>
+                  <tr className="border-b border-border/30"><td className="py-2 pr-4">Hosting (monthly)</td><td className="py-2">$3 &ndash; $19/mo</td></tr>
+                  <tr className="border-b border-border/30"><td className="py-2 pr-4">Hosting Migration</td><td className="py-2">$25 (one-time)</td></tr>
                   <tr><td className="py-2 pr-4">Business Automation</td><td className="py-2">From $200/mo or $5,000+</td></tr>
                 </tbody>
               </table>
@@ -125,14 +125,14 @@ export default function TermsPage() {
             <p>
               We provide customer support <strong>during business hours only</strong>:
             </p>
-            <div className="rounded-xl border border-border bg-white p-4 my-3">
+            <div className="rounded-xl border border-border/30 bg-card p-4 my-3">
               <div className="grid grid-cols-2 gap-2 text-sm">
-                <span className="text-text-muted">Monday &ndash; Friday</span>
-                <span className="text-text-heading font-semibold">9:00 AM &ndash; 7:00 PM ET</span>
-                <span className="text-text-muted">Saturday</span>
-                <span className="text-text-heading font-semibold">10:00 AM &ndash; 4:00 PM ET</span>
-                <span className="text-text-muted">Sunday</span>
-                <span className="text-text-heading font-semibold">By appointment only</span>
+                <span className="text-muted-fg">Monday &ndash; Friday</span>
+                <span className="text-foreground font-semibold">9:00 AM &ndash; 7:00 PM ET</span>
+                <span className="text-muted-fg">Saturday</span>
+                <span className="text-foreground font-semibold">10:00 AM &ndash; 4:00 PM ET</span>
+                <span className="text-muted-fg">Sunday</span>
+                <span className="text-foreground font-semibold">By appointment only</span>
               </div>
             </div>
             <p>
@@ -279,37 +279,37 @@ export default function TermsPage() {
             <p>
               If you have questions about these Terms, please contact us:
             </p>
-            <div className="rounded-xl border border-border bg-white p-4 my-3">
+            <div className="rounded-xl border border-border/30 bg-card p-4 my-3">
               <div className="space-y-2 text-sm">
                 <div>
-                  <span className="text-text-muted">Owner: </span>
-                  <span className="text-text-heading font-semibold">Hunter Weeks</span>
+                  <span className="text-muted-fg">Owner: </span>
+                  <span className="text-foreground font-semibold">Hunter Weeks</span>
                 </div>
                 <div>
-                  <span className="text-text-muted">Business: </span>
-                  <span className="text-text-heading font-semibold">Design over Atlanta</span>
+                  <span className="text-muted-fg">Business: </span>
+                  <span className="text-foreground font-semibold">Design over Atlanta</span>
                 </div>
                 <div>
-                  <span className="text-text-muted">Phone: </span>
-                  <a href="tel:4707583549" className="text-terra font-semibold">(470) 758-3549</a>
+                  <span className="text-muted-fg">Phone: </span>
+                  <a href="tel:4707583549" className="text-primary font-semibold">(470) 758-3549</a>
                 </div>
                 <div>
-                  <span className="text-text-muted">Location: </span>
-                  <span className="text-text-heading">Atlanta, GA</span>
+                  <span className="text-muted-fg">Location: </span>
+                  <span className="text-foreground">Atlanta, GA</span>
                 </div>
                 <div>
-                  <span className="text-text-muted">Website: </span>
-                  <span className="text-terra font-semibold">designoveratlanta.com</span>
+                  <span className="text-muted-fg">Website: </span>
+                  <span className="text-primary font-semibold">designoveratlanta.com</span>
                 </div>
               </div>
             </div>
           </TermsSection>
 
           {/* Back to home */}
-          <div className="text-center pt-8 border-t border-border">
+          <div className="text-center pt-8 border-t border-border/30">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-terra hover:text-terra transition-colors text-sm font-semibold"
+              className="inline-flex items-center gap-2 text-primary hover:text-primary transition-colors text-sm font-semibold"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -326,14 +326,14 @@ export default function TermsPage() {
 /* ─── Section Component ─── */
 function TermsSection({ number, title, children }: { number: string; title: string; children: React.ReactNode }) {
   return (
-    <div className="reveal">
+    <div>
       <div className="flex items-baseline gap-3 mb-4">
-        <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-terra/10 text-terra font-bold text-sm shrink-0">
+        <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 text-primary font-bold text-sm shrink-0">
           {number}
         </span>
-        <h2 className="text-xl sm:text-2xl font-bold text-text-heading">{title}</h2>
+        <h2 className="text-xl sm:text-2xl font-bold text-foreground">{title}</h2>
       </div>
-      <div className="pl-11 space-y-3 text-sm sm:text-base text-text-muted leading-relaxed">
+      <div className="pl-11 space-y-3 text-sm sm:text-base text-muted-fg leading-relaxed">
         {children}
       </div>
     </div>

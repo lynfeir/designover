@@ -1,78 +1,121 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-
+import { motion } from "framer-motion";
+import { fadeUp, viewport } from "@/lib/motion";
 
 export default function Footer() {
   return (
-    <footer className="bg-forest border-t border-white/10 pt-16 pb-8">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+    <footer className="relative bg-background border-t border-border/30 pt-20 pb-10 overflow-hidden">
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 flicker-grid pointer-events-none" />
+
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <Image src="/doa-logo-transparent-square-1024.png" alt="Design Over Atlanta" width={32} height={32} />
-              <h4 className="font-bold text-lg text-white">
-                Design <span className="text-terra">over</span> Atlanta
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport}>
+            <div className="flex items-center gap-3 mb-5">
+              <Image
+                src="/doa-logo-transparent-square-1024.png"
+                alt="Design Over Atlanta"
+                width={32}
+                height={32}
+                className="brightness-0 invert"
+              />
+              <h4 className="font-[family-name:var(--font-ui)] font-bold text-lg text-foreground">
+                Design <span className="text-primary">over</span> Atlanta
               </h4>
             </div>
-            <p className="text-white/60 text-sm leading-relaxed mb-4">
-              Custom websites from $200 and business automation tools that eliminate manual work. We find what&apos;s costing you money and we kill it.
+            <p className="text-muted-fg text-sm leading-relaxed mb-5">
+              Custom websites from $200 and business automation tools that
+              eliminate manual work. We find what&apos;s costing you money and we
+              kill it.
             </p>
             <a
               href="tel:4707583549"
-              className="text-terra font-semibold text-base inline-block mb-2"
+              className="text-primary font-[family-name:var(--font-mono)] font-semibold text-base inline-block mb-3 hover:text-primary-hover transition-colors"
             >
               (470) 758-3549
             </a>
-            <p className="text-sm text-white/60">
-              <strong className="text-white">Hunter Weeks</strong>
+            <p className="text-sm text-muted-fg">
+              <strong className="text-foreground">Hunter Weeks</strong>
               <br />
               Founder &amp; Builder
             </p>
-          </div>
+          </motion.div>
 
           {/* Services */}
-          <div>
-            <h4 className="flex items-center gap-2 text-[10px] font-bold tracking-[0.25em] uppercase text-white mb-4"><span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />Services</h4>
-            <ul className="space-y-2.5 text-sm">
-              <li><Link href="/services#websites" className="text-white/60 hover:text-white transition-colors">Custom Websites</Link></li>
-              <li><Link href="/services#automation" className="text-white/60 hover:text-white transition-colors">Business Automation</Link></li>
-              <li><Link href="/services#design" className="text-white/60 hover:text-white transition-colors">Graphic Design</Link></li>
-              <li><Link href="/services#plans" className="text-white/60 hover:text-white transition-colors">Monthly Plans</Link></li>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport}>
+            <h4 className="font-[family-name:var(--font-ui)] text-xs font-bold tracking-[0.25em] uppercase text-foreground mb-5">
+              Services
+            </h4>
+            <ul className="space-y-3 text-sm">
+              {[
+                { href: "/services#websites", label: "Custom Websites" },
+                { href: "/services#automation", label: "Business Automation" },
+                { href: "/services#design", label: "Graphic Design" },
+                { href: "/services#plans", label: "Monthly Plans" },
+              ].map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="text-muted-fg hover:text-primary transition-colors duration-300"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Company */}
-          <div>
-            <h4 className="flex items-center gap-2 text-[10px] font-bold tracking-[0.25em] uppercase text-white mb-4"><span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />Company</h4>
-            <ul className="space-y-2.5 text-sm">
-              <li><Link href="/about" className="text-white/60 hover:text-white transition-colors">About</Link></li>
-              <li><Link href="/contact" className="text-white/60 hover:text-white transition-colors">Contact</Link></li>
-              <li><Link href="/contact" className="text-white/60 hover:text-white transition-colors">Get a Demo</Link></li>
-              <li><Link href="/terms" className="text-white/60 hover:text-white transition-colors">Terms of Service</Link></li>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport}>
+            <h4 className="font-[family-name:var(--font-ui)] text-xs font-bold tracking-[0.25em] uppercase text-foreground mb-5">
+              Company
+            </h4>
+            <ul className="space-y-3 text-sm">
+              {[
+                { href: "/about", label: "About" },
+                { href: "/contact", label: "Contact" },
+                { href: "/contact#demo", label: "Get a Demo" },
+                { href: "/terms", label: "Terms of Service" },
+              ].map((l) => (
+                <li key={l.label}>
+                  <Link
+                    href={l.href}
+                    className="text-muted-fg hover:text-primary transition-colors duration-300"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Hours */}
-          <div>
-            <h4 className="flex items-center gap-2 text-[10px] font-bold tracking-[0.25em] uppercase text-white mb-4"><span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />Hours</h4>
-            <p className="text-white/60 text-sm leading-relaxed">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport}>
+            <h4 className="font-[family-name:var(--font-ui)] text-xs font-bold tracking-[0.25em] uppercase text-foreground mb-5">
+              Hours
+            </h4>
+            <p className="text-muted-fg text-sm leading-relaxed">
               Mon &ndash; Fri: 9 AM &ndash; 7 PM
               <br />
               Sat: 10 AM &ndash; 4 PM
               <br />
               Sun: By appointment
             </p>
-            <p className="text-white/60 text-sm mt-3">
+            <p className="text-muted-fg text-sm mt-4">
               Serving clients worldwide
               <br />
               Based in Atlanta, GA
             </p>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 text-center text-white/65 text-xs">
-          &copy; {new Date().getFullYear()} Design over Atlanta. All rights reserved.
+        <div className="border-t border-border/30 pt-8 text-center font-[family-name:var(--font-mono)] text-muted-fg text-xs tracking-wide">
+          &copy; {new Date().getFullYear()} Design over Atlanta. All rights
+          reserved.
         </div>
       </div>
     </footer>

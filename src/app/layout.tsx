@@ -1,21 +1,31 @@
 import type { Metadata } from "next";
-import { Inter, Barlow_Condensed } from "next/font/google";
+import { Cormorant_Garamond, Syne, DM_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ScrollReveal from "@/components/ScrollReveal";
+import LenisProvider from "@/components/LenisProvider";
+import ScrollProgress from "@/components/ScrollProgress";
 
-const inter = Inter({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
+  weight: ["300", "400", "600"],
+  style: ["normal", "italic"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-display",
 });
 
-const barlowCondensed = Barlow_Condensed({
+const syne = Syne({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "700", "800"],
   display: "swap",
-  variable: "--font-barlow-condensed",
+  variable: "--font-ui",
+});
+
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["300", "400"],
+  display: "swap",
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -38,12 +48,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${barlowCondensed.variable}`}>
-      <body className="bg-bg-cream text-text-body antialiased">
-        <Navbar />
-        <main className="pt-[72px]">{children}</main>
-        <Footer />
-        <ScrollReveal />
+    <html
+      lang="en"
+      className={`${cormorant.variable} ${syne.variable} ${dmMono.variable}`}
+    >
+      <body className="bg-background text-text-body antialiased">
+        <LenisProvider>
+          <ScrollProgress />
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </LenisProvider>
       </body>
     </html>
   );

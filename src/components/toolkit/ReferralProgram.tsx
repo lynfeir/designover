@@ -43,19 +43,19 @@ export default function ReferralProgram() {
           { step: "2", title: "They Sign Up", desc: "When they start a project with us, you both get credited." },
           { step: "3", title: "Earn $50 Credit", desc: "$50 for you, $50 off for them. No limits on referrals." },
         ].map((s) => (
-          <div key={s.step} className="bg-white border border-terra/10 rounded-xl p-6 text-center">
-            <div className="w-12 h-12 rounded-full bg-terra/20 text-terra font-bold text-xl flex items-center justify-center mx-auto mb-4">
+          <div key={s.step} className="bg-card border border-terra/10 rounded-xl p-6 text-center">
+            <div className="w-12 h-12 rounded-full bg-primary/20 text-primary font-bold text-xl flex items-center justify-center mx-auto mb-4">
               {s.step}
             </div>
-            <h3 className="text-text-heading font-bold text-lg mb-2">{s.title}</h3>
-            <p className="text-text-muted text-sm">{s.desc}</p>
+            <h3 className="text-foreground font-bold text-lg mb-2">{s.title}</h3>
+            <p className="text-muted-fg text-sm">{s.desc}</p>
           </div>
         ))}
       </div>
 
       {/* Bonus tiers */}
-      <div className="bg-white border border-terra/10 rounded-xl p-6">
-        <h3 className="text-text-heading font-bold text-lg mb-4">Milestone Bonuses</h3>
+      <div className="bg-card border border-terra/10 rounded-xl p-6">
+        <h3 className="text-foreground font-bold text-lg mb-4">Milestone Bonuses</h3>
         <div className="space-y-3">
           {[
             { refs: "1 Referral", reward: "$50 credit toward your next project or hosting" },
@@ -64,8 +64,8 @@ export default function ReferralProgram() {
             { refs: "10 Referrals", reward: "$500 credit + VIP priority on all future projects" },
           ].map((tier) => (
             <div key={tier.refs} className="flex items-center gap-4 py-3 border-b border-terra/10 last:border-0">
-              <span className="text-terra font-bold text-sm shrink-0 w-28">{tier.refs}</span>
-              <span className="text-text-muted text-sm">{tier.reward}</span>
+              <span className="text-primary font-bold text-sm shrink-0 w-28">{tier.refs}</span>
+              <span className="text-muted-fg text-sm">{tier.reward}</span>
             </div>
           ))}
         </div>
@@ -73,18 +73,18 @@ export default function ReferralProgram() {
 
       {/* Pre-written messages */}
       <div>
-        <h3 className="text-text-heading font-bold text-lg mb-4">Pre-Written Referral Messages</h3>
-        <p className="text-text-muted text-sm mb-6">
+        <h3 className="text-foreground font-bold text-lg mb-4">Pre-Written Referral Messages</h3>
+        <p className="text-muted-fg text-sm mb-6">
           Copy and customize these messages to share with your network.
         </p>
         <div className="space-y-4">
           {REFERRAL_MESSAGES.map((msg, i) => (
-            <div key={i} className="bg-white border border-terra/10 rounded-xl p-5">
+            <div key={i} className="bg-card border border-terra/10 rounded-xl p-5">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-text-heading font-semibold text-sm">{msg.label}</span>
+                <span className="text-foreground font-semibold text-sm">{msg.label}</span>
                 <button
                   onClick={() => copyText(msg.text, i)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-terra/10 hover:bg-terra/15 text-text-muted hover:text-terra text-xs font-medium transition-all cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/15 text-muted-fg hover:text-primary text-xs font-medium transition-all cursor-pointer"
                 >
                   {copied === i ? (
                     <>
@@ -99,7 +99,7 @@ export default function ReferralProgram() {
                   )}
                 </button>
               </div>
-              <pre className="text-text-muted text-sm whitespace-pre-wrap font-[inherit] leading-relaxed bg-terra/5 rounded-lg p-4">
+              <pre className="text-muted-fg text-sm whitespace-pre-wrap font-[inherit] leading-relaxed bg-primary/5 rounded-lg p-4">
                 {msg.text}
               </pre>
             </div>

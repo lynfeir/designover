@@ -4,12 +4,19 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -17,54 +24,38 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Dark transparent mode on homepage before scroll
-  const isDark = isHome && !scrolled && !open;
-
-  const links = [
-    { href: "/", label: "Home" },
-    { href: "/services", label: "Services" },
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
-  ];
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 min-h-[72px] flex items-center transition-all duration-500 ${
-        isDark
-          ? "bg-transparent"
-          : scrolled
-            ? "bg-white shadow-sm border-b border-border-light"
-            : "bg-white/80 backdrop-blur-sm"
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        scrolled
+          ? "py-3 glass shadow-subtle"
+          : "py-5 bg-transparent"
       }`}
     >
       <div className="max-w-[1400px] w-full mx-auto px-6 lg:px-12 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-3">
-          {/* Logo with geometric diamond accent */}
-          <div className="relative">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
             <Image
               src="/doa-logo-transparent-square-1024.png"
               alt="Design Over Atlanta"
               width={36}
               height={36}
-              className={`transition-all duration-500 ${isDark ? "brightness-0 invert" : ""}`}
+              className="brightness-0 invert transition-transform duration-300 group-hover:scale-110"
             />
-            {/* Tiny geometric diamond at logo corner */}
-            <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rotate-45 bg-terra" />
-          </div>
-
-          {/* Geometric separator line */}
-          <span
-            className={`w-px h-5 transition-colors duration-500 hidden sm:block ${
-              isDark ? "bg-white/20" : "bg-border"
-            }`}
-          />
-
-          <span
-            className={`font-bold text-xl tracking-tight transition-colors duration-500 ${
-              isDark ? "text-white" : "text-text-heading"
-            }`}
-          >
-            Design <span className="text-terra">over</span> Atlanta
+          </motion.div>
+          <span className="font-[family-name:var(--font-ui)] font-bold text-lg tracking-tight text-foreground">
+            Design{" "}
+            <span className="text-primary">over</span>{" "}
+            Atlanta
           </span>
         </Link>
 
@@ -74,28 +65,20 @@ export default function Navbar() {
             <li key={l.href}>
               <Link
                 href={l.href}
-                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                className={`relative px-4 py-2 font-[family-name:var(--font-ui)] text-sm font-medium uppercase tracking-[0.15em] transition-all duration-300 underline-draw ${
                   pathname === l.href
-                    ? isDark
-                      ? "text-white bg-white/10"
-                      : "text-text-heading bg-terra-soft"
-                    : isDark
-                      ? "text-white/70 hover:text-white"
-                      : "text-text-body hover:text-text-heading"
+                    ? "text-primary"
+                    : "text-foreground/60 hover:text-foreground"
                 }`}
               >
                 {l.label}
-                {/* Diamond active indicator */}
-                {pathname === l.href && (
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rotate-45 bg-terra" />
-                )}
               </Link>
             </li>
           ))}
-          <li className="ml-3">
+          <li className="ml-4">
             <Link
               href="/contact"
-              className="bg-terra hover:bg-terra-dark text-white font-semibold text-sm px-5 py-2.5 btn-hover transition-colors"
+              className="btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold text-sm px-6 py-2.5 uppercase tracking-[0.1em] transition-transform hover:scale-105"
             >
               Get a Demo
             </Link>
@@ -104,57 +87,75 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden flex flex-col gap-[5px] cursor-pointer"
+          className="md:hidden flex flex-col gap-[5px] cursor-pointer relative z-60"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
-          <span
-            className={`w-5 h-0.5 transition-all ${
-              isDark ? "bg-white" : "bg-text-heading"
-            } ${open ? "rotate-45 translate-y-[7px]" : ""}`}
+          <motion.span
+            animate={open ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+            className="w-6 h-0.5 bg-foreground block"
           />
-          <span
-            className={`w-5 h-0.5 transition-all ${
-              isDark ? "bg-white" : "bg-text-heading"
-            } ${open ? "opacity-0" : ""}`}
+          <motion.span
+            animate={open ? { opacity: 0 } : { opacity: 1 }}
+            className="w-6 h-0.5 bg-foreground block"
           />
-          <span
-            className={`w-5 h-0.5 transition-all ${
-              isDark ? "bg-white" : "bg-text-heading"
-            } ${open ? "-rotate-45 -translate-y-[7px]" : ""}`}
+          <motion.span
+            animate={open ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+            className="w-6 h-0.5 bg-foreground block"
           />
         </button>
       </div>
 
-      {/* Mobile menu */}
-      {open && (
-        <div className="md:hidden fixed top-[72px] left-0 w-full h-[calc(100vh-72px)] bg-bg-cream flex flex-col items-center pt-10 gap-2 z-50">
-          {/* Geometric accent at top of mobile menu */}
-          <div className="w-3 h-3 rotate-45 border border-terra/30 mb-6" />
-
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className={`text-lg font-medium px-6 py-3 transition-all ${
-                pathname === l.href
-                  ? "text-text-heading bg-terra-soft"
-                  : "text-text-body hover:text-text-heading"
-              }`}
-            >
-              {l.label}
-            </Link>
-          ))}
-          <Link
-            href="/contact"
-            onClick={() => setOpen(false)}
-            className="mt-4 bg-terra hover:bg-terra-dark text-white font-semibold px-8 py-3 btn-hover"
+      {/* Mobile fullscreen overlay */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden fixed inset-0 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center gap-2 z-50"
           >
-            Get a Demo
-          </Link>
-        </div>
-      )}
+            {/* Background decoration */}
+            <div className="absolute inset-0 dot-pattern opacity-30 pointer-events-none" />
+
+            {links.map((l, i) => (
+              <motion.div
+                key={l.href}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ delay: i * 0.1, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <Link
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className={`block text-3xl font-[family-name:var(--font-display)] font-semibold py-3 transition-colors ${
+                    pathname === l.href
+                      ? "text-primary"
+                      : "text-foreground/60 hover:text-foreground"
+                  }`}
+                >
+                  {l.label}
+                </Link>
+              </motion.div>
+            ))}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.4 }}
+            >
+              <Link
+                href="/contact"
+                onClick={() => setOpen(false)}
+                className="mt-6 btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold px-10 py-4 text-sm uppercase tracking-[0.15em] inline-block"
+              >
+                Get a Demo
+              </Link>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

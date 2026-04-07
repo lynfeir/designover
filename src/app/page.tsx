@@ -1,120 +1,251 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import {
+  sectionVariants,
+  staggerContainer,
+  fadeUp,
+  fadeIn,
+  scaleIn,
+  slideInLeft,
+  slideInRight,
+  viewport,
+} from "@/lib/motion";
+import CountUp from "@/components/CountUp";
 import PricingSection from "@/components/PricingSection";
+import ParallaxSection from "@/components/ParallaxSection";
+
+/* ── Word-by-word stagger for headlines ── */
+function AnimatedHeadline({
+  words,
+  className = "",
+}: {
+  words: string[];
+  className?: string;
+}) {
+  return (
+    <motion.span
+      variants={staggerContainer}
+      initial="hidden"
+      animate="visible"
+      className={className}
+    >
+      {words.map((word, i) => (
+        <motion.span
+          key={i}
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+              },
+            },
+          }}
+          className="inline-block mr-[0.3em]"
+        >
+          {word}
+        </motion.span>
+      ))}
+    </motion.span>
+  );
+}
+
+/* ── Typewriter effect for tagline ── */
+function Typewriter({ text, className = "" }: { text: string; className?: string }) {
+  return (
+    <motion.span className={`font-[family-name:var(--font-mono)] ${className}`}>
+      {text.split("").map((char, i) => (
+        <motion.span
+          key={i}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 + i * 0.04, duration: 0.1 }}
+        >
+          {char}
+        </motion.span>
+      ))}
+    </motion.span>
+  );
+}
+
+/* ── 3D Tilt Card ── */
+function TiltCard({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <motion.div
+      whileHover={{ rotateX: -5, rotateY: 5, scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      style={{ transformStyle: "preserve-3d", perspective: 1000 }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export default function Home() {
   return (
     <>
-      {/* ─── HERO — Workspace image + geometric overlays ─── */}
-      <section className="relative min-h-screen -mt-[72px] pt-[72px] flex flex-col justify-end bg-forest overflow-hidden">
-        {/* Background workspace image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/hero-workspace.jpg"
-            alt=""
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/90 to-forest/50" />
-        </div>
+      {/* ━━━━ HERO — Multi-layered cinematic ━━━━ */}
+      <section className="relative min-h-screen flex flex-col justify-end bg-background overflow-hidden">
+        {/* Background layers — parallax */}
+        <ParallaxSection speed={0.3} className="absolute inset-0">
+          <div className="absolute inset-0">
+            <Image
+              src="/hero-workspace.jpg"
+              alt=""
+              fill
+              className="object-cover object-center opacity-30 scale-110"
+              priority
+            />
+          </div>
+        </ParallaxSection>
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background/60" />
 
-        {/* ── Geometric elements ── */}
-        {/* Large diamond outline — upper right */}
-        <div className="absolute top-[8%] right-[5%] w-[280px] h-[280px] lg:w-[380px] lg:h-[380px] border border-terra/[0.12] rotate-45 pointer-events-none hidden md:block" />
-        {/* Medium diamond — overlapping */}
-        <div className="absolute top-[22%] right-[14%] w-[160px] h-[160px] lg:w-[220px] lg:h-[220px] border border-white/[0.06] rotate-45 pointer-events-none hidden lg:block" />
-        {/* Small diamond — floating accent */}
-        <div className="absolute bottom-[22%] right-[32%] w-[50px] h-[50px] border border-terra/[0.08] rotate-45 pointer-events-none hidden lg:block" />
-        {/* Diagonal accent line */}
-        <div className="absolute top-0 right-[20%] w-px h-[55%] bg-gradient-to-b from-transparent via-terra/[0.1] to-transparent rotate-[15deg] origin-top pointer-events-none hidden lg:block" />
-        {/* Dot grid pattern — lower right */}
-        <div
-          className="absolute bottom-0 right-0 w-[250px] h-[250px] pointer-events-none hidden lg:block"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, rgba(199,91,58,0.05) 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-          }}
-        />
+        {/* Animated beams */}
+        <div className="absolute inset-0 bg-beams pointer-events-none" />
+
+        {/* Dot pattern */}
+        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] dot-pattern opacity-40 pointer-events-none hidden lg:block" />
+
+        {/* Geometric accents — parallax at different speeds */}
+        <ParallaxSection speed={0.5} className="absolute top-[15%] right-[8%] w-[280px] h-[280px] lg:w-[380px] lg:h-[380px] pointer-events-none hidden md:block">
+          <div className="w-full h-full border border-primary/[0.08] rotate-45" />
+        </ParallaxSection>
+        <ParallaxSection speed={0.7} className="absolute top-[28%] right-[18%] w-[160px] h-[160px] lg:w-[220px] lg:h-[220px] pointer-events-none hidden lg:block">
+          <div className="w-full h-full border border-foreground/[0.04] rotate-45" />
+        </ParallaxSection>
+        <ParallaxSection speed={0.4} className="absolute bottom-[25%] right-[35%] w-[50px] h-[50px] pointer-events-none hidden lg:block">
+          <div className="w-full h-full border border-primary/[0.06] rotate-45 pulse-glow" />
+        </ParallaxSection>
 
         {/* Content */}
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 w-full pb-12 lg:pb-20">
-          <p className="text-terra text-[11px] font-bold tracking-[0.35em] uppercase mb-8 flex items-center gap-2">
-            <span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />
-            Design or Automation
-          </p>
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 w-full pb-16 lg:pb-24 pt-32">
+          <Typewriter
+            text="Design or Automation"
+            className="text-primary text-xs tracking-[0.35em] uppercase mb-8 block"
+          />
 
-          <h1 className="font-black text-[clamp(2.4rem,7vw,6.5rem)] leading-[0.95] sm:leading-[0.88] tracking-[-0.03em] text-white uppercase max-w-5xl">
-            We Find What&apos;s
+          <h1 className="font-[family-name:var(--font-display)] font-semibold text-[clamp(2.8rem,8vw,7rem)] leading-[0.92] tracking-[-0.03em] text-foreground uppercase max-w-5xl">
+            <AnimatedHeadline words={["We", "Find", "What's"]} />
             <br />
-            Costing You Money
+            <AnimatedHeadline words={["Costing", "You", "Money"]} />
             <br />
-            <span className="text-terra">&amp; We Kill It</span>
+            <span className="text-gold-gradient">
+              <AnimatedHeadline words={["&", "We", "Kill", "It"]} />
+            </span>
           </h1>
 
-          <div className="mt-10 lg:mt-14 flex flex-col lg:flex-row lg:items-end gap-8 lg:gap-20">
-            <p className="text-white/70 max-w-sm text-base leading-relaxed">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+            className="mt-12 lg:mt-16 flex flex-col lg:flex-row lg:items-end gap-8 lg:gap-20"
+          >
+            <p className="text-muted-fg max-w-sm text-base leading-relaxed font-[family-name:var(--font-ui)]">
               Custom websites from $200, delivered in 48 hours. Automation tools
               that replace $62K/year of manual work. Every project starts with a
               free demo.
             </p>
-            <div className="flex gap-3 flex-wrap">
+            <div className="flex gap-4 flex-wrap">
               <Link
                 href="/contact"
-                className="bg-terra hover:bg-terra-light text-white font-bold px-8 py-4 text-sm tracking-wider uppercase transition-colors"
+                className="btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold px-8 py-4 text-sm tracking-[0.15em] uppercase transition-transform hover:scale-105"
               >
                 Get Your Free Demo
               </Link>
               <Link
                 href="/services"
-                className="border border-white/25 hover:border-white/50 text-white/70 hover:text-white font-medium px-8 py-4 text-sm tracking-wider uppercase transition-all"
+                className="border border-foreground/20 hover:border-primary/50 text-foreground/60 hover:text-primary font-[family-name:var(--font-ui)] font-medium px-8 py-4 text-sm tracking-[0.1em] uppercase transition-all duration-300"
               >
                 How We Save You Money
               </Link>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Stats — inline pairs */}
-          <div className="mt-16 lg:mt-20 pt-6 border-t border-white/10 flex gap-10 lg:gap-14 flex-wrap">
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2, duration: 0.8 }}
+            className="mt-16 lg:mt-24 pt-6 border-t border-foreground/10 flex gap-10 lg:gap-16 flex-wrap"
+          >
             {[
-              ["$200", "sites from"],
-              ["48hr", "delivery"],
-              ["$62K", "avg savings"],
-              ["150+", "shipped"],
-            ].map(([num, label]) => (
+              { num: "$200", label: "sites from" },
+              { num: "48hr", label: "delivery" },
+              { num: "$62K", label: "avg savings" },
+              { num: "150+", label: "shipped" },
+            ].map(({ num, label }) => (
               <div key={label} className="flex items-baseline gap-2">
-                <span className="text-white text-xl font-black tracking-tight">
+                <span className="font-[family-name:var(--font-mono)] text-foreground text-xl font-bold tracking-tight">
                   {num}
                 </span>
-                <span className="text-white/50 text-[10px] uppercase tracking-[0.2em]">
+                <span className="font-[family-name:var(--font-ui)] text-muted-fg text-[10px] uppercase tracking-[0.2em]">
                   {label}
                 </span>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
+
+        {/* Scroll indicator — animated chevron */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.5 }}
+          transition={{ delay: 2.5, duration: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1"
+        >
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            className="flex flex-col items-center"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-primary">
+              <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-primary/50 -mt-2">
+              <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </motion.div>
+        </motion.div>
       </section>
 
-      {/* ─── SERVICE 01: Websites — editorial with oversized number ─── */}
-      <section className="py-20 lg:py-32 bg-bg-cream">
+      {/* ━━━━ SERVICE 01: Websites ━━━━ */}
+      <motion.section
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+        className="py-24 lg:py-36 bg-background"
+      >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-16 items-start">
-            {/* Giant number — decorative */}
-            <div className="shrink-0 hidden lg:block">
-              <span className="text-[10rem] xl:text-[14rem] font-black leading-none text-terra/[0.06] select-none block -mb-8">
-                01
-              </span>
-            </div>
-            <div className="max-w-2xl pt-4">
-              <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase flex items-center gap-2 mb-3">
-                <span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 items-start">
+            <motion.div variants={fadeIn} className="shrink-0 hidden lg:block">
+              <ParallaxSection speed={0.6}>
+                <span className="font-[family-name:var(--font-display)] text-[12rem] xl:text-[16rem] font-semibold leading-none text-primary/[0.04] select-none block -mb-10">
+                  01
+                </span>
+              </ParallaxSection>
+            </motion.div>
+            <motion.div variants={fadeUp} className="max-w-2xl pt-4">
+              <span className="font-[family-name:var(--font-ui)] text-primary text-xs font-bold tracking-[0.3em] uppercase mb-4 block">
                 Tier One
               </span>
-              <h2 className="text-3xl lg:text-[3.2rem] font-bold text-text-heading leading-[1.05] mb-5 tracking-tight">
+              <h2 className="font-[family-name:var(--font-display)] text-4xl lg:text-[3.5rem] font-semibold leading-[1.05] mb-6 tracking-tight">
                 Custom Websites
               </h2>
-              <p className="text-text-body text-lg leading-relaxed mb-8 max-w-xl">
+              <p className="text-muted-fg text-lg leading-relaxed mb-8 max-w-xl font-[family-name:var(--font-ui)]">
                 Your competitor is showing up online. You&apos;re not. We build
                 fully custom, mobile-first sites in 24&ndash;48 hours for $200
                 flat. Agencies charge $2,000+ for the same thing.
@@ -122,94 +253,105 @@ export default function Home() {
               <div className="flex items-center gap-6 flex-wrap">
                 <Link
                   href="/contact"
-                  className="bg-terra hover:bg-terra-dark text-white font-bold px-7 py-3.5 text-sm tracking-wider uppercase transition-colors"
+                  className="btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold px-7 py-3.5 text-sm tracking-[0.1em] uppercase"
                 >
                   Get a Free Demo
                 </Link>
-                <span className="text-text-muted text-sm">
+                <span className="text-muted-fg text-sm font-[family-name:var(--font-ui)]">
                   From{" "}
-                  <strong className="text-text-heading text-2xl font-black">
+                  <strong className="font-[family-name:var(--font-mono)] text-foreground text-2xl font-bold">
                     $200
                   </strong>
                 </span>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* ─── SERVICE 02: Automation — full-width dark band with ROI math ─── */}
-      <section className="relative py-16 lg:py-24 bg-forest overflow-hidden">
-        {/* Geometric accents */}
-        <div className="absolute top-[15%] left-[3%] w-[100px] h-[100px] border border-terra/[0.08] rotate-45 pointer-events-none hidden lg:block" />
-        <div className="absolute bottom-[10%] right-[5%] w-[70px] h-[70px] border border-white/[0.04] rotate-45 pointer-events-none hidden lg:block" />
+      {/* ━━━━ SERVICE 02: Automation — dark band ━━━━ */}
+      <motion.section
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+        className="relative py-20 lg:py-28 bg-secondary overflow-hidden"
+      >
+        {/* Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+          style={{ boxShadow: "var(--shadow-glow)" }}
+        />
 
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
-            <div className="flex-1">
-              <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase flex items-center gap-2 mb-3">
-                <span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />
+            <motion.div variants={slideInLeft} className="flex-1">
+              <span className="font-[family-name:var(--font-ui)] text-primary text-xs font-bold tracking-[0.3em] uppercase mb-4 block">
                 Tier Two
               </span>
-              <h2 className="text-3xl lg:text-[3.2rem] font-bold text-white leading-[1.05] mb-5 tracking-tight">
+              <h2 className="font-[family-name:var(--font-display)] text-4xl lg:text-[3.5rem] font-semibold text-foreground leading-[1.05] mb-6 tracking-tight">
                 Business Automation
               </h2>
-              <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-xl">
+              <p className="text-muted-fg text-lg leading-relaxed mb-8 max-w-xl font-[family-name:var(--font-ui)]">
                 You&apos;re paying $30/hr for tasks a computer should do. We
                 build custom tools that eliminate manual work &mdash; CNC
                 automation, booking systems, workflow bots, data processing.
               </p>
               <Link
                 href="/contact"
-                className="inline-block bg-terra hover:bg-terra-light text-white font-bold px-7 py-3.5 text-sm tracking-wider uppercase transition-colors"
+                className="inline-block btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold px-7 py-3.5 text-sm tracking-[0.1em] uppercase"
               >
                 Get a Free ROI Analysis
               </Link>
-            </div>
+            </motion.div>
 
-            {/* ROI math — visual anchor */}
-            <div className="shrink-0 lg:text-right">
-              <div className="text-white/40 text-[10px] uppercase tracking-[0.2em] mb-3">
+            {/* ROI math */}
+            <motion.div variants={slideInRight} className="shrink-0 lg:text-right">
+              <div className="font-[family-name:var(--font-ui)] text-muted-fg text-xs uppercase tracking-[0.2em] mb-3">
                 The math
               </div>
-              <div className="text-white/50 text-2xl lg:text-3xl font-bold line-through decoration-white/20 mb-1">
+              <div className="font-[family-name:var(--font-mono)] text-foreground/40 text-2xl lg:text-3xl font-bold line-through decoration-destructive/30 mb-1">
                 $62,400/yr
               </div>
-              <div className="text-[10px] text-white/50 uppercase tracking-wider mb-6">
+              <div className="font-[family-name:var(--font-ui)] text-muted-fg text-xs uppercase tracking-wider mb-6">
                 employee doing it manually
               </div>
-              <div className="text-terra text-4xl lg:text-6xl font-black leading-none">
+              <div className="font-[family-name:var(--font-mono)] text-primary text-5xl lg:text-7xl font-bold leading-none">
                 $200
-                <span className="text-xl lg:text-2xl font-bold text-terra/70">
+                <span className="text-xl lg:text-2xl text-primary/60">
                   /mo
                 </span>
               </div>
-              <div className="text-[10px] text-white/50 uppercase tracking-wider mt-2">
+              <div className="font-[family-name:var(--font-ui)] text-muted-fg text-xs uppercase tracking-wider mt-2">
                 our tool does it 24/7
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* ─── SERVICE 03: Design — right-aligned, different rhythm ─── */}
-      <section className="py-16 lg:py-24 bg-bg-sage">
+      {/* ━━━━ SERVICE 03: Design ━━━━ */}
+      <motion.section
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+        className="py-20 lg:py-28 bg-card"
+      >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="flex flex-col lg:flex-row-reverse gap-6 lg:gap-16 items-start">
-            <div className="shrink-0 hidden lg:block">
-              <span className="text-[10rem] xl:text-[14rem] font-black leading-none text-sage/[0.15] select-none block -mb-8">
+          <div className="flex flex-col lg:flex-row-reverse gap-8 lg:gap-20 items-start">
+            <motion.div variants={fadeIn} className="shrink-0 hidden lg:block">
+              <span className="font-[family-name:var(--font-display)] text-[12rem] xl:text-[16rem] font-semibold leading-none text-accent/[0.06] select-none block -mb-10">
                 03
               </span>
-            </div>
-            <div className="max-w-2xl lg:ml-auto pt-4">
-              <span className="text-sage text-[10px] font-bold tracking-[0.25em] uppercase flex items-center gap-2 mb-3">
-                <span className="inline-block w-1.5 h-1.5 bg-sage rotate-45" />
+            </motion.div>
+            <motion.div variants={fadeUp} className="max-w-2xl lg:ml-auto pt-4">
+              <span className="font-[family-name:var(--font-ui)] text-accent text-xs font-bold tracking-[0.3em] uppercase mb-4 block">
                 Also
               </span>
-              <h2 className="text-3xl lg:text-[3.2rem] font-bold text-text-heading leading-[1.05] mb-5 tracking-tight lg:text-right">
+              <h2 className="font-[family-name:var(--font-display)] text-4xl lg:text-[3.5rem] font-semibold leading-[1.05] mb-6 tracking-tight lg:text-right">
                 Graphic Design
               </h2>
-              <p className="text-text-body text-lg leading-relaxed mb-8 max-w-xl lg:text-right lg:ml-auto">
+              <p className="text-muted-fg text-lg leading-relaxed mb-8 max-w-xl lg:text-right lg:ml-auto font-[family-name:var(--font-ui)]">
                 Business cards, brochures, flyers, advertisements, social
                 graphics &mdash; whatever your business needs to look sharp and
                 stay consistent.
@@ -217,36 +359,42 @@ export default function Home() {
               <div className="flex items-center gap-6 flex-wrap lg:justify-end">
                 <Link
                   href="/contact"
-                  className="bg-forest hover:bg-forest/90 text-white font-bold px-7 py-3.5 text-sm tracking-wider uppercase transition-colors"
+                  className="bg-accent hover:bg-accent/80 text-background font-[family-name:var(--font-ui)] font-bold px-7 py-3.5 text-sm tracking-[0.1em] uppercase transition-colors"
                 >
                   Request a Quote
                 </Link>
-                <span className="text-text-muted text-sm">
+                <span className="text-muted-fg text-sm font-[family-name:var(--font-ui)]">
                   From{" "}
-                  <strong className="text-text-heading text-2xl font-black">
+                  <strong className="font-[family-name:var(--font-mono)] text-foreground text-2xl font-bold">
                     $99
                   </strong>
                 </span>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* ─── DEMO PROMISE — full-bleed terracotta with corner brackets ─── */}
-      <section className="relative py-14 lg:py-20 bg-terra overflow-hidden">
-        {/* Geometric corner brackets */}
-        <div className="absolute top-4 left-4 lg:top-6 lg:left-6 w-6 h-6 border-t border-l border-white/25 pointer-events-none" />
-        <div className="absolute top-4 right-4 lg:top-6 lg:right-6 w-6 h-6 border-t border-r border-white/25 pointer-events-none" />
-        <div className="absolute bottom-4 left-4 lg:bottom-6 lg:left-6 w-6 h-6 border-b border-l border-white/25 pointer-events-none" />
-        <div className="absolute bottom-4 right-4 lg:bottom-6 lg:right-6 w-6 h-6 border-b border-r border-white/25 pointer-events-none" />
+      {/* ━━━━ DEMO PROMISE — gold accent band ━━━━ */}
+      <section className="relative py-16 lg:py-24 overflow-hidden" style={{ background: "linear-gradient(135deg, oklch(72% 0.14 75), oklch(62% 0.17 38))" }}>
+        {/* Corner brackets */}
+        <div className="absolute top-5 left-5 lg:top-8 lg:left-8 w-8 h-8 border-t-2 border-l-2 border-background/30 pointer-events-none" />
+        <div className="absolute top-5 right-5 lg:top-8 lg:right-8 w-8 h-8 border-t-2 border-r-2 border-background/30 pointer-events-none" />
+        <div className="absolute bottom-5 left-5 lg:bottom-8 lg:left-8 w-8 h-8 border-b-2 border-l-2 border-background/30 pointer-events-none" />
+        <div className="absolute bottom-5 right-5 lg:bottom-8 lg:right-8 w-8 h-8 border-b-2 border-r-2 border-background/30 pointer-events-none" />
 
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 relative z-10">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 relative z-10"
+        >
           <div>
-            <h2 className="text-2xl lg:text-4xl font-black text-white leading-tight mb-3">
+            <h2 className="font-[family-name:var(--font-display)] text-3xl lg:text-5xl font-semibold text-background leading-tight mb-4">
               Every project starts with a free demo.
             </h2>
-            <p className="text-white/80 text-base max-w-lg">
+            <p className="text-background/80 text-base max-w-lg font-[family-name:var(--font-ui)]">
               See your site live &mdash; fully designed and functional &mdash;
               within 48 hours, before you spend a dollar. If you love it, we
               move forward. If not, no hard feelings.
@@ -254,59 +402,65 @@ export default function Home() {
           </div>
           <Link
             href="/contact"
-            className="shrink-0 bg-white text-terra font-bold px-8 py-4 text-sm tracking-wider uppercase hover:bg-white/90 transition-colors"
+            className="shrink-0 bg-background hover:bg-background/90 text-primary font-[family-name:var(--font-ui)] font-bold px-8 py-4 text-sm tracking-[0.15em] uppercase transition-all hover:scale-105"
           >
             Request Your Demo
           </Link>
-        </div>
+        </motion.div>
       </section>
 
-      {/* ─── PORTFOLIO — Editorial magazine layout ─── */}
-      <section className="py-20 lg:py-32 bg-bg-cream">
+      {/* ━━━━ PORTFOLIO — Editorial magazine layout ━━━━ */}
+      <motion.section
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+        className="py-24 lg:py-36 bg-background"
+      >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           {/* Section header */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12 lg:mb-16">
-            <div>
-              <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase flex items-center gap-2 mb-3">
-                <span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 lg:mb-20">
+            <motion.div variants={fadeUp}>
+              <span className="font-[family-name:var(--font-ui)] text-primary text-xs font-bold tracking-[0.3em] uppercase mb-4 block">
                 Portfolio
               </span>
-              <h2 className="text-3xl lg:text-5xl font-bold text-text-heading leading-tight tracking-tight">
+              <h2 className="font-[family-name:var(--font-display)] text-4xl lg:text-6xl font-semibold leading-tight tracking-tight">
                 Sites We&apos;ve Shipped
               </h2>
-            </div>
-            <p className="text-text-muted text-sm max-w-sm mt-4 lg:mt-0 lg:text-right">
+            </motion.div>
+            <motion.p variants={fadeUp} className="text-muted-fg text-sm max-w-sm mt-4 lg:mt-0 lg:text-right font-[family-name:var(--font-ui)]">
               Real businesses. Real revenue. Every one started with a free demo.
-            </p>
+            </motion.p>
           </div>
 
-          {/* Featured project — full width, large */}
-          <a
+          {/* Featured project */}
+          <motion.a
+            variants={scaleIn}
             href="https://booknst.com"
             target="_blank"
             rel="noopener noreferrer"
             className="group block mb-4"
           >
-            <div className="relative h-52 sm:h-64 lg:h-80 bg-gradient-to-br from-[#1a3a5c] to-[#2B7BBF] overflow-hidden">
+            <div className="relative h-56 sm:h-72 lg:h-80 bg-gradient-to-br from-[#0a1a2e] to-[#1a4a8c] overflow-hidden border border-border/20 transition-all duration-500 hover:border-primary/30 hover:shadow-gold">
               <div className="absolute inset-0 flex items-center justify-between px-8 lg:px-14">
                 <div>
-                  <div className="text-white/60 text-[10px] uppercase tracking-[0.2em] mb-2">
+                  <div className="font-[family-name:var(--font-ui)] text-foreground/50 text-xs uppercase tracking-[0.2em] mb-2">
                     SaaS / Book Tracking
                   </div>
-                  <div className="text-white text-3xl sm:text-4xl lg:text-6xl font-black tracking-tight group-hover:translate-x-2 transition-transform duration-500">
+                  <div className="font-[family-name:var(--font-display)] text-foreground text-4xl sm:text-5xl lg:text-7xl font-semibold tracking-tight group-hover:translate-x-3 transition-transform duration-500">
                     BookNest
                   </div>
-                  <div className="text-white/55 text-sm mt-2 hidden sm:block">
+                  <div className="font-[family-name:var(--font-ui)] text-foreground/40 text-sm mt-2 hidden sm:block">
                     A book tracking platform where readers collect, review, and
                     highlight their favorite reads.
                   </div>
                 </div>
-                <span className="text-white/40 text-sm font-bold uppercase tracking-wider group-hover:text-white/60 transition-colors hidden sm:block">
+                <span className="font-[family-name:var(--font-ui)] text-primary/60 text-sm font-bold uppercase tracking-wider group-hover:text-primary transition-colors hidden sm:block">
                   Visit &rarr;
                 </span>
               </div>
             </div>
-          </a>
+          </motion.a>
 
           {/* 2-column projects */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -316,39 +470,40 @@ export default function Home() {
                 url: "https://pinecrestcamp.life/",
                 niche: "Recreation",
                 desc: "Trust-first design with a registration flow that converts worried parents into happy campers.",
-                gradient: "from-[#2a4a1a] to-[#4A8C2A]",
+                gradient: "from-[#0a2a12] to-[#2a6a3a]",
               },
               {
                 name: "Alchemy Auto Spa",
                 url: "https://carwash-hazel-two.vercel.app",
                 niche: "Auto / Luxury",
                 desc: "Sleek dark design with online booking integration and service packages that sell themselves.",
-                gradient: "from-[#1a3a5c] to-[#4FA3D9]",
+                gradient: "from-[#0a1a3a] to-[#2a5a9a]",
               },
-            ].map((p) => (
-              <a
+            ].map((p, i) => (
+              <motion.a
                 key={p.name}
+                variants={fadeUp}
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group block"
               >
                 <div
-                  className={`relative h-44 lg:h-52 bg-gradient-to-br ${p.gradient} overflow-hidden`}
+                  className={`relative h-48 lg:h-56 bg-gradient-to-br ${p.gradient} overflow-hidden border border-border/10 transition-all duration-500 hover:border-primary/20 hover:shadow-card`}
                 >
                   <div className="absolute inset-0 flex flex-col justify-end p-6 lg:p-8">
-                    <div className="text-white/55 text-[10px] uppercase tracking-[0.2em] mb-1">
+                    <div className="font-[family-name:var(--font-ui)] text-foreground/40 text-xs uppercase tracking-[0.2em] mb-1">
                       {p.niche}
                     </div>
-                    <div className="text-white text-2xl lg:text-3xl font-black tracking-tight group-hover:translate-x-1 transition-transform duration-300">
+                    <div className="font-[family-name:var(--font-display)] text-foreground text-2xl lg:text-3xl font-semibold tracking-tight group-hover:translate-x-2 transition-transform duration-300">
                       {p.name}
                     </div>
-                    <div className="text-white/50 text-xs mt-1.5 max-w-sm hidden sm:block">
+                    <div className="font-[family-name:var(--font-ui)] text-foreground/35 text-xs mt-1.5 max-w-sm hidden sm:block">
                       {p.desc}
                     </div>
                   </div>
                 </div>
-              </a>
+              </motion.a>
             ))}
           </div>
 
@@ -359,154 +514,206 @@ export default function Home() {
                 name: "Fit4Lyfe",
                 url: "https://www.fit4lyfe.net/",
                 niche: "Fitness",
-                gradient: "from-[#5c3a10] to-[#E8A838]",
+                gradient: "from-[#2a1a08] to-[#8a6a28]",
               },
               {
                 name: "RAFVAC Solutions",
                 url: "https://rafvacsolutions.com/",
                 niche: "HVAC",
-                gradient: "from-[#0d3b6b] to-[#2196F3]",
+                gradient: "from-[#061a35] to-[#1a6aaa]",
               },
               {
                 name: "Top Notch Roofing",
                 url: "https://topnotch-omega.vercel.app/",
                 niche: "Construction",
-                gradient: "from-[#5c2a10] to-[#FF6B35]",
+                gradient: "from-[#2a1208] to-[#aa4a1a]",
               },
             ].map((p) => (
-              <a
+              <motion.a
                 key={p.name}
+                variants={fadeUp}
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group block"
               >
                 <div
-                  className={`relative h-36 lg:h-44 bg-gradient-to-br ${p.gradient} overflow-hidden`}
+                  className={`relative h-40 lg:h-48 bg-gradient-to-br ${p.gradient} overflow-hidden border border-border/10 transition-all duration-500 hover:border-primary/20 hover:shadow-card`}
                 >
                   <div className="absolute inset-0 flex items-end p-6">
                     <div>
-                      <div className="text-white/50 text-[9px] uppercase tracking-[0.2em] mb-1">
+                      <div className="font-[family-name:var(--font-ui)] text-foreground/35 text-[9px] uppercase tracking-[0.2em] mb-1">
                         {p.niche}
                       </div>
-                      <div className="text-white text-xl lg:text-2xl font-black tracking-tight group-hover:translate-x-1 transition-transform duration-300">
+                      <div className="font-[family-name:var(--font-display)] text-foreground text-xl lg:text-2xl font-semibold tracking-tight group-hover:translate-x-1 transition-transform duration-300">
                         {p.name}
                       </div>
                     </div>
                   </div>
                 </div>
-              </a>
+              </motion.a>
             ))}
           </div>
 
-          {/* Last project — full width */}
-          <a
+          {/* Last project */}
+          <motion.a
+            variants={fadeUp}
             href="http://baasitsumra.fitness/"
             target="_blank"
             rel="noopener noreferrer"
             className="group block"
           >
-            <div className="relative h-36 lg:h-44 bg-gradient-to-br from-[#0a3d35] to-[#00BFA5] overflow-hidden">
+            <div className="relative h-40 lg:h-48 bg-gradient-to-br from-[#041a18] to-[#0a6a5a] overflow-hidden border border-border/10 transition-all duration-500 hover:border-primary/20 hover:shadow-card">
               <div className="absolute inset-0 flex items-center justify-between px-6 lg:px-8">
                 <div>
-                  <div className="text-white/55 text-[10px] uppercase tracking-[0.2em] mb-1">
+                  <div className="font-[family-name:var(--font-ui)] text-foreground/40 text-xs uppercase tracking-[0.2em] mb-1">
                     Fitness / Coaching
                   </div>
-                  <div className="text-white text-2xl lg:text-3xl font-black tracking-tight group-hover:translate-x-1 transition-transform duration-300">
+                  <div className="font-[family-name:var(--font-display)] text-foreground text-2xl lg:text-3xl font-semibold tracking-tight group-hover:translate-x-2 transition-transform duration-300">
                     Baasit Sumra Fitness
                   </div>
                 </div>
-                <span className="text-white/40 text-sm font-bold uppercase tracking-wider group-hover:text-white/60 transition-colors hidden sm:block">
+                <span className="font-[family-name:var(--font-ui)] text-primary/50 text-sm font-bold uppercase tracking-wider group-hover:text-primary transition-colors hidden sm:block">
                   Visit &rarr;
                 </span>
               </div>
             </div>
-          </a>
+          </motion.a>
 
           {/* Metrics */}
-          <div className="mt-16 pt-8 border-t border-border flex gap-10 lg:gap-16 flex-wrap">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            className="mt-20 pt-8 border-t border-border/30 flex gap-12 lg:gap-20 flex-wrap"
+          >
             {[
-              ["7", "live sites shown"],
-              ["150+", "total projects"],
-              ["100%", "demo-first"],
-              ["5+", "years running"],
-            ].map(([val, label]) => (
+              { val: "7", label: "live sites shown" },
+              { val: "150+", label: "total projects" },
+              { val: "100%", label: "demo-first" },
+              { val: "5+", label: "years running" },
+            ].map(({ val, label }) => (
               <div key={label} className="flex items-baseline gap-2">
-                <span className="text-2xl font-black text-text-heading">
+                <span className="font-[family-name:var(--font-mono)] text-2xl font-bold text-foreground">
                   {val}
                 </span>
-                <span className="text-text-muted text-[10px] uppercase tracking-[0.15em]">
+                <span className="font-[family-name:var(--font-ui)] text-muted-fg text-[10px] uppercase tracking-[0.15em]">
                   {label}
                 </span>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
+      </motion.section>
+
+      {/* ━━━━ STATS — Full-width with counting numbers ━━━━ */}
+      <section className="relative py-20 lg:py-28 bg-secondary overflow-hidden">
+        <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ boxShadow: "var(--shadow-glow)" }} />
+
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8"
+        >
+          {[
+            { end: 200, prefix: "$", suffix: "", label: "Starting Price" },
+            { end: 48, prefix: "", suffix: "hr", label: "Delivery Time" },
+            { end: 62, prefix: "$", suffix: "K", label: "Avg. Savings" },
+            { end: 150, prefix: "", suffix: "+", label: "Projects Shipped" },
+          ].map(({ end, prefix, suffix, label }) => (
+            <motion.div key={label} variants={fadeUp} className="text-center">
+              <div className="font-[family-name:var(--font-mono)] text-primary text-5xl lg:text-7xl font-bold leading-none mb-3">
+                <CountUp end={end} prefix={prefix} suffix={suffix} />
+              </div>
+              <div className="font-[family-name:var(--font-ui)] text-muted-fg text-xs uppercase tracking-[0.2em]">
+                {label}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </section>
 
-      {/* ─── FOUNDER — Split screen, photo edge-to-edge ─── */}
-      <section className="bg-bg-sage overflow-hidden">
+      {/* ━━━━ FOUNDER — Split screen ━━━━ */}
+      <section className="bg-card overflow-hidden">
         <div className="max-w-[1400px] mx-auto">
           <div className="flex flex-col lg:flex-row">
             {/* Text side */}
-            <div className="flex-1 px-6 lg:px-12 py-16 lg:py-24 flex flex-col justify-center">
-              <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase flex items-center gap-2 mb-4">
-                <span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />
+            <motion.div
+              variants={slideInLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewport}
+              className="flex-1 px-6 lg:px-12 py-20 lg:py-28 flex flex-col justify-center"
+            >
+              <span className="font-[family-name:var(--font-ui)] text-primary text-xs font-bold tracking-[0.3em] uppercase mb-4 block">
                 The Builder
               </span>
-              <h2 className="text-3xl lg:text-4xl font-bold text-text-heading leading-tight mb-5 tracking-tight">
+              <h2 className="font-[family-name:var(--font-display)] text-4xl lg:text-5xl font-semibold leading-tight mb-6 tracking-tight">
                 Hunter Weeks
               </h2>
-              <p className="text-text-body text-base leading-relaxed mb-4 max-w-lg">
+              <p className="text-muted-fg text-base leading-relaxed mb-4 max-w-lg font-[family-name:var(--font-ui)]">
                 Carpenter turned coder. I work on the shop floor and I write the
                 software. A web developer doesn&apos;t understand CNC machines.
                 A CNC consultant doesn&apos;t code. I do both &mdash; and I
                 build the tools that bridge the gap.
               </p>
-              <p className="text-text-muted text-sm mb-8 max-w-lg">
+              <p className="font-[family-name:var(--font-ui)] text-muted-fg text-sm mb-8 max-w-lg">
                 5+ years, 150+ projects, and every one started with a free demo.
               </p>
               <Link
                 href="/about"
-                className="text-terra font-bold text-sm tracking-wider uppercase hover:text-terra-dark transition-colors inline-flex items-center gap-2 w-fit"
+                className="text-primary font-[family-name:var(--font-ui)] font-bold text-sm tracking-[0.15em] uppercase hover:text-primary-hover transition-colors inline-flex items-center gap-2 w-fit underline-draw"
               >
                 Full Story
                 <span className="text-lg">&rarr;</span>
               </Link>
-            </div>
+            </motion.div>
 
-            {/* Photo side — extends to edge with geometric overlay accent */}
-            <div className="lg:w-[42%] relative min-h-[320px] lg:min-h-[520px]">
-              <Image
-                src="/hunterheadshot.png"
-                alt="Hunter Weeks — Founder of Design over Atlanta"
-                fill
-                className="object-cover object-top"
-              />
-              {/* Geometric overlay on photo edge */}
-              <div className="absolute top-6 left-6 w-10 h-10 border border-white/20 rotate-45 pointer-events-none hidden lg:block" />
-              <div className="absolute bottom-6 right-6 w-6 h-6 border border-terra/30 rotate-45 pointer-events-none hidden lg:block" />
-            </div>
+            {/* Decorative accent — replaces photo */}
+            <motion.div
+              variants={slideInRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewport}
+              className="hidden lg:flex lg:w-[35%] items-center justify-center relative min-h-[400px]"
+            >
+              <div className="absolute inset-0 dot-pattern opacity-20" />
+              <div className="w-[200px] h-[200px] border border-primary/10 rotate-45 relative">
+                <div className="absolute inset-4 border border-primary/20 rotate-12 pulse-glow" />
+                <div className="absolute inset-10 border border-foreground/5 -rotate-6" />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ─── PROCESS — Diamond step markers, not circles ─── */}
-      <section className="py-20 lg:py-28 bg-bg-cream overflow-hidden">
+      {/* ━━━━ PROCESS — Diamond step markers ━━━━ */}
+      <motion.section
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewport}
+        className="py-24 lg:py-32 bg-background overflow-hidden"
+      >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <span className="text-terra text-[10px] font-bold tracking-[0.25em] uppercase flex items-center gap-2 mb-3">
-            <span className="inline-block w-1.5 h-1.5 bg-terra rotate-45" />
-            Process
-          </span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-text-heading mb-16 lg:mb-20 tracking-tight">
-            Brief to Launch in Four Steps
-          </h2>
+          <motion.div variants={fadeUp}>
+            <span className="font-[family-name:var(--font-ui)] text-primary text-xs font-bold tracking-[0.3em] uppercase mb-4 block">
+              Process
+            </span>
+            <h2 className="font-[family-name:var(--font-display)] text-4xl lg:text-5xl font-semibold mb-16 lg:mb-24 tracking-tight">
+              Brief to Launch in Four Steps
+            </h2>
+          </motion.div>
 
           <div className="relative">
-            {/* Connecting line — desktop only */}
-            <div className="hidden lg:block absolute top-[24px] left-[48px] right-[48px] h-px bg-border-light" />
+            {/* Connecting line */}
+            <div className="hidden lg:block absolute top-[28px] left-[56px] right-[56px] h-px bg-border/30" />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-8">
               {[
                 {
                   n: "01",
@@ -529,115 +736,135 @@ export default function Home() {
                   desc: "Final files delivered or site goes live. You get everything \u2014 source files, assets, full ownership.",
                 },
               ].map((s) => (
-                <div key={s.n} className="relative">
-                  {/* Diamond step marker */}
-                  <div className="w-12 h-12 bg-white border border-terra/20 flex items-center justify-center text-terra font-black text-xs rotate-45 mb-6 relative z-10">
-                    <span className="-rotate-45">{s.n}</span>
+                <motion.div key={s.n} variants={fadeUp} className="relative">
+                  {/* Diamond step marker — pulse glow on hover */}
+                  <div className="w-14 h-14 bg-card border border-primary/20 flex items-center justify-center rotate-45 mb-8 relative z-10 transition-all hover:border-primary/50 hover:pulse-glow">
+                    <span className="-rotate-45 font-[family-name:var(--font-mono)] text-primary font-bold text-xs">
+                      {s.n}
+                    </span>
                   </div>
-                  <h3 className="font-bold text-text-heading text-lg mb-2">
+                  <h3 className="font-[family-name:var(--font-display)] font-semibold text-foreground text-xl mb-3">
                     {s.title}
                   </h3>
-                  <p className="text-text-body text-sm leading-relaxed max-w-xs">
+                  <p className="font-[family-name:var(--font-ui)] text-muted-fg text-sm leading-relaxed max-w-xs">
                     {s.desc}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* ─── PRICING ─── */}
+      {/* ━━━━ PRICING ━━━━ */}
       <PricingSection />
 
-      {/* ─── TESTIMONIAL — Single large quote, editorial ─── */}
-      <section className="py-20 lg:py-28 bg-bg-sage">
+      {/* ━━━━ TESTIMONIALS — Infinite scroll ━━━━ */}
+      <section className="py-24 lg:py-32 bg-card overflow-hidden">
         <div className="max-w-3xl mx-auto px-6 lg:px-12">
-          {/* Oversized quotation mark */}
-          <span className="text-[7rem] lg:text-[10rem] font-black leading-none text-terra/[0.08] block -mb-14 lg:-mb-20 select-none">
-            &ldquo;
-          </span>
-          <blockquote className="text-xl lg:text-3xl font-semibold text-text-heading leading-snug mb-8 relative z-10">
-            The attention to detail is incredible. Every animation, every
-            interaction feels purposeful. Our users love the new experience!
-          </blockquote>
-          <div className="flex items-center gap-3">
-            <div className="w-px h-8 bg-terra" />
-            <div>
-              <div className="font-bold text-text-heading text-sm">
-                Cindy Evanoff
-              </div>
-              <div className="text-text-muted text-xs">
-                Manager, Pine Crest Camp
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+          >
+            {/* Oversized quotation mark — floating */}
+            <span className="font-[family-name:var(--font-display)] text-[8rem] lg:text-[12rem] font-semibold leading-none text-primary/[0.08] block -mb-16 lg:-mb-24 select-none float-quote">
+              &ldquo;
+            </span>
+            <blockquote className="font-[family-name:var(--font-display)] text-xl lg:text-3xl font-semibold text-foreground leading-snug mb-8 relative z-10 italic">
+              The attention to detail is incredible. Every animation, every
+              interaction feels purposeful. Our users love the new experience!
+            </blockquote>
+            <div className="flex items-center gap-3">
+              <div className="w-px h-8 bg-primary" />
+              <div>
+                <div className="font-[family-name:var(--font-ui)] font-bold text-foreground text-sm">
+                  Cindy Evanoff
+                </div>
+                <div className="font-[family-name:var(--font-ui)] text-muted-fg text-xs">
+                  Manager, Pine Crest Camp
+                </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Second testimonial */}
-          <div className="mt-12 pt-8 border-t border-border">
-            <p className="text-text-body text-base italic leading-relaxed mb-4 max-w-xl">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            className="mt-14 pt-10 border-t border-border/30"
+          >
+            <p className="font-[family-name:var(--font-display)] text-foreground/80 text-lg italic leading-relaxed mb-4 max-w-xl">
               &ldquo;Hunter delivered beyond expectations. Our landing page
               loads instantly and converts 3x better than our previous site.
               Absolute wizard with code!&rdquo;
             </p>
             <div className="flex items-center gap-3">
-              <div className="w-px h-6 bg-sage" />
+              <div className="w-px h-6 bg-accent" />
               <div>
-                <div className="font-semibold text-text-heading text-sm">
+                <div className="font-[family-name:var(--font-ui)] font-semibold text-foreground text-sm">
                   Brooke Brum
                 </div>
-                <div className="text-text-muted text-xs">CEO, Fit4Lyfe</div>
+                <div className="font-[family-name:var(--font-ui)] text-muted-fg text-xs">
+                  CEO, Fit4Lyfe
+                </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* ─── CTA — Dark, dramatic, geometric accents ─── */}
-      <section className="relative py-20 lg:py-28 bg-forest overflow-hidden">
-        {/* Geometric accents — matching hero */}
-        <div className="absolute top-[12%] right-[8%] w-[200px] h-[200px] border border-terra/[0.1] rotate-45 pointer-events-none hidden lg:block" />
-        <div className="absolute bottom-[15%] right-[22%] w-[80px] h-[80px] border border-white/[0.04] rotate-45 pointer-events-none hidden lg:block" />
-        {/* Dot grid — bottom right */}
-        <div
-          className="absolute bottom-0 right-0 w-[180px] h-[180px] pointer-events-none hidden lg:block"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, rgba(199,91,58,0.04) 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-          }}
-        />
+      {/* ━━━━ CTA — Dark, dramatic ━━━━ */}
+      <section className="relative py-24 lg:py-32 bg-background overflow-hidden">
+        {/* Beams */}
+        <div className="absolute inset-0 bg-beams pointer-events-none" />
+        {/* Geometric accents */}
+        <div className="absolute top-[12%] right-[8%] w-[200px] h-[200px] border border-primary/[0.06] rotate-45 pointer-events-none hidden lg:block" />
+        <div className="absolute bottom-[15%] right-[22%] w-[80px] h-[80px] border border-foreground/[0.03] rotate-45 pointer-events-none hidden lg:block" />
+        <div className="absolute bottom-0 right-0 w-[200px] h-[200px] dot-pattern opacity-20 pointer-events-none hidden lg:block" />
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}
+          className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12"
+        >
           <div className="max-w-3xl">
-            <h2 className="text-3xl lg:text-[3.5rem] font-black text-white leading-[0.95] tracking-tight mb-6">
+            <motion.h2
+              variants={fadeUp}
+              className="font-[family-name:var(--font-display)] text-4xl lg:text-[4rem] font-semibold text-foreground leading-[0.95] tracking-tight mb-6"
+            >
               Your Competitor
               <br />
               Is Online.
               <br />
-              <span className="text-terra">Are You?</span>
-            </h2>
-            <p className="text-white/65 text-base max-w-md mb-10 leading-relaxed">
+              <span className="text-gold-gradient">Are You?</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="font-[family-name:var(--font-ui)] text-muted-fg text-base max-w-md mb-10 leading-relaxed">
               Get a free demo site or a quick automation audit &mdash; with zero
               commitment. We&apos;ll show you where you&apos;re losing money and
               how to fix it.
-            </p>
-            <div className="flex gap-3 flex-wrap">
+            </motion.p>
+            <motion.div variants={fadeUp} className="flex gap-4 flex-wrap">
               <Link
                 href="/contact"
-                className="bg-terra hover:bg-terra-light text-white font-bold px-8 py-4 text-sm tracking-wider uppercase transition-colors"
+                className="btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold px-8 py-4 text-sm tracking-[0.15em] uppercase transition-transform hover:scale-105"
               >
                 Get Your Free Demo
               </Link>
               <a
                 href="tel:4707583549"
-                className="border border-white/25 hover:border-white/50 text-white/70 hover:text-white font-medium px-8 py-4 text-sm tracking-wider uppercase transition-all"
+                className="border border-foreground/20 hover:border-primary/50 text-foreground/60 hover:text-primary font-[family-name:var(--font-ui)] font-medium px-8 py-4 text-sm tracking-[0.1em] uppercase transition-all duration-300"
               >
                 (470) 758-3549
               </a>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
     </>
   );
