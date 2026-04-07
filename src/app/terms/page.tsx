@@ -52,7 +52,7 @@ export default function TermsPage() {
               <li><strong>Custom Website Design &amp; Development</strong> &mdash; Hand-coded websites starting at $200 for landing pages. Multi-page business sites, e-commerce builds, and full redesigns are available at tiered pricing.</li>
               <li><strong>Graphic Design</strong> &mdash; Business cards, logos, flyers, brochures, social media graphics, and other print/digital materials starting at $99.</li>
               <li><strong>Business Systems &amp; Automation</strong> &mdash; Custom tools and internal systems that improve workflow, reduce manual admin, organize information, and support business operations. Examples may include booking systems, dashboards, reporting tools, workflow automations, portals, and data processing. One-time builds from $5,000 or monthly subscription from $200/mo.</li>
-              <li><strong>Web Hosting</strong> &mdash; Managed hosting plans starting at $3/mo. Includes SSL certificates, daily backups, and 99.9% uptime guarantee.</li>
+              <li><strong>Web Hosting</strong> &mdash; Managed hosting plans starting at $12/mo. Includes SSL certificates, daily backups, and 99.9% uptime guarantee.</li>
               <li><strong>Hosting Migration</strong> &mdash; We can migrate your existing website from another host to our platform for a one-time fee of $25.</li>
             </ul>
           </TermsSection>

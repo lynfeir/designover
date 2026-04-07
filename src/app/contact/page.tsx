@@ -163,8 +163,8 @@ export default function ContactPage() {
                 a: "Graphic design: 24–72 hours. Websites: 24–48 hours. Automation tools: depends on scope — we'll give you a timeline after the initial call. Rush options are always available.",
               },
               {
-                q: "Why is your hosting so cheap?",
-                a: "We keep operations lean and pass the savings to you. Our $3/mo starter plan includes everything most businesses need — hosting, SSL, backups, and monitoring. Other companies charge $15–$25/mo for the same thing.",
+                q: "Why is your hosting so affordable?",
+                a: "We keep operations lean and pass the savings to you. Our $12/mo starter plan includes everything most businesses need — hosting, SSL, backups, and monitoring. Other companies charge $20–$30/mo for the same thing.",
               },
               {
                 q: "Do I own my website and files?",

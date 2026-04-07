@@ -29,9 +29,9 @@ export default function PricingSection() {
             </h2>
           </motion.div>
           <motion.p variants={fadeUp} className="font-[family-name:var(--font-ui)] text-muted-fg text-sm max-w-sm mt-4 lg:mt-0 lg:text-right">
-            Most hosting companies charge $15&ndash;$25/mo for basic hosting
+            Most hosting companies charge $20&ndash;$30/mo for basic hosting
             alone. Our plans start at{" "}
-            <strong className="font-[family-name:var(--font-mono)] text-foreground">$3/mo</strong>.
+            <strong className="font-[family-name:var(--font-mono)] text-foreground">$12/mo</strong>.
           </motion.p>
         </motion.div>
 
@@ -48,25 +48,25 @@ export default function PricingSection() {
               Typical Elsewhere
             </div>
             <div className="font-[family-name:var(--font-mono)] text-2xl font-bold text-foreground/50 line-through decoration-destructive/30">
-              $20/mo
+              $25/mo
             </div>
-            <div className="font-[family-name:var(--font-ui)] text-muted-fg text-xs">$240/year</div>
+            <div className="font-[family-name:var(--font-ui)] text-muted-fg text-xs">$300/year</div>
           </div>
           <div className="text-2xl text-muted-fg hidden sm:block">&rarr;</div>
           <div>
             <div className="font-[family-name:var(--font-ui)] text-muted-fg text-xs uppercase tracking-[0.15em] mb-1">
               Our Starter Plan
             </div>
-            <div className="font-[family-name:var(--font-mono)] text-2xl font-bold text-success">$3/mo</div>
-            <div className="font-[family-name:var(--font-ui)] text-muted-fg text-xs">$36/year</div>
+            <div className="font-[family-name:var(--font-mono)] text-2xl font-bold text-success">$12/mo</div>
+            <div className="font-[family-name:var(--font-ui)] text-muted-fg text-xs">$144/year</div>
           </div>
           <div className="text-2xl text-muted-fg hidden sm:block">=</div>
           <div>
             <div className="font-[family-name:var(--font-ui)] text-muted-fg text-xs uppercase tracking-[0.15em] mb-1">
               You Save
             </div>
-            <div className="font-[family-name:var(--font-mono)] text-2xl font-bold text-primary">$204/yr</div>
-            <div className="font-[family-name:var(--font-ui)] text-success text-xs font-semibold">85% less</div>
+            <div className="font-[family-name:var(--font-mono)] text-2xl font-bold text-primary">$156/yr</div>
+            <div className="font-[family-name:var(--font-ui)] text-success text-xs font-semibold">52% less</div>
           </div>
         </motion.div>
 
@@ -87,9 +87,9 @@ export default function PricingSection() {
               Starter
             </div>
             <div className="font-[family-name:var(--font-mono)] text-5xl font-bold text-foreground leading-none mb-1">
-              $3<span className="text-base font-normal text-muted-fg">/mo</span>
+              $12<span className="text-base font-normal text-muted-fg">/mo</span>
             </div>
-            <div className="font-[family-name:var(--font-ui)] text-xs text-muted-fg mb-8">Just $36/year</div>
+            <div className="font-[family-name:var(--font-ui)] text-xs text-muted-fg mb-8">Just $144/year</div>
             <ul className="space-y-3 mb-8 flex-1">
               {[
                 "Fast, secure hosting",
@@ -122,7 +122,7 @@ export default function PricingSection() {
               Professional
             </div>
             <div className="font-[family-name:var(--font-mono)] text-5xl font-bold text-foreground leading-none mb-1">
-              $9<span className="text-base font-normal text-muted-fg">/mo</span>
+              $29<span className="text-base font-normal text-muted-fg">/mo</span>
             </div>
             <div className="font-[family-name:var(--font-ui)] text-xs text-muted-fg mb-8">Support + monthly updates</div>
             <ul className="space-y-3 mb-8 flex-1">
@@ -157,7 +157,7 @@ export default function PricingSection() {
               Growth
             </div>
             <div className="font-[family-name:var(--font-mono)] text-5xl font-bold text-foreground leading-none mb-1">
-              $19<span className="text-base font-normal text-muted-fg">/mo</span>
+              $49<span className="text-base font-normal text-muted-fg">/mo</span>
             </div>
             <div className="font-[family-name:var(--font-ui)] text-xs text-muted-fg mb-8">Dedicated partner for growth</div>
             <ul className="space-y-3 mb-8 flex-1">
@@ -215,7 +215,7 @@ export default function PricingSection() {
         {/* Bottom note */}
         <p className="font-[family-name:var(--font-ui)] text-muted-fg text-xs mt-8 max-w-xl">
           No contracts. Cancel anytime. All plans include hosting, SSL, and
-          backups. Compare that to the $15&ndash;$25/mo most companies charge
+          backups. Compare that to the $20&ndash;$30/mo most companies charge
           for hosting alone &mdash; before you even get support.
         </p>
       </div>

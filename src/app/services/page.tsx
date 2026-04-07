@@ -321,12 +321,12 @@ export default function ServicesPage() {
                 </div>
                 <div className="font-[family-name:var(--font-ui)] text-muted-fg text-sm mb-3">Website design</div>
                 <div className="font-[family-name:var(--font-mono)] text-2xl font-bold text-destructive mb-1">
-                  $20/mo
+                  $25/mo
                 </div>
                 <div className="font-[family-name:var(--font-ui)] text-muted-fg text-sm">Hosting</div>
                 <div className="border-t border-border/30 mt-4 pt-4">
                   <div className="font-[family-name:var(--font-ui)] text-muted-fg text-sm">
-                    Year 1 total: <span className="font-[family-name:var(--font-mono)] text-destructive font-bold">$2,240+</span>
+                    Year 1 total: <span className="font-[family-name:var(--font-mono)] text-destructive font-bold">$2,300+</span>
                   </div>
                 </div>
               </div>
@@ -339,12 +339,12 @@ export default function ServicesPage() {
                 </div>
                 <div className="font-[family-name:var(--font-ui)] text-muted-fg text-sm mb-3">Website design</div>
                 <div className="font-[family-name:var(--font-mono)] text-2xl font-bold text-success mb-1">
-                  $3/mo
+                  $12/mo
                 </div>
                 <div className="font-[family-name:var(--font-ui)] text-muted-fg text-sm">Hosting</div>
                 <div className="border-t border-border/30 mt-4 pt-4">
                   <div className="font-[family-name:var(--font-ui)] text-muted-fg text-sm">
-                    Year 1 total: <span className="font-[family-name:var(--font-mono)] text-success font-bold">$236</span>
+                    Year 1 total: <span className="font-[family-name:var(--font-mono)] text-success font-bold">$344</span>
                   </div>
                 </div>
               </div>
