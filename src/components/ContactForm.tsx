@@ -126,11 +126,13 @@ export default function ContactForm() {
               <select name="service" required className={inputClass}>
                 <option value="">Select a service</option>
                 <option value="website">Custom Website ($200)</option>
-                <option value="graphic-design">Graphic Design (cards, ads, brochures)</option>
-                <option value="automation">Business Automation (eliminate manual work)</option>
-                <option value="website-automation">Website + Automation Bundle</option>
-                <option value="monthly-plan">Monthly Hosting/Support Plan</option>
-                <option value="other">Something Else</option>
+                <option value="graphic-design">Graphic Design</option>
+                <option value="automation">
+                  Business Systems &amp; Automation
+                </option>
+                <option value="website-automation">Website + Systems Bundle</option>
+                <option value="monthly-plan">Hosting / Support</option>
+                <option value="not-sure">Not Sure Yet</option>
               </select>
             </div>
             <div>

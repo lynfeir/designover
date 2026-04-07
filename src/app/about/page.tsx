@@ -17,12 +17,14 @@ export default function AboutPage() {
               About
             </span>
             <h1 className="font-[family-name:var(--font-display)] text-4xl lg:text-6xl font-semibold text-white leading-tight tracking-tight max-w-3xl">
-              A Carpenter Who Taught
+              I Build Systems That Help
               <br />
-              Himself to Code
+              Businesses Run Better
             </h1>
             <p className="font-[family-name:var(--font-ui)] text-muted-fg text-base lg:text-lg max-w-xl mt-6 leading-relaxed">
-              A web developer who understands CNC machines. The only person in the room who does both.
+              I started with websites and custom tools, then realized most business
+              problems come down to broken workflow, scattered information, and too
+              much time spent on tasks that should already be systemized.
             </p>
           </div>
         </ParallaxSection>
@@ -41,16 +43,35 @@ export default function AboutPage() {
                 Hunter Weeks
               </h2>
               <p className="font-[family-name:var(--font-ui)] text-muted-fg text-base leading-relaxed mb-4 max-w-lg">
-                I&apos;m a carpenter who taught himself to code. I&apos;ve stood at the workbench cutting cabinet parts and sat at the desk writing the software that automates the cuts. I started Design over Atlanta because I kept seeing two problems nobody was solving: small businesses overpaying for websites, and shops wasting thousands of hours on manual computer work that should be automated.
+                I started by building websites, booking systems, and custom
+                workflow tools. Over time, I saw the same pattern inside
+                businesses: good people were losing hours to repetitive computer
+                tasks, important information wasn&apos;t moving where it needed
+                to go, and growth was being held back by messy processes instead
+                of lack of effort.
               </p>
               <p className="font-[family-name:var(--font-ui)] text-muted-fg text-base leading-relaxed mb-4 max-w-lg">
-                A web developer doesn&apos;t understand CNC machines. A CNC consultant doesn&apos;t code. A SaaS company doesn&apos;t know what it&apos;s like to stand at the bench. I do all three &mdash; and that&apos;s what makes DOA different. I build custom websites starting at $200 and automation tools that replace the manual busywork costing your business real money.
+                That shifted the way I work. Now, I don&apos;t just build
+                websites or software for the sake of it. I look at where a
+                business is slowing down, where communication breaks, where
+                admin is eating up valuable time, and then build practical
+                systems that make the operation cleaner, faster, and easier to
+                grow.
+              </p>
+              <p className="font-[family-name:var(--font-ui)] text-muted-fg text-base leading-relaxed mb-4 max-w-lg">
+                My background includes hands-on production environments and
+                technical build work, which helps me understand operations in a
+                grounded way. That experience includes CNC machinery and
+                shop-floor workflow, but the bigger value is that I know how to
+                bridge real-world operations with smart digital systems.
               </p>
               <p className="font-[family-name:var(--font-ui)] text-muted-fg text-base leading-relaxed mb-8 max-w-lg">
-                Every web project starts with a free demo. You see it working before you spend a dollar. For automation, I scope the ROI first &mdash; if it won&apos;t save you money, I won&apos;t build it.
+                Every website starts with a free demo. Every automation project
+                starts with value. If there&apos;s no clear business reason to
+                build it, I won&apos;t recommend it.
               </p>
               <div className="flex gap-6 flex-wrap mb-8">
-                {["Carpenter Turned Coder", "150+ Projects", "Atlanta, GA"].map(
+                {["Operations-Focused", "150+ Projects", "Atlanta, GA"].map(
                   (tag) => (
                     <span
                       key={tag}
@@ -111,24 +132,28 @@ export default function AboutPage() {
                 desc: "Every website project starts with a fully functional demo — no deposit, no commitment. You see it working before a single dollar changes hands.",
               },
               {
-                title: "Carpenter Who Codes",
-                desc: "I work on the shop floor AND write the software. A web developer doesn\u2019t understand your machines. A consultant doesn\u2019t code. I do both.",
+                title: "Operational Perspective",
+                desc: "I don\u2019t just think about code or design. I look at how the business actually runs \u2014 where work gets delayed, where information gets missed, and what should be simplified before anything new gets built.",
               },
               {
                 title: "Direct Access",
                 desc: "No account managers or middlemen. You talk to Hunter — the person actually designing and building your project. Faster answers, fewer miscommunications.",
               },
               {
-                title: "ROI or Nothing",
+                title: "Value First",
                 desc: "We don\u2019t build tools for fun. Every automation project starts with an ROI analysis. If it won\u2019t save you money, we won\u2019t take the job.",
               },
               {
-                title: "48-Hour Delivery",
+                title: "Fast Delivery",
                 desc: "Most websites delivered in 24-48 hours. Design work in 24-72 hours. We move fast because your business can\u2019t wait.",
               },
               {
                 title: "You Own Everything",
-                desc: "Source files, code, assets — it's all yours. No vendor lock-in, no proprietary systems you can't leave.",
+                desc: "Source files, code, assets \u2014 it\u2019s all yours. No vendor lock-in, no proprietary systems you can\u2019t leave.",
+              },
+              {
+                title: "Reluctant by Design",
+                desc: "Not every process needs new software. If your current method is already the best fit, we\u2019ll say so. We only recommend changes when they create real gains in speed, visibility, consistency, or cost.",
               },
             ].map((v) => (
               <motion.div

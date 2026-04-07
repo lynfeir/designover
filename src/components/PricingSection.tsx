@@ -198,9 +198,10 @@ export default function PricingSection() {
               Need Business Automation?
             </h3>
             <p className="font-[family-name:var(--font-ui)] text-muted-fg text-sm max-w-lg">
-              Custom tool builds start at $200/month or a one-time project fee.
-              We scope the ROI first &mdash; if it won&apos;t save you money, we
-              won&apos;t build it.
+              Custom systems start at $200/month or a one-time project fee. We
+              scope value first. If your current process is already the best
+              fit, we&apos;ll say so. If a new system won&apos;t create real
+              savings, clarity, or control, we won&apos;t build it.
             </p>
           </div>
           <Link
