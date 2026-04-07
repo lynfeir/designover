@@ -412,124 +412,233 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ━━━━ PORTFOLIO — Editorial magazine layout ━━━━ */}
-      <motion.section
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewport}
-        className="py-24 lg:py-36 bg-background"
-      >
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          {/* Section header */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 lg:mb-20">
-            <motion.div variants={fadeUp}>
-              <span className="font-[family-name:var(--font-ui)] text-primary text-xs font-bold tracking-[0.3em] uppercase mb-4 block">
-                Portfolio
-              </span>
-              <h2 className="font-[family-name:var(--font-display)] text-4xl lg:text-6xl font-semibold leading-tight tracking-tight">
-                Sites We&apos;ve Shipped
-              </h2>
-            </motion.div>
-            <motion.p variants={fadeUp} className="text-muted-fg text-sm max-w-sm mt-4 lg:mt-0 lg:text-right font-[family-name:var(--font-ui)]">
-              Real businesses. Real revenue. Every one started with a free demo.
-            </motion.p>
-          </div>
+      {/* ━━━━ PORTFOLIO — Editorial case-study grid ━━━━ */}
+      <section className="py-28 lg:py-40 bg-background relative overflow-hidden">
+        {/* Subtle diagonal grain */}
+        <div
+          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          style={{
+            backgroundImage: `repeating-linear-gradient(
+              -45deg,
+              transparent,
+              transparent 2px,
+              oklch(72% 0.14 75 / 0.3) 2px,
+              oklch(72% 0.14 75 / 0.3) 3px
+            )`,
+          }}
+        />
 
-          {/* Featured project */}
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+          {/* Section header — asymmetric with oversized issue number */}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            className="mb-20 lg:mb-28"
+          >
+            <motion.div variants={fadeUp} className="flex items-start gap-6 lg:gap-10">
+              <span
+                className="font-[family-name:var(--font-display)] text-[8rem] lg:text-[12rem] font-light leading-none select-none"
+                style={{ color: "oklch(72% 0.14 75 / 0.08)" }}
+              >
+                &sect;
+              </span>
+              <div className="pt-6 lg:pt-10">
+                <span className="font-[family-name:var(--font-mono)] text-primary text-[10px] tracking-[0.4em] uppercase block mb-3">
+                  Selected Work
+                </span>
+                <h2 className="font-[family-name:var(--font-display)] text-4xl lg:text-[4.5rem] font-semibold leading-[0.95] tracking-tight">
+                  Sites We&apos;ve
+                  <br />
+                  <span className="italic font-light">Shipped</span>
+                </h2>
+                <div className="mt-5 w-16 h-px bg-primary" />
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* ── FEATURED — BookNest ── */}
           <motion.a
-            variants={scaleIn}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
             href="https://booknst.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="group block mb-4"
+            className="group block mb-16 lg:mb-24"
           >
-            <div className="relative h-56 sm:h-72 lg:h-80 bg-gradient-to-br from-[#0a1a2e] to-[#1a4a8c] overflow-hidden border border-border/20 transition-all duration-500 hover:border-primary/30 hover:shadow-gold">
-              <div className="absolute inset-0 flex items-center justify-between px-8 lg:px-14">
-                <div>
-                  <div className="font-[family-name:var(--font-ui)] text-foreground/50 text-xs uppercase tracking-[0.2em] mb-2">
-                    SaaS / Book Tracking
+            <div className="relative overflow-hidden border border-border/10 transition-all duration-700 hover:border-primary/20"
+              style={{ background: "linear-gradient(160deg, oklch(10% 0.02 240), oklch(14% 0.03 250), oklch(10% 0.01 270))" }}
+            >
+              <div className="flex flex-col lg:flex-row">
+                {/* Left — oversized index */}
+                <div className="lg:w-32 shrink-0 flex items-center justify-center py-6 lg:py-0 border-b lg:border-b-0 lg:border-r border-border/10">
+                  <span className="font-[family-name:var(--font-mono)] text-primary/20 text-7xl lg:text-8xl font-light group-hover:text-primary/40 transition-colors duration-700">
+                    01
+                  </span>
+                </div>
+
+                {/* Right — content */}
+                <div className="flex-1 p-8 lg:p-12 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                  <div>
+                    <div className="font-[family-name:var(--font-mono)] text-muted-fg text-[10px] uppercase tracking-[0.3em] mb-3">
+                      SaaS &middot; Book Tracking
+                    </div>
+                    <h3 className="font-[family-name:var(--font-display)] text-foreground text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight">
+                      <span className="inline-block group-hover:translate-x-3 transition-transform duration-500">
+                        BookNest
+                      </span>
+                    </h3>
+                    <p className="font-[family-name:var(--font-ui)] text-muted-fg text-sm mt-3 max-w-md leading-relaxed">
+                      A platform where readers collect, review, and highlight
+                      their favorite reads. Full-stack with auth, profiles, and
+                      social features.
+                    </p>
                   </div>
-                  <div className="font-[family-name:var(--font-display)] text-foreground text-4xl sm:text-5xl lg:text-7xl font-semibold tracking-tight group-hover:translate-x-3 transition-transform duration-500">
-                    BookNest
-                  </div>
-                  <div className="font-[family-name:var(--font-ui)] text-foreground/40 text-sm mt-2 hidden sm:block">
-                    A book tracking platform where readers collect, review, and
-                    highlight their favorite reads.
+
+                  {/* Hover-reveal arrow */}
+                  <div className="shrink-0 w-14 h-14 border border-border/20 flex items-center justify-center group-hover:border-primary/40 group-hover:bg-primary/5 transition-all duration-500">
+                    <svg className="w-5 h-5 text-muted-fg group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+                    </svg>
                   </div>
                 </div>
-                <span className="font-[family-name:var(--font-ui)] text-primary/60 text-sm font-bold uppercase tracking-wider group-hover:text-primary transition-colors hidden sm:block">
-                  Visit &rarr;
-                </span>
               </div>
+
+              {/* Gold accent line — draws on hover */}
+              <div className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out" />
             </div>
           </motion.a>
 
-          {/* 2-column projects */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            {[
-              {
-                name: "Pine Crest Camp",
-                url: "https://pinecrestcamp.life/",
-                niche: "Recreation",
-                desc: "Trust-first design with a registration flow that converts worried parents into happy campers.",
-                gradient: "from-[#0a2a12] to-[#2a6a3a]",
-              },
-              {
-                name: "Alchemy Auto Spa",
-                url: "https://carwash-hazel-two.vercel.app",
-                niche: "Auto / Luxury",
-                desc: "Sleek dark design with online booking integration and service packages that sell themselves.",
-                gradient: "from-[#0a1a3a] to-[#2a5a9a]",
-              },
-            ].map((p, i) => (
+          {/* ── GRID — Asymmetric 2-col with staggered heights ── */}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5"
+          >
+            {/* Left — tall card */}
+            <motion.a
+              variants={slideInLeft}
+              href="https://pinecrestcamp.life/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block"
+            >
+              <div
+                className="relative h-72 lg:h-[26rem] overflow-hidden border border-border/10 transition-all duration-700 hover:border-primary/20"
+                style={{ background: "linear-gradient(170deg, oklch(10% 0.02 155), oklch(14% 0.04 145), oklch(8% 0.01 270))" }}
+              >
+                {/* Index watermark */}
+                <span className="absolute top-5 right-6 font-[family-name:var(--font-mono)] text-[5rem] lg:text-[7rem] font-light leading-none text-foreground/[0.03] group-hover:text-foreground/[0.06] transition-colors duration-700 select-none">
+                  02
+                </span>
+
+                <div className="absolute bottom-0 left-0 right-0 p-7 lg:p-9">
+                  <div className="font-[family-name:var(--font-mono)] text-primary/50 text-[9px] uppercase tracking-[0.3em] mb-2">
+                    Recreation
+                  </div>
+                  <h3 className="font-[family-name:var(--font-display)] text-foreground text-3xl lg:text-4xl font-semibold tracking-tight group-hover:translate-x-2 transition-transform duration-500">
+                    Pine Crest Camp
+                  </h3>
+                  <p className="font-[family-name:var(--font-ui)] text-muted-fg/60 text-xs mt-2 max-w-xs leading-relaxed opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                    Trust-first design with a registration flow that converts
+                    worried parents into happy campers.
+                  </p>
+                  {/* Gold underline draw */}
+                  <div className="mt-4 h-px w-0 group-hover:w-24 bg-primary transition-all duration-600 ease-out" />
+                </div>
+              </div>
+            </motion.a>
+
+            {/* Right — stacked pair */}
+            <div className="flex flex-col gap-5">
               <motion.a
-                key={p.name}
-                variants={fadeUp}
-                href={p.url}
+                variants={slideInRight}
+                href="https://carwash-hazel-two.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block"
+                className="group block flex-1"
               >
                 <div
-                  className={`relative h-48 lg:h-56 bg-gradient-to-br ${p.gradient} overflow-hidden border border-border/10 transition-all duration-500 hover:border-primary/20 hover:shadow-card`}
+                  className="relative h-full min-h-[10rem] overflow-hidden border border-border/10 transition-all duration-700 hover:border-primary/20"
+                  style={{ background: "linear-gradient(160deg, oklch(10% 0.02 250), oklch(14% 0.03 240), oklch(8% 0.01 270))" }}
                 >
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 lg:p-8">
-                    <div className="font-[family-name:var(--font-ui)] text-foreground/40 text-xs uppercase tracking-[0.2em] mb-1">
-                      {p.niche}
+                  <span className="absolute top-4 right-5 font-[family-name:var(--font-mono)] text-[4rem] font-light leading-none text-foreground/[0.03] group-hover:text-foreground/[0.06] transition-colors duration-700 select-none">
+                    03
+                  </span>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+                    <div className="font-[family-name:var(--font-mono)] text-primary/50 text-[9px] uppercase tracking-[0.3em] mb-2">
+                      Auto &middot; Luxury
                     </div>
-                    <div className="font-[family-name:var(--font-display)] text-foreground text-2xl lg:text-3xl font-semibold tracking-tight group-hover:translate-x-2 transition-transform duration-300">
-                      {p.name}
-                    </div>
-                    <div className="font-[family-name:var(--font-ui)] text-foreground/35 text-xs mt-1.5 max-w-sm hidden sm:block">
-                      {p.desc}
-                    </div>
+                    <h3 className="font-[family-name:var(--font-display)] text-foreground text-2xl lg:text-3xl font-semibold tracking-tight group-hover:translate-x-2 transition-transform duration-500">
+                      Alchemy Auto Spa
+                    </h3>
+                    <div className="mt-3 h-px w-0 group-hover:w-20 bg-primary transition-all duration-600 ease-out" />
                   </div>
                 </div>
               </motion.a>
-            ))}
-          </div>
 
-          {/* 3-column projects */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+              <motion.a
+                variants={slideInRight}
+                href="https://www.fit4lyfe.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block flex-1"
+              >
+                <div
+                  className="relative h-full min-h-[10rem] overflow-hidden border border-border/10 transition-all duration-700 hover:border-primary/20"
+                  style={{ background: "linear-gradient(160deg, oklch(14% 0.03 70), oklch(10% 0.02 60), oklch(8% 0.01 270))" }}
+                >
+                  <span className="absolute top-4 right-5 font-[family-name:var(--font-mono)] text-[4rem] font-light leading-none text-foreground/[0.03] group-hover:text-foreground/[0.06] transition-colors duration-700 select-none">
+                    04
+                  </span>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+                    <div className="font-[family-name:var(--font-mono)] text-primary/50 text-[9px] uppercase tracking-[0.3em] mb-2">
+                      Fitness
+                    </div>
+                    <h3 className="font-[family-name:var(--font-display)] text-foreground text-2xl lg:text-3xl font-semibold tracking-tight group-hover:translate-x-2 transition-transform duration-500">
+                      Fit4Lyfe
+                    </h3>
+                    <div className="mt-3 h-px w-0 group-hover:w-20 bg-primary transition-all duration-600 ease-out" />
+                  </div>
+                </div>
+              </motion.a>
+            </div>
+          </motion.div>
+
+          {/* ── BOTTOM ROW — 3-col equal ── */}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-5"
+          >
             {[
               {
-                name: "Fit4Lyfe",
-                url: "https://www.fit4lyfe.net/",
-                niche: "Fitness",
-                gradient: "from-[#2a1a08] to-[#8a6a28]",
-              },
-              {
+                idx: "05",
                 name: "RAFVAC Solutions",
                 url: "https://rafvacsolutions.com/",
                 niche: "HVAC",
-                gradient: "from-[#061a35] to-[#1a6aaa]",
+                bg: "linear-gradient(170deg, oklch(10% 0.02 230), oklch(14% 0.04 240), oklch(8% 0.01 270))",
               },
               {
+                idx: "06",
                 name: "Top Notch Roofing",
                 url: "https://topnotch-omega.vercel.app/",
                 niche: "Construction",
-                gradient: "from-[#2a1208] to-[#aa4a1a]",
+                bg: "linear-gradient(170deg, oklch(14% 0.03 30), oklch(10% 0.02 25), oklch(8% 0.01 270))",
+              },
+              {
+                idx: "07",
+                name: "Baasit Sumra",
+                url: "http://baasitsumra.fitness/",
+                niche: "Coaching",
+                bg: "linear-gradient(170deg, oklch(10% 0.02 170), oklch(14% 0.03 160), oklch(8% 0.01 270))",
               },
             ].map((p) => (
               <motion.a
@@ -541,74 +650,52 @@ export default function Home() {
                 className="group block"
               >
                 <div
-                  className={`relative h-40 lg:h-48 bg-gradient-to-br ${p.gradient} overflow-hidden border border-border/10 transition-all duration-500 hover:border-primary/20 hover:shadow-card`}
+                  className="relative h-52 lg:h-60 overflow-hidden border border-border/10 transition-all duration-700 hover:border-primary/20"
+                  style={{ background: p.bg }}
                 >
-                  <div className="absolute inset-0 flex items-end p-6">
-                    <div>
-                      <div className="font-[family-name:var(--font-ui)] text-foreground/35 text-[9px] uppercase tracking-[0.2em] mb-1">
-                        {p.niche}
-                      </div>
-                      <div className="font-[family-name:var(--font-display)] text-foreground text-xl lg:text-2xl font-semibold tracking-tight group-hover:translate-x-1 transition-transform duration-300">
-                        {p.name}
-                      </div>
+                  <span className="absolute top-4 right-5 font-[family-name:var(--font-mono)] text-[4rem] font-light leading-none text-foreground/[0.03] group-hover:text-foreground/[0.06] transition-colors duration-700 select-none">
+                    {p.idx}
+                  </span>
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <div className="font-[family-name:var(--font-mono)] text-primary/50 text-[9px] uppercase tracking-[0.3em] mb-2">
+                      {p.niche}
                     </div>
+                    <h3 className="font-[family-name:var(--font-display)] text-foreground text-xl lg:text-2xl font-semibold tracking-tight group-hover:translate-x-1 transition-transform duration-500">
+                      {p.name}
+                    </h3>
+                    <div className="mt-3 h-px w-0 group-hover:w-16 bg-primary transition-all duration-600 ease-out" />
                   </div>
                 </div>
               </motion.a>
             ))}
-          </div>
+          </motion.div>
 
-          {/* Last project */}
-          <motion.a
-            variants={fadeUp}
-            href="http://baasitsumra.fitness/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block"
-          >
-            <div className="relative h-40 lg:h-48 bg-gradient-to-br from-[#041a18] to-[#0a6a5a] overflow-hidden border border-border/10 transition-all duration-500 hover:border-primary/20 hover:shadow-card">
-              <div className="absolute inset-0 flex items-center justify-between px-6 lg:px-8">
-                <div>
-                  <div className="font-[family-name:var(--font-ui)] text-foreground/40 text-xs uppercase tracking-[0.2em] mb-1">
-                    Fitness / Coaching
-                  </div>
-                  <div className="font-[family-name:var(--font-display)] text-foreground text-2xl lg:text-3xl font-semibold tracking-tight group-hover:translate-x-2 transition-transform duration-300">
-                    Baasit Sumra Fitness
-                  </div>
-                </div>
-                <span className="font-[family-name:var(--font-ui)] text-primary/50 text-sm font-bold uppercase tracking-wider group-hover:text-primary transition-colors hidden sm:block">
-                  Visit &rarr;
-                </span>
-              </div>
-            </div>
-          </motion.a>
-
-          {/* Metrics */}
+          {/* ── Metrics strip ── */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={viewport}
-            className="mt-20 pt-8 border-t border-border/30 flex gap-12 lg:gap-20 flex-wrap"
+            className="mt-20 lg:mt-28 pt-8 border-t border-border/20 flex justify-between flex-wrap gap-y-6"
           >
             {[
               { val: "7", label: "live sites shown" },
-              { val: "150+", label: "total projects" },
+              { val: "150+", label: "total shipped" },
               { val: "100%", label: "demo-first" },
               { val: "5+", label: "years running" },
             ].map(({ val, label }) => (
-              <div key={label} className="flex items-baseline gap-2">
-                <span className="font-[family-name:var(--font-mono)] text-2xl font-bold text-foreground">
+              <div key={label} className="flex items-baseline gap-2.5">
+                <span className="font-[family-name:var(--font-mono)] text-2xl lg:text-3xl font-bold text-foreground tracking-tight">
                   {val}
                 </span>
-                <span className="font-[family-name:var(--font-ui)] text-muted-fg text-[10px] uppercase tracking-[0.15em]">
+                <span className="font-[family-name:var(--font-ui)] text-muted-fg text-[10px] uppercase tracking-[0.2em]">
                   {label}
                 </span>
               </div>
             ))}
           </motion.div>
         </div>
-      </motion.section>
+      </section>
 
       {/* ━━━━ STATS — Full-width with counting numbers ━━━━ */}
       <section className="relative py-20 lg:py-28 bg-secondary overflow-hidden">
