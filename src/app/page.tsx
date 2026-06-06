@@ -268,7 +268,7 @@ export default function Home() {
               { num: "150+", label: "shipped" },
             ].map(({ num, label }) => (
               <div key={label} className="flex items-baseline gap-2">
-                <span className="font-[family-name:var(--font-mono)] text-foreground text-xl font-bold tracking-tight">
+                <span className="font-[family-name:var(--font-mono)] text-foreground text-xl font-bold tracking-tight tabular-nums">
                   {num}
                 </span>
                 <span className="font-[family-name:var(--font-ui)] text-muted-fg text-[10px] uppercase tracking-[0.2em]">
@@ -346,7 +346,7 @@ export default function Home() {
         initial="hidden"
         whileInView="visible"
         viewport={viewport}
-        className="py-24 lg:py-36 bg-background"
+        className="py-24 lg:py-32 bg-background"
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-20 items-start">
@@ -395,7 +395,7 @@ export default function Home() {
         initial="hidden"
         whileInView="visible"
         viewport={viewport}
-        className="relative py-20 lg:py-28 bg-secondary overflow-hidden"
+        className="relative py-24 lg:py-32 bg-secondary overflow-hidden"
       >
         {/* Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
@@ -457,7 +457,7 @@ export default function Home() {
         initial="hidden"
         whileInView="visible"
         viewport={viewport}
-        className="py-20 lg:py-28 bg-card"
+        className="py-24 lg:py-32 bg-card"
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="flex flex-col lg:flex-row-reverse gap-8 lg:gap-20 items-start">
