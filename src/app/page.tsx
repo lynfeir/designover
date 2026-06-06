@@ -2,7 +2,7 @@
 
 import { Link } from "next-view-transitions";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import {
   sectionVariants,
   staggerContainer,
@@ -93,6 +93,77 @@ function TiltCard({
     >
       {children}
     </motion.div>
+  );
+}
+
+/* ── Portfolio card — real screenshot, brightens on hover ── */
+function PortfolioCard({
+  href,
+  img,
+  name,
+  niche,
+  blurb,
+  height,
+  variant,
+  titleClass = "text-2xl lg:text-3xl",
+}: {
+  href: string;
+  img: string;
+  name: string;
+  niche: string;
+  blurb?: string;
+  height: string;
+  variant?: Variants;
+  titleClass?: string;
+}) {
+  return (
+    <motion.a
+      variants={variant ?? fadeUp}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative block overflow-hidden border border-border/15 hover:border-primary/30 transition-colors duration-500"
+    >
+      <div className={`relative ${height} overflow-hidden`}>
+        <Image
+          src={img}
+          alt={`${name} website`}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-background/5 transition-colors duration-500 group-hover:via-background/25" />
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-7">
+        <div className="font-[family-name:var(--font-mono)] text-primary text-[10px] uppercase tracking-[0.3em] mb-2">
+          {niche}
+        </div>
+        <div className="flex items-center justify-between gap-4">
+          <h3
+            className={`font-[family-name:var(--font-display)] text-foreground ${titleClass} font-semibold tracking-tight group-hover:translate-x-1 transition-transform duration-500`}
+          >
+            {name}
+          </h3>
+          <span className="shrink-0 w-10 h-10 rounded-full border border-foreground/15 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-500">
+            <svg
+              className="w-4 h-4 text-muted-fg group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+            </svg>
+          </span>
+        </div>
+        {blurb && (
+          <p className="font-[family-name:var(--font-ui)] text-muted-fg text-xs mt-2 max-w-md leading-relaxed max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 overflow-hidden">
+            {blurb}
+          </p>
+        )}
+        <div className="mt-3 h-px w-0 group-hover:w-20 bg-primary transition-all duration-700 ease-out" />
+      </div>
+    </motion.a>
   );
 }
 
@@ -515,52 +586,44 @@ export default function Home() {
             href="https://booknst.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="group block mb-16 lg:mb-24"
+            className="group relative block mb-5 overflow-hidden border border-border/15 hover:border-primary/30 transition-colors duration-500"
           >
-            <div className="relative overflow-hidden border border-border/10 transition-all duration-700 hover:border-primary/20"
-              style={{ background: "linear-gradient(160deg, oklch(10% 0.02 240), oklch(14% 0.03 250), oklch(10% 0.01 270))" }}
-            >
-              <div className="flex flex-col lg:flex-row">
-                {/* Left — oversized index */}
-                <div className="lg:w-32 shrink-0 flex items-center justify-center py-6 lg:py-0 border-b lg:border-b-0 lg:border-r border-border/10">
-                  <span className="font-[family-name:var(--font-mono)] text-primary/20 text-7xl lg:text-8xl font-light group-hover:text-primary/40 transition-colors duration-700">
-                    01
+            <div className="relative h-[22rem] sm:h-[26rem] lg:h-[34rem] overflow-hidden">
+              <Image
+                src="/portfolio/booknest.webp"
+                alt="BookNest website"
+                fill
+                sizes="(max-width: 1400px) 100vw, 1400px"
+                className="object-cover object-top transition-transform duration-[1400ms] ease-out group-hover:scale-[1.03]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/5" />
+              <div className="absolute inset-0 bg-gradient-to-r from-background/75 via-transparent to-transparent" />
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+              <div className="max-w-xl">
+                <div className="font-[family-name:var(--font-mono)] text-primary text-[10px] uppercase tracking-[0.3em] mb-3">
+                  Featured &middot; SaaS &middot; Book Tracking
+                </div>
+                <h3 className="font-[family-name:var(--font-display)] text-foreground text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight">
+                  <span className="inline-block group-hover:translate-x-2 transition-transform duration-500">
+                    BookNest
                   </span>
-                </div>
-
-                {/* Right — content */}
-                <div className="flex-1 p-8 lg:p-12 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-                  <div>
-                    <div className="font-[family-name:var(--font-mono)] text-muted-fg text-[10px] uppercase tracking-[0.3em] mb-3">
-                      SaaS &middot; Book Tracking
-                    </div>
-                    <h3 className="font-[family-name:var(--font-display)] text-foreground text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight">
-                      <span className="inline-block group-hover:translate-x-3 transition-transform duration-500">
-                        BookNest
-                      </span>
-                    </h3>
-                    <p className="font-[family-name:var(--font-ui)] text-muted-fg text-sm mt-3 max-w-md leading-relaxed">
-                      A platform where readers collect, review, and highlight
-                      their favorite reads. Full-stack with auth, profiles, and
-                      social features.
-                    </p>
-                  </div>
-
-                  {/* Hover-reveal arrow */}
-                  <div className="shrink-0 w-14 h-14 border border-border/20 flex items-center justify-center group-hover:border-primary/40 group-hover:bg-primary/5 transition-all duration-500">
-                    <svg className="w-5 h-5 text-muted-fg group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-                    </svg>
-                  </div>
-                </div>
+                </h3>
+                <p className="font-[family-name:var(--font-ui)] text-muted-fg text-sm mt-3 max-w-md leading-relaxed">
+                  A platform where readers collect, review, and highlight their
+                  favorite reads. Full-stack with auth, profiles, and social
+                  features.
+                </p>
               </div>
-
-              {/* Gold accent line — draws on hover */}
-              <div className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full bg-primary transition-all duration-700 ease-out" />
+              <span className="shrink-0 w-14 h-14 rounded-full border border-foreground/15 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-500">
+                <svg className="w-5 h-5 text-muted-fg group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+                </svg>
+              </span>
             </div>
           </motion.a>
 
-          {/* ── GRID — Asymmetric 2-col with staggered heights ── */}
+          {/* ── Pair — CK Indie Films + Loaded Bites ── */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -568,97 +631,57 @@ export default function Home() {
             viewport={viewport}
             className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5"
           >
-            {/* Left — tall card */}
-            <motion.a
-              variants={slideInLeft}
-              href="https://pinecrestcamp.life/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block"
-            >
-              <div
-                className="relative h-72 lg:h-[26rem] overflow-hidden border border-border/10 transition-all duration-700 hover:border-primary/20"
-                style={{ background: "linear-gradient(170deg, oklch(10% 0.02 155), oklch(14% 0.04 145), oklch(8% 0.01 270))" }}
-              >
-                {/* Index watermark */}
-                <span className="absolute top-5 right-6 font-[family-name:var(--font-mono)] text-[5rem] lg:text-[7rem] font-light leading-none text-foreground/[0.03] group-hover:text-foreground/[0.06] transition-colors duration-700 select-none">
-                  02
-                </span>
-
-                <div className="absolute bottom-0 left-0 right-0 p-7 lg:p-9">
-                  <div className="font-[family-name:var(--font-mono)] text-primary/70 text-[10px] uppercase tracking-[0.3em] mb-2">
-                    Recreation
-                  </div>
-                  <h3 className="font-[family-name:var(--font-display)] text-foreground text-3xl lg:text-4xl font-semibold tracking-tight group-hover:translate-x-2 transition-transform duration-500">
-                    Pine Crest Camp
-                  </h3>
-                  <p className="font-[family-name:var(--font-ui)] text-muted-fg/60 text-xs mt-2 max-w-xs leading-relaxed opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
-                    Trust-first design with a registration flow that converts
-                    worried parents into happy campers.
-                  </p>
-                  {/* Gold underline draw */}
-                  <div className="mt-4 h-px w-0 group-hover:w-24 bg-primary transition-all duration-600 ease-out" />
-                </div>
-              </div>
-            </motion.a>
-
-            {/* Right — stacked pair */}
-            <div className="flex flex-col gap-5">
-              <motion.a
-                variants={slideInRight}
-                href="https://carwash-hazel-two.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block flex-1"
-              >
-                <div
-                  className="relative h-full min-h-[10rem] overflow-hidden border border-border/10 transition-all duration-700 hover:border-primary/20"
-                  style={{ background: "linear-gradient(160deg, oklch(10% 0.02 250), oklch(14% 0.03 240), oklch(8% 0.01 270))" }}
-                >
-                  <span className="absolute top-4 right-5 font-[family-name:var(--font-mono)] text-[4rem] font-light leading-none text-foreground/[0.03] group-hover:text-foreground/[0.06] transition-colors duration-700 select-none">
-                    03
-                  </span>
-                  <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                    <div className="font-[family-name:var(--font-mono)] text-primary/70 text-[10px] uppercase tracking-[0.3em] mb-2">
-                      Auto &middot; Luxury
-                    </div>
-                    <h3 className="font-[family-name:var(--font-display)] text-foreground text-2xl lg:text-3xl font-semibold tracking-tight group-hover:translate-x-2 transition-transform duration-500">
-                      Alchemy Auto Spa
-                    </h3>
-                    <div className="mt-3 h-px w-0 group-hover:w-20 bg-primary transition-all duration-600 ease-out" />
-                  </div>
-                </div>
-              </motion.a>
-
-              <motion.a
-                variants={slideInRight}
-                href="https://www.fit4lyfe.net/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block flex-1"
-              >
-                <div
-                  className="relative h-full min-h-[10rem] overflow-hidden border border-border/10 transition-all duration-700 hover:border-primary/20"
-                  style={{ background: "linear-gradient(160deg, oklch(14% 0.03 70), oklch(10% 0.02 60), oklch(8% 0.01 270))" }}
-                >
-                  <span className="absolute top-4 right-5 font-[family-name:var(--font-mono)] text-[4rem] font-light leading-none text-foreground/[0.03] group-hover:text-foreground/[0.06] transition-colors duration-700 select-none">
-                    04
-                  </span>
-                  <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                    <div className="font-[family-name:var(--font-mono)] text-primary/70 text-[10px] uppercase tracking-[0.3em] mb-2">
-                      Fitness
-                    </div>
-                    <h3 className="font-[family-name:var(--font-display)] text-foreground text-2xl lg:text-3xl font-semibold tracking-tight group-hover:translate-x-2 transition-transform duration-500">
-                      Fit4Lyfe
-                    </h3>
-                    <div className="mt-3 h-px w-0 group-hover:w-20 bg-primary transition-all duration-600 ease-out" />
-                  </div>
-                </div>
-              </motion.a>
-            </div>
+            <PortfolioCard
+              href="https://www.ckindiefilms.com"
+              img="/portfolio/ckindiefilms.webp"
+              name="CK Film & Entertainment"
+              niche="Film · Entertainment"
+              blurb="An indie film studio site with a cinematic feel, press, and a films archive. From Kentucky to the world."
+              height="h-72 lg:h-[24rem]"
+              variant={slideInLeft}
+              titleClass="text-2xl lg:text-4xl"
+            />
+            <PortfolioCard
+              href="https://loadedbites.vercel.app"
+              img="/portfolio/loadedbites.webp"
+              name="Loaded Bites"
+              niche="Restaurant · Halal"
+              blurb="A halal kitchen in Canton, GA with online ordering, catering, and a menu built to make you hungry."
+              height="h-72 lg:h-[24rem]"
+              variant={slideInRight}
+              titleClass="text-2xl lg:text-4xl"
+            />
           </motion.div>
 
-          {/* ── BOTTOM ROW — 3-col equal ── */}
+          {/* ── Pair — Pine Crest Camp + Fit4Lyfe ── */}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5"
+          >
+            <PortfolioCard
+              href="https://pinecrestcamp.life/"
+              img="/portfolio/pinecrest.webp"
+              name="Pine Crest Camp"
+              niche="Recreation"
+              blurb="Trust-first design with a registration flow that converts worried parents into happy campers."
+              height="h-64 lg:h-80"
+              variant={slideInLeft}
+            />
+            <PortfolioCard
+              href="https://www.fit4lyfe.net/"
+              img="/portfolio/fit4lyfe.webp"
+              name="Fit4Lyfe"
+              niche="Fitness"
+              blurb="A membership fitness brand with class booking, subscriptions, and a member portal."
+              height="h-64 lg:h-80"
+              variant={slideInRight}
+            />
+          </motion.div>
+
+          {/* ── Trio — RAFVAC + Top Notch + Baasit ── */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -666,56 +689,33 @@ export default function Home() {
             viewport={viewport}
             className="grid grid-cols-1 sm:grid-cols-3 gap-5"
           >
-            {[
-              {
-                idx: "05",
-                name: "RAFVAC Solutions",
-                url: "https://rafvacsolutions.com/",
-                niche: "HVAC",
-                bg: "linear-gradient(170deg, oklch(10% 0.02 230), oklch(14% 0.04 240), oklch(8% 0.01 270))",
-              },
-              {
-                idx: "06",
-                name: "Top Notch Roofing",
-                url: "https://topnotch-omega.vercel.app/",
-                niche: "Construction",
-                bg: "linear-gradient(170deg, oklch(14% 0.03 30), oklch(10% 0.02 25), oklch(8% 0.01 270))",
-              },
-              {
-                idx: "07",
-                name: "Baasit Sumra",
-                url: "http://baasitsumra.fitness/",
-                niche: "Coaching",
-                bg: "linear-gradient(170deg, oklch(10% 0.02 170), oklch(14% 0.03 160), oklch(8% 0.01 270))",
-              },
-            ].map((p) => (
-              <motion.a
-                key={p.name}
-                variants={fadeUp}
-                href={p.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block"
-              >
-                <div
-                  className="relative h-52 lg:h-60 overflow-hidden border border-border/10 transition-all duration-700 hover:border-primary/20"
-                  style={{ background: p.bg }}
-                >
-                  <span className="absolute top-4 right-5 font-[family-name:var(--font-mono)] text-[4rem] font-light leading-none text-foreground/[0.03] group-hover:text-foreground/[0.06] transition-colors duration-700 select-none">
-                    {p.idx}
-                  </span>
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="font-[family-name:var(--font-mono)] text-primary/70 text-[10px] uppercase tracking-[0.3em] mb-2">
-                      {p.niche}
-                    </div>
-                    <h3 className="font-[family-name:var(--font-display)] text-foreground text-xl lg:text-2xl font-semibold tracking-tight group-hover:translate-x-1 transition-transform duration-500">
-                      {p.name}
-                    </h3>
-                    <div className="mt-3 h-px w-0 group-hover:w-16 bg-primary transition-all duration-600 ease-out" />
-                  </div>
-                </div>
-              </motion.a>
-            ))}
+            <PortfolioCard
+              href="https://rafvacsolutions.com/"
+              img="/portfolio/rafvac.webp"
+              name="RAFVAC Solutions"
+              niche="HVAC"
+              blurb="A service-area HVAC site built to turn searches into booked calls."
+              height="h-56 lg:h-64"
+              titleClass="text-xl lg:text-2xl"
+            />
+            <PortfolioCard
+              href="https://topnotch-omega.vercel.app/"
+              img="/portfolio/topnotch.webp"
+              name="Top Notch Roofing"
+              niche="Construction"
+              blurb="A roofing contractor site with clear quotes and fast contact."
+              height="h-56 lg:h-64"
+              titleClass="text-xl lg:text-2xl"
+            />
+            <PortfolioCard
+              href="http://baasitsumra.fitness/"
+              img="/portfolio/baasit.webp"
+              name="Baasit Sumra"
+              niche="Coaching"
+              blurb="A personal coaching brand with a clean, motivating funnel."
+              height="h-56 lg:h-64"
+              titleClass="text-xl lg:text-2xl"
+            />
           </motion.div>
 
           {/* ── Metrics strip ── */}
@@ -727,7 +727,7 @@ export default function Home() {
             className="mt-20 lg:mt-28 pt-8 border-t border-border/20 flex justify-between flex-wrap gap-y-6"
           >
             {[
-              { val: "7", label: "live sites shown" },
+              { val: "8", label: "live sites shown" },
               { val: "150+", label: "total shipped" },
               { val: "100%", label: "demo-first" },
               { val: "5+", label: "years running" },

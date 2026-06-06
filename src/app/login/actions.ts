@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { provisionStarterDashboard } from "@/lib/provision";
 
 export type AuthState = { error?: string } | undefined;
 
@@ -57,7 +58,7 @@ export async function signUp(
   // Create the client account already confirmed so they can sign in
   // immediately — no email round-trip.
   const admin = createAdminClient();
-  const { error: createError } = await admin.auth.admin.createUser({
+  const { data: created, error: createError } = await admin.auth.admin.createUser({
     email,
     password,
     email_confirm: true,
@@ -69,6 +70,11 @@ export async function signUp(
       ? "An account with that email already exists. Try signing in."
       : createError.message || "Could not create your account.";
     return { error: msg };
+  }
+
+  // Build their dashboard from the template so they never land on a blank page.
+  if (created?.user) {
+    await provisionStarterDashboard(created.user.id, company);
   }
 
   const supabase = await createClient();
