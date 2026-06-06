@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import IntakeForm from "@/components/IntakeForm";
 import { createClient } from "@/lib/supabase/server";
 
@@ -36,9 +37,13 @@ export default async function StartPage() {
   return (
     <main className="relative min-h-screen bg-background overflow-hidden">
       {/* Cinematic ambient backdrop */}
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-25 pointer-events-none"
-        style={{ backgroundImage: "url(/cinematic/ambient-bloom.webp)" }}
+      <Image
+        src="/cinematic/ambient-bloom.webp"
+        alt=""
+        fill
+        sizes="100vw"
+        quality={55}
+        className="object-cover opacity-25 pointer-events-none"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/85 to-background pointer-events-none" />
       <div className="absolute inset-0 bg-beams pointer-events-none" />

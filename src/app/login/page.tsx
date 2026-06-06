@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Image from "next/image";
+import { Link } from "next-view-transitions";
 import { redirect } from "next/navigation";
 import AuthForm from "@/components/auth/AuthForm";
 import { createClient } from "@/lib/supabase/server";
@@ -33,12 +34,16 @@ export default async function LoginPage({
   }
 
   return (
-    <main className="min-h-screen grid lg:grid-cols-2 bg-background">
+    <main className="min-h-screen grid md:grid-cols-2 bg-background">
       {/* Cinematic panel */}
-      <div className="relative hidden lg:flex flex-col justify-between overflow-hidden p-12 xl:p-16">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url(/cinematic/craft-wireframe.webp)" }}
+      <div className="relative hidden md:flex flex-col justify-between overflow-hidden p-12 xl:p-16">
+        <Image
+          src="/cinematic/craft-wireframe.webp"
+          alt=""
+          fill
+          sizes="(max-width: 768px) 0px, 50vw"
+          quality={60}
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/60 to-background/90" />
         <div className="absolute inset-0 bg-beams pointer-events-none" />

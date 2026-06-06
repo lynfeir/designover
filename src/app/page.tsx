@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -17,6 +17,7 @@ import CountUp from "@/components/CountUp";
 import PricingSection from "@/components/PricingSection";
 import ParallaxSection from "@/components/ParallaxSection";
 import HeroVideo from "@/components/HeroVideo";
+import MagneticButton from "@/components/MagneticButton";
 
 /* ── Word-by-word stagger for headlines ── */
 function AnimatedHeadline({
@@ -37,9 +38,10 @@ function AnimatedHeadline({
         <motion.span
           key={i}
           variants={{
-            hidden: { opacity: 0, y: 40 },
+            // Transform-only (no opacity) so the H1 — the LCP element —
+            // paints on first frame instead of waiting on hydration.
+            hidden: { y: 28 },
             visible: {
-              opacity: 1,
               y: 0,
               transition: {
                 duration: 0.6,
@@ -65,7 +67,7 @@ function Typewriter({ text, className = "" }: { text: string; className?: string
           key={i}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 + i * 0.04, duration: 0.1 }}
+          transition={{ delay: 0.25 + i * 0.03, duration: 0.1 }}
         >
           {char}
         </motion.span>
@@ -106,6 +108,8 @@ export default function Home() {
               src="/cinematic/hero-atlanta.webp"
               alt=""
               fill
+              sizes="100vw"
+              quality={55}
               className="object-cover object-center opacity-45 scale-110"
               priority
             />
@@ -155,7 +159,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+            transition={{ delay: 0.55, duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             className="mt-12 lg:mt-16 flex flex-col lg:flex-row lg:items-end gap-8 lg:gap-20"
           >
             <p className="text-muted-fg max-w-sm text-base leading-relaxed font-[family-name:var(--font-ui)]">
@@ -164,12 +168,12 @@ export default function Home() {
               Every project starts with a free demo or ROI review.
             </p>
             <div className="flex gap-4 flex-wrap">
-              <Link
+              <MagneticButton
                 href="/start"
-                className="btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold px-8 py-4 text-sm tracking-[0.15em] uppercase transition-transform hover:scale-105"
+                className="btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold px-8 py-4 text-sm tracking-[0.15em] uppercase inline-block"
               >
-                Start Your Project
-              </Link>
+                Start a Project
+              </MagneticButton>
               <Link
                 href="/services"
                 className="border border-foreground/20 hover:border-primary/50 text-foreground/60 hover:text-primary font-[family-name:var(--font-ui)] font-medium px-8 py-4 text-sm tracking-[0.1em] uppercase transition-all duration-300"
@@ -183,7 +187,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2, duration: 0.8 }}
+            transition={{ delay: 0.75, duration: 0.8 }}
             className="mt-16 lg:mt-24 pt-6 border-t border-foreground/10 flex gap-10 lg:gap-16 flex-wrap"
           >
             {[
@@ -208,7 +212,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.5 }}
-          transition={{ delay: 2.5, duration: 1 }}
+          transition={{ delay: 1, duration: 1 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1"
         >
           <motion.div
@@ -233,6 +237,8 @@ export default function Home() {
             src="/cinematic/automation-flow.webp"
             alt=""
             fill
+            sizes="100vw"
+            quality={60}
             className="object-cover object-center opacity-40 scale-110"
           />
         </ParallaxSection>
@@ -292,10 +298,10 @@ export default function Home() {
               </p>
               <div className="flex items-center gap-6 flex-wrap">
                 <Link
-                  href="/contact"
+                  href="/start"
                   className="btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold px-7 py-3.5 text-sm tracking-[0.1em] uppercase"
                 >
-                  Get a Free Demo
+                  Start a Project
                 </Link>
                 <span className="text-muted-fg text-sm font-[family-name:var(--font-ui)]">
                   From{" "}
@@ -339,10 +345,10 @@ export default function Home() {
                 communication, and process visibility.
               </p>
               <Link
-                href="/contact"
+                href="/start"
                 className="inline-block btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold px-7 py-3.5 text-sm tracking-[0.1em] uppercase"
               >
-                Get a Free ROI Analysis
+                Get an ROI Review
               </Link>
             </motion.div>
 
@@ -400,7 +406,7 @@ export default function Home() {
               </p>
               <div className="flex items-center gap-6 flex-wrap lg:justify-end">
                 <Link
-                  href="/contact"
+                  href="/start"
                   className="bg-accent hover:bg-accent/80 text-background font-[family-name:var(--font-ui)] font-bold px-7 py-3.5 text-sm tracking-[0.1em] uppercase transition-colors"
                 >
                   Request a Quote
@@ -436,17 +442,17 @@ export default function Home() {
             <h2 className="font-[family-name:var(--font-display)] text-3xl lg:text-5xl font-semibold text-background leading-tight mb-4">
               Every project starts with a free demo.
             </h2>
-            <p className="text-background/80 text-base max-w-lg font-[family-name:var(--font-ui)]">
+            <p className="text-background text-base max-w-lg font-[family-name:var(--font-ui)]">
               See your site live &mdash; fully designed and functional &mdash;
               within 48 hours, before you spend a dollar. If you love it, we
               move forward. If not, no hard feelings.
             </p>
           </div>
           <Link
-            href="/contact"
+            href="/start"
             className="shrink-0 bg-background hover:bg-background/90 text-primary font-[family-name:var(--font-ui)] font-bold px-8 py-4 text-sm tracking-[0.15em] uppercase transition-all hover:scale-105"
           >
-            Request Your Demo
+            Start a Project
           </Link>
         </motion.div>
       </section>
@@ -577,7 +583,7 @@ export default function Home() {
                 </span>
 
                 <div className="absolute bottom-0 left-0 right-0 p-7 lg:p-9">
-                  <div className="font-[family-name:var(--font-mono)] text-primary/50 text-[9px] uppercase tracking-[0.3em] mb-2">
+                  <div className="font-[family-name:var(--font-mono)] text-primary/70 text-[10px] uppercase tracking-[0.3em] mb-2">
                     Recreation
                   </div>
                   <h3 className="font-[family-name:var(--font-display)] text-foreground text-3xl lg:text-4xl font-semibold tracking-tight group-hover:translate-x-2 transition-transform duration-500">
@@ -610,7 +616,7 @@ export default function Home() {
                     03
                   </span>
                   <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                    <div className="font-[family-name:var(--font-mono)] text-primary/50 text-[9px] uppercase tracking-[0.3em] mb-2">
+                    <div className="font-[family-name:var(--font-mono)] text-primary/70 text-[10px] uppercase tracking-[0.3em] mb-2">
                       Auto &middot; Luxury
                     </div>
                     <h3 className="font-[family-name:var(--font-display)] text-foreground text-2xl lg:text-3xl font-semibold tracking-tight group-hover:translate-x-2 transition-transform duration-500">
@@ -636,7 +642,7 @@ export default function Home() {
                     04
                   </span>
                   <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                    <div className="font-[family-name:var(--font-mono)] text-primary/50 text-[9px] uppercase tracking-[0.3em] mb-2">
+                    <div className="font-[family-name:var(--font-mono)] text-primary/70 text-[10px] uppercase tracking-[0.3em] mb-2">
                       Fitness
                     </div>
                     <h3 className="font-[family-name:var(--font-display)] text-foreground text-2xl lg:text-3xl font-semibold tracking-tight group-hover:translate-x-2 transition-transform duration-500">
@@ -696,7 +702,7 @@ export default function Home() {
                     {p.idx}
                   </span>
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="font-[family-name:var(--font-mono)] text-primary/50 text-[9px] uppercase tracking-[0.3em] mb-2">
+                    <div className="font-[family-name:var(--font-mono)] text-primary/70 text-[10px] uppercase tracking-[0.3em] mb-2">
                       {p.niche}
                     </div>
                     <h3 className="font-[family-name:var(--font-display)] text-foreground text-xl lg:text-2xl font-semibold tracking-tight group-hover:translate-x-1 transition-transform duration-500">
@@ -982,12 +988,12 @@ export default function Home() {
               time and how to fix it.
             </motion.p>
             <motion.div variants={fadeUp} className="flex gap-4 flex-wrap">
-              <Link
-                href="/contact"
-                className="btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold px-8 py-4 text-sm tracking-[0.15em] uppercase transition-transform hover:scale-105"
+              <MagneticButton
+                href="/start"
+                className="btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold px-8 py-4 text-sm tracking-[0.15em] uppercase inline-block"
               >
-                Get Your Free Demo
-              </Link>
+                Start a Project
+              </MagneticButton>
               <a
                 href="tel:4707583549"
                 className="border border-foreground/20 hover:border-primary/50 text-foreground/60 hover:text-primary font-[family-name:var(--font-ui)] font-medium px-8 py-4 text-sm tracking-[0.1em] uppercase transition-all duration-300"

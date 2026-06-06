@@ -57,6 +57,7 @@ export default async function PortalPage() {
   const { data: projects } = await supabase
     .from("client_projects")
     .select("*")
+    .eq("client_id", user.id)
     .order("created_at", { ascending: false })
     .returns<ClientProject[]>();
 
@@ -73,6 +74,7 @@ export default async function PortalPage() {
   const { data: submissions } = await supabase
     .from("intake_submissions")
     .select("*")
+    .eq("user_id", user.id)
     .order("created_at", { ascending: false })
     .returns<IntakeSubmission[]>();
 

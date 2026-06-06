@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 export async function POST(req: Request) {
   try {
@@ -11,6 +12,27 @@ export async function POST(req: Request) {
         { error: "Missing required fields" },
         { status: 400 }
       );
+    }
+
+    // Persist to the same lead table the intake form uses, so contact-page
+    // leads also surface in the admin desk and the client portal.
+    try {
+      await createAdminClient()
+        .from("intake_submissions")
+        .insert({
+          name,
+          email,
+          phone: phone || null,
+          project_type: service || null,
+          project_name: "Quick contact",
+          description: message,
+          budget: budget || null,
+          timeline: timeline || null,
+          features: [],
+          status: "new",
+        });
+    } catch (dbError) {
+      console.error("Contact lead insert error (email still sent):", dbError);
     }
 
     const transporter = nodemailer.createTransport({

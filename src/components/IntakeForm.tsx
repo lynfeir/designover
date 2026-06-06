@@ -54,10 +54,23 @@ export default function IntakeForm({
     [step]
   );
 
+  const emailValid = /\S+@\S+\.\S+/.test(email);
+
   const canAdvance = () => {
     if (step === 0) return !!projectType;
-    if (step === 5) return name.trim() !== "" && /\S+@\S+\.\S+/.test(email);
+    if (step === 1) return description.trim() !== "";
+    if (step === 5) return name.trim() !== "" && emailValid;
     return true;
+  };
+
+  const gateHint = () => {
+    if (step === 0 && !projectType) return "Pick what we're building to continue.";
+    if (step === 1 && description.trim() === "")
+      return "Add a sentence about what it should do to continue.";
+    if (step === 5 && name.trim() === "") return "Add your name so we know who to reply to.";
+    if (step === 5 && !emailValid)
+      return "Enter a valid email so Hunter can reach you.";
+    return "";
   };
 
   const go = (next: number) => {
@@ -138,7 +151,12 @@ export default function IntakeForm({
   }
 
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="max-w-3xl mx-auto" role="group" aria-label="Project intake">
+      {/* Announce step changes to assistive tech */}
+      <p className="sr-only" aria-live="polite">
+        Step {step + 1} of {STEPS.length}: {STEPS[step]}
+      </p>
+
       {/* Progress header */}
       <div className="mb-10">
         <div className="flex items-center justify-between mb-3">
@@ -149,7 +167,14 @@ export default function IntakeForm({
             {progress}%
           </span>
         </div>
-        <div className="h-px w-full bg-border/40 overflow-hidden">
+        <div
+          className="h-px w-full bg-border/40 overflow-hidden"
+          role="progressbar"
+          aria-valuenow={progress}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label={`Step ${step + 1} of ${STEPS.length}`}
+        >
           <motion.div
             className="h-full bg-primary"
             animate={{ width: `${progress}%` }}
@@ -181,6 +206,7 @@ export default function IntakeForm({
                       key={t.value}
                       type="button"
                       onClick={() => setProjectType(t.value)}
+                      aria-pressed={active}
                       className={`group text-left p-6 rounded-xl border transition-all duration-300 ${
                         active
                           ? "border-primary bg-primary-soft pulse-glow"
@@ -192,6 +218,7 @@ export default function IntakeForm({
                           {t.label}
                         </span>
                         <span
+                          aria-hidden
                           className={`w-5 h-5 rotate-45 border flex items-center justify-center transition-colors ${
                             active
                               ? "border-primary bg-primary"
@@ -311,7 +338,8 @@ export default function IntakeForm({
                             >
                               <span className="flex items-center gap-2">
                                 <span
-                                  className={`w-3.5 h-3.5 rotate-45 border ${
+                                  aria-hidden
+                                  className={`w-3.5 h-3.5 rotate-45 border shrink-0 ${
                                     active
                                       ? "bg-primary border-primary"
                                       : "border-border/60"
@@ -319,7 +347,7 @@ export default function IntakeForm({
                                 />
                                 {f.label}
                                 {f.hint && (
-                                  <span className="text-muted-fg/70 text-[11px]">
+                                  <span className="text-muted-fg/70 text-[11px] hidden sm:inline">
                                     · {f.hint}
                                   </span>
                                 )}
@@ -387,12 +415,26 @@ export default function IntakeForm({
                 </Field>
                 <Field label="Email">
                   <input
-                    className="doa-input"
+                    className={`doa-input ${
+                      email !== "" && !emailValid ? "doa-input--error" : ""
+                    }`}
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="jane@company.com"
+                    aria-invalid={email !== "" && !emailValid}
+                    aria-describedby={
+                      email !== "" && !emailValid ? "email-error" : undefined
+                    }
                   />
+                  {email !== "" && !emailValid && (
+                    <span
+                      id="email-error"
+                      className="mt-1.5 block text-xs text-destructive font-[family-name:var(--font-ui)]"
+                    >
+                      Enter a valid email so Hunter can reach you.
+                    </span>
+                  )}
                 </Field>
                 <Field label="Company" optional>
                   <input
@@ -432,7 +474,10 @@ export default function IntakeForm({
               </div>
 
               {error && (
-                <p className="mt-5 text-sm text-destructive font-[family-name:var(--font-ui)]">
+                <p
+                  role="alert"
+                  className="mt-5 text-sm text-destructive font-[family-name:var(--font-ui)]"
+                >
                   {error}
                 </p>
               )}
@@ -482,6 +527,15 @@ export default function IntakeForm({
           )}
         </div>
       </div>
+
+      {!canAdvance() && gateHint() && (
+        <p
+          className="mt-3 text-right text-xs text-muted-fg font-[family-name:var(--font-ui)]"
+          aria-live="polite"
+        >
+          {gateHint()}
+        </p>
+      )}
     </div>
   );
 }
@@ -547,7 +601,8 @@ function Chip({
     <button
       type="button"
       onClick={onClick}
-      className={`font-[family-name:var(--font-ui)] text-sm px-4 py-2.5 rounded-full border transition-all duration-200 ${
+      aria-pressed={active}
+      className={`font-[family-name:var(--font-ui)] text-sm px-4 py-3 rounded-full border transition-all duration-200 ${
         active
           ? "border-primary text-primary bg-primary-soft"
           : "border-border/50 text-foreground/70 hover:border-primary/40 hover:text-foreground"

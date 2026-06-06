@@ -26,6 +26,11 @@ export default function CountUp({
     if (!inView || hasAnimated.current) return;
     hasAnimated.current = true;
 
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setCount(end);
+      return;
+    }
+
     const startTime = performance.now();
     const animate = (now: number) => {
       const elapsed = (now - startTime) / 1000;
@@ -39,7 +44,7 @@ export default function CountUp({
   }, [inView, end, duration]);
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={`tabular-nums ${className}`}>
       {prefix}
       {count}
       {suffix}

@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUp, viewport } from "@/lib/motion";
@@ -78,7 +78,7 @@ export default function Footer() {
               {[
                 { href: "/about", label: "About" },
                 { href: "/contact", label: "Contact" },
-                { href: "/contact#demo", label: "Get a Demo" },
+                { href: "/start", label: "Start a Project" },
                 { href: "/terms", label: "Terms of Service" },
               ].map((l) => (
                 <li key={l.label}>

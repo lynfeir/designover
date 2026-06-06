@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Syne, DM_Mono } from "next/font/google";
 import "./globals.css";
+import { ViewTransitions } from "next-view-transitions";
 import LenisProvider from "@/components/LenisProvider";
 import SiteChrome from "@/components/SiteChrome";
 
@@ -52,9 +53,11 @@ export default function RootLayout({
       className={`${cormorant.variable} ${syne.variable} ${dmMono.variable}`}
     >
       <body className="bg-background text-text-body antialiased">
-        <LenisProvider>
-          <SiteChrome>{children}</SiteChrome>
-        </LenisProvider>
+        <ViewTransitions>
+          <LenisProvider>
+            <SiteChrome>{children}</SiteChrome>
+          </LenisProvider>
+        </ViewTransitions>
       </body>
     </html>
   );

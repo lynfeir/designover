@@ -77,17 +77,19 @@ export default function AuthForm({
             <input type="hidden" name="redirect" value={redirectTo} />
 
             {mode === "signup" && (
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid sm:grid-cols-2 gap-3">
                 <input
                   name="fullName"
                   className="doa-input"
                   placeholder="Full name"
+                  aria-label="Full name"
                   autoComplete="name"
                 />
                 <input
                   name="company"
                   className="doa-input"
                   placeholder="Company"
+                  aria-label="Company"
                   autoComplete="organization"
                 />
               </div>
@@ -99,6 +101,7 @@ export default function AuthForm({
               required
               className="doa-input"
               placeholder="Email address"
+              aria-label="Email address"
               autoComplete="email"
             />
             <input
@@ -109,13 +112,19 @@ export default function AuthForm({
               placeholder={
                 mode === "signin" ? "Password" : "Password (8+ characters)"
               }
+              aria-label={
+                mode === "signin" ? "Password" : "Password, at least 8 characters"
+              }
               autoComplete={
                 mode === "signin" ? "current-password" : "new-password"
               }
             />
 
             {state?.error && (
-              <p className="text-sm text-destructive font-[family-name:var(--font-ui)]">
+              <p
+                role="alert"
+                className="text-sm text-destructive font-[family-name:var(--font-ui)]"
+              >
                 {state.error}
               </p>
             )}

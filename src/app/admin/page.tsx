@@ -3,7 +3,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { signOut } from "@/app/login/actions";
-import LeadCard from "@/components/admin/LeadCard";
+import AdminLeadList from "@/components/admin/AdminLeadList";
 import type { IntakeSubmission, Profile } from "@/lib/supabase/types";
 
 export const metadata: Metadata = {
@@ -128,11 +128,7 @@ export default async function AdminPage() {
               the intake form.
             </p>
           ) : (
-            <div className="space-y-3">
-              {all.map((lead) => (
-                <LeadCard key={lead.id} lead={lead} />
-              ))}
-            </div>
+            <AdminLeadList leads={all} />
           )}
         </section>
 

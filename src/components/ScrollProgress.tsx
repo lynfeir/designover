@@ -6,21 +6,32 @@ export default function ScrollProgress() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(docHeight > 0 ? window.scrollY / docHeight : 0);
     };
-
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    update();
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] h-[2px] pointer-events-none">
+    <div
+      aria-hidden
+      className="fixed top-0 left-0 right-0 z-[60] h-[2px] pointer-events-none"
+    >
       <div
-        className="h-full btn-shimmer transition-[width] duration-100 ease-out"
-        style={{ width: `${progress}%` }}
+        className="h-full w-full bg-primary origin-left"
+        style={{ transform: `scaleX(${progress})` }}
       />
     </div>
   );

@@ -17,7 +17,7 @@
   --color-border-light:   oklch(22% 0.015 270);
   --color-card:           oklch(12% 0.012 270);
   --color-card-hover:     oklch(15% 0.015 270);
-  --color-destructive:    oklch(55% 0.2 25);
+  --color-destructive:    oklch(64% 0.21 25);
   --color-success:        oklch(65% 0.15 145);
 
   /* Legacy compatibility for other pages */
@@ -181,22 +181,33 @@ h1, h2, h3, h4, h5, h6 {
   transform-origin: left;
 }
 
-/* ── Shimmer button ── */
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+/* ── Shimmer button (compositor-only sheen, no per-frame paint) ── */
+@keyframes sheen {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
 }
 .btn-shimmer {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(110deg, oklch(72% 0.14 75), oklch(80% 0.16 72));
+}
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: linear-gradient(
     110deg,
-    oklch(72% 0.14 75) 0%,
-    oklch(80% 0.16 72) 25%,
-    oklch(72% 0.14 75) 50%,
-    oklch(80% 0.16 72) 75%,
-    oklch(72% 0.14 75) 100%
+    transparent 35%,
+    oklch(100% 0 0 / 0.28) 50%,
+    transparent 65%
   );
-  background-size: 200% 100%;
-  animation: shimmer 3s linear infinite;
+  transform: translateX(-120%);
+  animation: sheen 3.5s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-shimmer::before { animation: none; }
 }
 
 /* ── Floating quote mark ── */
@@ -249,11 +260,26 @@ h1, h2, h3, h4, h5, h6 {
 .doa-input::placeholder {
   color: var(--color-text-muted);
 }
+.doa-input:hover:not(:focus) {
+  border-color: oklch(72% 0.14 75 / 0.25);
+}
 .doa-input:focus {
   outline: none;
   background: oklch(13% 0.014 270 / 0.7);
   border-color: oklch(72% 0.14 75 / 0.5);
   box-shadow: 0 0 0 3px oklch(72% 0.14 75 / 0.08), 0 0 24px oklch(72% 0.14 75 / 0.06);
+}
+.doa-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.doa-input--error,
+.doa-input--error:hover:not(:focus) {
+  border-color: var(--color-destructive);
+}
+.doa-input--error:focus {
+  border-color: var(--color-destructive);
+  box-shadow: 0 0 0 3px oklch(64% 0.21 25 / 0.14);
 }
 
 /* ── Stagger fade-in for lists ── */
@@ -262,10 +288,15 @@ h1, h2, h3, h4, h5, h6 {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Focus rings (gold outline) ── */
+/* ── Focus rings (gold outline, offset so it reads on any surface) ── */
 :focus-visible {
   outline: 2px solid oklch(72% 0.14 75);
-  outline-offset: 2px;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+/* Gold-on-gold would vanish — use a light outline on brand-filled controls */
+.btn-shimmer:focus-visible {
+  outline-color: oklch(96% 0.005 80);
 }
 
 /* ── Selection ── */
@@ -289,10 +320,23 @@ h1, h2, h3, h4, h5, h6 {
   background: oklch(40% 0.02 270);
 }
 
+/* ── View transition cross-fade between routes ── */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.42s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+}
+
 /* ── Cinematic film grain (static, GPU-cheap) ── */
 .cinematic-grain-layer {
-  opacity: 0.05;
-  mix-blend-mode: overlay;
+  opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 220px 220px;
 }

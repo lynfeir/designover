@@ -34,12 +34,23 @@ function fmtDate(s: string) {
 export default function LeadCard({ lead }: { lead: IntakeSubmission }) {
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState<SubmissionStatus>(lead.status);
-  const [pending, startTransition] = useTransition();
+  const [busy, setBusy] = useState<SubmissionStatus | null>(null);
+  const [errored, setErrored] = useState(false);
+  const [, startTransition] = useTransition();
 
   const change = (next: SubmissionStatus) => {
+    if (next === status || busy) return;
+    const prev = status;
     setStatus(next);
+    setBusy(next);
+    setErrored(false);
     startTransition(async () => {
-      await updateSubmissionStatus(lead.id, next);
+      const res = await updateSubmissionStatus(lead.id, next);
+      setBusy(null);
+      if (res?.error) {
+        setStatus(prev); // roll back the optimistic change
+        setErrored(true);
+      }
     });
   };
 
@@ -58,6 +69,8 @@ export default function LeadCard({ lead }: { lead: IntakeSubmission }) {
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        aria-controls={`lead-detail-${lead.id}`}
         className="w-full flex flex-wrap items-center justify-between gap-4 px-5 py-4 text-left hover:bg-card/50 transition-colors"
       >
         <div className="min-w-0">
@@ -77,6 +90,7 @@ export default function LeadCard({ lead }: { lead: IntakeSubmission }) {
           </span>
         </div>
         <span
+          aria-hidden
           className={`text-primary transition-transform duration-300 ${open ? "rotate-180" : ""}`}
         >
           ▾
@@ -86,6 +100,7 @@ export default function LeadCard({ lead }: { lead: IntakeSubmission }) {
       <AnimatePresence initial={false}>
         {open && (
           <motion.div
+            id={`lead-detail-${lead.id}`}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -147,18 +162,27 @@ export default function LeadCard({ lead }: { lead: IntakeSubmission }) {
                   <button
                     key={s}
                     type="button"
-                    disabled={pending}
+                    disabled={busy !== null}
+                    aria-pressed={status === s}
                     onClick={() => change(s)}
                     className={`font-[family-name:var(--font-ui)] text-xs px-3 py-1.5 rounded-full border transition-colors disabled:opacity-50 ${
                       status === s
                         ? "border-primary text-primary bg-primary-soft"
                         : "border-border/40 text-foreground/60 hover:border-primary/40"
-                    }`}
+                    } ${busy === s ? "animate-pulse" : ""}`}
                   >
                     {STATUS_LABEL[s]}
                   </button>
                 ))}
               </div>
+              {errored && (
+                <p
+                  role="alert"
+                  className="font-[family-name:var(--font-ui)] text-xs text-destructive"
+                >
+                  Couldn&apos;t update status — try again.
+                </p>
+              )}
             </div>
           </motion.div>
         )}
@@ -179,7 +203,7 @@ function Detail({
       <span className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-muted-fg block mb-1">
         {label}
       </span>
-      <span className="font-[family-name:var(--font-ui)] text-sm text-foreground/90">
+      <span className="font-[family-name:var(--font-ui)] text-sm text-foreground/90 break-words">
         {children}
       </span>
     </div>

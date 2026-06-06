@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer, viewport } from "@/lib/motion";
 
@@ -205,10 +205,10 @@ export default function PricingSection() {
             </p>
           </div>
           <Link
-            href="/contact"
+            href="/start"
             className="shrink-0 btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold text-sm px-7 py-3.5 tracking-[0.1em] uppercase"
           >
-            Get a Free ROI Analysis
+            Get an ROI Review
           </Link>
         </motion.div>
 
