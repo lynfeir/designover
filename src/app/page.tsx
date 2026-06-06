@@ -96,10 +96,11 @@ function TiltCard({
   );
 }
 
-/* ── Portfolio card — real screenshot, brightens on hover ── */
+/* ── Portfolio card — real screenshot or custom visual, brightens on hover ── */
 function PortfolioCard({
   href,
   img,
+  visual,
   name,
   niche,
   blurb,
@@ -107,8 +108,9 @@ function PortfolioCard({
   variant,
   titleClass = "text-2xl lg:text-3xl",
 }: {
-  href: string;
-  img: string;
+  href?: string;
+  img?: string;
+  visual?: React.ReactNode;
   name: string;
   niche: string;
   blurb?: string;
@@ -116,22 +118,20 @@ function PortfolioCard({
   variant?: Variants;
   titleClass?: string;
 }) {
-  return (
-    <motion.a
-      variants={variant ?? fadeUp}
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative block overflow-hidden border border-border/15 hover:border-primary/30 transition-colors duration-500"
-    >
+  const inner = (
+    <>
       <div className={`relative ${height} overflow-hidden`}>
-        <Image
-          src={img}
-          alt={`${name} website`}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
-        />
+        {visual ? (
+          visual
+        ) : (
+          <Image
+            src={img!}
+            alt={`${name} preview`}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-background/5 transition-colors duration-500 group-hover:via-background/25" />
       </div>
       <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-7">
@@ -144,17 +144,19 @@ function PortfolioCard({
           >
             {name}
           </h3>
-          <span className="shrink-0 w-10 h-10 rounded-full border border-foreground/15 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-500">
-            <svg
-              className="w-4 h-4 text-muted-fg group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-            </svg>
-          </span>
+          {href && (
+            <span className="shrink-0 w-10 h-10 rounded-full border border-foreground/15 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-500">
+              <svg
+                className="w-4 h-4 text-muted-fg group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+              </svg>
+            </span>
+          )}
         </div>
         {blurb && (
           <p className="font-[family-name:var(--font-ui)] text-muted-fg text-xs mt-2 max-w-md leading-relaxed max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 overflow-hidden">
@@ -163,7 +165,127 @@ function PortfolioCard({
         )}
         <div className="mt-3 h-px w-0 group-hover:w-20 bg-primary transition-all duration-700 ease-out" />
       </div>
-    </motion.a>
+    </>
+  );
+
+  const cls =
+    "group relative block overflow-hidden border border-border/15 hover:border-primary/30 transition-colors duration-500";
+
+  if (href) {
+    return (
+      <motion.a
+        variants={variant ?? fadeUp}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={cls}
+      >
+        {inner}
+      </motion.a>
+    );
+  }
+  return (
+    <motion.div variants={variant ?? fadeUp} className={cls}>
+      {inner}
+    </motion.div>
+  );
+}
+
+/* ── summDesign App — a sampled interface mockup (software, no public shot) ── */
+function SummDesignMockup() {
+  const nav = ["Overview", "Projects", "Clients", "Assets", "Billing"];
+  const tiles: [string, string][] = [
+    ["12", "Active"],
+    ["4", "Due"],
+    ["98%", "On-time"],
+  ];
+  const rows: [string, string, string][] = [
+    ["Atlanta Rebrand", "In review", "text-accent"],
+    ["Loaded Bites", "Launched", "text-success"],
+    ["RAFVAC Solutions", "In build", "text-primary"],
+  ];
+  return (
+    <div className="absolute inset-0 bg-[oklch(11%_0.012_270)] p-4 lg:p-5 flex flex-col gap-3 overflow-hidden select-none">
+      {/* App bar */}
+      <div className="flex items-center gap-2">
+        <span className="w-2.5 h-2.5 rounded-full bg-foreground/15" />
+        <span className="w-2.5 h-2.5 rounded-full bg-foreground/15" />
+        <span className="w-2.5 h-2.5 rounded-full bg-foreground/15" />
+        <span className="ml-3 font-[family-name:var(--font-ui)] text-xs font-bold tracking-tight text-foreground">
+          summ<span className="text-primary">Design</span>
+        </span>
+        <span className="ml-auto font-[family-name:var(--font-mono)] text-[8px] uppercase tracking-wider text-primary border border-primary/40 rounded-full px-2 py-0.5">
+          Pro
+        </span>
+      </div>
+      <div className="flex gap-3 flex-1 min-h-0">
+        {/* Sidebar */}
+        <div className="hidden sm:flex flex-col gap-1 w-20 shrink-0">
+          {nav.map((x, i) => (
+            <div
+              key={x}
+              className={`flex items-center gap-1.5 rounded px-1.5 py-1 ${
+                i === 1 ? "bg-primary/15" : ""
+              }`}
+            >
+              <span
+                className={`w-1.5 h-1.5 rotate-45 ${
+                  i === 1 ? "bg-primary" : "bg-foreground/20"
+                }`}
+              />
+              <span
+                className={`text-[8px] font-[family-name:var(--font-ui)] ${
+                  i === 1 ? "text-primary" : "text-foreground/40"
+                }`}
+              >
+                {x}
+              </span>
+            </div>
+          ))}
+        </div>
+        {/* Main */}
+        <div className="flex-1 min-w-0 flex flex-col gap-2">
+          <div className="grid grid-cols-3 gap-2">
+            {tiles.map(([v, l]) => (
+              <div
+                key={l}
+                className="rounded-md border border-border/40 bg-card/50 px-2 py-1.5"
+              >
+                <div className="font-[family-name:var(--font-mono)] text-primary text-sm font-bold leading-none tabular-nums">
+                  {v}
+                </div>
+                <div className="text-[8px] text-muted-fg uppercase tracking-wider mt-0.5">
+                  {l}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="rounded-md border border-border/40 bg-card/50 p-2">
+            <div className="flex justify-between text-[8px] text-muted-fg uppercase tracking-wider mb-1">
+              <span>Brand System</span>
+              <span className="text-primary tabular-nums">72%</span>
+            </div>
+            <div className="h-1 bg-border/40 rounded-full overflow-hidden">
+              <div className="h-full w-[72%] bg-primary rounded-full" />
+            </div>
+          </div>
+          <div className="rounded-md border border-border/40 bg-card/50 divide-y divide-border/30 overflow-hidden">
+            {rows.map(([n, s, c]) => (
+              <div key={n} className="flex items-center justify-between px-2 py-1.5">
+                <span className="text-[9px] text-foreground/70 font-[family-name:var(--font-ui)] truncate">
+                  {n}
+                </span>
+                <span
+                  className={`text-[8px] ${c} font-[family-name:var(--font-mono)] uppercase tracking-wider shrink-0 ml-2`}
+                >
+                  {s}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -554,149 +676,45 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={viewport}
-            className="mb-20 lg:mb-28"
+            className="mb-14 lg:mb-20 text-center"
           >
-            <motion.div variants={fadeUp} className="flex items-start gap-6 lg:gap-10">
-              <span
-                className="font-[family-name:var(--font-display)] text-[8rem] lg:text-[12rem] font-light leading-none select-none"
-                style={{ color: "oklch(72% 0.14 75 / 0.08)" }}
-              >
-                &sect;
+            <motion.div variants={fadeUp} className="flex flex-col items-center">
+              <span className="font-[family-name:var(--font-mono)] text-primary text-[10px] tracking-[0.4em] uppercase block mb-4">
+                Selected Work
               </span>
-              <div className="pt-6 lg:pt-10">
-                <span className="font-[family-name:var(--font-mono)] text-primary text-[10px] tracking-[0.4em] uppercase block mb-3">
-                  Selected Work
-                </span>
-                <h2 className="font-[family-name:var(--font-display)] text-4xl lg:text-[4.5rem] font-semibold leading-[0.95] tracking-tight">
-                  Sites We&apos;ve
-                  <br />
-                  <span className="italic font-light">Shipped</span>
-                </h2>
-                <div className="mt-5 w-16 h-px bg-primary" />
-              </div>
+              <h2 className="font-[family-name:var(--font-display)] text-4xl lg:text-[4.5rem] font-semibold leading-[0.95] tracking-tight">
+                Work We&apos;ve <span className="italic font-light">Shipped</span>
+              </h2>
+              <p className="text-muted-fg text-sm mt-4 max-w-md font-[family-name:var(--font-ui)]">
+                Real sites and tools, live for real businesses.
+              </p>
+              <div className="mt-6 w-16 h-px bg-primary mx-auto" />
             </motion.div>
           </motion.div>
 
-          {/* ── FEATURED — BookNest ── */}
-          <motion.a
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport}
-            href="https://booknst.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative block mb-5 overflow-hidden border border-border/15 hover:border-primary/30 transition-colors duration-500"
-          >
-            <div className="relative h-[22rem] sm:h-[26rem] lg:h-[34rem] overflow-hidden">
-              <Image
-                src="/portfolio/booknest.webp"
-                alt="BookNest website"
-                fill
-                sizes="(max-width: 1400px) 100vw, 1400px"
-                className="object-cover object-top transition-transform duration-[1400ms] ease-out group-hover:scale-[1.03]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/55 to-background/5" />
-              <div className="absolute inset-0 bg-gradient-to-r from-background/75 via-transparent to-transparent" />
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-              <div className="max-w-xl">
-                <div className="font-[family-name:var(--font-mono)] text-primary text-[10px] uppercase tracking-[0.3em] mb-3">
-                  Featured &middot; SaaS &middot; Book Tracking
-                </div>
-                <h3 className="font-[family-name:var(--font-display)] text-foreground text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight">
-                  <span className="inline-block group-hover:translate-x-2 transition-transform duration-500">
-                    BookNest
-                  </span>
-                </h3>
-                <p className="font-[family-name:var(--font-ui)] text-muted-fg text-sm mt-3 max-w-md leading-relaxed">
-                  A platform where readers collect, review, and highlight their
-                  favorite reads. Full-stack with auth, profiles, and social
-                  features.
-                </p>
-              </div>
-              <span className="shrink-0 w-14 h-14 rounded-full border border-foreground/15 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-500">
-                <svg className="w-5 h-5 text-muted-fg group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-                </svg>
-              </span>
-            </div>
-          </motion.a>
-
-          {/* ── Pair — CK Indie Films + Loaded Bites ── */}
+          {/* ── Centered grid — CK, Loaded Bites, Top Notch, RAFVAC, Fit4Lyfe, summDesign ── */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={viewport}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
           >
             <PortfolioCard
               href="https://www.ckindiefilms.com"
               img="/portfolio/ckindiefilms.webp"
               name="CK Film & Entertainment"
               niche="Film · Entertainment"
-              blurb="An indie film studio site with a cinematic feel, press, and a films archive. From Kentucky to the world."
-              height="h-72 lg:h-[24rem]"
-              variant={slideInLeft}
-              titleClass="text-2xl lg:text-4xl"
+              blurb="An indie film studio site with a cinematic feel, press, and a films archive."
+              height="h-64 sm:h-72 lg:h-80"
             />
             <PortfolioCard
               href="https://loadedbites.vercel.app"
               img="/portfolio/loadedbites.webp"
               name="Loaded Bites"
               niche="Restaurant · Halal"
-              blurb="A halal kitchen in Canton, GA with online ordering, catering, and a menu built to make you hungry."
-              height="h-72 lg:h-[24rem]"
-              variant={slideInRight}
-              titleClass="text-2xl lg:text-4xl"
-            />
-          </motion.div>
-
-          {/* ── Pair — Pine Crest Camp + Fit4Lyfe ── */}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5"
-          >
-            <PortfolioCard
-              href="https://pinecrestcamp.life/"
-              img="/portfolio/pinecrest.webp"
-              name="Pine Crest Camp"
-              niche="Recreation"
-              blurb="Trust-first design with a registration flow that converts worried parents into happy campers."
-              height="h-64 lg:h-80"
-              variant={slideInLeft}
-            />
-            <PortfolioCard
-              href="https://www.fit4lyfe.net/"
-              img="/portfolio/fit4lyfe.webp"
-              name="Fit4Lyfe"
-              niche="Fitness"
-              blurb="A membership fitness brand with class booking, subscriptions, and a member portal."
-              height="h-64 lg:h-80"
-              variant={slideInRight}
-            />
-          </motion.div>
-
-          {/* ── Trio — RAFVAC + Top Notch + Baasit ── */}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-5"
-          >
-            <PortfolioCard
-              href="https://rafvacsolutions.com/"
-              img="/portfolio/rafvac.webp"
-              name="RAFVAC Solutions"
-              niche="HVAC"
-              blurb="A service-area HVAC site built to turn searches into booked calls."
-              height="h-56 lg:h-64"
-              titleClass="text-xl lg:text-2xl"
+              blurb="A halal kitchen in Canton, GA with online ordering and catering."
+              height="h-64 sm:h-72 lg:h-80"
             />
             <PortfolioCard
               href="https://topnotch-omega.vercel.app/"
@@ -704,17 +722,30 @@ export default function Home() {
               name="Top Notch Roofing"
               niche="Construction"
               blurb="A roofing contractor site with clear quotes and fast contact."
-              height="h-56 lg:h-64"
-              titleClass="text-xl lg:text-2xl"
+              height="h-64 sm:h-72 lg:h-80"
             />
             <PortfolioCard
-              href="http://baasitsumra.fitness/"
-              img="/portfolio/baasit.webp"
-              name="Baasit Sumra"
-              niche="Coaching"
-              blurb="A personal coaching brand with a clean, motivating funnel."
-              height="h-56 lg:h-64"
-              titleClass="text-xl lg:text-2xl"
+              href="https://rafvacsolutions.com/"
+              img="/portfolio/rafvac.webp"
+              name="RAFVAC Solutions"
+              niche="HVAC"
+              blurb="A service-area HVAC site built to turn searches into booked calls."
+              height="h-64 sm:h-72 lg:h-80"
+            />
+            <PortfolioCard
+              href="https://www.fit4lyfe.net/"
+              img="/portfolio/fit4lyfe.webp"
+              name="Fit4Lyfe"
+              niche="Fitness"
+              blurb="A membership fitness brand with class booking and a member portal."
+              height="h-64 sm:h-72 lg:h-80"
+            />
+            <PortfolioCard
+              visual={<SummDesignMockup />}
+              name="summDesign App"
+              niche="Software · Design Studio"
+              blurb="A studio app for running design projects, clients, and billing in one place."
+              height="h-64 sm:h-72 lg:h-80"
             />
           </motion.div>
 
@@ -727,7 +758,7 @@ export default function Home() {
             className="mt-20 lg:mt-28 pt-8 border-t border-border/20 flex justify-between flex-wrap gap-y-6"
           >
             {[
-              { val: "8", label: "live sites shown" },
+              { val: "6", label: "projects shown" },
               { val: "150+", label: "total shipped" },
               { val: "100%", label: "demo-first" },
               { val: "5+", label: "years running" },
