@@ -16,6 +16,7 @@ import {
 import CountUp from "@/components/CountUp";
 import PricingSection from "@/components/PricingSection";
 import ParallaxSection from "@/components/ParallaxSection";
+import HeroVideo from "@/components/HeroVideo";
 
 /* ── Word-by-word stagger for headlines ── */
 function AnimatedHeadline({
@@ -108,6 +109,10 @@ export default function Home() {
               className="object-cover object-center opacity-45 scale-110"
               priority
             />
+            {/* Living hero — drifting clouds + shifting light (desktop, motion-on) */}
+            <div className="absolute inset-0 opacity-45 scale-110">
+              <HeroVideo src="/cinematic/hero-loop.mp4" />
+            </div>
           </div>
         </ParallaxSection>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/40" />
