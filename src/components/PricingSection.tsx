@@ -117,7 +117,7 @@ export default function PricingSection() {
             variants={fadeUp}
             className="relative bg-card border border-primary/30 p-8 flex flex-col shadow-gold transition-all duration-500 hover:shadow-[0_0_60px_oklch(72%_0.14_75/0.2)]"
           >
-            <div className="absolute top-0 left-0 right-0 h-1 btn-shimmer" />
+            <div className="absolute top-0 left-0 right-0 h-1 gold-fill" />
             <div className="font-[family-name:var(--font-ui)] flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-primary mb-4">
               Professional
             </div>

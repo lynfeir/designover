@@ -35,7 +35,7 @@ export default async function StartPage() {
   }
 
   return (
-    <main className="relative min-h-screen bg-background overflow-hidden">
+    <div className="relative min-h-screen bg-background overflow-hidden">
       {/* Cinematic ambient backdrop */}
       <Image
         src="/cinematic/ambient-bloom.webp"
@@ -69,6 +69,6 @@ export default async function StartPage() {
           initialCompany={initialCompany}
         />
       </div>
-    </main>
+    </div>
   );
 }

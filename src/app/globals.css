@@ -54,9 +54,8 @@
 }
 
 /* ── Base Styles ── */
-html {
-  scroll-behavior: smooth;
-}
+/* Smooth scrolling is owned by Lenis (and off under reduced-motion), so no
+   native scroll-behavior here — the two would fight on anchor jumps. */
 
 body {
   font-family: var(--font-ui), -apple-system, BlinkMacSystemFont, sans-serif;
@@ -213,6 +212,11 @@ p {
 }
 @media (prefers-reduced-motion: reduce) {
   .btn-shimmer::before { animation: none; }
+}
+
+/* Static gold gradient fill (no sheen) for decorative accents */
+.gold-fill {
+  background: linear-gradient(110deg, oklch(72% 0.14 75), oklch(80% 0.16 72));
 }
 
 /* ── Floating quote mark ── */
