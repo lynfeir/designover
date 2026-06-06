@@ -96,15 +96,7 @@ function TiltCard({
   );
 }
 
-function safeHost(url: string) {
-  try {
-    return new URL(url).hostname.replace(/^www\./, "");
-  } catch {
-    return "";
-  }
-}
-
-/* ── Portfolio card — a browser-framed preview that reshapes per device ── */
+/* ── Portfolio card — clean site preview that scales to any device ── */
 function PortfolioCard({
   href,
   img,
@@ -113,7 +105,6 @@ function PortfolioCard({
   niche,
   blurb,
   variant,
-  domain,
 }: {
   href?: string;
   img?: string;
@@ -122,57 +113,42 @@ function PortfolioCard({
   niche: string;
   blurb?: string;
   variant?: Variants;
-  domain?: string;
 }) {
-  const host = domain ?? (href ? safeHost(href) : "");
   const inner = (
     <>
-      {/* Browser frame */}
-      <div className="overflow-hidden rounded-xl border border-border/15 bg-[oklch(13%_0.012_270)] group-hover:border-primary/30 transition-colors duration-500">
-        <div className="flex items-center gap-1.5 px-3 py-2.5 border-b border-border/10">
-          <span className="w-2.5 h-2.5 rounded-full bg-foreground/15" />
-          <span className="w-2.5 h-2.5 rounded-full bg-foreground/15" />
-          <span className="w-2.5 h-2.5 rounded-full bg-foreground/15" />
-          {host && (
-            <span className="ml-2 flex-1 truncate text-center font-[family-name:var(--font-mono)] text-[10px] text-muted-fg bg-background/50 rounded px-2 py-0.5">
-              {host}
-            </span>
-          )}
-        </div>
-        <div className="relative aspect-[16/10] overflow-hidden bg-background">
-          {visual ? (
-            visual
-          ) : (
-            <Image
-              src={img!}
-              alt={`${name} preview`}
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-            />
-          )}
-        </div>
-      </div>
-
-      {/* Caption */}
-      <div className="pt-4 flex items-start justify-between gap-3">
-        <div className="min-w-0">
-          <div className="font-[family-name:var(--font-mono)] text-primary text-[10px] uppercase tracking-[0.25em] mb-1.5">
-            {niche}
-          </div>
-          <h3 className="font-[family-name:var(--font-display)] text-foreground text-xl lg:text-2xl font-semibold tracking-tight truncate group-hover:text-primary transition-colors duration-300">
-            {name}
-          </h3>
-          {blurb && (
-            <p className="font-[family-name:var(--font-ui)] text-muted-fg text-xs mt-1.5 leading-relaxed line-clamp-2">
+      <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border/15 bg-background group-hover:border-primary/40 transition-colors duration-500 shadow-[0_14px_44px_-18px_oklch(0%_0_0/0.65)]">
+        {visual ? (
+          visual
+        ) : (
+          <Image
+            src={img!}
+            alt={`${name} preview`}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+          />
+        )}
+        {blurb && (
+          <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-background/90 via-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p className="font-[family-name:var(--font-ui)] text-foreground/90 text-xs leading-relaxed">
               {blurb}
             </p>
-          )}
+          </div>
+        )}
+      </div>
+      <div className="mt-3 flex items-center justify-between gap-3">
+        <div className="min-w-0">
+          <div className="font-[family-name:var(--font-mono)] text-primary text-[10px] uppercase tracking-[0.25em] mb-1">
+            {niche}
+          </div>
+          <h3 className="font-[family-name:var(--font-display)] text-foreground text-lg lg:text-xl font-semibold tracking-tight truncate group-hover:text-primary transition-colors duration-300">
+            {name}
+          </h3>
         </div>
         {href && (
-          <span className="shrink-0 mt-0.5 w-9 h-9 rounded-full border border-foreground/15 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-500">
+          <span className="shrink-0 w-8 h-8 rounded-full border border-foreground/15 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-500">
             <svg
-              className="w-4 h-4 text-muted-fg group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-500"
+              className="w-3.5 h-3.5 text-muted-fg group-hover:text-primary transition-colors"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -571,7 +547,7 @@ export default function Home() {
       </section>
 
       {/* ━━━━ PORTFOLIO — Editorial case-study grid ━━━━ */}
-      <section className="py-28 lg:py-40 bg-background relative overflow-hidden">
+      <section className="py-20 lg:py-28 bg-background relative overflow-hidden">
         {/* Subtle diagonal grain */}
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -654,7 +630,6 @@ export default function Home() {
             />
             <PortfolioCard
               img="/portfolio/summdesign.webp"
-              domain="summdesign.app"
               name="summDesign App"
               niche="Software · Design Studio"
               blurb="A studio app for running design projects, clients, and billing in one place. Built in-house."
