@@ -96,7 +96,15 @@ function TiltCard({
   );
 }
 
-/* ── Portfolio card — real screenshot or custom visual, brightens on hover ── */
+function safeHost(url: string) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return "";
+  }
+}
+
+/* ── Portfolio card — a browser-framed preview that reshapes per device ── */
 function PortfolioCard({
   href,
   img,
@@ -104,9 +112,8 @@ function PortfolioCard({
   name,
   niche,
   blurb,
-  height,
   variant,
-  titleClass = "text-2xl lg:text-3xl",
+  domain,
 }: {
   href?: string;
   img?: string;
@@ -114,62 +121,70 @@ function PortfolioCard({
   name: string;
   niche: string;
   blurb?: string;
-  height: string;
   variant?: Variants;
-  titleClass?: string;
+  domain?: string;
 }) {
+  const host = domain ?? (href ? safeHost(href) : "");
   const inner = (
     <>
-      <div className={`relative ${height} overflow-hidden`}>
-        {visual ? (
-          visual
-        ) : (
-          <Image
-            src={img!}
-            alt={`${name} preview`}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-background/5 transition-colors duration-500 group-hover:via-background/25" />
-      </div>
-      <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-7">
-        <div className="font-[family-name:var(--font-mono)] text-primary text-[10px] uppercase tracking-[0.3em] mb-2">
-          {niche}
-        </div>
-        <div className="flex items-center justify-between gap-4">
-          <h3
-            className={`font-[family-name:var(--font-display)] text-foreground ${titleClass} font-semibold tracking-tight group-hover:translate-x-1 transition-transform duration-500`}
-          >
-            {name}
-          </h3>
-          {href && (
-            <span className="shrink-0 w-10 h-10 rounded-full border border-foreground/15 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-500">
-              <svg
-                className="w-4 h-4 text-muted-fg group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-              </svg>
+      {/* Browser frame */}
+      <div className="overflow-hidden rounded-xl border border-border/15 bg-[oklch(13%_0.012_270)] group-hover:border-primary/30 transition-colors duration-500">
+        <div className="flex items-center gap-1.5 px-3 py-2.5 border-b border-border/10">
+          <span className="w-2.5 h-2.5 rounded-full bg-foreground/15" />
+          <span className="w-2.5 h-2.5 rounded-full bg-foreground/15" />
+          <span className="w-2.5 h-2.5 rounded-full bg-foreground/15" />
+          {host && (
+            <span className="ml-2 flex-1 truncate text-center font-[family-name:var(--font-mono)] text-[10px] text-muted-fg bg-background/50 rounded px-2 py-0.5">
+              {host}
             </span>
           )}
         </div>
-        {blurb && (
-          <p className="font-[family-name:var(--font-ui)] text-muted-fg text-xs mt-2 max-w-md leading-relaxed max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-2 transition-all duration-500 overflow-hidden">
-            {blurb}
-          </p>
+        <div className="relative aspect-[16/10] overflow-hidden bg-background">
+          {visual ? (
+            visual
+          ) : (
+            <Image
+              src={img!}
+              alt={`${name} preview`}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+            />
+          )}
+        </div>
+      </div>
+
+      {/* Caption */}
+      <div className="pt-4 flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <div className="font-[family-name:var(--font-mono)] text-primary text-[10px] uppercase tracking-[0.25em] mb-1.5">
+            {niche}
+          </div>
+          <h3 className="font-[family-name:var(--font-display)] text-foreground text-xl lg:text-2xl font-semibold tracking-tight truncate group-hover:text-primary transition-colors duration-300">
+            {name}
+          </h3>
+          {blurb && (
+            <p className="font-[family-name:var(--font-ui)] text-muted-fg text-xs mt-1.5 leading-relaxed line-clamp-2">
+              {blurb}
+            </p>
+          )}
+        </div>
+        {href && (
+          <span className="shrink-0 mt-0.5 w-9 h-9 rounded-full border border-foreground/15 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all duration-500">
+            <svg
+              className="w-4 h-4 text-muted-fg group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+            </svg>
+          </span>
         )}
-        <div className="mt-3 h-px w-0 group-hover:w-20 bg-primary transition-all duration-700 ease-out" />
       </div>
     </>
   );
-
-  const cls =
-    "group relative block overflow-hidden border border-border/15 hover:border-primary/30 transition-colors duration-500";
 
   if (href) {
     return (
@@ -178,114 +193,16 @@ function PortfolioCard({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className={cls}
+        className="group block"
       >
         {inner}
       </motion.a>
     );
   }
   return (
-    <motion.div variants={variant ?? fadeUp} className={cls}>
+    <motion.div variants={variant ?? fadeUp} className="group block">
       {inner}
     </motion.div>
-  );
-}
-
-/* ── summDesign App — a sampled interface mockup (software, no public shot) ── */
-function SummDesignMockup() {
-  const nav = ["Overview", "Projects", "Clients", "Assets", "Billing"];
-  const tiles: [string, string][] = [
-    ["12", "Active"],
-    ["4", "Due"],
-    ["98%", "On-time"],
-  ];
-  const rows: [string, string, string][] = [
-    ["Atlanta Rebrand", "In review", "text-accent"],
-    ["Loaded Bites", "Launched", "text-success"],
-    ["RAFVAC Solutions", "In build", "text-primary"],
-  ];
-  return (
-    <div className="absolute inset-0 bg-[oklch(11%_0.012_270)] p-4 lg:p-5 flex flex-col gap-3 overflow-hidden select-none">
-      {/* App bar */}
-      <div className="flex items-center gap-2">
-        <span className="w-2.5 h-2.5 rounded-full bg-foreground/15" />
-        <span className="w-2.5 h-2.5 rounded-full bg-foreground/15" />
-        <span className="w-2.5 h-2.5 rounded-full bg-foreground/15" />
-        <span className="ml-3 font-[family-name:var(--font-ui)] text-xs font-bold tracking-tight text-foreground">
-          summ<span className="text-primary">Design</span>
-        </span>
-        <span className="ml-auto font-[family-name:var(--font-mono)] text-[8px] uppercase tracking-wider text-primary border border-primary/40 rounded-full px-2 py-0.5">
-          Pro
-        </span>
-      </div>
-      <div className="flex gap-3 flex-1 min-h-0">
-        {/* Sidebar */}
-        <div className="hidden sm:flex flex-col gap-1 w-20 shrink-0">
-          {nav.map((x, i) => (
-            <div
-              key={x}
-              className={`flex items-center gap-1.5 rounded px-1.5 py-1 ${
-                i === 1 ? "bg-primary/15" : ""
-              }`}
-            >
-              <span
-                className={`w-1.5 h-1.5 rotate-45 ${
-                  i === 1 ? "bg-primary" : "bg-foreground/20"
-                }`}
-              />
-              <span
-                className={`text-[8px] font-[family-name:var(--font-ui)] ${
-                  i === 1 ? "text-primary" : "text-foreground/40"
-                }`}
-              >
-                {x}
-              </span>
-            </div>
-          ))}
-        </div>
-        {/* Main */}
-        <div className="flex-1 min-w-0 flex flex-col gap-2">
-          <div className="grid grid-cols-3 gap-2">
-            {tiles.map(([v, l]) => (
-              <div
-                key={l}
-                className="rounded-md border border-border/40 bg-card/50 px-2 py-1.5"
-              >
-                <div className="font-[family-name:var(--font-mono)] text-primary text-sm font-bold leading-none tabular-nums">
-                  {v}
-                </div>
-                <div className="text-[8px] text-muted-fg uppercase tracking-wider mt-0.5">
-                  {l}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="rounded-md border border-border/40 bg-card/50 p-2">
-            <div className="flex justify-between text-[8px] text-muted-fg uppercase tracking-wider mb-1">
-              <span>Brand System</span>
-              <span className="text-primary tabular-nums">72%</span>
-            </div>
-            <div className="h-1 bg-border/40 rounded-full overflow-hidden">
-              <div className="h-full w-[72%] bg-primary rounded-full" />
-            </div>
-          </div>
-          <div className="rounded-md border border-border/40 bg-card/50 divide-y divide-border/30 overflow-hidden">
-            {rows.map(([n, s, c]) => (
-              <div key={n} className="flex items-center justify-between px-2 py-1.5">
-                <span className="text-[9px] text-foreground/70 font-[family-name:var(--font-ui)] truncate">
-                  {n}
-                </span>
-                <span
-                  className={`text-[8px] ${c} font-[family-name:var(--font-mono)] uppercase tracking-wider shrink-0 ml-2`}
-                >
-                  {s}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }
 
@@ -706,7 +623,6 @@ export default function Home() {
               name="CK Film & Entertainment"
               niche="Film · Entertainment"
               blurb="An indie film studio site with a cinematic feel, press, and a films archive."
-              height="h-64 sm:h-72 lg:h-80"
             />
             <PortfolioCard
               href="https://loadedbites.vercel.app"
@@ -714,7 +630,6 @@ export default function Home() {
               name="Loaded Bites"
               niche="Restaurant · Halal"
               blurb="A halal kitchen in Canton, GA with online ordering and catering."
-              height="h-64 sm:h-72 lg:h-80"
             />
             <PortfolioCard
               href="https://topnotch-omega.vercel.app/"
@@ -722,7 +637,6 @@ export default function Home() {
               name="Top Notch Roofing"
               niche="Construction"
               blurb="A roofing contractor site with clear quotes and fast contact."
-              height="h-64 sm:h-72 lg:h-80"
             />
             <PortfolioCard
               href="https://rafvacsolutions.com/"
@@ -730,7 +644,6 @@ export default function Home() {
               name="RAFVAC Solutions"
               niche="HVAC"
               blurb="A service-area HVAC site built to turn searches into booked calls."
-              height="h-64 sm:h-72 lg:h-80"
             />
             <PortfolioCard
               href="https://www.fit4lyfe.net/"
@@ -738,14 +651,13 @@ export default function Home() {
               name="Fit4Lyfe"
               niche="Fitness"
               blurb="A membership fitness brand with class booking and a member portal."
-              height="h-64 sm:h-72 lg:h-80"
             />
             <PortfolioCard
-              visual={<SummDesignMockup />}
+              img="/portfolio/summdesign.webp"
+              domain="summdesign.app"
               name="summDesign App"
               niche="Software · Design Studio"
-              blurb="A studio app for running design projects, clients, and billing in one place."
-              height="h-64 sm:h-72 lg:h-80"
+              blurb="A studio app for running design projects, clients, and billing in one place. Built in-house."
             />
           </motion.div>
 
