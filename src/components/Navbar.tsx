@@ -75,12 +75,20 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
-          <li className="ml-4">
+          <li className="ml-2">
             <Link
-              href="/contact"
+              href="/login"
+              className="font-[family-name:var(--font-ui)] text-sm font-medium uppercase tracking-[0.15em] text-foreground/60 hover:text-primary transition-colors px-3 py-2 underline-draw"
+            >
+              Login
+            </Link>
+          </li>
+          <li className="ml-1">
+            <Link
+              href="/start"
               className="btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold text-sm px-6 py-2.5 uppercase tracking-[0.1em] transition-transform hover:scale-105"
             >
-              Get a Demo
+              Start a Project
             </Link>
           </li>
         </ul>
@@ -144,13 +152,21 @@ export default function Navbar() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.4 }}
+              className="mt-6 flex flex-col items-center gap-4"
             >
               <Link
-                href="/contact"
+                href="/start"
                 onClick={() => setOpen(false)}
-                className="mt-6 btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold px-10 py-4 text-sm uppercase tracking-[0.15em] inline-block"
+                className="btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold px-10 py-4 text-sm uppercase tracking-[0.15em] inline-block"
               >
-                Get a Demo
+                Start a Project
+              </Link>
+              <Link
+                href="/login"
+                onClick={() => setOpen(false)}
+                className="font-[family-name:var(--font-ui)] text-sm uppercase tracking-[0.15em] text-foreground/60 hover:text-primary transition-colors"
+              >
+                Client Login
               </Link>
             </motion.div>
           </motion.div>

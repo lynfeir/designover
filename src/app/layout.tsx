@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Syne, DM_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import LenisProvider from "@/components/LenisProvider";
-import ScrollProgress from "@/components/ScrollProgress";
+import SiteChrome from "@/components/SiteChrome";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -55,10 +53,7 @@ export default function RootLayout({
     >
       <body className="bg-background text-text-body antialiased">
         <LenisProvider>
-          <ScrollProgress />
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+          <SiteChrome>{children}</SiteChrome>
         </LenisProvider>
       </body>
     </html>

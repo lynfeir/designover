@@ -102,10 +102,10 @@ export default function Home() {
         <ParallaxSection speed={0.3} className="absolute inset-0">
           <div className="absolute inset-0">
             <Image
-              src="/hero-workspace.jpg"
+              src="/cinematic/hero-atlanta.webp"
               alt=""
               fill
-              className="object-cover object-center opacity-30 scale-110"
+              className="object-cover object-center opacity-45 scale-110"
               priority
             />
           </div>
@@ -160,10 +160,10 @@ export default function Home() {
             </p>
             <div className="flex gap-4 flex-wrap">
               <Link
-                href="/contact"
+                href="/start"
                 className="btn-shimmer text-background font-[family-name:var(--font-ui)] font-bold px-8 py-4 text-sm tracking-[0.15em] uppercase transition-transform hover:scale-105"
               >
-                Get Your Free Demo
+                Start Your Project
               </Link>
               <Link
                 href="/services"
@@ -218,6 +218,40 @@ export default function Home() {
               <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ━━━━ CINEMATIC INTERLUDE ━━━━ */}
+      <section className="relative h-[85vh] min-h-[540px] flex items-center justify-center overflow-hidden bg-background">
+        <ParallaxSection speed={0.4} className="absolute inset-0">
+          <Image
+            src="/cinematic/automation-flow.webp"
+            alt=""
+            fill
+            className="object-cover object-center opacity-40 scale-110"
+          />
+        </ParallaxSection>
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
+        <div className="absolute inset-0 bg-beams pointer-events-none" />
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewport}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="relative z-10 text-center px-6 max-w-3xl"
+        >
+          <span className="font-[family-name:var(--font-mono)] text-primary text-xs tracking-[0.35em] uppercase block mb-6">
+            Design over Atlanta
+          </span>
+          <h2 className="font-[family-name:var(--font-display)] text-[clamp(2rem,6vw,4.5rem)] font-semibold leading-[1.0] tracking-tight">
+            Where <span className="italic font-light">vision</span> becomes{" "}
+            <span className="text-gold-gradient">infrastructure</span>.
+          </h2>
+          <p className="mt-6 text-muted-fg text-base lg:text-lg max-w-xl mx-auto font-[family-name:var(--font-ui)]">
+            We don&apos;t just make things look good. We build the systems
+            underneath that make a business actually run.
+          </p>
         </motion.div>
       </section>
 

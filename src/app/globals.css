@@ -234,6 +234,28 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.005);
 }
 
+/* ── Form input (shared across intake, auth, contact) ── */
+.doa-input {
+  width: 100%;
+  background: oklch(12% 0.012 270 / 0.5);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: var(--color-foreground);
+  font-family: var(--font-ui), sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.doa-input::placeholder {
+  color: var(--color-text-muted);
+}
+.doa-input:focus {
+  outline: none;
+  background: oklch(13% 0.014 270 / 0.7);
+  border-color: oklch(72% 0.14 75 / 0.5);
+  box-shadow: 0 0 0 3px oklch(72% 0.14 75 / 0.08), 0 0 24px oklch(72% 0.14 75 / 0.06);
+}
+
 /* ── Stagger fade-in for lists ── */
 @keyframes stagger-in {
   from { opacity: 0; transform: translateY(16px); }
