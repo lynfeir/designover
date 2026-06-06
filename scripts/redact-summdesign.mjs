@@ -20,11 +20,16 @@ const overlays = boxes.map((b) => ({
 }));
 
 // Two stages: composite at full size first (sharp would otherwise resize
-// before compositing and the blocks would drift), then resize for the web.
+// before compositing and the blocks would drift), then crop to 16:10 (trim
+// the empty right gutter so it fills the card without cropping the sidebar),
+// then resize for the web.
 const composited = await sharp(SRC).composite(overlays).png().toBuffer();
+const meta = await sharp(composited).metadata();
+const cropW = Math.min(meta.width, Math.round((meta.height * 16) / 10));
 await sharp(composited)
+  .extract({ left: 0, top: 0, width: cropW, height: meta.height })
   .resize({ width: 1600, withoutEnlargement: true })
   .webp({ quality: 82 })
   .toFile(OUT);
 
-console.log("redacted -> " + OUT);
+console.log(`redacted -> ${OUT} (cropped to ${cropW}x${meta.height})`);
