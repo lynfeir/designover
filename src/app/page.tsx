@@ -241,6 +241,9 @@ export default function Home() {
             quality={60}
             className="object-cover object-center opacity-40 scale-110"
           />
+          <div className="absolute inset-0 opacity-40 scale-110">
+            <HeroVideo src="/cinematic/interlude-loop.mp4" />
+          </div>
         </ParallaxSection>
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
         <div className="absolute inset-0 bg-beams pointer-events-none" />

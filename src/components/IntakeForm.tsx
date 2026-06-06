@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   PROJECT_TYPES,
@@ -45,6 +45,48 @@ export default function IntakeForm({
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+
+  const DRAFT_KEY = "doa-intake-draft";
+
+  // Restore an in-progress brief (project details only, never contact PII).
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(DRAFT_KEY);
+      if (!saved) return;
+      const d = JSON.parse(saved);
+      if (d.projectType) setProjectType(d.projectType);
+      if (d.projectName) setProjectName(d.projectName);
+      if (d.description) setDescription(d.description);
+      if (d.goals) setGoals(d.goals);
+      if (Array.isArray(d.pages)) setPages(d.pages);
+      if (Array.isArray(d.features)) setFeatures(d.features);
+      if (d.budget) setBudget(d.budget);
+      if (d.timeline) setTimeline(d.timeline);
+    } catch {
+      /* ignore malformed drafts */
+    }
+  }, []);
+
+  // Persist the brief as it's built so a refresh doesn't lose the work.
+  useEffect(() => {
+    try {
+      localStorage.setItem(
+        DRAFT_KEY,
+        JSON.stringify({
+          projectType,
+          projectName,
+          description,
+          goals,
+          pages,
+          features,
+          budget,
+          timeline,
+        })
+      );
+    } catch {
+      /* storage may be unavailable (private mode) */
+    }
+  }, [projectType, projectName, description, goals, pages, features, budget, timeline]);
 
   const toggle = (arr: string[], v: string) =>
     arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v];
@@ -105,6 +147,11 @@ export default function IntakeForm({
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Submission failed");
       setSubmitted(true);
+      try {
+        localStorage.removeItem(DRAFT_KEY);
+      } catch {
+        /* noop */
+      }
     } catch (e) {
       setError(e instanceof Error ? e.message : "Something went wrong.");
     } finally {
