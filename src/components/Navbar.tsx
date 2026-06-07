@@ -89,11 +89,11 @@ export default function Navbar() {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <Image
-              src="/doa-logo-transparent-square-1024.png"
+              src="/logo-skyline.png"
               alt=""
-              width={36}
-              height={36}
-              className="brightness-0 invert transition-transform duration-300 group-hover:scale-110"
+              width={38}
+              height={38}
+              className="transition-transform duration-300 group-hover:scale-110"
             />
           </motion.div>
           <span className="font-[family-name:var(--font-ui)] font-bold text-lg tracking-tight text-foreground">

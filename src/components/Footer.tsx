@@ -17,11 +17,10 @@ export default function Footer() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewport}>
             <div className="flex items-center gap-3 mb-5">
               <Image
-                src="/doa-logo-transparent-square-1024.png"
-                alt="Design Over Atlanta"
-                width={32}
-                height={32}
-                className="brightness-0 invert"
+                src="/logo-skyline.png"
+                alt="Design over Atlanta"
+                width={34}
+                height={34}
               />
               <h4 className="font-[family-name:var(--font-ui)] font-bold text-lg text-foreground">
                 Design <span className="text-primary">over</span> Atlanta

@@ -33,12 +33,32 @@ export const metadata: Metadata = {
   description:
     "Custom websites from $399 in 48 hours. Business automation tools that eliminate manual work. We find what's costing you money and we kill it. Based in Atlanta, GA.",
   icons: {
-    icon: "/doa-logo-transparent-square-1024.png",
-    shortcut: "/doa-logo-transparent-square-1024.png",
-    apple: "/doa-logo-transparent-square-1024.png",
+    icon: "/logo-skyline.svg",
+    shortcut: "/logo-skyline.png",
+    apple: "/logo-skyline.png",
   },
   openGraph: {
-    images: [{ url: "/doa-logo-transparent-square-1024.png" }],
+    title: "Design over Atlanta",
+    description:
+      "Custom websites and automation, from $399 in 48 hours. Atlanta, GA.",
+    url: "https://designoveratlanta.com",
+    siteName: "Design over Atlanta",
+    type: "website",
+    images: [
+      {
+        url: "/og-banner.png",
+        width: 1200,
+        height: 630,
+        alt: "Design over Atlanta",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Design over Atlanta",
+    description:
+      "Custom websites and automation, from $399 in 48 hours. Atlanta, GA.",
+    images: ["/og-banner.png"],
   },
 };
 
