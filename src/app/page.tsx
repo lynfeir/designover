@@ -116,7 +116,7 @@ function PortfolioCard({
 }) {
   const inner = (
     <>
-      <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border/15 bg-background group-hover:border-primary/40 transition-colors duration-500 shadow-[0_14px_44px_-18px_oklch(0%_0_0/0.65)]">
+      <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-border/15 bg-background group-hover:border-primary/40 transition-colors duration-500 shadow-[0_14px_44px_-18px_oklch(0%_0_0/0.65)]">
         {visual ? (
           visual
         ) : (
