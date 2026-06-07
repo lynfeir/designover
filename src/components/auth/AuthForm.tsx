@@ -131,6 +131,17 @@ export default function AuthForm({
               }
             />
 
+            {mode === "signin" && (
+              <div className="text-right -mt-1">
+                <Link
+                  href="/forgot"
+                  className="font-[family-name:var(--font-ui)] text-xs text-muted-fg hover:text-primary transition-colors"
+                >
+                  Forgot password?
+                </Link>
+              </div>
+            )}
+
             {state?.error && (
               <p
                 role="alert"
