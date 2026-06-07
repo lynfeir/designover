@@ -120,6 +120,12 @@ export default async function PortalPage() {
             >
               + New Project
             </Link>
+            <Link
+              href="/account"
+              className="font-[family-name:var(--font-ui)] text-xs uppercase tracking-[0.15em] text-foreground/60 hover:text-foreground transition-colors"
+            >
+              Account
+            </Link>
             <form action={signOut}>
               <button
                 type="submit"

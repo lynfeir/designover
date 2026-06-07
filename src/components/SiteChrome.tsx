@@ -7,7 +7,14 @@ import ScrollProgress from "@/components/ScrollProgress";
 import CinematicFX from "@/components/CinematicFX";
 
 /** Routes that own their full-screen layout — no marketing nav/footer. */
-const BARE = ["/login", "/portal", "/admin", "/forgot", "/reset"];
+const BARE = [
+  "/login",
+  "/portal",
+  "/admin",
+  "/forgot",
+  "/reset",
+  "/account",
+];
 
 export default function SiteChrome({
   children,
