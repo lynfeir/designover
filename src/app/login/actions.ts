@@ -7,6 +7,8 @@ import { provisionStarterDashboard } from "@/lib/provision";
 
 export type AuthState = { error?: string } | undefined;
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 async function destinationFor(userId: string): Promise<string> {
   const supabase = await createClient();
   const { data } = await supabase
@@ -21,11 +23,12 @@ export async function signIn(
   _prev: AuthState,
   formData: FormData
 ): Promise<AuthState> {
-  const email = String(formData.get("email") || "").trim();
+  const email = String(formData.get("email") || "").trim().toLowerCase();
   const password = String(formData.get("password") || "");
   const wanted = String(formData.get("redirect") || "");
 
   if (!email || !password) return { error: "Email and password are required." };
+  if (!EMAIL_RE.test(email)) return { error: "Enter a valid email address." };
 
   const supabase = await createClient();
   const { data, error } = await supabase.auth.signInWithPassword({
@@ -34,10 +37,9 @@ export async function signIn(
   });
   if (error) return { error: "That email and password don't match." };
 
-  const dest =
-    wanted && wanted.startsWith("/")
-      ? wanted
-      : await destinationFor(data.user.id);
+  // Only allow internal, single-slash paths (blocks //evil.com open redirects).
+  const safeRedirect = wanted.startsWith("/") && !wanted.startsWith("//");
+  const dest = safeRedirect ? wanted : await destinationFor(data.user.id);
   redirect(dest);
 }
 
@@ -47,11 +49,12 @@ export async function signUp(
 ): Promise<AuthState> {
   const fullName = String(formData.get("fullName") || "").trim();
   const company = String(formData.get("company") || "").trim();
-  const email = String(formData.get("email") || "").trim();
+  const email = String(formData.get("email") || "").trim().toLowerCase();
   const password = String(formData.get("password") || "");
 
   if (!email || !password)
     return { error: "Email and password are required." };
+  if (!EMAIL_RE.test(email)) return { error: "Enter a valid email address." };
   if (password.length < 8)
     return { error: "Use at least 8 characters for your password." };
 
@@ -73,8 +76,14 @@ export async function signUp(
   }
 
   // Build their dashboard from the template so they never land on a blank page.
+  // Best-effort: the portal re-provisions on first load if this fails, so a
+  // hiccup here should never block sign-up.
   if (created?.user) {
-    await provisionStarterDashboard(created.user.id, company);
+    try {
+      await provisionStarterDashboard(created.user.id, company);
+    } catch (e) {
+      console.error("Starter dashboard provisioning failed (portal will retry):", e);
+    }
   }
 
   const supabase = await createClient();
