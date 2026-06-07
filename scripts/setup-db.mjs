@@ -70,6 +70,7 @@ async function main() {
     const adminId = await ensureUser(ADMIN_EMAIL, ADMIN_PASSWORD, {
       full_name: "Hunter Weeks",
       company: "Design over Atlanta",
+      phone: "(470) 758-3549",
       role: "admin",
     });
     await ensureProfile(adminId, {
@@ -87,6 +88,7 @@ async function main() {
   const clientId = await ensureUser(DEMO_CLIENT_EMAIL, DEMO_CLIENT_PASSWORD, {
     full_name: "Brooke Brum",
     company: "Fit4Lyfe",
+    phone: "(470) 555-0123",
     role: "client",
   });
   await ensureProfile(clientId, {

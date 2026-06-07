@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { signOut } from "@/app/login/actions";
 import AdminLeadList from "@/components/admin/AdminLeadList";
 import type { IntakeSubmission, Profile } from "@/lib/supabase/types";
@@ -37,6 +38,22 @@ export default async function AdminPage() {
     .eq("role", "client")
     .order("created_at", { ascending: false })
     .returns<Profile[]>();
+
+  // Phone numbers live on the auth account (user_metadata). Read them with the
+  // service role and map by id so the client list can show a tap-to-call link.
+  const phoneById = new Map<string, string>();
+  try {
+    const adminDb = createAdminClient();
+    const { data: authData } = await adminDb.auth.admin.listUsers({
+      perPage: 1000,
+    });
+    for (const u of authData?.users ?? []) {
+      const p = (u.user_metadata?.phone as string | undefined) || "";
+      if (p) phoneById.set(u.id, p);
+    }
+  } catch {
+    // non-fatal — the list still renders without phone numbers
+  }
 
   const all = leads ?? [];
   const weekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
@@ -151,9 +168,20 @@ export default async function AdminPage() {
                   <div className="font-[family-name:var(--font-ui)] font-semibold text-foreground">
                     {c.full_name || "—"}
                   </div>
-                  <div className="font-[family-name:var(--font-mono)] text-xs text-muted-fg break-all">
+                  <a
+                    href={`mailto:${c.email}`}
+                    className="font-[family-name:var(--font-mono)] text-xs text-muted-fg hover:text-primary break-all block"
+                  >
                     {c.email}
-                  </div>
+                  </a>
+                  {phoneById.get(c.id) && (
+                    <a
+                      href={`tel:${phoneById.get(c.id)!.replace(/[^\d+]/g, "")}`}
+                      className="font-[family-name:var(--font-mono)] text-xs text-primary hover:underline block mt-0.5"
+                    >
+                      {phoneById.get(c.id)}
+                    </a>
+                  )}
                   {c.company && (
                     <div className="font-[family-name:var(--font-ui)] text-xs text-muted-fg/80 mt-1">
                       {c.company}

@@ -49,12 +49,15 @@ export async function signUp(
 ): Promise<AuthState> {
   const fullName = String(formData.get("fullName") || "").trim();
   const company = String(formData.get("company") || "").trim();
+  const phone = String(formData.get("phone") || "").trim();
   const email = String(formData.get("email") || "").trim().toLowerCase();
   const password = String(formData.get("password") || "");
 
   if (!email || !password)
     return { error: "Email and password are required." };
   if (!EMAIL_RE.test(email)) return { error: "Enter a valid email address." };
+  if (phone.replace(/\D/g, "").length < 10)
+    return { error: "Enter a valid phone number with area code." };
   if (password.length < 8)
     return { error: "Use at least 8 characters for your password." };
 
@@ -65,7 +68,7 @@ export async function signUp(
     email,
     password,
     email_confirm: true,
-    user_metadata: { full_name: fullName, company, role: "client" },
+    user_metadata: { full_name: fullName, company, phone, role: "client" },
   });
 
   if (createError) {

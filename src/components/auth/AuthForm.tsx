@@ -77,22 +77,33 @@ export default function AuthForm({
             <input type="hidden" name="redirect" value={redirectTo} />
 
             {mode === "signup" && (
-              <div className="grid sm:grid-cols-2 gap-3">
+              <>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <input
+                    name="fullName"
+                    className="doa-input"
+                    placeholder="Full name"
+                    aria-label="Full name"
+                    autoComplete="name"
+                  />
+                  <input
+                    name="company"
+                    className="doa-input"
+                    placeholder="Company"
+                    aria-label="Company"
+                    autoComplete="organization"
+                  />
+                </div>
                 <input
-                  name="fullName"
+                  name="phone"
+                  type="tel"
+                  required
                   className="doa-input"
-                  placeholder="Full name"
-                  aria-label="Full name"
-                  autoComplete="name"
+                  placeholder="Phone number"
+                  aria-label="Phone number"
+                  autoComplete="tel"
                 />
-                <input
-                  name="company"
-                  className="doa-input"
-                  placeholder="Company"
-                  aria-label="Company"
-                  autoComplete="organization"
-                />
-              </div>
+              </>
             )}
 
             <input
