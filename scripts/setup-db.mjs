@@ -21,8 +21,8 @@ if (!URL || !SERVICE) {
   process.exit(1);
 }
 
-const DEMO_CLIENT_EMAIL = "demo@fit4lyfe.net";
-const DEMO_CLIENT_PASSWORD = "Fit4Lyfe2026!";
+const DEMO_CLIENT_EMAIL = "fit4lyfe.brooke@gmail.com";
+const DEMO_CLIENT_PASSWORD = "brookebrum!";
 
 const db = createClient(URL, SERVICE, {
   auth: { autoRefreshToken: false, persistSession: false },
