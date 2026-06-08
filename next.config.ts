@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    qualities: [55, 60, 75],
+  },
   // Forwards designoveratlanta.com/admin/notes/* to the client-hub Vercel
   // deployment. Rewrites are transparent — the user's URL bar stays on
   // designoveratlanta.com, and cookies are scoped to this domain.

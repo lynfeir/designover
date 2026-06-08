@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { updateSubmissionStatus } from "@/app/admin/actions";
-import { FEATURE_LABELS } from "@/lib/intake";
+import { FEATURE_LABELS, DETAIL_LABELS } from "@/lib/intake";
 import type { IntakeSubmission, SubmissionStatus } from "@/lib/supabase/types";
 
 const STATUSES: SubmissionStatus[] = [
@@ -150,6 +150,31 @@ export default function LeadCard({ lead }: { lead: IntakeSubmission }) {
                       </span>
                     ))}
                   </div>
+                </div>
+              )}
+
+              {/* Detail answers */}
+              {lead.details && Object.values(lead.details).some(Boolean) && (
+                <div>
+                  <span className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.2em] text-muted-fg block mb-2">
+                    Project details
+                  </span>
+                  <dl className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                    {Object.entries(DETAIL_LABELS).map(([k, label]) => {
+                      const v = lead.details?.[k];
+                      if (!v) return null;
+                      return (
+                        <div key={k}>
+                          <dt className="font-[family-name:var(--font-mono)] text-[10px] uppercase tracking-[0.15em] text-muted-fg/80">
+                            {label}
+                          </dt>
+                          <dd className="font-[family-name:var(--font-ui)] text-sm text-foreground/90 whitespace-pre-wrap break-words">
+                            {v}
+                          </dd>
+                        </div>
+                      );
+                    })}
+                  </dl>
                 </div>
               )}
 

@@ -44,6 +44,7 @@ export interface IntakeSubmission {
   timeline: string | null;
   pages: string[] | null;
   features: string[];
+  details: Record<string, string> | null;
   status: SubmissionStatus;
   created_at: string;
 }

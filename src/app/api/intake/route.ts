@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
-import { FEATURE_LABELS } from "@/lib/intake";
+import { FEATURE_LABELS, DETAIL_LABELS } from "@/lib/intake";
 
 export async function POST(req: Request) {
   try {
@@ -20,6 +20,7 @@ export async function POST(req: Request) {
       timeline,
       pages,
       features,
+      details,
     } = body ?? {};
 
     if (!name || !email) {
@@ -31,6 +32,8 @@ export async function POST(req: Request) {
 
     const featureList: string[] = Array.isArray(features) ? features : [];
     const pageList: string[] = Array.isArray(pages) ? pages : [];
+    const detailObj: Record<string, string> =
+      details && typeof details === "object" ? details : {};
 
     // Link to the signed-in client, if any.
     let userId: string | null = null;
@@ -46,26 +49,40 @@ export async function POST(req: Request) {
 
     // ── 1. Persist the lead ──
     const admin = createAdminClient();
-    const { data: inserted, error: dbError } = await admin
+    const core = {
+      user_id: userId,
+      name,
+      email: String(email).trim().toLowerCase(),
+      company: company || null,
+      phone: phone || null,
+      project_type: projectType || null,
+      project_name: projectName || null,
+      description: description || null,
+      goals: goals || null,
+      budget: budget || null,
+      timeline: timeline || null,
+      pages: pageList,
+      features: featureList,
+      status: "new",
+    };
+
+    let inserted: { id: string } | null = null;
+    let dbError = null;
+    ({ data: inserted, error: dbError } = await admin
       .from("intake_submissions")
-      .insert({
-        user_id: userId,
-        name,
-        email,
-        company: company || null,
-        phone: phone || null,
-        project_type: projectType || null,
-        project_name: projectName || null,
-        description: description || null,
-        goals: goals || null,
-        budget: budget || null,
-        timeline: timeline || null,
-        pages: pageList,
-        features: featureList,
-        status: "new",
-      })
+      .insert({ ...core, details: detailObj })
       .select("id")
-      .single();
+      .single());
+
+    // Fall back if the optional `details` column hasn't been added yet, so a
+    // lead is never lost (the full detail still goes out in the email below).
+    if (dbError && /details/i.test(dbError.message || "")) {
+      ({ data: inserted, error: dbError } = await admin
+        .from("intake_submissions")
+        .insert(core)
+        .select("id")
+        .single());
+    }
 
     if (dbError) {
       console.error("Intake insert error:", dbError);
@@ -79,6 +96,13 @@ export async function POST(req: Request) {
     const readableFeatures = featureList
       .map((k) => FEATURE_LABELS[k] ?? k)
       .join(", ");
+    const detailLines = Object.entries(DETAIL_LABELS)
+      .map(([k, label]) => {
+        const v = detailObj[k];
+        return v ? `${label}: ${v}` : "";
+      })
+      .filter(Boolean)
+      .join("\n");
 
     try {
       if (process.env.SMTP_USER && process.env.SMTP_PASS) {
@@ -106,11 +130,11 @@ Pages:      ${pageList.length ? pageList.join(", ") : "—"}
 Features (${featureList.length}):
 ${readableFeatures || "—"}
 
-Goals:
-${goals || "—"}
+What it needs to do:
+${description || "—"}
 
 Details:
-${description || "—"}
+${detailLines || "—"}
 ==================================
 Lead ID: ${inserted?.id ?? "?"}
 Review in the admin dashboard: /admin

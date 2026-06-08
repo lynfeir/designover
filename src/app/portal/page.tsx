@@ -3,7 +3,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { signOut } from "@/app/login/actions";
-import { provisionStarterDashboard } from "@/lib/provision";
+import { claimAndProvision } from "@/lib/provision";
 import { FEATURE_LABELS } from "@/lib/intake";
 import type {
   ClientProject,
@@ -66,17 +66,13 @@ export default async function PortalPage() {
 
   if (profile?.role === "admin") redirect("/admin");
 
-  let { data: projects } = await fetchProjects(supabase, user.id);
-
-  // Build a starter dashboard from the template for any client without one.
-  if (!projects || projects.length === 0) {
-    try {
-      await provisionStarterDashboard(user.id, profile?.company);
-    } catch {
-      // non-fatal — the page still renders the empty-but-friendly state
-    }
-    ({ data: projects } = await fetchProjects(supabase, user.id));
+  // Attach any briefs sent with this email, then ensure a dashboard project.
+  try {
+    await claimAndProvision(user.id, user.email, profile?.company);
+  } catch {
+    // non-fatal — the page still renders the empty-but-friendly state
   }
+  const { data: projects } = await fetchProjects(supabase, user.id);
 
   const projectIds = (projects ?? []).map((p) => p.id);
   const { data: milestones } = projectIds.length

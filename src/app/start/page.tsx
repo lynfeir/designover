@@ -14,6 +14,7 @@ export default async function StartPage() {
   let initialName = "";
   let initialEmail = "";
   let initialCompany = "";
+  let isAuthed = false;
 
   try {
     const supabase = await createClient();
@@ -21,6 +22,7 @@ export default async function StartPage() {
       data: { user },
     } = await supabase.auth.getUser();
     if (user) {
+      isAuthed = true;
       initialEmail = user.email ?? "";
       const { data: profile } = await supabase
         .from("profiles")
@@ -58,8 +60,8 @@ export default async function StartPage() {
             <span className="text-gold-gradient">build</span>.
           </h1>
           <p className="text-muted-fg text-lg leading-relaxed font-[family-name:var(--font-ui)]">
-            Six quick steps. Check off exactly what you need, set your budget,
-            and we&apos;ll send back a free demo plan within 24 hours.
+            A few quick steps. Tell us what you need, set your budget, and
+            we&apos;ll send back a free demo plan within 24 hours.
           </p>
         </div>
 
@@ -67,6 +69,7 @@ export default async function StartPage() {
           initialName={initialName}
           initialEmail={initialEmail}
           initialCompany={initialCompany}
+          isAuthed={isAuthed}
         />
       </div>
     </div>

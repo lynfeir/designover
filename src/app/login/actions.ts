@@ -3,7 +3,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { provisionStarterDashboard } from "@/lib/provision";
+import { claimAndProvision } from "@/lib/provision";
 
 export type AuthState = { error?: string } | undefined;
 
@@ -83,9 +83,9 @@ export async function signUp(
   // hiccup here should never block sign-up.
   if (created?.user) {
     try {
-      await provisionStarterDashboard(created.user.id, company);
+      await claimAndProvision(created.user.id, email, company);
     } catch (e) {
-      console.error("Starter dashboard provisioning failed (portal will retry):", e);
+      console.error("Dashboard provisioning failed (portal will retry):", e);
     }
   }
 

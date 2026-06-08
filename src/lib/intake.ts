@@ -174,3 +174,47 @@ export const TOTAL_FEATURE_COUNT = FEATURE_GROUPS.reduce(
   (n, g) => n + g.features.length,
   0
 );
+
+/* ── Detail questions (from the Website Detail Form) ── */
+
+export const PURPOSE_OPTIONS = [
+  "E-commerce store",
+  "Portfolio",
+  "Blog",
+  "Informational",
+  "Lead generation",
+  "Booking / scheduling",
+];
+
+export const UPDATE_FREQUENCY_OPTIONS = ["Daily", "Weekly", "Monthly", "Rarely"];
+
+export const YES_NO = ["Yes", "No"];
+export const YES_NO_MAYBE = ["Yes", "No", "Maybe"];
+
+/**
+ * Labels for the extended answers stored in intake_submissions.details (jsonb).
+ * Used by the admin lead view to render every answer with a clean label.
+ */
+export const DETAIL_LABELS: Record<string, string> = {
+  industry: "Industry",
+  purpose: "Primary purpose",
+  existingSite: "Existing website",
+  domain: "Preferred domain",
+  style: "Style & feel",
+  inspiration: "Sites they like",
+  colors: "Color scheme",
+  hasLogo: "Has a logo",
+  blogNeeded: "Blog / news section",
+  formsNeeded: "Forms needed",
+  ecommerceProducts: "E-commerce products",
+  contentReady: "Content ready",
+  contentNotes: "Content notes",
+  keywords: "SEO keywords",
+  socialSetup: "Social media setup",
+  analytics: "Google Analytics",
+  maintenance: "Ongoing maintenance",
+  updateFrequency: "Update frequency",
+  anythingElse: "Anything else",
+};
+
+export type IntakeDetails = Partial<Record<keyof typeof DETAIL_LABELS, string>>;
